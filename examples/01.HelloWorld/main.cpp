@@ -28,13 +28,118 @@
  * @brief This example creates a simple Irrlicht scene with background and a simple IMGUI window.
  */
 
+// standard library includes
+#include <exception>
+#include <iostream>
+
 // library includes
 #include <Irrlicht/irrlicht.h>
+#include <IrrIMGUI/IrrIMGUI.h>
 #include <IrrIMGUI/IrrIMGUIDebug.h>
+
+// helper macros for reacting on unexpected states
+#define _TOSTR(x) #x
+#define TOSTR(x) _TOSTR(x)
+#define FASSERT(expr) if (!(expr)) { throw IrrIMGUI::Debug::ExAssert(__FILE__ "[" TOSTR(__LINE__) "] Assertion failed: \'" TOSTR(expr) "'\n"); }
+
+// builds up the Irrlicht scene
+void runScene(void)
+{
+  using namespace IrrIMGUI;
+  using namespace irr;
+
+  // Create standard event receiver for the IrrIMGUI
+  CIMGUIEventReceiver EventReceiver;
+
+  // Irrlicht Settings
+  SIrrlichtCreationParameters IrrlichtParams;
+  IrrlichtParams.DriverType    = video::EDT_OPENGL;
+  IrrlichtParams.WindowSize    = core::dimension2d<u32>(1024, 800);
+  IrrlichtParams.Bits          = 32;
+  IrrlichtParams.Fullscreen    = false;
+  IrrlichtParams.Stencilbuffer = true;
+  IrrlichtParams.AntiAlias     = 16;
+  IrrlichtParams.Vsync         = false;
+  IrrlichtParams.EventReceiver = &EventReceiver;
+
+  IrrlichtDevice * const pDevice = createDeviceEx(IrrlichtParams);
+  FASSERT(pDevice);
+
+  // Create GUI object
+  CIMGUIHandle GUI(pDevice, &EventReceiver);
+
+  video::IVideoDriver  * const pDriver       = pDevice->getVideoDriver();
+  scene::ISceneManager * const pSceneManager = pDevice->getSceneManager();
+
+  pDriver->setTextureCreationFlag(irr::video::ETCF_CREATE_MIP_MAPS, false);
+  irr::scene::ISceneNode * const pSkybox = pSceneManager->addSkyBoxSceneNode(
+      pDriver->getTexture("../../media/Background.jpg"),
+      pDriver->getTexture("../../media/Background.jpg"),
+      pDriver->getTexture("../../media/Background.jpg"),
+      pDriver->getTexture("../../media/Background.jpg"),
+      pDriver->getTexture("../../media/Background.jpg"),
+      pDriver->getTexture("../../media/Background.jpg"));
+  pDriver->setTextureCreationFlag(irr::video::ETCF_CREATE_MIP_MAPS, true);
+
+  // Create Planet object
+  scene::IMeshSceneNode * const pMoon = pSceneManager->addSphereSceneNode(5.0f, 128);
+  FASSERT(pMoon);
+  pMoon->setPosition(irr::core::vector3df(0,0,25));
+  pMoon->setMaterialTexture(0, pDriver->getTexture("../../media/Phobos.jpg"));
+  pMoon->setMaterialFlag(irr::video::EMF_LIGHTING, false);
+
+  // Add camera object
+  pSceneManager->addCameraSceneNode(0, core::vector3df(0, 0, 0), core::vector3df(0,0,5));
+
+  u32 LastTime = pDevice->getTimer()->getRealTime();
+  f32 Rotation = 0.0;
+  f32 const RotPerSec = 0.01;
+
+  // Start main loop
+  while(pDevice->run())
+  {
+    pDriver->beginScene(true, true, irr::video::SColor(255,100,101,140));
+
+    GUI.startGUI();
+    ImGui::Begin("Picture sources");
+    ImGui::Text("Background picture from Manuel Tellur / pixelio.de (Image-ID: 642831)");
+    ImGui::Text("Moon (Phobos) texture from http://nasa3d.arc.nasa.gov");
+    if (ImGui::Button("Exit", ImVec2(40, 20)))
+    {
+      pDevice->closeDevice();
+    }
+    ImGui::End();
+
+    pSceneManager->drawAll();
+    GUI.drawAll();
+
+    pDriver->endScene();
+
+    u32 const Time = pDevice->getTimer()->getRealTime();
+    u32 const DeltaTime = Time - LastTime;
+    if (DeltaTime > 0)
+    {
+      Rotation += (360.0 * RotPerSec) / (DeltaTime * 1000.0);
+      LastTime = Time;
+    }
+    pMoon->setRotation(irr::core::vector3df(0,Rotation,0));
+  }
+
+  pDevice->drop();
+
+}
 
 int main(void)
 {
-  IrrIMGUI::Debug::NoteOutput << "Hallo Welt!\n";
+  try
+  {
+    runScene();
+  }
+  catch(std::exception &rEx)
+  {
+    std::cout << rEx.what() << std::flush;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+  }
 
   return 0;
 }
