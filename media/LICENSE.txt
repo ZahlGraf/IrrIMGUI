@@ -1,0 +1,7 @@
+Please consider that all pictures and fonts are not created by me.
+They may use a difference license than the IrrIMGUI project. 
+Do not copy or distribute them without checking the original license given at the picture source.
+
+Sources of files:
+Background.jpg from Manuel Tellur / pixelio.de (Image-ID: 642831)
+Phobos.jpg from http://nasa3d.arc.nasa.gov
