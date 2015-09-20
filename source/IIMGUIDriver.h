@@ -39,6 +39,7 @@
  */
 
 // library includes
+#include <IrrIMGUI/IrrIMGUIConfig.h>
 #include <IrrIMGUI/IrrIMGUI.h>
 
 namespace IrrIMGUI

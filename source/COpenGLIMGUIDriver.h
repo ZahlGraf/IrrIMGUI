@@ -44,6 +44,7 @@
  */
 
 // module includes
+#include <IrrIMGUI/IrrIMGUIConfig.h>
 #include <IrrIMGUI/IrrIMGUI.h>
 #include "IIMGUIDriver.h"
 

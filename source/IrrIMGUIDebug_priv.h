@@ -32,6 +32,7 @@
 #define IRRIMGUI_SOURCE_IRRIMGUIDEBUG_PRIV_H_
 
 // module includes
+#include <IrrIMGUI/IrrIMGUIConfig.h>
 #include <IrrIMGUI/IrrIMGUI.h>
 #include <IrrIMGUI/IrrIMGUIDebug.h>
 
