@@ -32,8 +32,11 @@
 #define IRRIMGUI_INCLUDE_IRRIMGUI_CCHARFIFO_H_
 
 // library includes
-#include <IMGUI/imgui.h>
-#include <Irrlicht/irrlicht.h>
+#include "IncludeIMGUI.h"
+#include "IncludeIrrlicht.h"
+
+// module includes
+#include "IrrIMGUIConfig.h"
 
 /**
  * @addtogroup IrrIMGUI
@@ -43,7 +46,7 @@
 namespace IrrIMGUI
 {
   /// @brief A Fifo Memory to store character inputs from the keyboard.
-  class CCharFifo
+  class IRRIMGUI_DLL_API CCharFifo
   {
     public:
       /// @{

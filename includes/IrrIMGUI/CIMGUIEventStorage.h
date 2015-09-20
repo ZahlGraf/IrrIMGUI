@@ -33,6 +33,7 @@
 
 // module includes
 #include "CCharFifo.h"
+#include "IrrIMGUIConfig.h"
 
 /**
  * @addtogroup IrrIMGUI
@@ -42,7 +43,7 @@
 namespace IrrIMGUI
 {
   /// @brief Stores the state of the Keyboard and Mouse input for IMGUI.
-  class CIMGUIEventStorage
+  class IRRIMGUI_DLL_API CIMGUIEventStorage
   {
     public:
       /// @brief Standard Constructor to reset all values to 0 and false.
@@ -50,6 +51,8 @@ namespace IrrIMGUI
         mIsLeftMouseButtonPressed(false),
         mIsRightMouseButtonPressed(false),
         mIsMiddleMouseButtonPressed(false),
+        mMousePositionX(0),
+        mMousePositionY(0),
         mMouseWheelPosition(0.0f),
         mTabPressed(false),
         mLeftPressed(false),
@@ -81,7 +84,8 @@ namespace IrrIMGUI
       bool mIsLeftMouseButtonPressed;
       bool mIsRightMouseButtonPressed;
       bool mIsMiddleMouseButtonPressed;
-      irr::core::position2di mMousePosition;
+      irr::s32 mMousePositionX;
+      irr::s32 mMousePositionY;
       irr::f32 mMouseWheelPosition;
 
       /// @}

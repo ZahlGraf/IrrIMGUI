@@ -33,9 +33,10 @@
 
 // library includes
 #include <IrrIMGUI/CIMGUIEventStorage.h>
-#include <Irrlicht/irrlicht.h>
+#include "IncludeIrrlicht.h"
 
 // module includes
+#include "IrrIMGUIConfig.h"
 
 /**
  * @addtogroup IrrIMGUI
@@ -50,18 +51,26 @@ namespace IrrIMGUI
       /// @brief This function is called by Irrlicht, when an Event occurs.
       /// @param rEvent is a reference to that event.
       /// @return Returns true, if the event has completely been handled by that Receiver.
-      bool OnEvent(irr::SEvent const &rEvent);
+      bool OnEvent(irr::SEvent const &rEvent)
+      {
+        bool EventCompletelyHandled = false;
+
+        EventCompletelyHandled = EventCompletelyHandled || checkKeyboardEvents(rEvent);
+        EventCompletelyHandled = EventCompletelyHandled || checkMouseEvents(rEvent);
+
+        return EventCompletelyHandled;
+      }
 
     private:
       /// @brief Checks the events that are mouse related.
       /// @param rEvent is a reference to that event.
       /// @return Returns true, if the event has completely been handled by that Receiver.
-      bool checkMouseEvents(irr::SEvent const &rEvent);
+      bool IRRIMGUI_DLL_API checkMouseEvents(irr::SEvent const &rEvent);
 
       /// @brief Checks the events that are keyboard related.
       /// @param rEvent is a reference to that event.
       /// @return Returns true, if the event has completely been handled by that Receiver.
-      bool checkKeyboardEvents(irr::SEvent const &rEvent);
+      bool IRRIMGUI_DLL_API checkKeyboardEvents(irr::SEvent const &rEvent);
 
   };
 }
