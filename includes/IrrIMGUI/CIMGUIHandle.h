@@ -34,10 +34,11 @@
 // library includes
 #include <IrrIMGUI/IrrIMGUI.h>
 #include <IrrIMGUI/CIMGUIEventStorage.h>
-#include <Irrlicht/irrlicht.h>
+#include "IncludeIrrlicht.h"
 
 // module includes
 #include "SIMGUISettings.h"
+#include "IrrIMGUIConfig.h"
 
 /**
  * @addtogroup IrrIMGUI
@@ -48,7 +49,7 @@ namespace IrrIMGUI
   // forward declaration
   namespace Private
   {
-    class IIMGUIDriver;
+    class IRRIMGUI_DLL_API IIMGUIDriver;
   }
 
   /**
@@ -94,7 +95,7 @@ namespace IrrIMGUI
    @endcode
    *
    */
-  class CIMGUIHandle
+  class IRRIMGUI_DLL_API CIMGUIHandle
   {
     public:
 
