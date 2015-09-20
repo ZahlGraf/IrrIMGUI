@@ -124,7 +124,7 @@ namespace IrrIMGUI
         Right  = 1,
         Middle = 2,
       };
-      rGUIIO.MousePos          = ImVec2(mpEventStorage->mMousePosition.X, mpEventStorage->mMousePosition.Y);
+      rGUIIO.MousePos          = ImVec2(static_cast<float>(mpEventStorage->mMousePositionX), static_cast<float>(mpEventStorage->mMousePositionY));
       rGUIIO.MouseDown[Left]   = mpEventStorage->mIsLeftMouseButtonPressed;
       rGUIIO.MouseDown[Middle] = mpEventStorage->mIsMiddleMouseButtonPressed;
       rGUIIO.MouseDown[Right]  = mpEventStorage->mIsRightMouseButtonPressed;

@@ -38,16 +38,6 @@
 
 namespace IrrIMGUI
 {
-  bool CIMGUIEventReceiver::OnEvent(irr::SEvent const &rEvent)
-  {
-    bool EventCompletelyHandled = false;
-
-    EventCompletelyHandled = EventCompletelyHandled || checkKeyboardEvents(rEvent);
-    EventCompletelyHandled = EventCompletelyHandled || checkMouseEvents(rEvent);
-
-    return EventCompletelyHandled;
-  }
-
   bool CIMGUIEventReceiver::checkMouseEvents(irr::SEvent const &rEvent)
   {
     if (rEvent.EventType == irr::EET_MOUSE_INPUT_EVENT)
@@ -79,8 +69,8 @@ namespace IrrIMGUI
           break;
 
         case irr::EMIE_MOUSE_MOVED:
-          mMousePosition.X = rEvent.MouseInput.X;
-          mMousePosition.Y = rEvent.MouseInput.Y;
+          mMousePositionX = rEvent.MouseInput.X;
+          mMousePositionY = rEvent.MouseInput.Y;
           break;
 
         case irr::EMIE_MOUSE_WHEEL:
