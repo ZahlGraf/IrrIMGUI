@@ -192,7 +192,7 @@ namespace Driver
   {
     LOG_NOTE("{IMGUI-GL} Delete old Font Texture with handle 0x" << std::hex << pTextureID << "\n");
 
-    GLuint Texture = reinterpret_cast<intptr_t>(pTextureID);
+    GLuint Texture = static_cast<GLuint>(reinterpret_cast<intptr_t>(pTextureID));
     glDeleteTextures(1, &Texture);
 
     return;
@@ -276,7 +276,7 @@ namespace Driver
   {
     LOG_NOTE("{IMGUI-GL} Delete Image Texture with handle 0x" << std::hex << Texture << "\n");
 
-    GLuint TextureID = reinterpret_cast<intptr_t>(Texture);
+    GLuint TextureID = static_cast<GLuint>(reinterpret_cast<intptr_t>(Texture));
     glDeleteTextures(1, &TextureID);
 
     return;
