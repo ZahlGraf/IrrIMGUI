@@ -33,7 +33,8 @@
 #include <iostream>
 
 // library includes
-#include <Irrlicht/irrlicht.h>
+#include <IrrIMGUI/IncludeIrrlicht.h>
+#include <IrrIMGUI/IncludeIMGUI.h>
 #include <IrrIMGUI/IrrIMGUI.h>
 #include <IrrIMGUI/IrrIMGUIDebug.h>
 
@@ -93,7 +94,9 @@ void runScene(void)
 
   u32 LastTime = pDevice->getTimer()->getRealTime();
   f32 Rotation = 0.0;
-  f32 const RotPerSec = 0.01;
+  f32 const RotPerSec = 0.01f;
+
+  ImVec2 Vector(0.0f, 0.1f);
 
   // Start main loop
   while(pDevice->run())
@@ -102,7 +105,7 @@ void runScene(void)
 
     GUI.startGUI();
     ImGui::Begin("Picture sources");
-    ImGui::Text("Background picture from Manuel Tellur / pixelio.de (Image-ID: 642831)");
+    ImGui::Text("Background picture from Manuel Tellur / pixelio.de (Image-ID: 642831) %f", Vector.x);
     ImGui::Text("Moon (Phobos) texture from http://nasa3d.arc.nasa.gov");
     if (ImGui::Button("Exit", ImVec2(40, 20)))
     {
@@ -119,7 +122,7 @@ void runScene(void)
     u32 const DeltaTime = Time - LastTime;
     if (DeltaTime > 0)
     {
-      Rotation += (360.0 * RotPerSec) / (DeltaTime * 1000.0);
+      Rotation += (360.0f * RotPerSec) / (DeltaTime * 1000.0f);
       LastTime = Time;
     }
     pMoon->setRotation(irr::core::vector3df(0,Rotation,0));
