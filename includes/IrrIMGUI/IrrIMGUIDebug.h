@@ -35,6 +35,10 @@
 #include <streambuf>
 #include <ostream>
 
+// module includes
+#include "IrrIMGUIConfig.h"
+#include <IrrIMGUI/IrrIMGUIConfig.h>
+
 /**
  * @defgroup IrrIMGUIDebug Debug
  * @ingroup IrrIMGUI
@@ -49,7 +53,7 @@ namespace Debug
 {
 
   /// @brief Is a stream channel buffer, that adds to each new line a defined prefix.
-  class CChannelBuffer : public std::streambuf
+  class IRRIMGUI_DLL_API CChannelBuffer : public std::streambuf
   {
     public:
       /**
@@ -101,7 +105,7 @@ namespace Debug
 
 
   /// @brief Puts on every new line that is written to this channel a prefix.
-  class CChannel : public std::ostream
+  class IRRIMGUI_DLL_API CChannel : public std::ostream
   {
     public:
       /// @name Constructor and destructor
@@ -116,6 +120,9 @@ namespace Debug
         mBuffer(rStream.rdbuf(), pPrefix),
         std::ostream(&mBuffer)
       {}
+
+      /// @brief Copy Constructor does not exist.
+      CChannel(CChannel const &rCopyChannel) = delete;
 
       /// @brief Setups a new stream for output.
       /// @param rStream             Is a reference to a output stream.
@@ -153,13 +160,13 @@ namespace Debug
   };
 
   /// @brief A channel for notes.
-  extern CChannel NoteOutput;
+  IRRIMGUI_DLL_API extern CChannel NoteOutput;
 
   /// @brief A channel for warnings.
-  extern CChannel WarningOutput;
+  IRRIMGUI_DLL_API extern CChannel WarningOutput;
 
   /// @brief A channel for errors.
-  extern CChannel ErrorOutput;
+  IRRIMGUI_DLL_API extern CChannel ErrorOutput;
 }
 }
 

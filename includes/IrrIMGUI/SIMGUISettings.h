@@ -31,6 +31,9 @@
 #ifndef IRRIMGUI_INCLUDE_IRRIMGUI_SIMGUISETTINGS_H_
 #define IRRIMGUI_INCLUDE_IRRIMGUI_SIMGUISETTINGS_H_
 
+// module includes
+#include "IrrIMGUIConfig.h"
+
 /**
  * @addtogroup IrrIMGUI
  * @{
@@ -40,7 +43,7 @@ namespace IrrIMGUI
 {
 
   /// @brief Stores the settings of the IMGUI.
-  struct SIMGUISettings
+  struct IRRIMGUI_DLL_API SIMGUISettings
   {
     public:
 
