@@ -129,6 +129,7 @@ namespace IrrIMGUI
       rGUIIO.MouseDown[Middle] = mpEventStorage->mIsMiddleMouseButtonPressed;
       rGUIIO.MouseDown[Right]  = mpEventStorage->mIsRightMouseButtonPressed;
       rGUIIO.MouseWheel        = mpEventStorage->mMouseWheelPosition;
+      mpEventStorage->mMouseWheelPosition = 0.0f;
     }
 
     return;
@@ -272,16 +273,35 @@ namespace IrrIMGUI
     return ImGui::GetIO().Fonts->GetGlyphRangesCyrillic();
   }
 
-  ImTextureID CIMGUIHandle::createTextureFromImage(irr::video::IImage * const pImage)
+  IGUITexture * CIMGUIHandle::createTexture(irr::video::IImage * pImage)
   {
-    return mpGUIDriver->createTextureFromImage(pImage);;
+    return mpGUIDriver->createTexture(pImage);
   }
 
-  void CIMGUIHandle::deleteTexture(ImTextureID const Texture)
+  IGUITexture * CIMGUIHandle::createTexture(irr::video::ITexture * pTexture)
   {
-    mpGUIDriver->deleteTexture(Texture);
+    return mpGUIDriver->createTexture(pTexture);
+  }
+
+  void CIMGUIHandle::updateTexture(IGUITexture * pGUITexture, irr::video::IImage * pImage)
+  {
+    mpGUIDriver->updateTexture(pGUITexture, pImage);
     return;
   }
+
+  void CIMGUIHandle::updateTexture(IGUITexture * pGUITexture, irr::video::ITexture * pTexture)
+  {
+    mpGUIDriver->updateTexture(pGUITexture, pTexture);
+    return;
+  }
+
+  void CIMGUIHandle::deleteTexture(IGUITexture * pGUITexture)
+  {
+    mpGUIDriver->deleteTexture(pGUITexture);
+    return;
+  }
+
+
 }
 
 /**
