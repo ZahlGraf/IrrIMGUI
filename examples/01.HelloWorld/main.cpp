@@ -96,8 +96,6 @@ void runScene(void)
   f32 Rotation = 0.0;
   f32 const RotPerSec = 0.01f;
 
-  ImVec2 Vector(0.0f, 0.1f);
-
   // Start main loop
   while(pDevice->run())
   {
@@ -105,7 +103,7 @@ void runScene(void)
 
     GUI.startGUI();
     ImGui::Begin("Picture sources");
-    ImGui::Text("Background picture from Manuel Tellur / pixelio.de (Image-ID: 642831) %f", Vector.x);
+    ImGui::Text("Background picture from Manuel Tellur / pixelio.de (Image-ID: 642831)");
     ImGui::Text("Moon (Phobos) texture from http://nasa3d.arc.nasa.gov");
     if (ImGui::Button("Exit", ImVec2(40, 20)))
     {
