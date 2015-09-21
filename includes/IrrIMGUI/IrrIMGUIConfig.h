@@ -50,6 +50,11 @@
 /// @attention This is only a fallback solution for testing. It is not officially supported by this lib!
 #define _IRRIMGUI_NATIVE_OPENGL_
 
+/// @brief If this define is during compilation the OpenGL driver will assume the memory location where the OpenGL texture ID is stored
+///        inside an ITexture object. This is very fast, but with new Irrlicht versions this method could fail.
+///        Disable it, when the Example 6 (RenderWindow) does not work correctly.
+#define _IRRIMGUI_FAST_OPENGL_TEXTURE_HANDLE_
+
 /// @}
 
 /// @{
