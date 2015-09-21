@@ -28,6 +28,7 @@ INCLUDE(OptionNativeOpenGL)
 # Dependency related settings
 INCLUDE(DependencyIMGUI)
 INCLUDE(DependencyIrrlicht)
+INCLUDE(DependencyDoxygen)
 
 # Print all settings
 INCLUDE(PrintSettings)
