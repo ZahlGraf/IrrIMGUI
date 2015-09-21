@@ -13,12 +13,14 @@ SET (IRRIMGUI_PUBLIC_HEADER_FILES
 	includes/IrrIMGUI/IncludeIrrlicht.h
 	includes/IrrIMGUI/IncludeIMGUI.h
 	includes/IrrIMGUI/IrrIMGUIConfig.h
+	includes/IrrIMGUI/IGUITexture.h
 )
 
 SET (IRRIMGUI_PRIVATE_HEADER_FILES
 	source/COpenGLIMGUIDriver.h
 	source/IIMGUIDriver.h
 	source/IrrIMGUIDebug_priv.h
+	source/CGUITexture.h
 )
 
 SET (IRRIMGUI_SOURCE_FILES
@@ -28,4 +30,5 @@ SET (IRRIMGUI_SOURCE_FILES
 	source/CIMGUIHandle.cpp
 	source/COpenGLIMGUIDriver.cpp
 	source/IIMGUIDriver.cpp
+	source/CGUITexture.cpp
 )
