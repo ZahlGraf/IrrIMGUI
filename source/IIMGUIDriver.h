@@ -106,18 +106,31 @@ namespace Private
       /// @{
       /// @name Image and Texture methods
 
-      /**
-       * @brief Creates an texture ID out of a Irrlicht image. This texture ID can be used draw images with ImGui::Image function.
-       * @param pImage Is a pointer to an IImage object. After the texture has been created, the IImage object can be destroyed.
-       * @return Returns an texture ID that can be used to draw images. To delete the texture from graphic memory use later deleteTexture(...)
-       */
-      ImTextureID createTextureFromImage(irr::video::IImage * pImage);
+      /// @brief Creates a GUI texture object out of an Irrlicht image.
+      /// @param pImage Is a pointer to an Irrlicht image object.
+      /// @return Returns an GUI texture object.
+      virtual IGUITexture *createTexture(irr::video::IImage * pImage) = 0;
+
+      /// @brief Creates a GUI texture object out of an Irrlicht texture.
+      /// @param pImage Is a pointer to an Irrlicht texture object.
+      /// @return Returns an GUI texture object.
+      virtual IGUITexture *createTexture(irr::video::ITexture * pTexture) = 0;
+
+      /// @brief Updates a GUI texture object with an Irrlicht image.
+      /// @param pGUITexture Is a pointer to the GUI texture object.
+      /// @param pImage      Is a pointer to an Irrlicht image object.
+      virtual void updateTexture(IGUITexture * pGUITexture, irr::video::IImage * pImage) = 0;
+
+      /// @brief Updates a GUI texture object with an Irrlicht texture.
+      /// @param pGUITexture Is a pointer to the GUI texture object.
+      /// @param pImage      Is a pointer to an Irrlicht image object.
+      virtual void updateTexture(IGUITexture * pGUITexture, irr::video::ITexture * pTexture) = 0;
 
       /**
        * @brief Deletes an texture from graphic memory.
-       * @param Texture Is the texture to delete. Do not use it with ImGui::Image(..) function afterwards.
+       * @param pGUITexture Is a pointer to the texture to delete. Do not use it afterwards!
        */
-      void deleteTexture(ImTextureID Texture);
+      virtual void deleteTexture(IGUITexture * pGUITexture) = 0;
 
       /// @}
 
@@ -140,19 +153,7 @@ namespace Private
       /// @return Returns a handle to this new texture.
       virtual void * createFontTextureWithHandle(void) = 0;
 
-      /**
-       * @brief Creates an texture ID out of a Irrlicht image. This texture ID can be used draw images with ImGui::Image function.
-       * @param pImage Is a pointer to an IImage object. After the texture has been created, the IImage object can be destroyed.
-       * @return Returns an texture ID that can be used to draw images. To delete the texture from graphic memory use later deleteTexture(...)
-       */
-      virtual ImTextureID createTextureFromImageInternal(irr::video::IImage * pImage) = 0;
-
-      /**
-       * @brief Deletes an texture from graphic memory.
-       * @param Texture Is the texture to delete. Do not use it with ImGui::Image(..) function afterwards.
-       */
-      virtual void deleteTextureInternal(ImTextureID Texture) = 0;
-
+      static irr::u32              mTextureInstances;
 
     private:
       /// @brief Updated the settings of IMGUI.
@@ -163,7 +164,6 @@ namespace Private
       static irr::u32              mInstances;
       static SIMGUISettings        mSettings;
       static void                * mpFontTexture;
-      static irr::u32              mImageCount;
 
   };
 

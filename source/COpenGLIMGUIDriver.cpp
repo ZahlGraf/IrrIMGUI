@@ -33,6 +33,8 @@
  * @addtogroup IrrIMGUIPrivateDriver
  */
 
+#ifdef _IRRIMGUI_NATIVE_OPENGL_
+
 // library includes
 #include <windows.h>
 #include <GL/GL.h>
@@ -40,6 +42,7 @@
 // module includes
 #include "COpenGLIMGUIDriver.h"
 #include "IrrIMGUIDebug_priv.h"
+#include "CGUITexture.h"
 
 namespace IrrIMGUI
 {
@@ -232,7 +235,7 @@ namespace Driver
     return pFontTexture;
   }
 
-  ImTextureID COpenGLIMGUIDriver::createTextureFromImageInternal(irr::video::IImage * const pImage)
+  ImTextureID copyTextureIDFromIrrlichtImage(irr::video::IImage * const pImage)
   {
     // Convert pImage to RGBA
     int const Width  = pImage->getDimension().Width;
@@ -261,24 +264,250 @@ namespace Driver
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, Width, Height, 0, GL_RGBA, GL_UNSIGNED_BYTE, pImageData);
 
-    void * pTexture = reinterpret_cast<void *>(static_cast<intptr_t>(NewTextureID));
+    ImTextureID pTexture = reinterpret_cast<void *>(static_cast<intptr_t>(NewTextureID));
     delete[] pImageData;
 
     // Reset Texture handle
     glBindTexture(GL_TEXTURE_2D, OldTextureID);
 
-    LOG_NOTE("{IMGUI-GL} Created a new Image Texture with handle 0x" << std::hex << pTexture << "\n");
+    LOG_NOTE("{IrrIMGUI-GL} Create texture from Image in GPU memory with handle: " << std::hex << pTexture << "\n");
 
     return pTexture;
   }
 
-  void COpenGLIMGUIDriver::deleteTextureInternal(ImTextureID const Texture)
+  ImTextureID copyTextureIDFromIrrlichtTexture(irr::video::ITexture * pTexture)
   {
-    LOG_NOTE("{IMGUI-GL} Delete Image Texture with handle 0x" << std::hex << Texture << "\n");
+    // Convert pImage to RGBA
+    int const Width  = pTexture->getSize().Width;
+    int const Height = pTexture->getSize().Height;
+    irr::u32 * const pImageData = new irr::u32[Width * Height];
 
-    GLuint TextureID = static_cast<GLuint>(reinterpret_cast<intptr_t>(Texture));
-    glDeleteTextures(1, &TextureID);
+    irr::u32 const Pitch = pTexture->getPitch();
+    irr::video::ECOLOR_FORMAT const ColorFormat = pTexture->getColorFormat();
+    irr::u32 const Bytes = irr::video::IImage::getBitsPerPixelFromFormat(ColorFormat) / 8;
+    irr::u8  * const pTextureData = reinterpret_cast<irr::u8 *>(pTexture->lock());
+    FASSERT(pTextureData);
 
+    for (int X = 0; X < Width; X++)
+    {
+      for (int Y = 0; Y < Height; Y++)
+      {
+        irr::video::SColor PixelColor = irr::video::SColor();
+        PixelColor.setData((void*)(pTextureData + (Y * Pitch) + (X * Bytes)), ColorFormat);
+        irr::u8 * const pPixelPointer = (irr::u8 *)(&pImageData[X + Y * Width]);
+        PixelColor.toOpenGLColor(pPixelPointer);
+      }
+    }
+
+    pTexture->unlock();
+
+    // Store current Texture handle
+    GLint OldTextureID;
+    glGetIntegerv(GL_TEXTURE_BINDING_2D, &OldTextureID);
+
+    // Create new texture for image
+    GLuint NewTextureID;
+    glGenTextures(1, &NewTextureID);
+    glBindTexture(GL_TEXTURE_2D, NewTextureID);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, Width, Height, 0, GL_RGBA, GL_UNSIGNED_BYTE, pImageData);
+
+    ImTextureID pNewTexture = reinterpret_cast<void *>(static_cast<intptr_t>(NewTextureID));
+    delete[] pImageData;
+
+    // Reset Texture handle
+    glBindTexture(GL_TEXTURE_2D, OldTextureID);
+
+    LOG_NOTE("{IrrIMGUI-GL} Create texture from Irrlicht texture in GPU memory with handle: " << std::hex << pNewTexture << "\n");
+
+    return pNewTexture;
+  }
+
+  ImTextureID getTextureIDFromIrrlichtTexture(irr::video::ITexture * pTexture)
+  {
+    // Dirty hack to easily create an OpenGL texture out of an Irrlicht texture
+    class COpenGLDriver;
+    class COpenGLTexture : public irr::video::ITexture
+    {
+    public:
+      irr::core::dimension2d<irr::u32> ImageSize;
+      irr::core::dimension2d<irr::u32> TextureSize;
+      irr::video::ECOLOR_FORMAT ColorFormat;
+      COpenGLDriver* Driver;
+      irr::video::IImage* Image;
+      irr::video::IImage* MipImage;
+
+      GLuint TextureName;
+      GLint InternalFormat;
+      GLenum PixelFormat;
+      GLenum PixelType;
+
+      irr::u8 MipLevelStored;
+      bool HasMipMaps;
+      bool MipmapLegacyMode;
+      bool IsRenderTarget;
+      bool AutomaticMipmapUpdate;
+      bool ReadOnlyLock;
+      bool KeepImage;
+    };
+
+    COpenGLTexture * const pOpenGLTexture = reinterpret_cast<COpenGLTexture * const>(pTexture);
+    GLuint NewTextureID = pOpenGLTexture->TextureName;
+    ImTextureID TexID = reinterpret_cast<void *>(static_cast<intptr_t>(NewTextureID));
+
+    LOG_NOTE("{IrrIMGUI-GL} Reuse texture from GPU memory with handle: " << std::hex << TexID << "\n");
+
+    return TexID;
+  }
+
+  void deleteTextureMemory(CGUITexture * pGUITexture)
+  {
+    if (pGUITexture->mIsUsingOwnMemory)
+    {
+      LOG_NOTE("{IrrIMGUI-GL} Delete texture from GPU memory with handle: " << std::hex << pGUITexture->getTextureID() << "\n");
+      GLuint TextureID = static_cast<GLuint>(reinterpret_cast<intptr_t>(pGUITexture->getTextureID()));
+      glDeleteTextures(1, &TextureID);
+    }
+    pGUITexture->mIsValid = false;
+    return;
+  }
+
+  IGUITexture * COpenGLIMGUIDriver::createTexture(irr::video::ITexture * pTexture)
+  {
+    mTextureInstances++;
+    CGUITexture * const pRealGUITexture = new CGUITexture();
+
+#if _IRRIMGUI_FAST_OPENGL_TEXTURE_HANDLE_
+    pRealGUITexture->mIsUsingOwnMemory = false;
+    pRealGUITexture->mSourceType       = ETST_TEXTURE;
+    pRealGUITexture->mSource.TextureID = pTexture;
+    pRealGUITexture->mIsValid          = true;
+
+    pRealGUITexture->setTextureID(getTextureIDFromIrrlichtTexture(pTexture));
+#else
+    pRealGUITexture->mIsUsingOwnMemory = true;
+    pRealGUITexture->mSourceType       = ETST_TEXTURE;
+    pRealGUITexture->mSource.TextureID = pTexture;
+    pRealGUITexture->mIsValid          = true;
+
+    pRealGUITexture->setTextureID(copyTextureIDFromIrrlichtTexture(pTexture));
+#endif
+    return pRealGUITexture;
+  }
+
+  IGUITexture * COpenGLIMGUIDriver::createTexture(irr::video::IImage * pImage)
+  {
+    mTextureInstances++;
+    CGUITexture * const pGUITexture = new CGUITexture();
+
+    pGUITexture->mIsUsingOwnMemory = true;
+    pGUITexture->mSourceType       = ETST_IMAGE;
+    pGUITexture->mSource.ImageID   = pImage;
+    pGUITexture->mIsValid          = true;
+    pGUITexture->setTextureID(copyTextureIDFromIrrlichtImage(pImage));
+
+    return pGUITexture;
+  }
+
+  void COpenGLIMGUIDriver::updateTexture(IGUITexture * pGUITexture, irr::video::ITexture * pTexture)
+  {
+    CGUITexture * const pRealGUITexture = dynamic_cast<CGUITexture*>(pGUITexture);
+
+    FASSERT(pRealGUITexture->mIsValid);
+
+    bool IsRecreateNecessary = false;
+
+    if (pRealGUITexture->mSourceType == ETST_IMAGE)
+    {
+      deleteTextureMemory(pRealGUITexture);
+
+      IsRecreateNecessary = true;
+    }
+    else if (pTexture != pRealGUITexture->mSource.TextureID)
+    {
+      deleteTextureMemory(pRealGUITexture);
+
+      IsRecreateNecessary = true;
+    }
+    else if (pRealGUITexture->mIsUsingOwnMemory)
+    {
+      deleteTextureMemory(pRealGUITexture);
+
+      IsRecreateNecessary = true;
+    }
+
+    if (IsRecreateNecessary)
+    {
+#if _IRRIMGUI_FAST_OPENGL_TEXTURE_HANDLE_
+      pRealGUITexture->mIsUsingOwnMemory = false;
+      pRealGUITexture->mSourceType       = ETST_TEXTURE;
+      pRealGUITexture->mSource.TextureID = pTexture;
+      pRealGUITexture->mIsValid          = true;
+
+      pRealGUITexture->setTextureID(getTextureIDFromIrrlichtTexture(pTexture));
+#else
+      pRealGUITexture->mIsUsingOwnMemory = true;
+      pRealGUITexture->mSourceType       = ETST_TEXTURE;
+      pRealGUITexture->mSource.TextureID = pTexture;
+      pRealGUITexture->mIsValid          = true;
+
+      pRealGUITexture->setTextureID(copyTextureIDFromIrrlichtTexture(pTexture));
+#endif
+    }
+
+    return;
+  }
+
+  void COpenGLIMGUIDriver::updateTexture(IGUITexture * pGUITexture, irr::video::IImage * pImage)
+  {
+    CGUITexture * const pRealGUITexture = dynamic_cast<CGUITexture*>(pGUITexture);
+
+    FASSERT(pRealGUITexture->mIsValid);
+
+    bool IsRecreateNecessary = false;
+
+    if (pRealGUITexture->mSourceType == ETST_TEXTURE)
+    {
+      deleteTextureMemory(pRealGUITexture);
+
+      IsRecreateNecessary = true;
+    }
+    else if (pImage != pRealGUITexture->mSource.ImageID)
+    {
+      deleteTextureMemory(pRealGUITexture);
+
+      IsRecreateNecessary = true;
+    }
+    else if (pRealGUITexture->mIsUsingOwnMemory)
+    {
+      deleteTextureMemory(pRealGUITexture);
+
+      IsRecreateNecessary = true;
+    }
+
+    if (IsRecreateNecessary)
+    {
+      pRealGUITexture->mIsUsingOwnMemory = true;
+      pRealGUITexture->mSourceType       = ETST_TEXTURE;
+      pRealGUITexture->mSource.ImageID   = pImage;
+      pRealGUITexture->mIsValid          = true;
+
+      pRealGUITexture->setTextureID(copyTextureIDFromIrrlichtImage(pImage));
+    }
+
+    return;
+  }
+
+  void COpenGLIMGUIDriver::deleteTexture(IGUITexture * pGUITexture)
+  {
+    CGUITexture * const pRealGUITexture = dynamic_cast<CGUITexture*>(pGUITexture);
+
+    FASSERT(pRealGUITexture->mIsValid);
+
+    deleteTextureMemory(pRealGUITexture);
+    delete(pRealGUITexture);
+    mTextureInstances--;
     return;
   }
 
@@ -491,3 +720,5 @@ void COpenGLIMGUIDriver::drawCommandList(ImDrawList * const pCommandList)
   return;
 }
 #endif
+
+#endif // _IRRIMGUI_NATIVE_OPENGL_

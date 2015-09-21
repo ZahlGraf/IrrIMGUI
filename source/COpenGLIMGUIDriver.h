@@ -33,6 +33,8 @@
  * @addtogroup IrrIMGUIPrivateDriver
  */
 
+#ifdef _IRRIMGUI_NATIVE_OPENGL_
+
 #ifndef IRRIMGUI_SOURCE_COPENGLIMGUIDRIVER_H_
 #define IRRIMGUI_SOURCE_COPENGLIMGUIDRIVER_H_
 
@@ -113,18 +115,31 @@ namespace Driver
       /// @{
       /// @name Image related methods.
 
-      /**
-       * @brief Creates an texture ID out of a Irrlicht image. This texture ID can be used draw images with ImGui::Image function.
-       * @param pImage Is a pointer to an IImage object. After the texture has been created, the IImage object can be destroyed.
-       * @return Returns an texture ID that can be used to draw images. To delete the texture from graphic memory use later deleteTexture(...)
-       */
-      virtual ImTextureID createTextureFromImageInternal(irr::video::IImage * pImage);
+      /// @brief Creates a GUI texture object out of an Irrlicht image.
+      /// @param pImage Is a pointer to an Irrlicht image object.
+      /// @return Returns an GUI texture object.
+      virtual IGUITexture *createTexture(irr::video::IImage * pImage);
+
+      /// @brief Creates a GUI texture object out of an Irrlicht texture.
+      /// @param pImage Is a pointer to an Irrlicht texture object.
+      /// @return Returns an GUI texture object.
+      virtual IGUITexture *createTexture(irr::video::ITexture * pTexture);
+
+      /// @brief Updates a GUI texture object with an Irrlicht image.
+      /// @param pGUITexture Is a pointer to the GUI texture object.
+      /// @param pImage      Is a pointer to an Irrlicht image object.
+      virtual void updateTexture(IGUITexture * pGUITexture, irr::video::IImage * pImage);
+
+      /// @brief Updates a GUI texture object with an Irrlicht texture.
+      /// @param pGUITexture Is a pointer to the GUI texture object.
+      /// @param pImage      Is a pointer to an Irrlicht image object.
+      virtual void updateTexture(IGUITexture * pGUITexture, irr::video::ITexture * pTexture);
 
       /**
        * @brief Deletes an texture from graphic memory.
-       * @param Texture Is the texture to delete. Do not use it with ImGui::Image(..) function afterwards.
+       * @param pGUITexture Is a pointer to the texture to delete. Do not use it afterwards!
        */
-      virtual void deleteTextureInternal(ImTextureID Texture);
+      virtual void deleteTexture(IGUITexture * pGUITexture);
 
       /// @}
 
@@ -140,3 +155,5 @@ namespace Driver
 
 
 #endif /* IRRIMGUI_SOURCE_COPENGLIMGUIDRIVER_H_ */
+
+#endif // _IRRIMGUI_NATIVE_OPENGL_

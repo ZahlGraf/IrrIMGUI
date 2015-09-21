@@ -52,7 +52,7 @@ namespace Private
   irr::IrrlichtDevice * IIMGUIDriver::mpDevice   = nullptr;
   SIMGUISettings        IIMGUIDriver::mSettings;
   void                * IIMGUIDriver::mpFontTexture = nullptr;
-  irr::u32              IIMGUIDriver::mImageCount = 0;
+  irr::u32              IIMGUIDriver::mTextureInstances = 0;
 
   IIMGUIDriver::IIMGUIDriver(irr::IrrlichtDevice * const pDevice)
   {
@@ -72,9 +72,9 @@ namespace Private
 
   IIMGUIDriver::~IIMGUIDriver(void)
   {
-    if (mImageCount > 0)
+    if (mTextureInstances > 0)
     {
-      LOG_ERROR("Not all images created with CIMGUIHandle::createTextureFromImage(...) have been deleted with CIMGUIHandle::deleteTexture(...). There are " << mImageCount << " images left!\n");
+      LOG_ERROR("Not all images created with CIMGUIHandle::createTextureFromImage(...) have been deleted with CIMGUIHandle::deleteTexture(...). There are " << mTextureInstances << " images left!\n");
     }
 
     ImGui::Shutdown();
@@ -86,6 +86,7 @@ namespace Private
 
     if (mpInstance == nullptr)
     {
+#ifdef _IRRIMGUI_NATIVE_OPENGL_
       irr::video::IVideoDriver * pDriver = pDevice->getVideoDriver();
       irr::video::E_DRIVER_TYPE Type = pDriver->getDriverType();
 
@@ -105,6 +106,9 @@ namespace Private
           FASSERT(false);
           break;
       }
+#else
+#error "Please implement correct driver!"
+#endif
 
     }
 
@@ -212,20 +216,6 @@ namespace Private
   void IIMGUIDriver::createFontTexture(void)
   {
     mpFontTexture = createFontTextureWithHandle();
-    return;
-  }
-
-  ImTextureID IIMGUIDriver::createTextureFromImage(irr::video::IImage * const pImage)
-  {
-    mImageCount++;
-    return createTextureFromImageInternal(pImage);
-  }
-
-  void IIMGUIDriver::deleteTexture(ImTextureID const Texture)
-  {
-    FASSERT(mImageCount > 0);
-    deleteTextureInternal(Texture);
-    mImageCount--;
     return;
   }
 
