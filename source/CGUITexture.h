@@ -67,7 +67,7 @@ namespace Private
       /// @brief Destructor.
       virtual ~CGUITexture(void);
 
-      /// @param Sets the Texture ID.
+      /// @param ID Sets the Texture ID.
       void setTextureID(ImTextureID ID) {mTextureID = ID;}
 
       bool                mIsUsingOwnMemory;
@@ -80,5 +80,9 @@ namespace Private
 
 }
 }
+
+/**
+ * @}
+ */
 
 #endif  // IRRIMGUI_CGUITEXTURE_H_

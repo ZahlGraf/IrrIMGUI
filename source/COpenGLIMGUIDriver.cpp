@@ -30,7 +30,7 @@
  * @author     Andre Netzeband
  * @brief      Contains a driver that uses native OpenGL functions to render the GUI.
  * @attention  This driver is just a test- and fallback implementation. It is not officially supported by the Irrlicht IMGUI binding.
- * @addtogroup IrrIMGUIPrivateDriver
+ * @addtogroup IrrIMGUIPrivate
  */
 
 #ifdef _IRRIMGUI_NATIVE_OPENGL_
@@ -97,8 +97,6 @@ namespace Driver
     ImGuiIO &rGUIIO  = ImGui::GetIO();
 
     rGUIIO.RenderDrawListsFn = COpenGLIMGUIDriver::drawGUIList;
-    //rGUIIO.SetClipboardTextFn = TODO;
-    //rGUIIO.GetClipboardTextFn = TODO;
 
 #ifdef _WIN32
     irr::video::IVideoDriver * const pDriver = getIrrDevice()->getVideoDriver();

@@ -60,4 +60,8 @@ namespace IrrIMGUI
   };
 }
 
+/**
+ * @}
+ */
+
 #endif  // IRRIMGUI_INCLUDE_IRRIMGUI_IGUITEXTURE_H_

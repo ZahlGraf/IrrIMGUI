@@ -31,6 +31,11 @@
 #ifndef IRRIMGUI_SOURCE_IRRIMGUICONFIG_H_
 #define IRRIMGUI_SOURCE_IRRIMGUICONFIG_H_
 
+/**
+ * @addtogroup IrrIMGUI
+ * @{
+ */
+
 #ifdef DOXYGEN
 
 /// @{
@@ -105,6 +110,13 @@
 #endif
 
 #endif //_IRRIMGUI_WINDOWS_
+
+/**
+ * @}
+ */
+/**
+ * @}
+ */
 
 #endif // IRRIMGUI_SOURCE_IRRIMGUICONFIG_H_
 

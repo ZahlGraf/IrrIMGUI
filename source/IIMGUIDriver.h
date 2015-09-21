@@ -112,7 +112,7 @@ namespace Private
       virtual IGUITexture *createTexture(irr::video::IImage * pImage) = 0;
 
       /// @brief Creates a GUI texture object out of an Irrlicht texture.
-      /// @param pImage Is a pointer to an Irrlicht texture object.
+      /// @param pTexture Is a pointer to an Irrlicht texture object.
       /// @return Returns an GUI texture object.
       virtual IGUITexture *createTexture(irr::video::ITexture * pTexture) = 0;
 
@@ -123,7 +123,7 @@ namespace Private
 
       /// @brief Updates a GUI texture object with an Irrlicht texture.
       /// @param pGUITexture Is a pointer to the GUI texture object.
-      /// @param pImage      Is a pointer to an Irrlicht image object.
+      /// @param pTexture    Is a pointer to an Irrlicht image object.
       virtual void updateTexture(IGUITexture * pGUITexture, irr::video::ITexture * pTexture) = 0;
 
       /**
