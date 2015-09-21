@@ -5,3 +5,6 @@ Do not copy or distribute them without checking the original license given at th
 Sources of files:
 Background.jpg from Manuel Tellur / pixelio.de (Image-ID: 642831)
 Phobos.jpg from http://nasa3d.arc.nasa.gov
+Soyuz.jpg from https://pixabay.com/en/satellite-soyuz-spaceship-67718/
+SpaceX.jpb from https://pixabay.com/en/satellite-orbit-spacex-aeronautics-693216/
+azoft-sans.ttf from http://www.fontsquirrel.com/fonts/azoft-sans (http://www.azoft.com)
