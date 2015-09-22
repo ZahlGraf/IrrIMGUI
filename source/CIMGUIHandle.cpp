@@ -229,27 +229,15 @@ namespace IrrIMGUI
 
   void CIMGUIHandle::compileFonts(void)
   {
-    if (mpGUIDriver->isFontTextureValid())
-    {
-      mpGUIDriver->deleteFontTexture();
-    }
-
-    mpGUIDriver->createFontTexture();
+    mpGUIDriver->compileFonts();
     return;
   }
 
   void CIMGUIHandle::resetFonts(void)
   {
-    if (mpGUIDriver->isFontTextureValid())
-    {
-      mpGUIDriver->deleteFontTexture();
-    }
-
     ImGui::GetIO().Fonts->Clear();
-
     addDefaultFont();
-
-    mpGUIDriver->createFontTexture();
+    mpGUIDriver->compileFonts();
     return;
   }
 
