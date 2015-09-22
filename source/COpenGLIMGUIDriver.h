@@ -98,20 +98,15 @@ namespace Driver
       /// @}
 
       /// @{
-      /// @name Font related methods.
+      /// @name Image/Texture and Font related methods.
 
-      /// @brief Deletes the font texture.
-      /// @param pTextureID is the texture to delete.
-      void deleteFontTexture(void * pTextureID);
-
-      /// @brief Creates a new font texture.
-      /// @return Returns a handle to this new texture.
-      virtual void * createFontTextureWithHandle(void);
-
-      /// @}
-
-      /// @{
-      /// @name Image related methods.
+      /// @brief Creates a GUI texture object out of raw data.
+      /// @param ColorFormat Is the format of the Color of every Pixel.
+      /// @param pPixelData  Is a pointer to the pixel array.
+      /// @param Width       Is the number of Pixels in X direction.
+      /// @param Height      Is the number of Pixels in Y direction.
+      /// @return Returns an GUI texture object.
+      virtual IGUITexture *createTexture(EColorFormat ColorFormat, irr::u8 * pPixelData, irr::u32 Width, irr::u32 Height);
 
       /// @brief Creates a GUI texture object out of an Irrlicht image.
       /// @param pImage Is a pointer to an Irrlicht image object.
@@ -123,6 +118,18 @@ namespace Driver
       /// @return Returns an GUI texture object.
       virtual IGUITexture *createTexture(irr::video::ITexture * pTexture);
 
+      /// @brief Creates a GUI texture out of the currently loaded fonts.
+      /// @return Returns an GUI texture object.
+      virtual IGUITexture *createFontTexture(void);
+
+      /// @brief Updates a GUI texture object with raw data.
+      /// @param pGUITexture Is a pointer to the GUI texture object.
+      /// @param ColorFormat Is the format of the Color of every Pixel.
+      /// @param pPixelData  Is a pointer to the pixel array.
+      /// @param Width       Is the number of Pixels in X direction.
+      /// @param Height      Is the number of Pixels in Y direction.
+      virtual void updateTexture(IGUITexture * pGUITexture, EColorFormat ColorFormat, irr::u8 * pPixelData, irr::u32 Width, irr::u32 Height);
+
       /// @brief Updates a GUI texture object with an Irrlicht image.
       /// @param pGUITexture Is a pointer to the GUI texture object.
       /// @param pImage      Is a pointer to an Irrlicht image object.
@@ -132,6 +139,10 @@ namespace Driver
       /// @param pGUITexture Is a pointer to the GUI texture object.
       /// @param pTexture    Is a pointer to an Irrlicht image object.
       virtual void updateTexture(IGUITexture * pGUITexture, irr::video::ITexture * pTexture);
+
+      /// @brief Updates a GUI texture with the currently loaded fonts.
+      /// @param pGUITexture Is a pointer to the GUI texture object.
+      virtual void updateFontTexture(IGUITexture * pGUITexture);
 
       /**
        * @brief Deletes an texture from graphic memory.
