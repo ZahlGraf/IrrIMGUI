@@ -77,11 +77,11 @@ You can also draw a render target texture to the GUI (example program 06.RenderW
 
 ### <a name="HowToStart_Preparations"></a> Preparations
 
-* You need a well working [Irrlicht](http://irrlicht.sourceforge.net/) library compiled. Please test with the Irrlicht examples, if the library works as expected.
-* Download the Irrlicht IMGUI binding: [Download](#Download)
+* You need a compiled [Irrlicht](http://irrlicht.sourceforge.net/) library. Please test with the Irrlicht examples, if the library works as expected.
+* Download the Irrlicht IMGUI binding (IrrIMGUI): [Download](#Download)
 * Download the latest version of [IMGUI](https://github.com/ocornut/imgui/) and copy all files from the ZIP into the directory `<IrrIMGUI-Path>/dependency/IMGUI`
   The IrrIMGUI and IMGUI files are compiled together to a single shared or static library file. 
-* When you want to compile IrrIMGUI as library, you need [CMake](http://www.cmake.org/) to generate the makefiles or projects file you want to use
+* When you want to compile IrrIMGUI as library, you need [CMake](http://www.cmake.org/) to generate the makefiles or project file you want to use
 
 ### <a name="HowToStart_ApplicationEmbedded"></a> Possibility 1: Embed IrrIMGUI into your Application
 
@@ -229,12 +229,12 @@ The full source code can be found in the file [examples\01.HelloWorld\main.cpp](
 ```
 
 * **Create a GUI object:** Before you can use the GUI system, you need to create a CGUIHandle object:
+ The GUI objects needs a pointer to the Irrlicht device and to the event receiver, to be able to pass events to the GUI.
+ Of course you could also create it with new and destory it later (when you don't need it anymore) with delete.
 ```cpp
   // Create GUI object
   CIMGUIHandle GUI(pDevice, &EventReceiver);
 ```
-  The GUI objects needs a pointer to the Irrlicht device and to the event receiver, to be able to pass events to the GUI.
-  Of course you could also create it with new and destory it later (when you don't need it anymore) with delete.
 
 * **Draw GUI elements to the screen:** You can create the GUI elements to the screen inside the main-loop after calling `GUI.startGUI();`. This function prepares the GUI for the next frame and passes the state of Mouse and Keyboard to IMGUI. 
  Afterwards you can use the GUI element functions in the namespace `ImGui` to create the elements you need. You must create them inside the main-loop, otherwise you will not see them (see the concept of an immediate mode GUI).
