@@ -73,7 +73,7 @@ namespace Driver
     ImTextureID copyTextureIDFromIrrlichtTexture(irr::video::ITexture * pTexture);
 
     /// @brief Copies the content of an IImage object into the GPU memory.
-    /// @param pTexture Is a pointer to a ITexture object.
+    /// @param pImage Is a pointer to a IImage object.
     /// @return Returns a GPU memory ID.
     ImTextureID copyTextureIDFromIrrlichtImage(irr::video::IImage * pImage);
 
@@ -203,6 +203,7 @@ namespace Driver
     // setup OpenGL states
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glDisable(GL_LIGHTING);
     glDisable(GL_CULL_FACE);
     glDisable(GL_DEPTH_TEST);
     glEnable(GL_SCISSOR_TEST);
@@ -460,9 +461,9 @@ namespace OpenGLHelper
 {
   void copyARGBImageToRGBA(irr::u32 * const pSource, irr::u32 * const pDestination, irr::u32 const Width, irr::u32 const Height)
   {
-    for (int X = 0; X < Width; X++)
+    for (irr::u32 X = 0; X < Width; X++)
     {
-      for (int Y = 0; Y < Height; Y++)
+      for (irr::u32 Y = 0; Y < Height; Y++)
       {
         irr::video::SColor PixelColor;
         PixelColor.setData(&pSource[X + Y * Width], irr::video::ECF_A8R8G8B8);
