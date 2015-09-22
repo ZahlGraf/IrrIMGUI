@@ -48,6 +48,17 @@ namespace IrrIMGUI
 namespace Private
 {
 
+  /// @brief The supported color formats for picture transformation and texture creating.
+  enum EColorFormat
+  {
+    /// @brief 32bit word with Alpha at the MSB and Blue at the LSB.
+    ECF_A8R8G8B8,
+    /// @brief 32bit word with Red at the MSB and Blue at the LSB.
+    ECF_R8G8B8A8,
+    /// @brief 8bit value with Alpha only.
+    ECF_A8
+  };
+
   /// @brief Interface for an IMGUI Driver to setup the IMGUI render system.
   /// @note  This is a singleton class, since IMGUI is a single instance system.
   class IIMGUIDriver
@@ -90,21 +101,23 @@ namespace Private
       /// @}
 
       /// @{
-      /// @name Font related methods
+      /// @name Font methods
 
-      /// @return Returns true when the font texture is loaded and ready for usage.
-      bool isFontTextureValid(void);
-
-      /// @brief Deletes the font texture.
-      void deleteFontTexture(void);
-
-      /// @brief Creates a new font texture.
-      void createFontTexture(void);
+      /// @brief Copies the loaded Fonts into GPU memory to use them with the GUI.
+      void compileFonts(void);
 
       /// @}
 
       /// @{
-      /// @name Image and Texture methods
+      /// @name Image, Texture and Font related methods
+
+      /// @brief Creates a GUI texture object out of raw data.
+      /// @param ColorFormat Is the format of the Color of every Pixel.
+      /// @param pPixelData  Is a pointer to the pixel array.
+      /// @param Width       Is the number of Pixels in X direction.
+      /// @param Height      Is the number of Pixels in Y direction.
+      /// @return Returns an GUI texture object.
+      virtual IGUITexture *createTexture(EColorFormat ColorFormat, irr::u8 * pPixelData, irr::u32 Width, irr::u32 Height) = 0;
 
       /// @brief Creates a GUI texture object out of an Irrlicht image.
       /// @param pImage Is a pointer to an Irrlicht image object.
@@ -116,6 +129,18 @@ namespace Private
       /// @return Returns an GUI texture object.
       virtual IGUITexture *createTexture(irr::video::ITexture * pTexture) = 0;
 
+      /// @brief Creates a GUI texture out of the currently loaded fonts.
+      /// @return Returns an GUI texture object.
+      virtual IGUITexture *createFontTexture(void) = 0;
+
+      /// @brief Updates a GUI texture object with raw data.
+      /// @param pGUITexture Is a pointer to the GUI texture object.
+      /// @param ColorFormat Is the format of the Color of every Pixel.
+      /// @param pPixelData  Is a pointer to the pixel array.
+      /// @param Width       Is the number of Pixels in X direction.
+      /// @param Height      Is the number of Pixels in Y direction.
+      virtual void updateTexture(IGUITexture * pGUITexture, EColorFormat ColorFormat, irr::u8 * pPixelData, irr::u32 Width, irr::u32 Height) = 0;
+
       /// @brief Updates a GUI texture object with an Irrlicht image.
       /// @param pGUITexture Is a pointer to the GUI texture object.
       /// @param pImage      Is a pointer to an Irrlicht image object.
@@ -126,6 +151,10 @@ namespace Private
       /// @param pTexture    Is a pointer to an Irrlicht image object.
       virtual void updateTexture(IGUITexture * pGUITexture, irr::video::ITexture * pTexture) = 0;
 
+      /// @brief Updates a GUI texture with the currently loaded fonts.
+      /// @param pGUITexture Is a pointer to the GUI texture object.
+      virtual void updateFontTexture(IGUITexture * pGUITexture) = 0;
+
       /**
        * @brief Deletes an texture from graphic memory.
        * @param pGUITexture Is a pointer to the texture to delete. Do not use it afterwards!
@@ -135,6 +164,8 @@ namespace Private
       /// @}
 
     protected:
+
+
       /// @brief Constructor is protected to prevent an external function to create an instance of this class.
       /// @param pDevice is a pointer to the Irrlicht Device to use.
       IIMGUIDriver(irr::IrrlichtDevice * const pDevice);
@@ -144,14 +175,6 @@ namespace Private
 
       /// @brief Setups the keyboard controls to fit to Irrlicht.
       void setupKeyControl(void);
-
-      /// @brief Deletes the font texture.
-      /// @param pTextureID is the texture to delete.
-      virtual void deleteFontTexture(void * pTextureID) = 0;
-
-      /// @brief Creates a new font texture.
-      /// @return Returns a handle to this new texture.
-      virtual void * createFontTextureWithHandle(void) = 0;
 
       static irr::u32              mTextureInstances;
 
@@ -163,7 +186,7 @@ namespace Private
       static IIMGUIDriver        * mpInstance;
       static irr::u32              mInstances;
       static SIMGUISettings        mSettings;
-      static void                * mpFontTexture;
+      static IGUITexture         * mpFontTexture;
 
   };
 

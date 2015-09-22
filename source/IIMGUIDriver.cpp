@@ -51,7 +51,7 @@ namespace Private
   irr::u32              IIMGUIDriver::mInstances = 0;
   irr::IrrlichtDevice * IIMGUIDriver::mpDevice   = nullptr;
   SIMGUISettings        IIMGUIDriver::mSettings;
-  void                * IIMGUIDriver::mpFontTexture = nullptr;
+  IGUITexture         * IIMGUIDriver::mpFontTexture = nullptr;
   irr::u32              IIMGUIDriver::mTextureInstances = 0;
 
   IIMGUIDriver::IIMGUIDriver(irr::IrrlichtDevice * const pDevice)
@@ -77,6 +77,11 @@ namespace Private
       LOG_ERROR("Not all images created with CIMGUIHandle::createTextureFromImage(...) have been deleted with CIMGUIHandle::deleteTexture(...). There are " << mTextureInstances << " images left!\n");
     }
 
+    if (mpFontTexture != nullptr)
+    {
+      LOG_ERROR("The Font Texture has not been deleted!\n");
+    }
+
     ImGui::Shutdown();
     return;
   }
@@ -94,7 +99,7 @@ namespace Private
       {
         case irr::video::EDT_OPENGL:
           mpInstance = new Driver::COpenGLIMGUIDriver(pDevice);
-          mpFontTexture = mpInstance->createFontTextureWithHandle();
+          mpFontTexture = mpInstance->createFontTexture();
           break;
 
         case irr::video::EDT_DIRECT3D9:
@@ -124,9 +129,16 @@ namespace Private
     if (mpInstance != nullptr)
     {
       LOG_NOTE("{IrrIMGUI} Delete Singleton Instance of IIMGUIDriver.\n");
+
+      // delete font texture
+      mpInstance->deleteTexture(mpFontTexture);
+      mpFontTexture = nullptr;
+
+      // delete instance
       delete(mpInstance);
       mpInstance = nullptr;
       mInstances = 0;
+
       WasDeleted = true;
     }
 
@@ -202,20 +214,12 @@ namespace Private
     rGUIIO.KeyMap[ImGuiKey_Z]          = irr::KEY_KEY_Z;
   }
 
-  bool IIMGUIDriver::isFontTextureValid(void)
+  void IIMGUIDriver::compileFonts(void)
   {
-    return mpFontTexture != nullptr;
-  }
+    FASSERT(mpFontTexture != nullptr);
 
-  void IIMGUIDriver::deleteFontTexture(void)
-  {
-    deleteFontTexture(mpFontTexture);
-    return;
-  }
+    updateFontTexture(mpFontTexture);
 
-  void IIMGUIDriver::createFontTexture(void)
-  {
-    mpFontTexture = createFontTextureWithHandle();
     return;
   }
 
