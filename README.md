@@ -272,7 +272,7 @@ The full source code can be found in the file [examples\01.HelloWorld\main.cpp](
   }
  ```
  
-* Compile and loot at your first GUI element<br>
+* Compile and look at your first GUI element<br>
 ![Hello World](Doxygen/Images/ExampleHelloWorld.png)
  
 ## <a name="Download"></a>Download
