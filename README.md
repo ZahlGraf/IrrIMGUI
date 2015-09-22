@@ -236,7 +236,7 @@ The full source code can be found in the file [examples\01.HelloWorld\main.cpp](
   CIMGUIHandle GUI(pDevice, &EventReceiver);
 ```
 
-* **Draw GUI elements to the screen:** You can create the GUI elements to the screen inside the main-loop after calling `GUI.startGUI();`. This function prepares the GUI for the next frame and passes the state of Mouse and Keyboard to IMGUI. 
+* **Draw GUI elements to the screen:** You can create the GUI elements to the inside the main-loop after calling `GUI.startGUI();`. This function prepares the GUI for the next frame and passes the state of Mouse and Keyboard to IMGUI. 
  Afterwards you can use the GUI element functions in the namespace `ImGui` to create the elements you need. You must create them inside the main-loop, otherwise you will not see them (see the concept of an immediate mode GUI).
  Before rendering the GUI elements, you need first to render your Irrlicht scene. Otherwise the GUI is behind your scene. You can render the GUI with `GUI.drawAll();`.
  ```cpp
