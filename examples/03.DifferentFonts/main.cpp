@@ -93,6 +93,7 @@ void runScene(void)
   pSceneManager->addCameraSceneNode(0, core::vector3df(0, 0, 0), core::vector3df(0,0,5));
 
   u32 LastTime = pDevice->getTimer()->getRealTime();
+  s32 LastFPS = 0;
   f32 Rotation = 0.0;
   f32 RotPerSec = 0.01f;
   bool IsFirstLoop = true;
@@ -183,10 +184,21 @@ void runScene(void)
     u32 const DeltaTime = Time - LastTime;
     if (DeltaTime > 0)
     {
-      Rotation += (360.0f * RotPerSec) / (DeltaTime * 1000.0f);
+      Rotation += (360.0f * RotPerSec) * (DeltaTime / 1000.0f);
+
       LastTime = Time;
     }
     pMoon->setRotation(irr::core::vector3df(0,Rotation,0));
+
+    s32 const FPS = pDriver->getFPS();
+    if (FPS != LastFPS)
+    {
+      LastFPS = FPS;
+      core::stringw TempString = L"Using different fonts with IMGUI - FPS: ";
+      TempString += LastFPS;
+      pDevice->setWindowCaption(TempString.c_str());
+    }
+
     IsFirstLoop = false;
   }
 

@@ -93,6 +93,7 @@ void runScene(void)
   pSceneManager->addCameraSceneNode(0, core::vector3df(0, 0, 0), core::vector3df(0,0,5));
 
   u32 LastTime = pDevice->getTimer()->getRealTime();
+  s32 LastFPS = 0;
   f32 Rotation = 0.0;
   f32 RotPerSec = 0.01f;
   int RotationDirection = 1;
@@ -140,7 +141,7 @@ void runScene(void)
     ImGui::SameLine(0.0f, 10.0f);
     if (IsReturnPressed || ImGui::Button("Send", ImVec2(40, 20)))
     {
-      IrrIMGUI::Debug::NoteOutput << "Input Text: " << String << "\n";
+      std::cout << "Input Text: " << String << "\n";
     }
     ImGui::EndGroup();
     ImGui::End();
@@ -155,7 +156,7 @@ void runScene(void)
     u32 const DeltaTime = Time - LastTime;
     if (DeltaTime > 0)
     {
-      Rotation += (360.0f * RotPerSec * (float)RotationDirection) / (DeltaTime * 1000.0f);
+      Rotation += (360.0f * RotPerSec * ((float)RotationDirection)) * (DeltaTime / 1000.0f);
       if(Rotation > 360.0f)
       {
         Rotation -= 360.0f;
@@ -167,6 +168,16 @@ void runScene(void)
       LastTime = Time;
     }
     pMoon->setRotation(irr::core::vector3df(0,Rotation,0));
+
+    s32 const FPS = pDriver->getFPS();
+    if (FPS != LastFPS)
+    {
+      LastFPS = FPS;
+      core::stringw TempString = L"Some control inputs in IMGUI - FPS: ";
+      TempString += LastFPS;
+      pDevice->setWindowCaption(TempString.c_str());
+    }
+
     IsFirstLoop = false;
   }
 

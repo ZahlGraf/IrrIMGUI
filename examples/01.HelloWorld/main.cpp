@@ -92,6 +92,7 @@ void runScene(void)
   // Add camera object
   pSceneManager->addCameraSceneNode(0, core::vector3df(0, 0, 0), core::vector3df(0,0,5));
 
+  s32 LastFPS  = 0;
   u32 LastTime = pDevice->getTimer()->getRealTime();
   f32 Rotation = 0.0;
   f32 const RotPerSec = 0.01f;
@@ -120,10 +121,20 @@ void runScene(void)
     u32 const DeltaTime = Time - LastTime;
     if (DeltaTime > 0)
     {
-      Rotation += (360.0f * RotPerSec) / (DeltaTime * 1000.0f);
+      Rotation += (360.0f * RotPerSec) * (DeltaTime / 1000.0f);
       LastTime = Time;
     }
     pMoon->setRotation(irr::core::vector3df(0,Rotation,0));
+
+    s32 const FPS = pDriver->getFPS();
+    if (FPS != LastFPS)
+    {
+      LastFPS = FPS;
+      core::stringw TempString = L"Hello World, A simple IMGUI example - FPS: ";
+      TempString += LastFPS;
+      pDevice->setWindowCaption(TempString.c_str());
+    }
+
   }
 
   pDevice->drop();
