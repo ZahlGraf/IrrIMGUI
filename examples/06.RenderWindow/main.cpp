@@ -98,6 +98,7 @@ void runScene(void)
   irr::scene::ICameraSceneNode * const pMoonCam = pSceneManager->addCameraSceneNode(pMoonScreen, core::vector3df(0, 0,15), core::vector3df(0,0,25));
 
   u32 LastTime = pDevice->getTimer()->getRealTime();
+  s32 LastFPS = 0;
   f32 Rotation = 0.0;
   f32 RotPerSec = 0.01f;
   bool IsFirstLoop = true;
@@ -194,6 +195,15 @@ void runScene(void)
     }
     pMoon->setRotation(irr::core::vector3df(0,Rotation,0));
     IsFirstLoop = false;
+
+    s32 const FPS = pDriver->getFPS();
+    if (FPS != LastFPS)
+    {
+      LastFPS = FPS;
+      core::stringw TempString = L"Using a render target texture with IMGUI - FPS: ";
+      TempString += LastFPS;
+      pDevice->setWindowCaption(TempString.c_str());
+    }
   }
 
   GUI.deleteTexture(pRenderTextureID);
