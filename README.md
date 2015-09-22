@@ -56,22 +56,22 @@ A picture is worth a thousand Words. So I will show you some examples:
 
 This is a simple control interface created with IMGUI (example program 02.AnotherWindow).
 
-![Control Elements](Doxygen\Images\ExampleControlElements.png)
+![Control Elements](Doxygen/Images/ExampleControlElements.png)
 
 
 IMGUI supports also TTF fonts (example program 03.DifferentFonts).
 
-![Different Fonts](Doxygen\Images\ExampleDifferentFonts.png)
+![Different Fonts](Doxygen/Images/ExampleDifferentFonts.png)
 
 
 With the Irrlicht IMGUI binding you can draw every IImage object to the GUI (example program 05.DragNDrop).
 
-![Drag'n Drop Images](Doxygen\Images\ExampleDragNDrop.png)
+![Drag'n Drop Images](Doxygen/Images/ExampleDragNDrop.png)
 
 
 You can also draw a render target texture to the GUI (example program 06.RenderWindow).
 
-![Use Render Target inside the GUI](Doxygen\Images\ExampleRenderWindow.png)
+![Use Render Target inside the GUI](Doxygen/Images/ExampleRenderWindow.png)
 
 ## <a name="HowToStart"></a> How to Start
 
@@ -132,7 +132,7 @@ how to build a library with CMake.
  * Enter in the second text field "Where to build the binary" the path where the temporary build files should be stored. For example `<IrrIMGUI-Path>\build\vc64\debug\shared` In this way you can have different build paths for different compilers and build variants. 
 
  
-![CMake after start](Doxygen\Images\CMakeStart.png)
+![CMake after start](Doxygen/Images/CMakeStart.png)
  
 * Now click on "Configure" and select your compiler options:
 
@@ -141,7 +141,7 @@ how to build a library with CMake.
  * You can also create a Visual Studio or Eclipse Project file to compile the library (I have not tested this so far). 
  
  
-![CMake Compiler Options](Doxygen\Images\CMakeCompiler.png)
+![CMake Compiler Options](Doxygen/Images/CMakeCompiler.png)
  
 * Click on finish. Now CMake does some analysis of your environment. In the end some red error messages are displayed, since you first need to specify the Irrlicht path.
 
@@ -171,7 +171,7 @@ how to build a library with CMake.
  * _IRRIMGUI_STATIC_LIBRARY_ = [On|Off] enable this if you want to compile IrrIMGUI as static library. Attention: In this case you also need a static Irrlicht library!
   
   
-![CMake Build Options](Doxygen\Images\CMakeOptions.png)
+![CMake Build Options](Doxygen/Images/CMakeOptions.png)
  
 * Afterwards click again on "Configure". Now all error messages should be gone away. You should also see in the text-output a summary of your build-configuration.
 
@@ -273,7 +273,7 @@ The full source code can be found in the file [examples\01.HelloWorld\main.cpp](
  ```
  
 * Compile and loot at your first GUI element<br>
-![Hello World](Doxygen\Images\ExampleHelloWorld.png)
+![Hello World](Doxygen/Images/ExampleHelloWorld.png)
  
 ## <a name="Download"></a>Download
 
