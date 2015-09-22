@@ -47,15 +47,19 @@ namespace Private
 {
   enum TextureSourceType
   {
-    ETST_UNKNOWN,
     ETST_TEXTURE,
-    ETST_IMAGE
+    ETST_IMAGE,
+    ETST_RAWDATA,
+    ETST_GUIFONT,
+    ETST_UNKNOWN
   };
 
   union TextureSource
   {
       irr::video::ITexture *TextureID;
       irr::video::IImage   *ImageID;
+      irr::u8              *RawDataID;
+      irr::u8              *GUIFontID;
   };
 
   class CGUITexture : public IGUITexture
@@ -67,13 +71,11 @@ namespace Private
       /// @brief Destructor.
       virtual ~CGUITexture(void);
 
-      /// @param ID Sets the Texture ID.
-      void setTextureID(ImTextureID ID) {mTextureID = ID;}
-
       bool                mIsUsingOwnMemory;
       TextureSourceType   mSourceType;
       TextureSource       mSource;
       bool                mIsValid;
+      ImTextureID         mGPUTextureID;
 
     protected:
   };
