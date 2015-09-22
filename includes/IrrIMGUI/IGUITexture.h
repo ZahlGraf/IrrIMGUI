@@ -47,16 +47,13 @@ namespace IrrIMGUI
       virtual ~IGUITexture(void) {}
 
       /// @brief Implicit cast operator to ImTextureID.
-      operator ImTextureID(void) { return mTextureID; }
+      operator ImTextureID(void) { return getTextureID(); }
 
       /// @return Returns the Texture ID.
-      ImTextureID getTextureID(void) { return mTextureID; }
+      virtual ImTextureID getTextureID(void) { return this; }
 
     protected:
-      /// @brief Constructor.
-      IGUITexture(void): mTextureID(nullptr) {}
-
-      ImTextureID mTextureID;
+      IGUITexture(void) {};
   };
 }
 
