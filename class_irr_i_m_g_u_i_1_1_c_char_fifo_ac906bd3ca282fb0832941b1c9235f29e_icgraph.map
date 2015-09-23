@@ -1,0 +1,4 @@
+<map id="IrrIMGUI::CCharFifo::addChar" name="IrrIMGUI::CCharFifo::addChar">
+<area shape="rect" id="node3" href="$class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_event_receiver.html#a8ddb061d0232b5d681121f9680caab47" title="Checks the events that are keyboard related. " alt="" coords="189,5,392,46"/>
+<area shape="rect" id="node5" href="$class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_event_receiver.html#a7e1ca9e08db25f6c7bbe3e094252c11b" title="This function is called by Irrlicht, when an Event occurs. " alt="" coords="440,5,643,46"/>
+</map>

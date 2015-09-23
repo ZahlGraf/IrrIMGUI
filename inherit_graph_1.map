@@ -1,0 +1,4 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_event_storage.html" title="Stores the state of the Keyboard and Mouse input for IMGUI. " alt="" coords="6,5,205,32"/>
+<area shape="rect" id="node3" href="$class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_event_receiver.html" title="IrrIMGUI::CIMGUIEventReceiver" alt="" coords="253,31,456,57"/>
+</map>

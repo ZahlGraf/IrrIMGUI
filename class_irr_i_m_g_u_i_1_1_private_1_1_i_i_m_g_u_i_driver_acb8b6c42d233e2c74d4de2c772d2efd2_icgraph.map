@@ -1,0 +1,7 @@
+<map id="IrrIMGUI::Private::IIMGUIDriver::createFontTextureWithHandle" name="IrrIMGUI::Private::IIMGUIDriver::createFontTextureWithHandle">
+<area shape="rect" id="node3" href="$class_irr_i_m_g_u_i_1_1_private_1_1_i_i_m_g_u_i_driver.html#a39f6b580ddd80422a6c6507fe353f129" title="This method returns an instance of the driver. If no driver yet exists, it will create a new driver b..." alt="" coords="281,5,449,46"/>
+<area shape="rect" id="node7" href="$class_irr_i_m_g_u_i_1_1_private_1_1_i_i_m_g_u_i_driver.html#ae3f97bd42ca7188cbbc580237ab3535a" title="Creates a new font texture. " alt="" coords="262,70,469,111"/>
+<area shape="rect" id="node5" href="$class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_handle.html#a169dcc02f8f882264713c6ee78ead0fd" title="Use this constructor when you don&#39;t want to change the settings (using defualt settings or the settin..." alt="" coords="517,5,680,46"/>
+<area shape="rect" id="node9" href="$class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_handle.html#a06fefbe27f25f7ed44ef1ed4a536790f" title="This function copies all fonts that have been added with &quot;addFont/addDefaultFont&quot; into graphic memory..." alt="" coords="517,70,680,111"/>
+<area shape="rect" id="node11" href="$class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_handle.html#a3bd3606a8f7799ac221a45f56a983d71" title="Resets the font memory and restores the default font as the one and only font in the system..." alt="" coords="517,135,680,177"/>
+</map>

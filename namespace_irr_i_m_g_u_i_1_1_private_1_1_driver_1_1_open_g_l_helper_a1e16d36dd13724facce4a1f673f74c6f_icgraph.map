@@ -1,0 +1,8 @@
+<map id="IrrIMGUI::Private::Driver::OpenGLHelper::copyARGBImageToRGBA" name="IrrIMGUI::Private::Driver::OpenGLHelper::copyARGBImageToRGBA">
+<area shape="rect" id="node3" href="$namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#a9ef6343053f61c732970f0e3bbd1b3c7" title="Creates an new texture from raw data inside the GPU memory. When the color format does not fit to the..." alt="" coords="235,85,437,141"/>
+<area shape="rect" id="node5" href="$class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_open_g_l_i_m_g_u_i_driver.html#ade239a73249ec2f21449e2eea24b2bb8" title="Creates a GUI texture object out of raw data. " alt="" coords="488,5,675,61"/>
+<area shape="rect" id="node7" href="$class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_open_g_l_i_m_g_u_i_driver.html#a9921c4d5cebac16640c5f545334edf7e" title="Updates a GUI texture object with raw data. " alt="" coords="488,85,675,141"/>
+<area shape="rect" id="node9" href="$namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#a665d991af08d0d5e906f46f8c5cc43ce" title="Copies the current loaded GUI Fonts into the GPU memory. " alt="" coords="486,165,677,221"/>
+<area shape="rect" id="node11" href="$class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_open_g_l_i_m_g_u_i_driver.html#af4082741879e55e57a428d289f769b02" title="Creates a GUI texture out of the currently loaded fonts. " alt="" coords="725,125,912,181"/>
+<area shape="rect" id="node13" href="$class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_open_g_l_i_m_g_u_i_driver.html#a847b0464e868fa2d8a7ff49f1e7e588c" title="Updates a GUI texture with the currently loaded fonts. " alt="" coords="725,205,912,261"/>
+</map>

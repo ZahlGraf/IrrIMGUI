@@ -1,0 +1,4 @@
+<map id="IrrIMGUI::CIMGUIHandle::~CIMGUIHandle" name="IrrIMGUI::CIMGUIHandle::~CIMGUIHandle">
+<area shape="rect" id="node3" href="$class_irr_i_m_g_u_i_1_1_private_1_1_i_i_m_g_u_i_driver.html#a52021b515a242cca51de6f4af06ccf81" title="Tells the driver, that it is not needed anymore. It decided by it&#39;s own if it will delete the single ..." alt="" coords="217,5,402,46"/>
+<area shape="rect" id="node5" href="$class_irr_i_m_g_u_i_1_1_private_1_1_i_i_m_g_u_i_driver.html#afe14703337945d3c6b01f0e8dccc9875" title="Deletes an texture from graphic memory. " alt="" coords="451,5,629,46"/>
+</map>

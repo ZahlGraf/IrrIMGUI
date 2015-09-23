@@ -1,0 +1,12 @@
+<map id="D:/Projects/CPP/Libraries/IrrIMGUI/IrrIMGUI/includes/IrrIMGUI/CIMGUIEventReceiver.h" name="D:/Projects/CPP/Libraries/IrrIMGUI/IrrIMGUI/includes/IrrIMGUI/CIMGUIEventReceiver.h">
+<area shape="rect" id="node3" href="$_c_i_m_g_u_i_event_receiver_8cpp.html" title="Contains a standard Event Receiver for Irrlicht that passed inputs to IMGUI. " alt="" coords="334,109,511,165"/>
+<area shape="rect" id="node5" href="$_irr_i_m_g_u_i_8h.html" title="The main include file for the IMGUI bindinds. " alt="" coords="536,109,712,165"/>
+<area shape="rect" id="node7" href="$_c_char_fifo_8cpp.html" title="Class definition for a Fifo Memory. " alt="" coords="5,317,176,373"/>
+<area shape="rect" id="node9" href="$_irr_i_m_g_u_i_debug__priv_8h.html" title="Contains defines for debug handling. " alt="" coords="179,213,349,269"/>
+<area shape="rect" id="node12" href="$_c_i_m_g_u_i_handle_8cpp.html" title="Contains a handle to setup the IMGUI for Irrlicht. " alt="" coords="301,317,472,373"/>
+<area shape="rect" id="node16" href="$_i_i_m_g_u_i_driver_8cpp.html" title="Contains a driver interface for IMGUI. " alt="" coords="557,421,728,477"/>
+<area shape="rect" id="node19" href="$_i_i_m_g_u_i_driver_8h.html" title="Contains a driver interface for IMGUI. " alt="" coords="477,213,648,269"/>
+<area shape="rect" id="node22" href="$_c_open_g_l_i_m_g_u_i_driver_8h.html" title="Contains a driver that uses native OpenGL functions to render the GUI. " alt="" coords="496,317,667,373"/>
+<area shape="rect" id="node29" href="$_c_i_m_g_u_i_handle_8h.html" title="Contains a handle to setup the IMGUI for Irrlicht. " alt="" coords="792,213,968,269"/>
+<area shape="rect" id="node14" href="$_c_open_g_l_i_m_g_u_i_driver_8cpp.html" title="Contains a driver that uses native OpenGL functions to render the GUI. " alt="" coords="272,421,448,477"/>
+</map>

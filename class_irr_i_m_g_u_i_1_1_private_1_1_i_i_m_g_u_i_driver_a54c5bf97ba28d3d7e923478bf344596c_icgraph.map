@@ -1,0 +1,5 @@
+<map id="IrrIMGUI::Private::IIMGUIDriver::deleteFontTexture" name="IrrIMGUI::Private::IIMGUIDriver::deleteFontTexture">
+<area shape="rect" id="node3" href="$class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_handle.html#a06fefbe27f25f7ed44ef1ed4a536790f" title="This function copies all fonts that have been added with &quot;addFont/addDefaultFont&quot; into graphic memory..." alt="" coords="271,5,433,46"/>
+<area shape="rect" id="node5" href="$class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_handle.html#a3bd3606a8f7799ac221a45f56a983d71" title="Resets the font memory and restores the default font as the one and only font in the system..." alt="" coords="271,70,433,111"/>
+<area shape="rect" id="node7" href="$class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_open_g_l_i_m_g_u_i_driver.html#a46aecc93ffa64d3d96b74428e1627f92" title="The Destructor. " alt="" coords="259,136,445,192"/>
+</map>

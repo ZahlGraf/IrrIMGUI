@@ -1,0 +1,4 @@
+<map id="IrrIMGUI::Private::Driver::OpenGLHelper::createTextureIDFromRawData" name="IrrIMGUI::Private::Driver::OpenGLHelper::createTextureIDFromRawData">
+<area shape="rect" id="node3" href="$namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#a1e16d36dd13724facce4a1f673f74c6f" title="Translates an image in ARGB format (used by Irrlicht) to an image in RGBA format (used by OpenGL)..." alt="" coords="256,5,437,61"/>
+<area shape="rect" id="node5" href="$namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#a33120ef8e646ffed505c92b1d817966c" title="Creates an new texture from raw data inside the GPU memory. For this, the Color Format must be alread..." alt="" coords="263,85,430,141"/>
+</map>

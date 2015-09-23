@@ -1,0 +1,6 @@
+<map id="IrrIMGUI::Private::Driver::COpenGLIMGUIDriver::updateTexture" name="IrrIMGUI::Private::Driver::COpenGLIMGUIDriver::updateTexture">
+<area shape="rect" id="node3" href="$namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#a18fb8b546294b39a390d222e0e3413cf" title="Deleted a texture from memory if it uses its own memory. " alt="" coords="253,5,438,61"/>
+<area shape="rect" id="node5" href="$namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#aec167b87965445a2bbd44e218e550a71" title="Extracts the GPU memory ID for GUI usage from the ITexture object. " alt="" coords="240,85,451,141"/>
+<area shape="rect" id="node7" href="$namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#a16516cb02b781fb12f632a6c53666dd3" title="Copies the content of an ITexture object into the GPU memory. " alt="" coords="256,166,435,237"/>
+<area shape="rect" id="node9" href="$namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#a33120ef8e646ffed505c92b1d817966c" title="Creates an new texture from raw data inside the GPU memory. For this, the Color Format must be alread..." alt="" coords="499,173,666,229"/>
+</map>

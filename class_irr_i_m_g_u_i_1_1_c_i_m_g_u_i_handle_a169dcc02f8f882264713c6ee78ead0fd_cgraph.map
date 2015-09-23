@@ -1,0 +1,4 @@
+<map id="IrrIMGUI::CIMGUIHandle::CIMGUIHandle" name="IrrIMGUI::CIMGUIHandle::CIMGUIHandle">
+<area shape="rect" id="node3" href="$class_irr_i_m_g_u_i_1_1_private_1_1_i_i_m_g_u_i_driver.html#a39f6b580ddd80422a6c6507fe353f129" title="This method returns an instance of the driver. If no driver yet exists, it will create a new driver b..." alt="" coords="216,5,384,46"/>
+<area shape="rect" id="node5" href="$class_irr_i_m_g_u_i_1_1_private_1_1_i_i_m_g_u_i_driver.html#a5dfb88912e28532b00436c1a3e69944f" title="Creates a GUI texture out of the currently loaded fonts. " alt="" coords="433,5,639,46"/>
+</map>

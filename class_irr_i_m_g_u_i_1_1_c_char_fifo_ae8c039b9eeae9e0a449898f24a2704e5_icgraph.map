@@ -1,0 +1,4 @@
+<map id="IrrIMGUI::CCharFifo::getChar" name="IrrIMGUI::CCharFifo::getChar">
+<area shape="rect" id="node3" href="$class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_handle.html#a47b88801ddd9bafd4f66e054a6eb6a87" title="Update Keyboard input information. " alt="" coords="189,5,352,46"/>
+<area shape="rect" id="node5" href="$class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_handle.html#a06791ed3eae6023e97e7660100180f98" title="Call this methods before you draw the IMGUI elements and before calling &quot;drawAll()&quot;. " alt="" coords="400,5,563,46"/>
+</map>

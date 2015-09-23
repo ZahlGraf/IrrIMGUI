@@ -1,0 +1,4 @@
+<map id="IrrIMGUI" name="IrrIMGUI">
+<area shape="rect" id="node2" href="$group___irr_i_m_g_u_i_debug.html" title="Contains classes for debug purpose. " alt="" coords="220,5,279,32"/>
+<area shape="rect" id="node3" href="$group___irr_i_m_g_u_i_private.html" title="Private definitions for Irrlicht IMGUI bindings, do not use them outside, the interface may change a ..." alt="" coords="219,77,280,104"/>
+</map>

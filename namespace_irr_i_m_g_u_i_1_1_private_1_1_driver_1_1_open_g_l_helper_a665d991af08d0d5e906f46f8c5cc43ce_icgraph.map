@@ -1,0 +1,4 @@
+<map id="IrrIMGUI::Private::Driver::OpenGLHelper::copyTextureIDFromGUIFont" name="IrrIMGUI::Private::Driver::OpenGLHelper::copyTextureIDFromGUIFont">
+<area shape="rect" id="node3" href="$class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_open_g_l_i_m_g_u_i_driver.html#af4082741879e55e57a428d289f769b02" title="Creates a GUI texture out of the currently loaded fonts. " alt="" coords="245,5,432,61"/>
+<area shape="rect" id="node5" href="$class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_open_g_l_i_m_g_u_i_driver.html#a847b0464e868fa2d8a7ff49f1e7e588c" title="Updates a GUI texture with the currently loaded fonts. " alt="" coords="245,85,432,141"/>
+</map>

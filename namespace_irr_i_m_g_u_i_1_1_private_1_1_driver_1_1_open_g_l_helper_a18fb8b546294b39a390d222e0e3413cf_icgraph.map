@@ -1,0 +1,5 @@
+<map id="IrrIMGUI::Private::Driver::OpenGLHelper::deleteTextureFromMemory" name="IrrIMGUI::Private::Driver::OpenGLHelper::deleteTextureFromMemory">
+<area shape="rect" id="node3" href="$class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_open_g_l_i_m_g_u_i_driver.html#a9921c4d5cebac16640c5f545334edf7e" title="Updates a GUI texture object with raw data. " alt="" coords="240,5,427,61"/>
+<area shape="rect" id="node5" href="$class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_open_g_l_i_m_g_u_i_driver.html#a847b0464e868fa2d8a7ff49f1e7e588c" title="Updates a GUI texture with the currently loaded fonts. " alt="" coords="240,85,427,141"/>
+<area shape="rect" id="node7" href="$class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_open_g_l_i_m_g_u_i_driver.html#a767e16f97bee65a5375a225e1b207eb2" title="Deletes an texture from graphic memory. " alt="" coords="240,165,427,221"/>
+</map>

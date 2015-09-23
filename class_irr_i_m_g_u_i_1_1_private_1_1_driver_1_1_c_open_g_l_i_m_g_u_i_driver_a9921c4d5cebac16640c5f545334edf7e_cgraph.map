@@ -1,0 +1,6 @@
+<map id="IrrIMGUI::Private::Driver::COpenGLIMGUIDriver::updateTexture" name="IrrIMGUI::Private::Driver::COpenGLIMGUIDriver::updateTexture">
+<area shape="rect" id="node3" href="$namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#a18fb8b546294b39a390d222e0e3413cf" title="Deleted a texture from memory if it uses its own memory. " alt="" coords="249,5,434,61"/>
+<area shape="rect" id="node5" href="$namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#a9ef6343053f61c732970f0e3bbd1b3c7" title="Creates an new texture from raw data inside the GPU memory. When the color format does not fit to the..." alt="" coords="240,85,443,141"/>
+<area shape="rect" id="node7" href="$namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#a1e16d36dd13724facce4a1f673f74c6f" title="Translates an image in ARGB format (used by Irrlicht) to an image in RGBA format (used by OpenGL)..." alt="" coords="491,45,672,101"/>
+<area shape="rect" id="node9" href="$namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#a33120ef8e646ffed505c92b1d817966c" title="Creates an new texture from raw data inside the GPU memory. For this, the Color Format must be alread..." alt="" coords="498,125,665,181"/>
+</map>

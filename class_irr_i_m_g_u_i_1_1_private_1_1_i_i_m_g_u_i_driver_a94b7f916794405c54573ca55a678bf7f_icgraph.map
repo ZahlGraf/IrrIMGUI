@@ -1,0 +1,7 @@
+<map id="IrrIMGUI::Private::IIMGUIDriver::getIrrDevice" name="IrrIMGUI::Private::IIMGUIDriver::getIrrDevice">
+<area shape="rect" id="node3" href="$class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_handle.html#aa485d852ec3e39edd2d965cbe2faeac9" title="Updates the screen size used for IMGUI. " alt="" coords="233,5,396,46"/>
+<area shape="rect" id="node7" href="$class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_handle.html#ab802a3e644367e75f4b8570f7a032af0" title="Updated the IMGUI timers. " alt="" coords="233,70,396,111"/>
+<area shape="rect" id="node10" href="$class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_open_g_l_i_m_g_u_i_driver.html#ac5ec26cfbd76e61fa9170186d87eb65b" title="Setups the IMGUI function pointer. " alt="" coords="221,136,408,192"/>
+<area shape="rect" id="node5" href="$class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_handle.html#a06791ed3eae6023e97e7660100180f98" title="Call this methods before you draw the IMGUI elements and before calling &quot;drawAll()&quot;. " alt="" coords="468,38,631,79"/>
+<area shape="rect" id="node12" href="$class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_open_g_l_i_m_g_u_i_driver.html#ad9ca4e3c3e79612ed60d21fd04e739af" title="The constructor. " alt="" coords="456,136,643,192"/>
+</map>

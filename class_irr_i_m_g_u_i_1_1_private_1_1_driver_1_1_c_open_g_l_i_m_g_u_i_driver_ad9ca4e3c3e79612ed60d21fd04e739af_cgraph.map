@@ -1,0 +1,6 @@
+<map id="IrrIMGUI::Private::Driver::COpenGLIMGUIDriver::COpenGLIMGUIDriver" name="IrrIMGUI::Private::Driver::COpenGLIMGUIDriver::COpenGLIMGUIDriver">
+<area shape="rect" id="node3" href="$class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_open_g_l_i_m_g_u_i_driver.html#ac5ec26cfbd76e61fa9170186d87eb65b" title="Setups the IMGUI function pointer. " alt="" coords="240,43,427,99"/>
+<area shape="rect" id="node5" href="$class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_open_g_l_i_m_g_u_i_driver.html#a333c0e27499d30e44a2fb4066bd179f6" title="Renders a full IMGUI draw list (called by the IMGUI system). " alt="" coords="475,5,661,61"/>
+<area shape="rect" id="node9" href="$class_irr_i_m_g_u_i_1_1_private_1_1_i_i_m_g_u_i_driver.html#a94b7f916794405c54573ca55a678bf7f" title="IrrIMGUI::Private::\lIIMGUIDriver::getIrrDevice" alt="" coords="484,86,652,127"/>
+<area shape="rect" id="node7" href="$class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_open_g_l_i_m_g_u_i_driver.html#ae8889bc916690ae10576b320d50e1126" title="Renders a single command list. " alt="" coords="709,5,896,61"/>
+</map>

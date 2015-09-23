@@ -1,0 +1,13 @@
+<map id="D:/Projects/CPP/Libraries/IrrIMGUI/IrrIMGUI/includes/IrrIMGUI/CIMGUIEventStorage.h" name="D:/Projects/CPP/Libraries/IrrIMGUI/IrrIMGUI/includes/IrrIMGUI/CIMGUIEventStorage.h">
+<area shape="rect" id="node3" href="$_c_i_m_g_u_i_event_receiver_8h.html" title="Contains a standard Event Receiver for Irrlicht that passed inputs to IMGUI. " alt="" coords="525,109,739,165"/>
+<area shape="rect" id="node31" href="$_c_i_m_g_u_i_handle_8h.html" title="Contains a handle to setup the IMGUI for Irrlicht. " alt="" coords="756,317,932,373"/>
+<area shape="rect" id="node5" href="$_c_i_m_g_u_i_event_receiver_8cpp.html" title="Contains a standard Event Receiver for Irrlicht that passed inputs to IMGUI. " alt="" coords="342,213,519,269"/>
+<area shape="rect" id="node7" href="$_irr_i_m_g_u_i_8h.html" title="The main include file for the IMGUI bindinds. " alt="" coords="544,213,720,269"/>
+<area shape="rect" id="node9" href="$_c_char_fifo_8cpp.html" title="Class definition for a Fifo Memory. " alt="" coords="547,421,717,477"/>
+<area shape="rect" id="node11" href="$_irr_i_m_g_u_i_debug__priv_8h.html" title="Contains defines for debug handling. " alt="" coords="424,317,595,373"/>
+<area shape="rect" id="node14" href="$_c_i_m_g_u_i_handle_8cpp.html" title="Contains a handle to setup the IMGUI for Irrlicht. " alt="" coords="251,421,421,477"/>
+<area shape="rect" id="node18" href="$_i_i_m_g_u_i_driver_8cpp.html" title="Contains a driver interface for IMGUI. " alt="" coords="368,525,539,581"/>
+<area shape="rect" id="node21" href="$_i_i_m_g_u_i_driver_8h.html" title="Contains a driver interface for IMGUI. " alt="" coords="147,317,317,373"/>
+<area shape="rect" id="node24" href="$_c_open_g_l_i_m_g_u_i_driver_8h.html" title="Contains a driver that uses native OpenGL functions to render the GUI. " alt="" coords="5,421,176,477"/>
+<area shape="rect" id="node16" href="$_c_open_g_l_i_m_g_u_i_driver_8cpp.html" title="Contains a driver that uses native OpenGL functions to render the GUI. " alt="" coords="113,525,289,581"/>
+</map>

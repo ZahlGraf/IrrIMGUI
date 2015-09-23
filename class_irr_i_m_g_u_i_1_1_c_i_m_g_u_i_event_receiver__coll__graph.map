@@ -1,0 +1,4 @@
+<map id="IrrIMGUI::CIMGUIEventReceiver" name="IrrIMGUI::CIMGUIEventReceiver">
+<area shape="rect" id="node4" href="$class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_event_storage.html" title="Stores the state of the Keyboard and Mouse input for IMGUI. " alt="" coords="155,96,353,123"/>
+<area shape="rect" id="node6" href="$class_irr_i_m_g_u_i_1_1_c_char_fifo.html" title="A Fifo Memory to store character inputs from the keyboard. " alt="" coords="187,5,321,32"/>
+</map>

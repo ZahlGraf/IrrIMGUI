@@ -1,0 +1,4 @@
+<map id="IrrIMGUI::Private::IIMGUIDriver::deleteInstance" name="IrrIMGUI::Private::IIMGUIDriver::deleteInstance">
+<area shape="rect" id="node3" href="$class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_handle.html#a948fd60278054c6ec1bb3241dcbc7196" title="Destructor. " alt="" coords="253,5,416,46"/>
+<area shape="rect" id="node5" href="$class_irr_i_m_g_u_i_1_1_private_1_1_c_i_m_g_u_i_driver_delete_helper.html#ad81248086005693b2844f5e167fae680" title="Destructor tries to delete the Instance of CIMGUIDriver. If an instance was deleted, it shows a warning. " alt="" coords="240,71,429,127"/>
+</map>

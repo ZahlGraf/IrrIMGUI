@@ -1,0 +1,5 @@
+<map id="IrrIMGUI::Private::Driver::OpenGLHelper::copyTextureIDFromGUIFont" name="IrrIMGUI::Private::Driver::OpenGLHelper::copyTextureIDFromGUIFont">
+<area shape="rect" id="node3" href="$namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#a9ef6343053f61c732970f0e3bbd1b3c7" title="Creates an new texture from raw data inside the GPU memory. When the color format does not fit to the..." alt="" coords="245,45,448,101"/>
+<area shape="rect" id="node5" href="$namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#a1e16d36dd13724facce4a1f673f74c6f" title="Translates an image in ARGB format (used by Irrlicht) to an image in RGBA format (used by OpenGL)..." alt="" coords="496,5,677,61"/>
+<area shape="rect" id="node7" href="$namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#a33120ef8e646ffed505c92b1d817966c" title="Creates an new texture from raw data inside the GPU memory. For this, the Color Format must be alread..." alt="" coords="503,85,670,141"/>
+</map>

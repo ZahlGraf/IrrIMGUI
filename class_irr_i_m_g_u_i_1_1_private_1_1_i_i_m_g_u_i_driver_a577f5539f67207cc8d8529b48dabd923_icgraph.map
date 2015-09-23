@@ -1,0 +1,6 @@
+<map id="IrrIMGUI::Private::IIMGUIDriver::updateSettings" name="IrrIMGUI::Private::IIMGUIDriver::updateSettings">
+<area shape="rect" id="node3" href="$class_irr_i_m_g_u_i_1_1_private_1_1_i_i_m_g_u_i_driver.html#acd7badb682a07d9a1ea45ee5460c7f78" title="Constructor is protected to prevent an external function to create an instance of this class..." alt="" coords="243,5,415,46"/>
+<area shape="rect" id="node5" href="$class_irr_i_m_g_u_i_1_1_private_1_1_i_i_m_g_u_i_driver.html#a95acaf23c089b239b6bd5292c5b70b9f" title="IrrIMGUI::Private::\lIIMGUIDriver::setSettings" alt="" coords="246,70,413,111"/>
+<area shape="rect" id="node7" href="$class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_handle.html#adde3690d7985250afd725c4456debea7" title="Use this constructor when you want special settings. " alt="" coords="464,37,627,78"/>
+<area shape="rect" id="node9" href="$class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_handle.html#a179736259e0d3e899e455ba87212acc2" title="IrrIMGUI::CIMGUIHandle\l::setSettings" alt="" coords="464,102,627,143"/>
+</map>

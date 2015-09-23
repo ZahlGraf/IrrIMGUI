@@ -1,0 +1,9 @@
+<map id="IrrIMGUI::CCharFifo::isFull" name="IrrIMGUI::CCharFifo::isFull">
+<area shape="rect" id="node3" href="$class_irr_i_m_g_u_i_1_1_c_char_fifo.html#ae973e43c361dc9bfdcbe8cf3cbc3d2d0" title="Standard Constructor. " alt="" coords="190,5,325,46"/>
+<area shape="rect" id="node5" href="$class_irr_i_m_g_u_i_1_1_c_char_fifo.html#ac906bd3ca282fb0832941b1c9235f29e" title="IrrIMGUI::CCharFifo\l::addChar" alt="" coords="190,70,325,111"/>
+<area shape="rect" id="node7" href="$class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_event_receiver.html#a8ddb061d0232b5d681121f9680caab47" title="Checks the events that are keyboard related. " alt="" coords="373,97,576,138"/>
+<area shape="rect" id="node11" href="$class_irr_i_m_g_u_i_1_1_c_char_fifo.html#ae8c039b9eeae9e0a449898f24a2704e5" title="IrrIMGUI::CCharFifo\l::getChar" alt="" coords="190,187,325,229"/>
+<area shape="rect" id="node9" href="$class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_event_receiver.html#a7e1ca9e08db25f6c7bbe3e094252c11b" title="This function is called by Irrlicht, when an Event occurs. " alt="" coords="624,97,827,138"/>
+<area shape="rect" id="node13" href="$class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_handle.html#a47b88801ddd9bafd4f66e054a6eb6a87" title="Update Keyboard input information. " alt="" coords="393,187,556,229"/>
+<area shape="rect" id="node15" href="$class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_handle.html#a06791ed3eae6023e97e7660100180f98" title="Call this methods before you draw the IMGUI elements and before calling &quot;drawAll()&quot;. " alt="" coords="644,187,807,229"/>
+</map>

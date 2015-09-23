@@ -1,0 +1,5 @@
+<map id="IrrIMGUI::Private::IIMGUIDriver::IIMGUIDriver" name="IrrIMGUI::Private::IIMGUIDriver::IIMGUIDriver">
+<area shape="rect" id="node3" href="$class_irr_i_m_g_u_i_1_1_private_1_1_i_i_m_g_u_i_driver.html#a8fc76246612d2439c50b081760863226" title="Setups the mouse controls to fit to Irrlicht. " alt="" coords="227,5,440,46"/>
+<area shape="rect" id="node5" href="$class_irr_i_m_g_u_i_1_1_private_1_1_i_i_m_g_u_i_driver.html#ab05a9b349da9dfc8ecfd794436478ade" title="Setups the keyboard controls to fit to Irrlicht. " alt="" coords="235,70,432,111"/>
+<area shape="rect" id="node7" href="$class_irr_i_m_g_u_i_1_1_private_1_1_i_i_m_g_u_i_driver.html#a577f5539f67207cc8d8529b48dabd923" title="Updated the settings of IMGUI. " alt="" coords="239,135,427,177"/>
+</map>
