@@ -109,7 +109,7 @@ There are two ways how you can use IrrIMGUI. The first way is to embed all sourc
 
 * Setup the preprocessor defines to compile IrrIMGUI as static library (`_IRRIMGUI_STATIC_LIB_`)
 
-* Setup the preprocessor define `_IRRIMGUI_DIRECT_IRRLICHT_INCLUDE_` if your project includes Irrlicht like `#include <irrlicht.h>` and not like `#include <Irrlicht/irrlicht.h>`
+* Setup the preprocessor define `_IRRIMGUI_SUBDIR_IRRLICHT_INCLUDE_` if your project includes Irrlicht like `#include <Irrlicht/irrlicht.h>` and not like `#include <irrlicht.h>`
 
 * Setup the following preprocessor defines if you want:
 

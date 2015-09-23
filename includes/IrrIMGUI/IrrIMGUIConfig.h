@@ -48,8 +48,8 @@
 /// @note Windows only!
 #define _IRRIMGUI_EXPORTS_
 
-/// @brief If this is defined during compilation, it will include irrlicht library from with <irrlicht.h> instead of <Irrlicht/irrlicht.h>
-#define _IRRIMGUI_DIRECT_IRRLICHT_INCLUDE_
+/// @brief If this is defined during compilation, it will include irrlicht library from with <Irrlicht/irrlicht.h> instead of <irrlicht.h>
+#define _IRRIMGUI_SUBDIR_IRRLICHT_INCLUDE_
 
 /// @brief If this is defined during compilation, it will use the native OpenGL renderer for IMGUI instead of the Irrlicht renderer.
 /// @attention This is only a fallback solution for testing. It is not officially supported by this lib!
