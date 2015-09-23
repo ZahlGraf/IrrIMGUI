@@ -7,3 +7,4 @@
 /dependency/IMGUI/*.h
 install
 build
+"Doxygen/html/" 
