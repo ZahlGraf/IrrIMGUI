@@ -7,9 +7,11 @@
 * [Example Images](#ExampleImages)
 * [How to Start](#HowToStart)
  * [Preparations](#HowToStart_Preparations)
-   [Embed IrrIMGUI into your Application](#HowToStart_ApplicationEmbedded)
+ * [Embed IrrIMGUI into your Application](#HowToStart_ApplicationEmbedded)
  * [Build the Library](#HowToStart_BuildTheLibrary)
  * [HelloWorld Example](#HowToStart_HelloWorldExample)
+ * [Further Examples](#HowToStart_FurtherExamples)
+ * [API Documentation](#HowToStart_APIDocumentation)
 * [Download](#Download)
 * [Version History](#VersionHistory)
 
@@ -197,7 +199,7 @@ how to build a library with CMake.
 ### <a name="HowToStart_HelloWorldExample"></a> HelloWorld Example
 
 The HelloWorld example builds up a simple scene with Irrlicht (I expect that you have some experience with Irrlicht. If not, please look first at the Irrlicht Tutorial). Furthermore it draws a simple IMGUI window with some text and an Exit-button.
-The full source code can be found in the file [examples/01.HelloWorld/main.cpp](examples\01.HelloWorld\main.cpp). In this description, I will simply highlight the IMGUI specific code.
+The full source code can be found in the file [examples/01.HelloWorld/main.cpp](examples/01.HelloWorld/main.cpp). In this description, I will simply highlight the IMGUI specific code.
 
 * **Include the IrrIMGUI main header:** Include the file `IrrIMGUI/IrrIMGUI.h` to your project.
 ```cpp
@@ -274,6 +276,14 @@ The full source code can be found in the file [examples/01.HelloWorld/main.cpp](
  
 * Compile and look at your first GUI element<br>
 ![Hello World](Doxygen/Images/ExampleHelloWorld.png)
+ 
+### <a name="HowToStart_FurtherExamples"></a>Further Examples
+
+You can find further example descriptions inside the [Wiki](https://github.com/ZahlGraf/IrrIMGUI/wiki).
+
+### <a name="HowToStart_APIDocumentation"></a>API Documentation
+
+A full API description can be found inside the Doxygen [documentation](TODO).
  
 ## <a name="Download"></a>Download
 
