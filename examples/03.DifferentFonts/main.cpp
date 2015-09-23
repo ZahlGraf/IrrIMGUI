@@ -127,7 +127,7 @@ void runScene(void)
     {
       ImGui::SetNextWindowPos(ImVec2(20.0f, 20.0f));
     }
-    ImGui::Begin("Picture sources");
+    ImGui::Begin("Picture sources", NULL, ImGuiWindowFlags_ShowBorders);
     ImGui::Text("Background picture from Manuel Tellur / pixelio.de (Image-ID: 642831)");
     ImGui::Text("Moon (Phobos) texture from http://nasa3d.arc.nasa.gov");
     if (ImGui::Button("Exit", ImVec2(40, 20)))
@@ -146,7 +146,7 @@ void runScene(void)
     /// **********************************************************************
     /// Step 3 - Use PushFont()/PopFont() to switch between different Fonts
     /// **********************************************************************
-    ImGui::Begin("Different Fonts");
+    ImGui::Begin("Different Fonts", NULL, ImGuiWindowFlags_ShowBorders);
     ImGui::Text("Default Font");
     ImGui::PushFont(pCousine16);
     ImGui::Text("Cousine-Regular.ttf; 16px");

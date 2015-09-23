@@ -103,7 +103,7 @@ void runScene(void)
     pDriver->beginScene(true, true, irr::video::SColor(255,100,101,140));
 
     GUI.startGUI();
-    ImGui::Begin("Picture sources");
+    ImGui::Begin("Picture sources", NULL, ImGuiWindowFlags_ShowBorders);
     ImGui::Text("Background picture from Manuel Tellur / pixelio.de (Image-ID: 642831)");
     ImGui::Text("Moon (Phobos) texture from http://nasa3d.arc.nasa.gov");
     if (ImGui::Button("Exit", ImVec2(40, 20)))

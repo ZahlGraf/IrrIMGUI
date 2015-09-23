@@ -126,7 +126,7 @@ void runScene(void)
       ImGui::SetNextWindowPos(ImVec2(20.0f, 20.0f));
       ImGui::SetNextWindowSize(ImVec2(500.0f, 150.0f));
     }
-    ImGui::Begin("Picture sources");
+    ImGui::Begin("Picture sources", NULL, ImGuiWindowFlags_ShowBorders);
     ImGui::Text("Background picture from Manuel Tellur / pixelio.de (Image-ID: 642831)");
     ImGui::Text("Moon (Phobos) texture from http://nasa3d.arc.nasa.gov");
     ImGui::Text("Soyuz image from https://pixabay.com (ID: 67718)");
@@ -146,11 +146,11 @@ void runScene(void)
 
     if (HoveredSpaceShip != -1)
     {
-      ImGui::Begin("Available Ships", NULL, ImGuiWindowFlags_NoMove);
+      ImGui::Begin("Available Ships", NULL, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_ShowBorders);
     }
     else
     {
-      ImGui::Begin("Available Ships");
+      ImGui::Begin("Available Ships", NULL, ImGuiWindowFlags_ShowBorders);
     }
     ImGui::Text("Drag your favorite");
     ImGui::Text("Space Ship into the");

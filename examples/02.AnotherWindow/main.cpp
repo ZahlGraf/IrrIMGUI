@@ -112,7 +112,7 @@ void runScene(void)
     {
       ImGui::SetNextWindowPos(ImVec2(20.0f, 20.0f));
     }
-    ImGui::Begin("Picture sources");
+    ImGui::Begin("Picture sources", NULL, ImGuiWindowFlags_ShowBorders);
     ImGui::Text("Background picture from Manuel Tellur / pixelio.de (Image-ID: 642831)");
     ImGui::Text("Moon (Phobos) texture from http://nasa3d.arc.nasa.gov");
     if (ImGui::Button("Exit", ImVec2(40, 20)))
@@ -127,7 +127,7 @@ void runScene(void)
       ImGui::SetNextWindowPos(ImVec2(20.0f, 200.0f));
       ImGui::SetNextWindowSize(ImVec2(600.0f, 100.0f));
     }
-    ImGui::Begin("Control Interface");
+    ImGui::Begin("Control Interface", NULL, ImGuiWindowFlags_ShowBorders);
     ImGui::BeginGroup();
     ImGui::RadioButton("Left",  &RotationDirection, 1);
     ImGui::RadioButton("Stop",  &RotationDirection, 0);
