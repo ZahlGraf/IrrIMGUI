@@ -150,6 +150,7 @@ namespace IrrIMGUI
       /// @}
 
       /// @{
+      /// @anchor LoadFonts
       /// @name Font operations
 
       /**
@@ -242,6 +243,7 @@ namespace IrrIMGUI
       /// @}
 
       /// @{
+      /// @anchor CreateTextures
       /// @name Image and Texture methods
 
       /// @brief Creates a GUI texture object out of an Irrlicht image.
