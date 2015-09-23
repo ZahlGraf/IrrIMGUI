@@ -283,7 +283,7 @@ You can find further example descriptions inside the [Wiki](https://github.com/Z
 
 ### <a name="HowToStart_APIDocumentation"></a>API Documentation
 
-A full API description can be found inside the Doxygen [documentation](TODO).
+A full API description can be found inside the Doxygen [documentation](http://zahlgraf.github.io/IrrIMGUI/).
  
 ## <a name="Download"></a>Download
 
