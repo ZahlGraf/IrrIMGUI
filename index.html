@@ -81,211 +81,210 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">IrrIMGUI Documentation</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h2>Index</h2>
+<div class="textblock"><h1>Welcome to the IrrIMGUI project</h1>
 <ul>
-<li><a href="#Introduction">Introduction</a></li>
-<li><a href="#LatestVersionNews">Latest Version News</a></li>
-<li><a href="#ExampleImages">Example Images</a></li>
-<li><a href="#HowToStart">How to Start</a><ul>
-<li><a href="#HowToStart_Preparations">Preparations</a> <a href="#HowToStart_ApplicationEmbedded">Embed IrrIMGUI into your Application</a></li>
-<li><a href="#HowToStart_BuildTheLibrary">Build the Library</a></li>
-<li><a href="#HowToStart_HelloWorldExample">HelloWorld Example</a></li>
+<li><b>Visit the GitHub repository:</b> <a href="https://github.com/ZahlGraf/IrrIMGUI">Repository</a></li>
+<li><b>Screenshots:</b> <a href="https://github.com/ZahlGraf/IrrIMGUI#ExampleImages">Example Pictures</a></li>
+<li><b>Download this library:</b> <a href="https://github.com/ZahlGraf/IrrIMGUI#Download">Download</a></li>
+<li><b>HowTo build this library:</b> <a href="https://github.com/ZahlGraf/IrrIMGUI#HowToStart_Preparations">Build process</a></li>
+<li><b>Online API documentation:</b> <a href="http://zahlgraf.github.io/IrrIMGUI/index.html">Doxygen</a></li>
+<li><b>Example description:</b> <a href="https://github.com/ZahlGraf/IrrIMGUI/wiki/Example-1:-Hello-World">Examples</a></li>
+</ul>
+<h1>IrrIMGUI API documentation</h1>
+<h2>Index</h2>
+<ul>
+<li><a href="#MostImportantBookmarks">Most Important API Bookmarks</a></li>
+<li><a href="#ShortUsageReference">Code Snippets</a><ul>
+<li><a href="#ShortUsageReferenceGettingStarted">Getting started</a><ul>
+<li><a href="#ShortUsageReferenceGettingStartedStep1">Step 1: Include Header Files</a></li>
+<li><a href="#ShortUsageReferenceGettingStartedStep2">Step 2: Initialize Irrlicht Device and GUI</a></li>
+<li><a href="#ShortUsageReferenceGettingStartedStep3">Step 3: Start GUI Frame</a></li>
+<li><a href="#ShortUsageReferenceGettingStartedStep4">Step 4: Render GUI</a></li>
 </ul>
 </li>
-<li><a href="#Download">Download</a></li>
-<li><a href="#VersionHistory">Version History</a></li>
+<li><a href="#ShortUsageReferenceCustomEventReceiver">Use custom Event Receiver</a><ul>
+<li><a href="#ShortUsageReferenceCustomEventReceiverMethod1">Method 1: Inherit from standard Event Receiver</a></li>
+<li><a href="#ShortUsageReferenceCustomEventReceiverMethod2">Method 2: An Event Receiver from the scratch</a></li>
 </ul>
-<h2><a class="anchor" id="Introduction"></a>Introduction</h2>
-<p>The goal of <a class="el" href="namespace_irr_i_m_g_u_i.html" title="Main namespace for Irrlicht IMGUI binding. ">IrrIMGUI</a> is to provide a render engine for the IMGUI system that works together with Irrlicht.</p>
-<ul>
-<li><a href="http://irrlicht.sourceforge.net/">Irrlicht</a> is an easy to learn and very fast 3D graphic engine, that supports OpenGL and DirectX.</li>
-<li><a href="https://github.com/ocornut/imgui/">IMGUI</a> is an intermediate mode GUI system, that allows the user to draw complex GUI widgets very easily. Furthermore, I think it has a very nice and modern graphic style.</li>
+</li>
+<li><a href="#ShortUsageReferenceFonts">Use TTF fonts</a><ul>
+<li><a href="#ShortUsageReferenceFontsStep1">Step 1: Load Fonts</a></li>
+<li><a href="#ShortUsageReferenceFontsStep2">Step 2: Compile Fonts</a></li>
+<li><a href="#ShortUsageReferenceFontsStep3">Step 3: Activate a Font</a></li>
+<li><a href="#ShortUsageReferenceFontsOptional">Optional: Reset Fonts</a></li>
 </ul>
-<p>Of course IMGUI is not as complex like CEGUI. But for small application it is the ideal solution to have a very potential user interface with just some lines of code. If you need instead a complex user interface with scripted widgets and events, and highly adaptable template system, you should use CEGUI instead. But take care, you will end up with much more code and dependencies.</p>
-<p>Following Features are supported so far:</p><ul>
-<li>An Irrlicht bases render engine, that uses high level Irrlicht functions to draw the GUI elements (upcoming version 0.2).</li>
-<li>A native OpenGL renderer for test purposes and as a fall-back solution.</li>
-<li>An out of the box working Event Receiver for Irrlicht to bind mouse and keyboard events to the GUI.</li>
-<li>The input event handling for IMGUI can be easily customized to bind new input devices like joystick and another key-layout to the GUI.</li>
-<li>Full support for different fonts and font sizes.</li>
-<li>Support for drawing Irrlicht Image objects (IImage) inside the GUI.</li>
-<li>Support for drawing Irrlicht Texture objects (ITextrue) inside the GUI (thus you can render 3D content directly into GUI elements).</li>
+</li>
+<li><a href="#ShortUsageReferenceImages">Use images</a><ul>
+<li><a href="#ShortUsageReferenceImagesStep1">Step 1: Create Irrlicht Image</a></li>
+<li><a href="#ShortUsageReferenceImagesStep2">Step 2: Create GUI Texture</a></li>
+<li><a href="#ShortUsageReferenceImagesStep3">Step 3: Use image in GUI</a></li>
+<li><a href="#ShortUsageReferenceImagesStep4">Step 4: Free-up image memory</a></li>
 </ul>
-<h2><a class="anchor" id="LatestVersionNews"></a>LatestVersionNews</h2>
-<h3>Current Version: 0.1.0</h3>
-<h4>Highlights</h4>
-<ul>
-<li>Initial Release</li>
-<li>OpenGL native driver</li>
-<li>Full multi-font support</li>
-<li>Full support for IImage, ITexture and Raw Image data</li>
-</ul>
-<h4>Tested Dependency Versions</h4>
-<ul>
-<li><a href="https://github.com/ocornut/imgui/tree/v1.45">IMGUI 1.45</a></li>
-<li><a href="http://irrlicht.sourceforge.net/2015/09/irrlicht-1-8-3-released/">Irrlicht 1.8.3</a></li>
-<li><a href="http://www.cmake.org/">CMake 3.3</a></li>
-<li>Other versions may work as well, but they are not tested.</li>
-</ul>
-<h4>Tested Build Variants</h4>
-<ul>
-<li>Windows 64bit, Visual Studio 2015<ul>
-<li>Shared library (debug build)</li>
+</li>
+<li><a href="#ShortUsageReferenceTextures">Use Irrlicht textures</a><ul>
+<li><a href="#ShortUsageReferenceTexturesStep1">Step 1: Create GUI Texture</a></li>
+<li><a href="#ShortUsageReferenceTexturesOptional">Optional: Update GUI Texture</a></li>
+<li><a href="#ShortUsageReferenceImagesStep2">Step 2: Free-up GUI texture memory</a></li>
 </ul>
 </li>
 </ul>
-<h2><a class="anchor" id="ExampleImages"></a>Example Images</h2>
-<p>A picture is worth a thousand Words. So I will show you some examples:</p>
-<p>This is a simple control interface created with IMGUI (example program 02.AnotherWindow).</p>
-<div class="image">
-<img src="ExampleControlElements.png" alt="ExampleControlElements.png"/>
-<div class="caption">
-Control Elements</div></div>
-<p>IMGUI supports also TTF fonts (example program 03.DifferentFonts).</p>
-<div class="image">
-<img src="ExampleDifferentFonts.png" alt="ExampleDifferentFonts.png"/>
-<div class="caption">
-Different Fonts</div></div>
-<p>With the Irrlicht IMGUI binding you can draw every IImage object to the GUI (example program 05.DragNDrop).</p>
-<div class="image">
-<img src="ExampleDragNDrop.png" alt="ExampleDragNDrop.png"/>
-<div class="caption">
-Drag'n Drop Images</div></div>
-<p>You can also draw a render target texture to the GUI (example program 06.RenderWindow).</p>
-<div class="image">
-<img src="ExampleRenderWindow.png" alt="ExampleRenderWindow.png"/>
-<div class="caption">
-Use Render Target inside the GUI</div></div>
- <h2><a class="anchor" id="HowToStart"></a> How to Start</h2>
-<h3><a class="anchor" id="HowToStart_Preparations"></a> Preparations</h3>
+</li>
+<li><a href="#AdditionalLinks">Additional Project Links</a></li>
+</ul>
+<h2><a class="anchor" id="MostImportantBookmarks"></a> Most Important API Bookmarks</h2>
 <ul>
-<li>You need a well working <a href="http://irrlicht.sourceforge.net/">Irrlicht</a> library compiled. Please test with the Irrlicht examples, if the library works as expected.</li>
-<li>Download the Irrlicht IMGUI binding: <a href="#Download">Download</a></li>
-<li>Download the latest version of <a href="https://github.com/ocornut/imgui/">IMGUI</a> and copy all files from the ZIP into the directory <code>&lt;IrrIMGUI-Path&gt;/dependency/IMGUI</code> The <a class="el" href="namespace_irr_i_m_g_u_i.html" title="Main namespace for Irrlicht IMGUI binding. ">IrrIMGUI</a> and IMGUI files are compiled together to a single shared or static library file.</li>
-<li>When you want to compile <a class="el" href="namespace_irr_i_m_g_u_i.html" title="Main namespace for Irrlicht IMGUI binding. ">IrrIMGUI</a> as library, you need <a href="http://www.cmake.org/">CMake</a> to generate the makefiles or projects file you want to use</li>
+<li>Class <a class="el" href="class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_handle.html" title="Use an object of this class to setup the IMGUI for Irrlicht and to render the content. ">IrrIMGUI::CIMGUIHandle</a> - Use this class as main handle to the Irrlicht IMGUI Binding</li>
+<li>Class <a class="el" href="class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_event_receiver.html">IrrIMGUI::CIMGUIEventReceiver</a> - A standard Event Receiver for Irrlicht, that passes all Mouse and Keyboard events to the GUI</li>
+<li>Class <a class="el" href="class_irr_i_m_g_u_i_1_1_i_g_u_i_texture.html">IrrIMGUI::IGUITexture</a> - A general texture object for drawing images to the GUI</li>
 </ul>
-<h3><a class="anchor" id="HowToStart_ApplicationEmbedded"></a> Possibility 1: Embed <a class="el" href="namespace_irr_i_m_g_u_i.html" title="Main namespace for Irrlicht IMGUI binding. ">IrrIMGUI</a> into your Application</h3>
-<p>There are two ways how you can use <a class="el" href="namespace_irr_i_m_g_u_i.html" title="Main namespace for Irrlicht IMGUI binding. ">IrrIMGUI</a>. The first way is to embed all source files into your application and build it together with your project.</p><ul>
-<li>For this you simply need to create the following directory structure in your project:</li>
+<h2><a class="anchor" id="ShortUsageReference"></a> Code Snippets</h2>
+<h3><a class="anchor" id="ShortUsageReferenceGettingStarted"></a> Getting started</h3>
+<p><b>Full explanation:</b> <a href="https://github.com/ZahlGraf/IrrIMGUI/wiki/Example-1:-Hello-World">Example 1: HelloWorld</a></p>
+<h4><a class="anchor" id="ShortUsageReferenceGettingStartedStep1"></a> Step 1: Include header files</h4>
+<div class="fragment"><div class="line"><span class="comment">// include Irrlicht and IrrIMGUI header</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="_irr_i_m_g_u_i_8h.html">IrrIMGUI/IrrIMGUI.h</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="_include_irrlicht_8h.html">IrrIMGUI/IncludeIrrlicht.h</a>&gt;</span></div>
+</div><!-- fragment --><h4><a class="anchor" id="ShortUsageReferenceGettingStartedStep2"></a> Step 2: Initialize Irrlicht Device and GUI</h4>
+<div class="fragment"><div class="line"><span class="keyword">using namespace </span>irr;</div>
+<div class="line"><span class="keyword">using namespace </span><a class="code" href="namespace_irr_i_m_g_u_i.html">IrrIMGUI</a>;</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// Irrlicht OpenGL Settings</span></div>
+<div class="line">SIrrlichtCreationParameters IrrlichtParams;</div>
+<div class="line">IrrlichtParams.DriverType    = video::EDT_OPENGL;</div>
+<div class="line">IrrlichtParams.WindowSize    = core::dimension2d&lt;u32&gt;(1024, 800);</div>
+<div class="line">IrrlichtParams.Bits          = 32;</div>
+<div class="line">IrrlichtParams.Fullscreen    = <span class="keyword">false</span>;</div>
+<div class="line">IrrlichtParams.Stencilbuffer = <span class="keyword">true</span>;</div>
+<div class="line">IrrlichtParams.AntiAlias     = 16;</div>
+<div class="line">IrrlichtParams.Vsync         = <span class="keyword">false</span>;</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// Create standard event receiver for the IrrIMGUI</span></div>
+<div class="line"><a class="code" href="class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_event_receiver.html">CIMGUIEventReceiver</a> EventReceiver;  </div>
+<div class="line">IrrlichtParams.EventReceiver = &amp;EventReceiver;</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// Create Irrlicht device</span></div>
+<div class="line">IrrlichtDevice * <span class="keyword">const</span> pDevice = createDeviceEx(IrrlichtParams);</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// Create GUI object</span></div>
+<div class="line"><a class="code" href="class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_handle.html">CIMGUIHandle</a> GUI(pDevice, &amp;EventReceiver);</div>
+</div><!-- fragment --><h4><a class="anchor" id="ShortUsageReferenceGettingStartedStep3"></a> Step 3: Start GUI Frame</h4>
+<p>Inside the Main-Loop: </p><div class="fragment"><div class="line"><span class="comment">// create the GUI elements</span></div>
+<div class="line">GUI.startGUI();</div>
+<div class="line">ImGui::Begin(<span class="stringliteral">&quot;My first Window&quot;</span>);</div>
+<div class="line">ImGui::Text(<span class="stringliteral">&quot;Hello World!&quot;</span>);</div>
+<div class="line"><span class="keywordflow">if</span> (ImGui::Button(<span class="stringliteral">&quot;Exit&quot;</span>, ImVec2(40, 20)))</div>
+<div class="line">{</div>
+<div class="line">  pDevice-&gt;closeDevice();</div>
+<div class="line">}</div>
+<div class="line">ImGui::End();</div>
+</div><!-- fragment --><h4><a class="anchor" id="ShortUsageReferenceGettingStartedStep4"></a> Step 4: Render GUI</h4>
+<p>Inside the Main-Loop: </p><div class="fragment"><div class="line"><span class="comment">// render your Irrlicht scene</span></div>
+<div class="line">pSceneManager-&gt;drawAll();</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// render the GUI</span></div>
+<div class="line">GUI.drawAll();</div>
+</div><!-- fragment --><h3><a class="anchor" id="ShortUsageReferenceCustomEventReceiver"></a> Use custom Event Receiver</h3>
+<h4><a class="anchor" id="ShortUsageReferenceCustomEventReceiverMethod1"></a> Method 1: Inherit from standard Event Receiver</h4>
+<ul>
+<li>Inherit from the <a class="el" href="class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_event_receiver.html">IrrIMGUI::CIMGUIEventReceiver</a> class</li>
+<li>Overwrite method <a class="el" href="class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_event_receiver.html#a7e1ca9e08db25f6c7bbe3e094252c11b" title="This function is called by Irrlicht, when an Event occurs. ">IrrIMGUI::CIMGUIEventReceiver::OnEvent</a> to handle the event first <div class="fragment"><div class="line"><span class="keyword">class </span>CMyOwnEventReceiver : <span class="keyword">private</span> <a class="code" href="class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_event_receiver.html">IrrIMGUI::CIMGUIEventReceiver</a></div>
+<div class="line">{</div>
+<div class="line">  <span class="keywordtype">bool</span> <a class="code" href="class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_event_receiver.html#a7e1ca9e08db25f6c7bbe3e094252c11b">OnEvent</a>(<span class="keyword">const</span> irr::SEvent &amp; rEvent)</div>
+<div class="line">  {</div>
+<div class="line">    <span class="comment">// do your own stuff with rEvent...</span></div>
+<div class="line"></div>
+<div class="line">    <span class="comment">// when rEvent has not been consumed by your game logic pass it to the CIMGUIEventReceiver class</span></div>
+<div class="line">    <span class="keywordflow">return</span> <a class="code" href="class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_event_receiver.html#a7e1ca9e08db25f6c7bbe3e094252c11b">CIMGUIEventReceiver::OnEvent</a>(rEvent);</div>
+<div class="line">  }</div>
+<div class="line">};</div>
+</div><!-- fragment --></li>
+<li>Don't forget to call <a class="el" href="class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_event_receiver.html#a7e1ca9e08db25f6c7bbe3e094252c11b" title="This function is called by Irrlicht, when an Event occurs. ">IrrIMGUI::CIMGUIEventReceiver::OnEvent</a> when you want to pass this Event to the GUI</li>
+<li>Give a pointer of this custom Event Receiver while creating the GUI handle object and the Irrlicht Device</li>
 </ul>
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;Your-Project-Path&gt;/</div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;+ lib_includes/</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;|+ IMGUI/</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;|+ IrrIMGUI/</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;+ lib_source/</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;|+ IrrIMGUI/</div>
+<h4><a class="anchor" id="ShortUsageReferenceCustomEventReceiverMethod2"></a> Method 2: An Event Receiver from the scratch</h4>
+<ul>
+<li>Create an Event Receiver class that inherits from <code>irr::IEventReceiver</code> and <a class="el" href="class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_event_storage.html" title="Stores the state of the Keyboard and Mouse input for IMGUI. ">IrrIMGUI::CIMGUIEventStorage</a></li>
+<li>Overwrite the <code>irr::IEventReceiver::OnEvent</code> method to handle the event</li>
+<li>If you want to pass any input event information to the GUI, just write to the corresponding variables of <a class="el" href="class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_event_storage.html" title="Stores the state of the Keyboard and Mouse input for IMGUI. ">IrrIMGUI::CIMGUIEventStorage</a></li>
+<li>Give a pointer of this custom Event Receiver while creating the GUI handle object and the Irrlicht Device</li>
+</ul>
+<h3><a class="anchor" id="ShortUsageReferenceFonts"></a> Use TTF fonts</h3>
+<p><b>Full explanation:</b> <a href="https://github.com/ZahlGraf/IrrIMGUI/wiki/Example-3:-Different-Fonts">Example 2: Different Fonts</a></p>
+<h4><a class="anchor" id="ShortUsageReferenceFontsStep1"></a> Step 1: Load Fonts</h4>
+<div class="fragment"><div class="line"><span class="comment">// load the Cousine-Regular.ttf file from the media directory</span></div>
+<div class="line">ImFont *pCousine16 = GUI.addFontFromFileTTF(<span class="stringliteral">&quot;../../media/Cousine-Regular.ttf&quot;</span>, 16.0f);</div>
+<div class="line">ImFont *pCousine24 = GUI.addFontFromFileTTF(<span class="stringliteral">&quot;../../media/Cousine-Regular.ttf&quot;</span>, 24.0f);</div>
 </div><!-- fragment --><ul>
-<li>Copy the source files from <code>&lt;IrrIMGUI-Path&gt;/source</code> to <code>&lt;Your-Project-Path&gt;/lib_source/IrrIMGUI</code></li>
-<li>Copy the header files from <code>&lt;IrrIMGUI-Path&gt;/includes/IrrIMGUI</code> to <code>&lt;Your-Project-Path&gt;/lib_includes/IrrIMGUI</code></li>
-<li>Copy the *.cpp and *.h files from <code>&lt;IrrIMGUI-Path&gt;/dependency/IMGUI</code> to <code>&lt;Your-Project-Path&gt;/lib_includes/IMGUI</code></li>
-<li>Setup the path <code>&lt;Your-Project-Path&gt;/lib_includes/</code> as include search directory</li>
-<li>Setup the preprocessor defines to compile <a class="el" href="namespace_irr_i_m_g_u_i.html" title="Main namespace for Irrlicht IMGUI binding. ">IrrIMGUI</a> as static library (<code>_IRRIMGUI_STATIC_LIB_</code>)</li>
-<li>Setup the preprocessor define <code>_IRRIMGUI_DIRECT_IRRLICHT_INCLUDE_</code> if your project includes Irrlicht like <code>#include &lt;irrlicht.h&gt;</code> and not like <code>#include &lt;Irrlicht\irrlicht.h&gt;</code></li>
-<li>Setup the following preprocessor defines if you want:<ul>
-<li><code>_IRRIMGUI_NATIVE_OPENGL_</code> to use the native OpenGL driver instead of the Irrlicht driver (test and fall-back solution)</li>
-<li><code>_IRRIMGUI_FAST_OPENGL_TEXTURE_HANDLE_</code> to use in the native OpenGL driver a dirty but very fast hack to determine the OpenGL texture ID from a ITexture object (this feature might be broken for untested Irrlicht versions)</li>
+<li>Hint: Look-up for further methods to load fonts in the GUI Handle class ( <a class="el" href="class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_handle.html#LoadFonts">LoadFonts</a> )</li>
 </ul>
-</li>
+<h4><a class="anchor" id="ShortUsageReferenceFontsStep2"></a> Step 2: Compile Fonts</h4>
+<div class="fragment"><div class="line">GUI.compileFonts();</div>
+</div><!-- fragment --><h4><a class="anchor" id="ShortUsageReferenceFontsStep3"></a> Step 3: Activate a Font</h4>
+<p>Inside the Main-Loop: </p><div class="fragment"><div class="line">ImGui::Begin(<span class="stringliteral">&quot;Different Fonts&quot;</span>, NULL, ImGuiWindowFlags_ShowBorders);</div>
+<div class="line">ImGui::Text(<span class="stringliteral">&quot;Default Font&quot;</span>);</div>
+<div class="line"></div>
+<div class="line">ImGui::PushFont(pCousine16);</div>
+<div class="line">ImGui::Text(<span class="stringliteral">&quot;Cousine-Regular.ttf; 16px&quot;</span>);</div>
+<div class="line">ImGui::PopFont(); <span class="comment">// switch back to last font (in this case default)</span></div>
+<div class="line"></div>
+<div class="line">ImGui::PushFont(pCousine24);</div>
+<div class="line">ImGui::Text(<span class="stringliteral">&quot;Cousine-Regular.ttf; 24px&quot;</span>);</div>
+<div class="line">ImGui::PopFont(); <span class="comment">// switch back to last font (in this case default)</span></div>
+<div class="line"></div>
+<div class="line">ImGui::End();</div>
+</div><!-- fragment --><h4><a class="anchor" id="ShortUsageReferenceFontsOptional"></a> Optional: Reset Fonts</h4>
+<div class="fragment"><div class="line">GUI.resetFonts();</div>
+</div><!-- fragment --><h3><a class="anchor" id="ShortUsageReferenceImages"></a> Use images</h3>
+<p><b>Full explanation:</b> <a href="https://github.com/ZahlGraf/IrrIMGUI/wiki/Example-4:-Using-Images">Example 4: Using Images</a></p>
+<h4><a class="anchor" id="ShortUsageReferenceImagesStep1"></a> Step 1: Create Irrlicht Image</h4>
+<div class="fragment"><div class="line">irr::video::IVideoDriver * <span class="keyword">const</span> pDriver = pDevice-&gt;getVideoDriver();</div>
+<div class="line"></div>
+<div class="line">irr::video::IImage * pSoyuz  = pDriver-&gt;createImageFromFile(<span class="stringliteral">&quot;../../media/Soyuz.jpg&quot;</span>);</div>
+<div class="line">irr::video::IImage * pSpaceX = pDriver-&gt;createImageFromFile(<span class="stringliteral">&quot;../../media/SpaceX.jpg&quot;</span>);</div>
+</div><!-- fragment --><h4><a class="anchor" id="ShortUsageReferenceImagesStep2"></a> Step 2: Create GUI Texture</h4>
+<div class="fragment"><div class="line"><a class="code" href="class_irr_i_m_g_u_i_1_1_i_g_u_i_texture.html">IrrIMGUI::IGUITexture</a> * pSoyuzTex  = GUI.createTexture(pSoyuz);</div>
+<div class="line"><a class="code" href="class_irr_i_m_g_u_i_1_1_i_g_u_i_texture.html">IrrIMGUI::IGUITexture</a> * pSpaceXTex = GUI.createTexture(pSpaceX);</div>
+</div><!-- fragment --><ul>
+<li>Hint: Look-up for further methods to create textures in the GUI Handle class ( <a class="el" href="class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_handle.html#CreateTextures">CreateTextures</a> )</li>
 </ul>
-<h3><a class="anchor" id="HowToStart_BuildTheLibrary"></a> Possibility 2: Build the Library</h3>
-<p>The second way is to build a shared or static library. This library will contain the Irrlicht IMGUI binding and the IMGUI System. The build tool CMake supports a build on many different platforms and with many different compilers. You can use CMake from command line or - more convenient for an individual configuration - with a graphical user interface called cmake-gui. I will explain the cmake-gui build process to you, since I expect that the CMake command line tools are anyway for experts that know how to build a library with CMake.</p>
+<h4><a class="anchor" id="ShortUsageReferenceImagesStep3"></a> Step 3: Use image in GUI</h4>
+<p>Inside the Main-Loop: </p><div class="fragment"><div class="line">ImGui::Begin(<span class="stringliteral">&quot;Images&quot;</span>);</div>
+<div class="line"></div>
+<div class="line">ImGui::Image(pSoyuzTex, ImVec2(200.0f, 132.0f));</div>
+<div class="line"></div>
+<div class="line">ImGui::Separator();</div>
+<div class="line"></div>
+<div class="line">ImGui::Image(pSpaceXTex, ImVec2(200.0f, 132.0f));</div>
+<div class="line"></div>
+<div class="line">ImGui::End();</div>
+</div><!-- fragment --><h4><a class="anchor" id="ShortUsageReferenceImagesStep4"></a> Step 4: Free-up image memory</h4>
+<div class="fragment"><div class="line">pSoyuz-&gt;drop();</div>
+<div class="line">pSpaceX-&gt;drop();</div>
+<div class="line">GUI.deleteTexture(pSoyuzTex);</div>
+<div class="line">GUI.deleteTexture(pSpaceXTex);</div>
+</div><!-- fragment --><h3><a class="anchor" id="ShortUsageReferenceTextures"></a> Use Irrlicht textures</h3>
+<p><b>Full explanation:</b> <a href="https://github.com/ZahlGraf/IrrIMGUI/wiki/Example-4:-Using-Images">Example 4: Using Images</a></p>
+<h4><a class="anchor" id="ShortUsageReferenceTexturesStep1"></a> Step 1: Create GUI Texture</h4>
+<div class="fragment"><div class="line"><span class="comment">// Create Render Target texture in Irrlicht</span></div>
+<div class="line">video::ITexture * <span class="keyword">const</span> pRenderTarget = pDriver-&gt;addRenderTargetTexture(core::dimension2d&lt;u32&gt;(384, 300), <span class="stringliteral">&quot;Moon&quot;</span>);</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// create GUI Texture handle</span></div>
+<div class="line">IGUITexture * <span class="keyword">const</span> pRenderTextureID  = GUI.createTexture(pRenderTarget);</div>
+</div><!-- fragment --><ul>
+<li>Hint: Look-up for further methods to create textures in the GUI Handle class ( <a class="el" href="class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_handle.html#CreateTextures">CreateTextures</a> )</li>
+</ul>
+<h4><a class="anchor" id="ShortUsageReferenceTexturesOptional"></a> Optional: Update GUI Texture</h4>
+<p>Inside the Main-Loop: </p><div class="fragment"><div class="line">GUI.updateTexture(pRenderTextureID, pRenderTarget);</div>
+</div><!-- fragment --><h4><a class="anchor" id="ShortUsageReferenceImagesStep2"></a> Step 2: Free-up GUI texture memory</h4>
+<div class="fragment"><div class="line">GUI.deleteTexture(pRenderTextureID);</div>
+</div><!-- fragment --><h3><a class="anchor" id="AdditionalLinks"></a> Additional Project Links</h3>
 <ul>
-<li>Start a command shell with a proper compiler setup and with the CMake binary directory inside your path variable (Visual Studio for example has a batch file that setups all variables and paths for your compiler: e.g. <code>VsDevCmd.bat</code>).</li>
-<li>Goto your <a class="el" href="namespace_irr_i_m_g_u_i.html" title="Main namespace for Irrlicht IMGUI binding. ">IrrIMGUI</a> directory and start the program <code>cmake-gui</code></li>
-<li>At top of the CMake GUI window you can enter two paths "Where is the source code" and "Where to build the binary"<ul>
-<li>Enter in the first text field "Where is the source code" the path to the <a class="el" href="namespace_irr_i_m_g_u_i.html" title="Main namespace for Irrlicht IMGUI binding. ">IrrIMGUI</a> library (the root directory of this library where also CMakeLists.txt is located)</li>
-<li>Enter in the second text field "Where to build the binary" the path where the temporary build files should be stored. For example <code>&lt;IrrIMGUI-Path&gt;\build\vc64\debug\shared</code> In this way you can have different build paths for different compilers and build variants.</li>
-</ul>
-</li>
-</ul>
-<div class="image">
-<img src="CMakeStart.png" alt="CMakeStart.png"/>
-<div class="caption">
-CMake after start</div></div>
-<ul>
-<li>Now click on "Configure" and select your compiler options:<ul>
-<li>For Visual Studio (command line build) select "NMake Makefiles" and "Use default native compilers"</li>
-<li>For MingW select "MSYS Makefile" and "Use default native compilers"</li>
-<li>You can also create a Visual Studio or Eclipse Project file to compile the library (I have not tested this so far).</li>
-</ul>
-</li>
-</ul>
-<div class="image">
-<img src="CMakeCompiler.png" alt="CMakeCompiler.png"/>
-<div class="caption">
-CMake Compiler Options</div></div>
-<ul>
-<li>Click on finish. Now CMake does some analysis of your environment. In the end some red error messages are displayed, since you first need to specify the Irrlicht path.</li>
-<li>All variables that are new are printed with a red background color. Setup at least the following variables:<ul>
-<li><em>CMAKE_BUILD_TYPE</em> = [Debug|Release] specify here if you want to build a debug or release library.</li>
-<li><em>CMAKE_INSTALL_PREFIX</em> = &lt;Install-Path&gt; specify here the path where cmake should copy the compiled files (e.g. <code>&lt;IrrIMGUI-Path&gt;\install\vc64\debug\shared</code>).</li>
-<li><em>IRRLICHT_BIN_DIR</em> = &lt;path-to-irrlicht-shared-lib&gt; specify here the path to the Irrlicht DLL or shared library</li>
-<li><em>IRRLICHT_LIB_DIR</em> = &lt;path-to-irrlicht-shared-lib&gt; specify here the path to the Irrlicht link library or static library</li>
-<li><em>IRRLICHT_INCLUDE_DIR</em> = &lt;path-to-irrlicht-shared-lib&gt; specify here the path to the Irrlicht headers</li>
-</ul>
-</li>
-<li>(Optional) Setup the options you need for your individual build:<ul>
-<li><em>IRRIMGUI_BUILD_EXAMPLE</em> = [On|Off] enable this option to build also the example programs.</li>
-<li><em>IRRIMGUI_INSTALL_EXAMPLE_SOURCES</em> = [On|Off] enable this if you want to copy the source files for the examples also to the binary directory.</li>
-<li><em>IRRIMGUI_INSTALL_MEDIA_FILES</em> = [On|Off] you should enable this, when you want to use the examples out of the box. Otherwise the examples would miss the media files and will not run.</li>
-<li><em>IRRIMGUI_IRRLICHT_DIRECT_INCLUDES</em> = [On|Off] enable this option when you include your Irrlicht headers with <code>#include &lt;irrlicht.h&gt;</code> instead of <code>#include &lt;Irrlicht\irrlicht.h&gt;</code></li>
-<li><em>IRRIMGUI_NATIVE_OPENGL</em> = [On|Off] enable this for version 0.1, since a Irrlicht driver is not available so far</li>
-<li><em>IRRIMGUI_STATIC_LIBRARY</em> = [On|Off] enable this if you want to compile <a class="el" href="namespace_irr_i_m_g_u_i.html" title="Main namespace for Irrlicht IMGUI binding. ">IrrIMGUI</a> as static library. Attention: In this case you also need a static Irrlicht library!</li>
-</ul>
-</li>
-</ul>
-<div class="image">
-<img src="CMakeOptions.png" alt="CMakeOptions.png"/>
-<div class="caption">
-CMake Build Options</div></div>
-<ul>
-<li>Afterwards click again on "Configure". Now all error messages should be gone away. You should also see in the text-output a summary of your build-configuration.</li>
-<li>Click on "Generate" to create the makefiles or project files for your build.</li>
-<li>Now you can start you build. Change in the command line to your build directory (the one you specified in the second text file of the CMake GUI e.g. <code>&lt;IrrIMGUI-Path&gt;\build\vc64\debug\shared</code>)</li>
-<li>Start the build on command line by:<ul>
-<li>Visual Studio: <code>nmake</code></li>
-<li>MingW: <code>make</code></li>
-</ul>
-</li>
-<li>(Optional) If <a href="http://www.stack.nl/~dimitri/doxygen/">Doxygen</a> and <a href="http://www.graphviz.org/">DOT/Graphviz</a> are installed at your computer, you can also build a documentation by:<ul>
-<li>Visual Studio: <code>nmake doc</code></li>
-<li>MingW: <code>make doc</code></li>
-</ul>
-</li>
-<li>At the end install your library files by:<ul>
-<li>Visual Studio: <code>nmake install</code></li>
-<li>MingW: <code>make install</code></li>
-</ul>
-</li>
-</ul>
-<h3><a class="anchor" id="HowToStart_HelloWorldExample"></a> HelloWorld Example</h3>
-<p>The HelloWorld example builds up a simple scene with Irrlicht (I expect that you have some experience with Irrlicht. If not, please look first at the Irrlicht Tutorial). Furthermore a simple IMGUI window with some text and an Exit-button is drawn. The full source code can be found in the file <a href="examples\01.HelloWorld\main.cpp">examples\01.HelloWorld.cpp</a>. In this description, I will simply highlight the IMGUI specific code.</p>
-<ul>
-<li><b>Setup the Irrlicht device:</b> When you setup the Irrlicht device, you can use the <a class="el" href="namespace_irr_i_m_g_u_i.html" title="Main namespace for Irrlicht IMGUI binding. ">IrrIMGUI</a> EventReceiver to pass your Mouse and Keyboard events directly to the GUI.</li>
-</ul>
-<h2><a class="anchor" id="Download"></a>Download</h2>
-<h2><a class="anchor" id="VersionHistory"></a>Version History</h2>
-<h3>22.09.2015 - Version: 0.1.0</h3>
-<h4>Highlights</h4>
-<ul>
-<li>Initial Release</li>
-<li>OpenGL native driver</li>
-<li>Full multi-font support</li>
-<li>Full support for IImage, ITexture and Raw Image data</li>
-</ul>
-<h4>Tested Dependency Versions</h4>
-<ul>
-<li><a href="https://github.com/ocornut/imgui/tree/v1.45">IMGUI 1.45</a></li>
-<li><a href="http://irrlicht.sourceforge.net/2015/09/irrlicht-1-8-3-released/">Irrlicht 1.8.3</a></li>
-<li><a href="http://www.cmake.org/">CMake 3.3</a></li>
-<li>Other versions may work as well, but they are not tested.</li>
-</ul>
-<h4>Tested Build Variants</h4>
-<ul>
-<li>Windows 64bit, Visual Studio 2015<ul>
-<li>Shared library (debug build) </li>
-</ul>
-</li>
+<li><a href="https://github.com/ocornut/imgui">IMGUI GitHub Project</a></li>
+<li><a href="https://github.com/ocornut/imgui/wiki">IMGUI Wiki</a></li>
+<li><a href="http://irrlicht.sourceforge.net/">Irrlicht Project</a></li>
+<li><a href="http://irrlicht.sourceforge.net/tutorials/">Irrlicht Tutorials</a></li>
+<li><a href="http://irrlicht.sourceforge.net/docu/">Irrlicht API</a></li>
+<li><a href="http://irrlicht3d.org/wiki/">Irrlicht Wiki</a> </li>
 </ul>
 </div></div><!-- contents -->
 <!-- start footer part -->

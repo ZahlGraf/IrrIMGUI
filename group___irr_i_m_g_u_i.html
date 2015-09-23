@@ -144,9 +144,9 @@ Configuration defines</h2></td></tr>
 <tr class="memitem:ga36533d7662c6c0f6fb22dccd3720c369"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___irr_i_m_g_u_i.html#ga36533d7662c6c0f6fb22dccd3720c369">_IRRIMGUI_EXPORTS_</a></td></tr>
 <tr class="memdesc:ga36533d7662c6c0f6fb22dccd3720c369"><td class="mdescLeft">&#160;</td><td class="mdescRight">If this is defined during compilation, it will prepare the headers to export the symbols to the DLL shared libary.  <a href="#ga36533d7662c6c0f6fb22dccd3720c369">More...</a><br /></td></tr>
 <tr class="separator:ga36533d7662c6c0f6fb22dccd3720c369"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5af665ab35fac1593e0e93143644be74"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___irr_i_m_g_u_i.html#ga5af665ab35fac1593e0e93143644be74">_IRRIMGUI_DIRECT_IRRLICHT_INCLUDE_</a></td></tr>
-<tr class="memdesc:ga5af665ab35fac1593e0e93143644be74"><td class="mdescLeft">&#160;</td><td class="mdescRight">If this is defined during compilation, it will include irrlicht library from with &lt;irrlicht.h&gt; instead of &lt;Irrlicht/irrlicht.h&gt;  <a href="#ga5af665ab35fac1593e0e93143644be74">More...</a><br /></td></tr>
-<tr class="separator:ga5af665ab35fac1593e0e93143644be74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaf6ec1b318b2f77727bffde3cedddff4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___irr_i_m_g_u_i.html#gaaf6ec1b318b2f77727bffde3cedddff4">_IRRIMGUI_SUBDIR_IRRLICHT_INCLUDE_</a></td></tr>
+<tr class="memdesc:gaaf6ec1b318b2f77727bffde3cedddff4"><td class="mdescLeft">&#160;</td><td class="mdescRight">If this is defined during compilation, it will include irrlicht library from with &lt;Irrlicht/irrlicht.h&gt; instead of &lt;irrlicht.h&gt;  <a href="#gaaf6ec1b318b2f77727bffde3cedddff4">More...</a><br /></td></tr>
+<tr class="separator:gaaf6ec1b318b2f77727bffde3cedddff4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac2c6815a1028dee59ce99b0efa9514af"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___irr_i_m_g_u_i.html#gac2c6815a1028dee59ce99b0efa9514af">_IRRIMGUI_NATIVE_OPENGL_</a></td></tr>
 <tr class="memdesc:gac2c6815a1028dee59ce99b0efa9514af"><td class="mdescLeft">&#160;</td><td class="mdescRight">If this is defined during compilation, it will use the native OpenGL renderer for IMGUI instead of the Irrlicht renderer.  <a href="#gac2c6815a1028dee59ce99b0efa9514af">More...</a><br /></td></tr>
 <tr class="separator:gac2c6815a1028dee59ce99b0efa9514af"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -186,22 +186,6 @@ Automatically set defines</h2></td></tr>
 <div class="line">}</div>
 </div><!-- fragment --><p>If you need to be more flexible by programming the event receiver, you can create a completely own event receiver, that is inherited from <a class="el" href="class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_event_storage.html" title="Stores the state of the Keyboard and Mouse input for IMGUI. ">IrrIMGUI::CIMGUIEventStorage</a> Here you need to set the attributes of <a class="el" href="class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_event_storage.html" title="Stores the state of the Keyboard and Mouse input for IMGUI. ">IrrIMGUI::CIMGUIEventStorage</a> manually to pass input informations to the IMGUI system. </p>
 <h2 class="groupheader">Macro Definition Documentation</h2>
-<a class="anchor" id="ga5af665ab35fac1593e0e93143644be74"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define _IRRIMGUI_DIRECT_IRRLICHT_INCLUDE_</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>If this is defined during compilation, it will include irrlicht library from with &lt;irrlicht.h&gt; instead of &lt;Irrlicht/irrlicht.h&gt; </p>
-
-<p>Definition at line <a class="el" href="_irr_i_m_g_u_i_config_8h_source.html#l00052">52</a> of file <a class="el" href="_irr_i_m_g_u_i_config_8h_source.html">IrrIMGUIConfig.h</a>.</p>
-
-</div>
-</div>
 <a class="anchor" id="ga36533d7662c6c0f6fb22dccd3720c369"></a>
 <div class="memitem">
 <div class="memproto">
@@ -265,6 +249,22 @@ Automatically set defines</h2></td></tr>
 <p>If this is defined during compilation, it will prepare the source for a static library. </p>
 
 <p>Definition at line <a class="el" href="_irr_i_m_g_u_i_config_8h_source.html#l00045">45</a> of file <a class="el" href="_irr_i_m_g_u_i_config_8h_source.html">IrrIMGUIConfig.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gaaf6ec1b318b2f77727bffde3cedddff4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define _IRRIMGUI_SUBDIR_IRRLICHT_INCLUDE_</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>If this is defined during compilation, it will include irrlicht library from with &lt;Irrlicht/irrlicht.h&gt; instead of &lt;irrlicht.h&gt; </p>
+
+<p>Definition at line <a class="el" href="_irr_i_m_g_u_i_config_8h_source.html#l00052">52</a> of file <a class="el" href="_irr_i_m_g_u_i_config_8h_source.html">IrrIMGUIConfig.h</a>.</p>
 
 </div>
 </div>
