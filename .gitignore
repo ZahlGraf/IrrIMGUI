@@ -9,3 +9,8 @@ install
 build
 Doxygen/html/ 
 /Doxygen/html
+/compiled/bin
+/compiled/lib
+/compiled/example
+/compiled/includes
+/compiled/media
