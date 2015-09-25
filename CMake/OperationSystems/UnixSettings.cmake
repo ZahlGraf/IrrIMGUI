@@ -1,0 +1,11 @@
+
+if (UNIX)						
+	SET (OS_DEPENDENT_LIBRARIES
+		${OS_DEPENDENT_LIBRARIES}
+		Xxf86vm
+	)	
+	
+	SET (IMGUI_API_VALUE
+	)
+	
+endif ()

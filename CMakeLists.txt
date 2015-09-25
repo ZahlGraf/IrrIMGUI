@@ -10,6 +10,9 @@ SET(CMAKE_MODULE_PATH
 	${CMAKE_SOURCE_DIR}/CMake
 	${CMAKE_SOURCE_DIR}/CMake/Dependencies
 	${CMAKE_SOURCE_DIR}/CMake/Options
+	${CMAKE_SOURCE_DIR}/CMake/Compiler
+	${CMAKE_SOURCE_DIR}/CMake/Packages
+	${CMAKE_SOURCE_DIR}/CMake/OperationSystems
 )
 
 # Contains a list of source files...
@@ -17,6 +20,14 @@ INCLUDE(Version)
 
 # Contains a list of source files...
 INCLUDE(SourceFiles)
+
+# Compiler dependent settings
+INCLUDE(CompilerMSVCLikeSettings)
+INCLUDE(CompilerGCCLikeSettings)
+
+# OS dependent settings
+INCLUDE(WindowsSettings)
+INCLUDE(UnixSettings)
 
 # Option dependent settings
 INCLUDE(OptionStaticLib)
@@ -28,6 +39,8 @@ INCLUDE(OptionNativeOpenGL)
 # Dependency related settings
 INCLUDE(DependencyIMGUI)
 INCLUDE(DependencyIrrlicht)
+INCLUDE(DependencyOpenGL)
+INCLUDE(DependencyDirectX9)
 INCLUDE(DependencyDoxygen)
 
 # Print all settings
@@ -65,12 +78,12 @@ if (IRRIMGUI_STATIC_LIBRARY)
 	ADD_LIBRARY (IrrIMGUI ${ALL_SOURCE_FILES} )
 else ()
 	ADD_LIBRARY (IrrIMGUI SHARED ${ALL_SOURCE_FILES} )
-	SET_TARGET_PROPERTIES(IrrIMGUI PROPERTIES COMPILE_DEFINITIONS "_IRRIMGUI_EXPORTS_;IMGUI_API=__declspec(dllexport);IRRLICHT_EXPORTS=1" )
+	SET_TARGET_PROPERTIES(IrrIMGUI PROPERTIES COMPILE_DEFINITIONS "_IRRIMGUI_EXPORTS_;${IMGUI_API_VALUE};IRRLICHT_EXPORTS=1" )
 	
 endif ()
 SET_TARGET_PROPERTIES(IrrIMGUI PROPERTIES VERSION ${VERSION_STRING} SOVERSION ${SOVERSION_STRING})
 
-TARGET_LINK_LIBRARIES(IrrIMGUI ${IRRIMGUI_DEPENDENCY_LIBRARIES})
+TARGET_LINK_LIBRARIES(IrrIMGUI ${IRRIMGUI_DEPENDENCY_LIBRARIES} ${OS_DEPENDENT_LIBRARIES})
 
 INSTALL(TARGETS IrrIMGUI
 	ARCHIVE DESTINATION  "lib" CONFIGURATIONS Debug Release MinSizeRel RelWithDebInfo
