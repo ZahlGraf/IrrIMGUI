@@ -36,6 +36,7 @@
 #ifdef _IRRIMGUI_NATIVE_OPENGL_
 
 // library includes
+#include <IrrIMGUI/IrrIMGUIConfig.h>
 #ifdef _IRRIMGUI_WINDOWS_
 #include <windows.h>
 #endif // _IRRIMGUI_WINDOWS_
