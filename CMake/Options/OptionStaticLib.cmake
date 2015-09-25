@@ -4,7 +4,9 @@ if (IRRIMGUI_STATIC_LIBRARY)
 	message(STATUS "Build static library...")
 	ADD_DEFINITIONS(	
 	-D_IRRIMGUI_STATIC_LIB_
+	-D_IRR_STATIC_LIB_
 	)		
+	
 else ()
 	message(STATUS "Build shared library...")
 endif ()
