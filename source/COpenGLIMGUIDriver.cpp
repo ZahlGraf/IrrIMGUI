@@ -1,7 +1,7 @@
 /**
  * The MIT License (MIT)
  *
- * Copyright (c) 2015-2016 Andre Netzeband and Omar Cornut
+ * Copyright (c) 2015-2016 Andre Netzeband based on example OpenGL driver for IMGUI from Omar Cornut
  *
  * The original OpenGL implementation where this driver is based on was implemented
  * by Omar Cornut as an example how to use the IMGUI with OpenGL.
@@ -36,8 +36,10 @@
 #ifdef _IRRIMGUI_NATIVE_OPENGL_
 
 // library includes
+#ifdef _IRRIMGUI_WINDOWS_
 #include <windows.h>
-#include <GL/GL.h>
+#endif // _IRRIMGUI_WINDOWS_
+#include <GL/gl.h>
 
 // module includes
 #include "COpenGLIMGUIDriver.h"
@@ -152,7 +154,7 @@ namespace Driver
     rGUIIO.ImeWindowHandle = reinterpret_cast<HWND>(rExposedVideoData.OpenGLWin32.HWnd);
 
 #else
-#warning "Maybe for Linux you have to pass a X11 Window handle (rExposedVideoData.OpenGLLinux.X11Window)?"
+//Maybe for Linux you have to pass a X11 Window handle (rExposedVideoData.OpenGLLinux.X11Window)?
 #endif
 
     return;
