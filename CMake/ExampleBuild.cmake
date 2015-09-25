@@ -2,6 +2,9 @@ SET(CMAKE_MODULE_PATH
 	${CMAKE_MODULE_PATH} 
 	${CMAKE_CURRENT_LIST_DIR}/Dependencies
 	${CMAKE_CURRENT_LIST_DIR}/Options
+	${CMAKE_CURRENT_LIST_DIR}/Compiler
+	${CMAKE_CURRENT_LIST_DIR}/Packages	
+	${CMAKE_CURRENT_LIST_DIR}/OperationSystems	
 )
 
 FUNCTION(BUILD_APP_GENERIC APP_NAME APP_SOURCE_FILES APP_HEADER_FILES APP_INSTALL_FILES, APP_INSTALL_DIRS APP_IS_WIN32 APP_INSTALL_PATH)
@@ -46,6 +49,15 @@ FUNCTION(BUILD_APP_GENERIC APP_NAME APP_SOURCE_FILES APP_HEADER_FILES APP_INSTAL
 	
 	# When the examples are build without irrlicht library, we need to apply the same settings like for irrlicht
 	if (ZZZ_EXAMPLE_SINGLE_COMPILE)
+	
+		# Compiler dependent settings
+		INCLUDE(CompilerMSVCLikeSettings)
+		INCLUDE(CompilerGCCLikeSettings)
+
+		# OS dependent settings
+		INCLUDE(OperationSystemLinux)
+		INCLUDE(OperationSystemWindows)
+		
 		# Option dependent settings
 		INCLUDE(OptionStaticLib)
 		INCLUDE(OptionBuildExamples)
@@ -54,8 +66,10 @@ FUNCTION(BUILD_APP_GENERIC APP_NAME APP_SOURCE_FILES APP_HEADER_FILES APP_INSTAL
 		INCLUDE(OptionNativeOpenGL)
 
 		# Dependency related settings
-		INCLUDE(DependencyIMGUI)
 		INCLUDE(DependencyIrrlicht)
+		INCLUDE(DependencyOpenGL)
+		INCLUDE(DependencyDirectX9)
+		INCLUDE(DependencyDoxygen)
 
 		# Print all settings
 		#INCLUDE(PrintSettings)
@@ -75,7 +89,13 @@ FUNCTION(BUILD_APP_GENERIC APP_NAME APP_SOURCE_FILES APP_HEADER_FILES APP_INSTAL
 	else ()
 		ADD_EXECUTABLE(${APP_NAME} ${ALL_APP_SOURCE_FILES})
 	endif ()
-	TARGET_LINK_LIBRARIES(${APP_NAME} ${IRRIMGUI_LIBRARY} ${IRRIMGUI_DEPENDENCY_LIBRARIES})
+	TARGET_LINK_LIBRARIES(${APP_NAME} ${IRRIMGUI_LIBRARY} ${IRRIMGUI_DEPENDENCY_LIBRARIES} ${OS_DEPENDENT_LIBRARIES})
+
+#	if (GCC_LIKE_COMPILER)
+#		SET_TARGET_PROPERTIES(${APP_NAME} PROPERTIES
+#			COMPILE_FLAGS "-static -lpthread -static-libgcc -static-libstdc++"
+#		)
+#	endif ()
 
 	# Target installation
 	INSTALL(TARGETS ${APP_NAME}
