@@ -6,7 +6,6 @@ if (IRRIMGUI_NATIVE_OPENGL)
 	-D_IRRIMGUI_NATIVE_OPENGL_
 	)
 	SET (IRRIMGUI_FAST_OPENGL_TEXTURE_CREATION ON CACHE BOOL "Enables the fast OpenGL texture creation to translate a ITexture object to an OpenGL handle instead of creating a copy. This is a very instable hack. Disable this, when the example 7 (RenderWindow) fails.")	
-	INCLUDE(DependencyOpenGL)	
 else ()
 	message(STATUS "Use Irrlicht based render driver...")
 endif ()
