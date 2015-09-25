@@ -14,3 +14,5 @@ Doxygen/html/
 /compiled/example
 /compiled/includes
 /compiled/media
+/release-tools/*
+/release-tools
