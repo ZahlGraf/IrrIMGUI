@@ -105,11 +105,17 @@
 #define IRRIMGUI_DLL_API
 #endif // _IRRIMGUI_STATIC_LIB_
 
+#else //_IRRIMGUI_WINDOWS_
+// non windows settings
+
+#define IRRIMGUI_DLL_API
+
+#endif //_IRRIMGUI_WINDOWS_
+
+// os-independent settings
 #ifndef IMGUI_API
 #define IMGUI_API IRRIMGUI_DLL_API
 #endif
-
-#endif //_IRRIMGUI_WINDOWS_
 
 /**
  * @}
