@@ -182,7 +182,7 @@ namespace IrrIMGUI
           break;
       }
 
-      if (rEvent.KeyInput.Char > 0)
+      if ((rEvent.KeyInput.Char > 0) && IsKeyPressedDown)
       {
         if (!mCharFifo.isFull())
         {
