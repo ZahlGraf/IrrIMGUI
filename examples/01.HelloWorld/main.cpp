@@ -150,7 +150,6 @@ int main(void)
   catch(std::exception &rEx)
   {
     std::cout << rEx.what() << std::flush;
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
   }
 
   return 0;
