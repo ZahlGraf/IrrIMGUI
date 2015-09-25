@@ -1,7 +1,7 @@
 /**
  * The MIT License (MIT)
  *
- * Copyright (c) 2015-2016 Andre Netzeband and Omar Cornut
+ * Copyright (c) 2015-2016 Andre Netzeband based on example OpenGL driver for IMGUI from Omar Cornut
  *
  * The original OpenGL implementation where this driver is based on was implemented
  * by Omar Cornut as an example how to use the IMGUI with OpenGL.
