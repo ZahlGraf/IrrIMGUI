@@ -230,10 +230,13 @@ tag_all: check_version_number
 .PHONY: push_release
 push_release: check_version_number
 	@echo -e "${VIOLET} Push to doxygen branch ${NORMAL}"
+	@cd ${DOXYGEN_OUT_DIR} && git push origin
 	@cd ${DOXYGEN_OUT_DIR} && git push origin ${VERSION_TAG}-doxygen
 	@echo -e "${VIOLET} Push to tools branch ${NORMAL}"
+	@git push origin
 	@git push origin ${VERSION_TAG}-tools
 	@echo -e "${VIOLET} Push to source branch ${NORMAL}"
+	@cd ${REPRO_DIR} && git push origin
 	@cd ${REPRO_DIR} && git push origin ${VERSION_TAG}
 	
 .PHONY: prepare_release
