@@ -12,7 +12,6 @@
  * [HelloWorld Example](#HowToStart_HelloWorldExample)
  * [Further Examples](#HowToStart_FurtherExamples)
  * [API Documentation](#HowToStart_APIDocumentation)
-* [Download](#Download)
 * [Version History](#VersionHistory)
 
 ## <a name="Introduction"></a>Introduction
@@ -34,7 +33,7 @@ Following Features are supported so far:
 * Support for drawing Irrlicht Image objects (IImage) inside the GUI.
 * Support for drawing Irrlicht Texture objects (ITextrue) inside the GUI (thus you can render 3D content directly into GUI elements).
 
-## <a name="LatestVersionNews"></a>LatestVersionNews
+## <a name="LatestVersionNews"></a>Latest Version
 
 ### Upcomming: master-branch (unstable not tested yet)
 
@@ -49,12 +48,7 @@ Following Features are supported so far:
 #### Tested Dependency Versions
 * [IMGUI 1.45](https://github.com/ocornut/imgui/tree/v1.45)
 * [Irrlicht 1.8.3](http://irrlicht.sourceforge.net/2015/09/irrlicht-1-8-3-released/)
-* [CMake 3.3](http://www.cmake.org/)
 * Other versions may work as well, but they are not tested.
-
-#### Tested Build Variants
-* Windows 64bit, Visual Studio 2015
- * Shared library (debug build)
 
 ## <a name="ExampleImages"></a>Example Images
 A picture is worth a thousand Words. So I will show you some examples:
@@ -83,7 +77,7 @@ You can also draw a render target texture to the GUI (example program 06.RenderW
 ### <a name="HowToStart_Preparations"></a> Preparations
 
 * You need a compiled [Irrlicht](http://irrlicht.sourceforge.net/) library. Please test with the Irrlicht examples, if the library works as expected.
-* Download the Irrlicht IMGUI binding (IrrIMGUI): [Download](#Download)
+* Download the Irrlicht IMGUI binding (IrrIMGUI): [Download](#LatestVersion)
 * Download the latest version of [IMGUI](https://github.com/ocornut/imgui/) and copy all files from the ZIP into the directory `<IrrIMGUI-Path>/dependency/IMGUI`
   The IrrIMGUI and IMGUI files are compiled together to a single shared or static library file. 
 * When you want to compile IrrIMGUI as library, you need [CMake](http://www.cmake.org/) to generate the makefiles or project file you want to use
@@ -288,10 +282,6 @@ You can find further example descriptions inside the [Wiki](https://github.com/Z
 
 A full API description can be found inside the Doxygen [documentation](http://zahlgraf.github.io/IrrIMGUI/).
  
-## <a name="Download"></a>Download
-
-* TODO
-
 ## <a name="VersionHistory"></a>Version History
 
 
