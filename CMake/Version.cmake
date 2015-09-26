@@ -1,3 +1,8 @@
+# edit the following three version numbers
+SET(VERSION_MAJOR 0)
+SET(VERSION_MINOR 1)
+SET(VERSION_RELEASE 0)
+
 #
 # The MIT License (MIT)
 #
@@ -21,11 +26,6 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 #
-
-# edit the following three version numbers
-SET(VERSION_MAJOR 0)
-SET(VERSION_MINOR 1)
-SET(VERSION_RELEASE 0)
 
 # this is from makefile, do not edit it
 SET(VERSION_STRING "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_RELEASE}")

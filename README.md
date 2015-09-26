@@ -36,12 +36,15 @@ Following Features are supported so far:
 
 ## <a name="LatestVersionNews"></a>LatestVersionNews
 
-### Current Version: 0.1.0
+### Upcomming: master-branch (unstable not tested yet)
+
 #### Highlights
-* Initial Release
 * OpenGL native driver
 * Full multi-font support
 * Full support for IImage, ITexture and Raw Image data
+
+#### Fixes
+* nothing planned
 
 #### Tested Dependency Versions
 * [IMGUI 1.45](https://github.com/ocornut/imgui/tree/v1.45)
