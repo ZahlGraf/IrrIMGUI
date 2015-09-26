@@ -49,7 +49,7 @@ Following Features are supported so far:
 * Other versions may work as well, but they are not tested.
 
 
-### 27.9.2015: Version 0.1.0 ([Download Source](https://github.com/ZahlGraf/IrrlichtCMake/archive/v0.1.0.zip)) ([Download Binaries](https://irrimgui.netzeband.eu/binaries/irrimgui_v0.1.0.zip))
+### 27.9.2015: Version 0.1.0 ([Download Source](https://github.com/ZahlGraf/IrrIMGUI/archive/v0.1.0.zip)) ([Download Binaries](https://irrimgui.netzeband.eu/binaries/irrimgui_v0.1.0.zip))
 
 #### Highlights
 * OpenGL native driver
