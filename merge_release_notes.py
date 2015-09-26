@@ -325,7 +325,7 @@ def writeToOutput(ReadmeFileContent, VersionString):
       File.write(Line)
   File.write("\n")    
   File.write("\n")    
-  File.write("### "+Date+": Version "+VersionString+" ([Download Source](https://github.com/ZahlGraf/IrrlichtCMake/archive/v"+VersionString+".zip)) ([Download Binaries](https://irrimgui.netzeband.eu/binaries/irrimgui_v"+VersionString+".zip))\n")    
+  File.write("### "+Date+": Version "+VersionString+" ([Download Source](https://github.com/ZahlGraf/IrrIMGUI/archive/v"+VersionString+".zip)) ([Download Binaries](https://irrimgui.netzeband.eu/binaries/irrimgui_v"+VersionString+".zip))\n")    
   File.write("\n")    
 
   for i, Line in enumerate(ReadmeFileContent["UpcommingHighlights"]):
