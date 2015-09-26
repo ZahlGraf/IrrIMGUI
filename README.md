@@ -294,20 +294,4 @@ A full API description can be found inside the Doxygen [documentation](http://za
 
 ## <a name="VersionHistory"></a>Version History
 
-### 22.09.2015 - Version: 0.1.0
-#### Highlights
-* Initial Release
-* OpenGL native driver
-* Full multi-font support
-* Full support for IImage, ITexture and Raw Image data
-
-#### Tested Dependency Versions
-* [IMGUI 1.45](https://github.com/ocornut/imgui/tree/v1.45)
-* [Irrlicht 1.8.3](http://irrlicht.sourceforge.net/2015/09/irrlicht-1-8-3-released/)
-* [CMake 3.3](http://www.cmake.org/)
-* Other versions may work as well, but they are not tested.
-
-#### Tested Build Variants
-* Windows 64bit, Visual Studio 2015
- * Shared library (debug build)
 
