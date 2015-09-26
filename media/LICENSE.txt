@@ -8,3 +8,22 @@ Phobos.jpg from http://nasa3d.arc.nasa.gov
 Soyuz.jpg from https://pixabay.com/en/satellite-soyuz-spaceship-67718/
 SpaceX.jpb from https://pixabay.com/en/satellite-orbit-spacex-aeronautics-693216/
 azoft-sans.ttf from http://www.fontsquirrel.com/fonts/azoft-sans (http://www.azoft.com)
+
+Fonts from IMGUI:
+ Cousine-Regular.ttf
+   Digitized data copyright (c) 2010 Google Corporation.
+   Licensed under the SIL Open Font License, Version 1.1   
+
+ DroidSans.ttf
+   Copyright (c) Steve Matteson
+   Apache License, version 2.0
+   http://www.google.com/fonts/specimen/Droid+Sans
+
+ ProggyClean.ttf
+   Copyright (c) 2004, 2005 Tristan Grimmer
+   MIT License
+   recommended loading setting in ImGui: Size = 13.0, DisplayOffset.Y = +1
+
+ Karla-Regular
+   Copyright (c) 2012, Jonathan Pinhorn
+   SIL OPEN FONT LICENSE Version 1.1
