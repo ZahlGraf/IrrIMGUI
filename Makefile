@@ -124,9 +124,11 @@ release_bin_static_lib:
 RELEASE_DIR_SHARED_LIB=${RELEASE_DIR}/bin/${INSTALL_DIR_COMPILER}/${INSTALL_DIR_DEBUGTYPE}-${INSTALL_DIR_LIBTYPE}
 .PHONY: release_bin_shared_lib
 release_bin_shared_lib:
-	@-rm -Rv ${RELEASE_DIR_SHARED_LIB}
-	@mkdir -p ${RELEASE_DIR_SHARED_LIB}
-	@cp -v ${INSTALL_DIR}/bin/* ${RELEASE_DIR_SHARED_LIB}	
+	@if [ -d ${INSTALL_DIR}/bin ]; then   \
+	  rm -Rv ${RELEASE_DIR_SHARED_LIB};   \
+	  mkdir -p ${RELEASE_DIR_SHARED_LIB}; \
+	  cp -v ${INSTALL_DIR}/bin/* ${RELEASE_DIR_SHARED_LIB}; \
+	fi
 	
 INCLUDE_OUT_DIR=${RELEASE_DIR}/includes
 INCLUDES_VERSION=${shell cat ${INCLUDE_INSTALL}/version.txt}
@@ -181,6 +183,7 @@ release_notes: check_version_number
 .PHONY: create_binary_zip	
 create_binary_zip: check_version_number
 	@echo "Create ZIP file..."
+	@-rm -Rv irrimgui-${VERSION_TAG}.zip
 	@7z a -r -tzip irrimgui-${VERSION_TAG}.zip Binary
 	@echo -e "${LGREEN}Created ZIP file...${NORMAL}"	
 
