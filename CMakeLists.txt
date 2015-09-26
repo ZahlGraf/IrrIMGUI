@@ -45,7 +45,7 @@ INCLUDE(SourceFiles)
 
 # Compiler dependent settings
 INCLUDE(CompilerMSVCLikeSettings)
-INCLUDE(CompilerGCCLikeSettings)
+INCLUDE(CompilerGccLikeSettings)
 
 # OS dependent settings
 INCLUDE(WindowsSettings)

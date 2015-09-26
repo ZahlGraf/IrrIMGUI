@@ -76,7 +76,7 @@ FUNCTION(BUILD_APP_GENERIC APP_NAME APP_SOURCE_FILES APP_HEADER_FILES APP_INSTAL
 	
 		# Compiler dependent settings
 		INCLUDE(CompilerMSVCLikeSettings)
-		INCLUDE(CompilerGCCLikeSettings)
+		INCLUDE(CompilerGccLikeSettings)
 
 		# OS dependent settings
 		INCLUDE(OperationSystemLinux)
