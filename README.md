@@ -19,10 +19,10 @@
 The goal of IrrIMGUI is to provide a render engine for the IMGUI system that works together with Irrlicht.
 
 * [Irrlicht](http://irrlicht.sourceforge.net/) is an easy to learn and very fast 3D graphic engine, that supports OpenGL and DirectX.
-* [IMGUI](https://github.com/ocornut/imgui/) is an Immediate Mode GUI system, that allows the user to draw complex GUI widgets very easily. Furthermore, I think it has a very nice and modern default graphic style.
+* [IMGUI](https://github.com/ocornut/imgui/) is an Immediate Mode GUI system, that allows users to draw complex GUI widgets very easily. Furthermore, I think it has a very nice and modern default graphic style.
 
 Of course IMGUI is not as complex like CEGUI. But for small application it is the ideal solution to have a very potential user interface with just some lines of code. 
-If you need instead a complex user interface with scripted widgets and events, and a highly adaptable template system, you should use CEGUI instead. But take care, you will end up with much more code and dependencies.
+However if you need a complex user interface with scripted widgets and events, and a highly adaptable template system, you should use CEGUI instead. But take care, you will end up with much more code and dependencies.
 
 Following Features are supported so far:
 * An Irrlicht bases render engine, that uses high level Irrlicht functions to draw the GUI elements (upcoming version 0.2).
