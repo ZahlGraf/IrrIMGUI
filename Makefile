@@ -183,8 +183,8 @@ release_notes: check_version_number
 .PHONY: create_binary_zip	
 create_binary_zip: check_version_number
 	@echo "Create ZIP file..."
-	@-rm -Rv irrimgui-${VERSION_TAG}.zip
-	@7z a -r -tzip irrimgui-${VERSION_TAG}.zip Binary
+	@-rm -Rv irrimgui_${VERSION_TAG}.zip
+	@7z a -r -tzip irrimgui_${VERSION_TAG}.zip Binary
 	@echo -e "${LGREEN}Created ZIP file...${NORMAL}"	
 
 .PHONY: release	
