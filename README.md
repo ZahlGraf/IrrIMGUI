@@ -38,7 +38,7 @@ Following Features are supported so far:
 ### Upcomming: master-branch (unstable not tested yet)
 
 #### Highlights
-* nothing planned
+* A Irrlicht high level render driver, that is compatible with almost all Irrlicht drivers (DirectX, OpenGL, ...)
 
 #### Fixes
 * nothing planned
