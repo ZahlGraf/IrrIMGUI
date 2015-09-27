@@ -206,7 +206,7 @@ release: check_version_number
 tag_doxygen: check_version_number
 	@cd ${DOXYGEN_OUT_DIR} && git add .
 	@-cd ${DOXYGEN_OUT_DIR} && git commit -a -m "Release ${VERSION}"
-	@cd ${DOXYGEN_OUT_DIR} && git tag -a ${VERSION_TAG}-doxygen -m "Release ${VERSION}"
+	@cd ${DOXYGEN_OUT_DIR} && git tag ${VERSION_TAG}-doxygen
 	
 .PHONY: tag_source
 tag_source: check_version_number
@@ -216,7 +216,7 @@ tag_source: check_version_number
 .PHONY: tag_tools
 tag_tools: check_version_number
 	@make --no-print-directory test_if_no_changed_files_here 
-	@git tag -a ${VERSION_TAG}-tools -m "Release ${VERSION}"
+	@git tag ${VERSION_TAG}-tools
 
 .PHONY: tag_all
 tag_all: check_version_number
