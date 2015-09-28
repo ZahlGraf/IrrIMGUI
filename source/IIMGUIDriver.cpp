@@ -35,6 +35,7 @@
 #include <IrrIMGUI/IrrIMGUI.h>
 #include "IIMGUIDriver.h"
 #include "COpenGLIMGUIDriver.h"
+#include "CIrrlichtIMGUIDriver.h"
 #include "IrrIMGUIDebug_priv.h"
 
 /**
@@ -112,7 +113,10 @@ namespace Private
           break;
       }
 #else
-#error "Please implement correct driver!"
+
+      mpInstance = new Driver::CIrrlichtIMGUIDriver(pDevice);
+      mpFontTexture = mpInstance->createFontTexture();
+
 #endif
 
     }
