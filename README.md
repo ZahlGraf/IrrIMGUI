@@ -233,7 +233,7 @@ how to build a library with CMake.
 ### <a name="HowToStart_HelloWorldExample"></a> HelloWorld Example
 
 The HelloWorld example builds up a simple scene with Irrlicht (I expect that you have some experience with Irrlicht. If not, please look first at the Irrlicht Tutorial). Furthermore it draws a simple IMGUI window with some text and an Exit-button.
-The full source code can be found in the file [examples/01.HelloWorld/main.cpp](examples/01.HelloWorld/main.cpp). In this description, I will simply highlight the IMGUI specific code.
+The full source code can be found in the file [examples/01.HelloWorld/main.cpp](https://github.com/ZahlGraf/IrrIMGUI/blob/master/examples/01.HelloWorld/main.cpp). In this description, I will simply highlight the IMGUI specific code.
 
 * **Include the IrrIMGUI main header:** Include the file `IrrIMGUI/IrrIMGUI.h` to your project.
 ```cpp
@@ -266,15 +266,15 @@ The full source code can be found in the file [examples/01.HelloWorld/main.cpp](
 
 * **Create a GUI object:** Before you can use the GUI system, you need to create a CGUIHandle object:
  The GUI handle needs a pointer to the Irrlicht device and to the event receiver, to be able to pass events to the GUI.
- Of course you could also create it with new and destory it later (when you don't need it anymore) with delete.
+  **Attention:** It is very important to delete the GUI handle object _before_ you drop or delete the Irrlicht device. Otherwise you will get a memory access violation when the GUI handle frees up the internal memory and tries to use the Irrlicht device for that.
 ```cpp
   // Create GUI object
-  CIMGUIHandle GUI(pDevice, &EventReceiver);
+  CIMGUIHandle * const pGUI new CIMGUIHandle(pDevice, &EventReceiver);
 ```
 
-* **Draw GUI elements to the screen:** You can create the GUI elements inside the main-loop after calling `GUI.startGUI();`. This function prepares the GUI for the next frame and passes the state of Mouse and Keyboard to IMGUI. 
+* **Draw GUI elements to the screen:** You can create the GUI elements inside the main-loop after calling `pGUI->startGUI();`. This function prepares the GUI for the next frame and passes the state of Mouse and Keyboard to IMGUI. 
  Afterwards you can use the GUI element functions in the namespace `ImGui` to create the elements you need. You must create them inside the main-loop, otherwise you will not see them (see the concept of an immediate mode GUI).
- Before rendering the GUI elements, you first need to render your Irrlicht scene. Otherwise the GUI is behind your scene. Afterwards you can render the GUI with `GUI.drawAll();`.
+ Before rendering the GUI elements, you first need to render your Irrlicht scene. Otherwise the GUI is behind your scene. Afterwards you can render the GUI with `pGUI->drawAll();`.
  ```cpp
   scene::ISceneManager * const pSceneManager = pDevice->getSceneManager();
 
@@ -289,7 +289,7 @@ The full source code can be found in the file [examples/01.HelloWorld/main.cpp](
     pDriver->beginScene(true, true, irr::video::SColor(255,100,101,140));
 
 	// create the GUI elements
-    GUI.startGUI();
+    pGUI->startGUI();
     ImGui::Begin("My first Window");
     ImGui::Text("Hello World!");
     if (ImGui::Button("Exit", ImVec2(40, 20)))
@@ -302,15 +302,19 @@ The full source code can be found in the file [examples/01.HelloWorld/main.cpp](
     pSceneManager->drawAll();
 	
 	// render the GUI
-    GUI.drawAll();
+    pGUI->drawAll();
 
     pDriver->endScene();
   }
+
+  // free up memory
+  delete pGUI;
+  pDevice->drop();
  ```
  
 * Compile and look at your first GUI element<br>
-![Hello World](Doxygen/Images/ExampleHelloWorld.png)
- 
+![Hello World](https://github.com/ZahlGraf/IrrIMGUI/blob/master/Doxygen/Images/ExampleHelloWorld.png)
+
 ### <a name="HowToStart_FurtherExamples"></a>Further Examples
 
 You can find further example descriptions inside the [Wiki](https://github.com/ZahlGraf/IrrIMGUI/wiki).
