@@ -67,7 +67,7 @@ void runScene(void)
   FASSERT(pDevice);
 
   // Create GUI object
-  CIMGUIHandle GUI(pDevice, &EventReceiver);
+  CIMGUIHandle * const pGUI = new CIMGUIHandle(pDevice, &EventReceiver);
 
   video::IVideoDriver  * const pDriver       = pDevice->getVideoDriver();
   scene::ISceneManager * const pSceneManager = pDevice->getSceneManager();
@@ -102,7 +102,7 @@ void runScene(void)
   {
     pDriver->beginScene(true, true, irr::video::SColor(255,100,101,140));
 
-    GUI.startGUI();
+    pGUI->startGUI();
     ImGui::Begin("Picture sources", NULL, ImGuiWindowFlags_ShowBorders);
     ImGui::Text("Background picture from Manuel Tellur / pixelio.de (Image-ID: 642831)");
     ImGui::Text("Moon (Phobos) texture from http://nasa3d.arc.nasa.gov");
@@ -113,7 +113,7 @@ void runScene(void)
     ImGui::End();
 
     pSceneManager->drawAll();
-    GUI.drawAll();
+    pGUI->drawAll();
 
     pDriver->endScene();
 
@@ -137,6 +137,7 @@ void runScene(void)
 
   }
 
+  delete(pGUI);
   pDevice->drop();
 
 }
