@@ -652,7 +652,6 @@ namespace OpenGLHelper
 
     ImTextureID const TextureID = createTextureIDFromRawData(ECF_A8, pPixelData, Width, Height);
 
-    // Store Texture information in IMGUI system
     rGUIIO.Fonts->ClearTexData();
 
     return TextureID;
@@ -736,19 +735,7 @@ namespace OpenGLHelper
 
 /* Pure Irrlicht implementation:
 
-  irr::u32 * pImageData = new irr::u32[Width * Height];
 
-  for (int X = 0; X < (Width * Height); X++)
-  {
-    // set only Alpha
-    irr::video::SColor Color(PixelData[X], 255, 255, 255);
-    Color.getData(&pImageData[X], irr::video::ECF_A8R8G8B8);
-  }
-  pIrrDriver->setTextureCreationFlag(irr::video::ETCF_CREATE_MIP_MAPS, false);
-
-  irr::core::dimension2d<irr::u32> const Size(Width, Height);
-  irr::video::IImage * const pImage = pIrrDriver->createImageFromData(irr::video::ECF_A8R8G8B8, Size, pImageData);
-  pTexture = pIrrDriver->addTexture("DefaultIMGUITexture", pImage);
 
   if (rGUIIO.RenderDrawListsFn == COpenGLIMGUIDriver::drawGUIList)
   {
