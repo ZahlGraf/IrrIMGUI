@@ -90,7 +90,7 @@ namespace Private
       /// @name Miscellaneous methods
 
       /// @return Returns a pointer to the irrlicht device.
-      irr::IrrlichtDevice * getIrrDevice(void);
+      static irr::IrrlichtDevice * getIrrDevice(void);
 
       /// @return Returns a constant reference to the settings that are currently used.
       static SIMGUISettings const &getSettings(void);
