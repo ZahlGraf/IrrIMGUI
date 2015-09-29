@@ -67,7 +67,7 @@ void runScene(void)
   FASSERT(pDevice);
 
   // Create GUI object
-  CIMGUIHandle GUI(pDevice, &EventReceiver);
+  CIMGUIHandle * const pGUI = new CIMGUIHandle(pDevice, &EventReceiver);
 
   video::IVideoDriver  * const pDriver       = pDevice->getVideoDriver();
   scene::ISceneManager * const pSceneManager = pDevice->getSceneManager();
@@ -107,8 +107,8 @@ void runScene(void)
   /// **********************************************************************
   /// Step 2 - Pass images to GUI to load them up into GPU memory
   /// **********************************************************************
-  IGUITexture &rSoyuz  = *GUI.createTexture(pSoyuz);
-  IGUITexture &rSpaceX = *GUI.createTexture(pSpaceX);
+  IGUITexture &rSoyuz  = *pGUI->createTexture(pSoyuz);
+  IGUITexture &rSpaceX = *pGUI->createTexture(pSpaceX);
 
   /// **********************************************************************
   /// Step 3 - Delete temporary memory from Irrlicht
@@ -117,15 +117,15 @@ void runScene(void)
   pSpaceX->drop();
 
   int SpaceShip = -1;
-  ImFont * pRussianFont = GUI.addFontFromFileTTF("../../media/azoft-sans.ttf", 14.0f, NULL, GUI.getGlyphRangesCyrillic());
-  GUI.compileFonts();
+  ImFont * pRussianFont = pGUI->addFontFromFileTTF("../../media/azoft-sans.ttf", 14.0f, NULL, pGUI->getGlyphRangesCyrillic());
+  pGUI->compileFonts();
 
   // Start main loop
   while(pDevice->run())
   {
     pDriver->beginScene(true, true, irr::video::SColor(255,100,101,140));
 
-    GUI.startGUI();
+    pGUI->startGUI();
 
     // create first window with picture sources
     if (IsFirstLoop)
@@ -208,7 +208,7 @@ void runScene(void)
     ImGui::End();
 
     pSceneManager->drawAll();
-    GUI.drawAll();
+    pGUI->drawAll();
 
     pDriver->endScene();
 
@@ -236,9 +236,10 @@ void runScene(void)
   /// **********************************************************************
   /// Step 5 - Delete GPU memory used for images
   /// **********************************************************************
-  GUI.deleteTexture(&rSoyuz);
-  GUI.deleteTexture(&rSpaceX);
+  pGUI->deleteTexture(&rSoyuz);
+  pGUI->deleteTexture(&rSpaceX);
 
+  delete(pGUI);
   pDevice->drop();
 
 }

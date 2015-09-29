@@ -67,7 +67,7 @@ void runScene(void)
   FASSERT(pDevice);
 
   // Create GUI object
-  CIMGUIHandle GUI(pDevice, &EventReceiver);
+  CIMGUIHandle * const pGUI = new CIMGUIHandle(pDevice, &EventReceiver);
 
   video::IVideoDriver  * const pDriver       = pDevice->getVideoDriver();
   scene::ISceneManager * const pSceneManager = pDevice->getSceneManager();
@@ -101,26 +101,26 @@ void runScene(void)
   /// **********************************************************************
   /// Step 1 - Create handles to the fonts by loading them into GUI memory
   /// **********************************************************************
-  ImFont *pCousine16   = GUI.addFontFromFileTTF("../../media/Cousine-Regular.ttf", 16.0f);
-  ImFont *pCousine24   = GUI.addFontFromFileTTF("../../media/Cousine-Regular.ttf", 24.0f);
-  ImFont *pDroidSans16 = GUI.addFontFromFileTTF("../../media/DroidSans.ttf",       16.0f);
-  ImFont *pDroidSans24 = GUI.addFontFromFileTTF("../../media/DroidSans.ttf",       24.0f);
-  ImFont *pKarla16     = GUI.addFontFromFileTTF("../../media/Karla-Regular.ttf",   16.0f);
-  ImFont *pKarla24     = GUI.addFontFromFileTTF("../../media/Karla-Regular.ttf",   24.0f);
-  ImFont *pProggy16    = GUI.addFontFromFileTTF("../../media/ProggyClean.ttf",     16.0f);
-  ImFont *pProggy24    = GUI.addFontFromFileTTF("../../media/ProggyClean.ttf",     24.0f);
+  ImFont *pCousine16   = pGUI->addFontFromFileTTF("../../media/Cousine-Regular.ttf", 16.0f);
+  ImFont *pCousine24   = pGUI->addFontFromFileTTF("../../media/Cousine-Regular.ttf", 24.0f);
+  ImFont *pDroidSans16 = pGUI->addFontFromFileTTF("../../media/DroidSans.ttf",       16.0f);
+  ImFont *pDroidSans24 = pGUI->addFontFromFileTTF("../../media/DroidSans.ttf",       24.0f);
+  ImFont *pKarla16     = pGUI->addFontFromFileTTF("../../media/Karla-Regular.ttf",   16.0f);
+  ImFont *pKarla24     = pGUI->addFontFromFileTTF("../../media/Karla-Regular.ttf",   24.0f);
+  ImFont *pProggy16    = pGUI->addFontFromFileTTF("../../media/ProggyClean.ttf",     16.0f);
+  ImFont *pProggy24    = pGUI->addFontFromFileTTF("../../media/ProggyClean.ttf",     24.0f);
 
   /// **********************************************************************
   /// Step 2 - Compile all loaded fonts to a single texture and load it to the GPU memory
   /// **********************************************************************
-  GUI.compileFonts();
+  pGUI->compileFonts();
 
   // Start main loop
   while(pDevice->run())
   {
     pDriver->beginScene(true, true, irr::video::SColor(255,100,101,140));
 
-    GUI.startGUI();
+    pGUI->startGUI();
 
     // create first window with picture sources
     if (IsFirstLoop)
@@ -176,7 +176,7 @@ void runScene(void)
 
 
     pSceneManager->drawAll();
-    GUI.drawAll();
+    pGUI->drawAll();
 
     pDriver->endScene();
 
@@ -210,8 +210,9 @@ void runScene(void)
   ///                     DO NOT use any loaded Font that have been loaded
   ///                     before.
   /// **********************************************************************
-  GUI.resetFonts();
+  pGUI->resetFonts();
 
+  delete(pGUI);
   pDevice->drop();
 
 }

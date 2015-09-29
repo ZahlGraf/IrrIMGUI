@@ -67,7 +67,7 @@ void runScene(void)
   FASSERT(pDevice);
 
   // Create GUI object
-  CIMGUIHandle GUI(pDevice, &EventReceiver);
+  CIMGUIHandle * const pGUI = new CIMGUIHandle(pDevice, &EventReceiver);
 
   video::IVideoDriver  * const pDriver       = pDevice->getVideoDriver();
   scene::ISceneManager * const pSceneManager = pDevice->getSceneManager();
@@ -101,8 +101,8 @@ void runScene(void)
   video::IImage * const pSoyuzImage  = pDriver->createImageFromFile("../../media/Soyuz.jpg");
   video::IImage * const pSpaceXImage = pDriver->createImageFromFile("../../media/SpaceX.jpg");
 
-  IGUITexture &rSoyuz  = *GUI.createTexture(pSoyuzImage);
-  IGUITexture &rSpaceX = *GUI.createTexture(pSpaceXImage);
+  IGUITexture &rSoyuz  = *pGUI->createTexture(pSoyuzImage);
+  IGUITexture &rSpaceX = *pGUI->createTexture(pSpaceXImage);
 
   pSoyuzImage->drop();
   pSpaceXImage->drop();
@@ -110,15 +110,15 @@ void runScene(void)
   int SpaceShip = -1;
   int DraggedSpaceShip = -1;
   int HoveredSpaceShip = -1;
-  ImFont * pRussianFont = GUI.addFontFromFileTTF("../../media/azoft-sans.ttf", 14.0f, NULL, GUI.getGlyphRangesCyrillic());
-  GUI.compileFonts();
+  ImFont * pRussianFont = pGUI->addFontFromFileTTF("../../media/azoft-sans.ttf", 14.0f, NULL, pGUI->getGlyphRangesCyrillic());
+  pGUI->compileFonts();
 
   // Start main loop
   while(pDevice->run())
   {
     pDriver->beginScene(true, true, irr::video::SColor(255,100,101,140));
 
-    GUI.startGUI();
+    pGUI->startGUI();
 
     // create first window with picture sources
     if (IsFirstLoop)
@@ -272,7 +272,7 @@ void runScene(void)
     ImGui::End();
 
     pSceneManager->drawAll();
-    GUI.drawAll();
+    pGUI->drawAll();
 
     pDriver->endScene();
 
@@ -297,9 +297,10 @@ void runScene(void)
     IsFirstLoop = false;
   }
 
-  GUI.deleteTexture(&rSoyuz);
-  GUI.deleteTexture(&rSpaceX);
+  pGUI->deleteTexture(&rSoyuz);
+  pGUI->deleteTexture(&rSpaceX);
 
+  delete(pGUI);
   pDevice->drop();
 
 }

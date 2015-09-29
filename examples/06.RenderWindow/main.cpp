@@ -67,7 +67,7 @@ void runScene(void)
   FASSERT(pDevice);
 
   // Create GUI object
-  CIMGUIHandle GUI(pDevice, &EventReceiver);
+  CIMGUIHandle * const pGUI = new CIMGUIHandle(pDevice, &EventReceiver);
 
   video::IVideoDriver  * const pDriver       = pDevice->getVideoDriver();
   scene::ISceneManager * const pSceneManager = pDevice->getSceneManager();
@@ -107,7 +107,7 @@ void runScene(void)
 
   // Prepare double rendering
   video::ITexture * const pRenderTarget = pDriver->addRenderTargetTexture(core::dimension2d<u32>(384, 300), "Moon");
-  IGUITexture * const pRenderTextureID  = GUI.createTexture(pRenderTarget);
+  IGUITexture * const pRenderTextureID  = pGUI->createTexture(pRenderTarget);
 
   // Start main loop
   while(pDevice->run())
@@ -133,7 +133,7 @@ void runScene(void)
     pMainScreen->setVisible(true);
     pSceneManager->setActiveCamera(pMainCam);
 
-    GUI.startGUI();
+    pGUI->startGUI();
 
     // create first window with picture sources
     if (IsFirstLoop)
@@ -150,7 +150,7 @@ void runScene(void)
     }
     ImGui::End();
 
-    GUI.updateTexture(pRenderTextureID, pRenderTarget);
+    pGUI->updateTexture(pRenderTextureID, pRenderTarget);
 
     if (IsFirstLoop)
     {
@@ -174,7 +174,7 @@ void runScene(void)
     ImGui::End();
 
     pSceneManager->drawAll();
-    GUI.drawAll();
+    pGUI->drawAll();
 
     pDriver->endScene();
 
@@ -206,7 +206,8 @@ void runScene(void)
     }
   }
 
-  GUI.deleteTexture(pRenderTextureID);
+  pGUI->deleteTexture(pRenderTextureID);
+  delete(pGUI);
   pDevice->drop();
 
 }
