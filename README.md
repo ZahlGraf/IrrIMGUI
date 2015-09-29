@@ -25,7 +25,7 @@ Of course IMGUI is not as complex like CEGUI. But for small application it is th
 However if you need a complex user interface with scripted widgets and events, and a highly adaptable template system, you should use CEGUI instead. But take care, you will end up with much more code and dependencies.
 
 Following Features are supported so far:
-* An Irrlicht bases render engine, that uses high level Irrlicht functions to draw the GUI elements (upcoming version 0.2).
+* An Irrlicht bases render engine, that uses high level Irrlicht functions to draw the GUI elements.
 * A native OpenGL renderer for test purposes and as a fall-back solution.
 * An out of the box working Event Receiver for Irrlicht to bind mouse and keyboard events to the GUI.
 * The input event handling for IMGUI can be easily customized to bind new input devices like joystick and another key-types to the GUI.
