@@ -269,7 +269,7 @@ The full source code can be found in the file [examples/01.HelloWorld/main.cpp](
   **Attention:** It is very important to delete the GUI handle object _before_ you drop or delete the Irrlicht device. Otherwise you will get a memory access violation when the GUI handle frees up the internal memory and tries to use the Irrlicht device for that.
 ```cpp
   // Create GUI object
-  CIMGUIHandle * const pGUI new CIMGUIHandle(pDevice, &EventReceiver);
+  CIMGUIHandle * const pGUI = new CIMGUIHandle(pDevice, &EventReceiver);
 ```
 
 * **Draw GUI elements to the screen:** You can create the GUI elements inside the main-loop after calling `pGUI->startGUI();`. This function prepares the GUI for the next frame and passes the state of Mouse and Keyboard to IMGUI. 
@@ -308,7 +308,7 @@ The full source code can be found in the file [examples/01.HelloWorld/main.cpp](
   }
 
   // free up memory
-  delete pGUI;
+  delete(pGUI);
   pDevice->drop();
  ```
  
