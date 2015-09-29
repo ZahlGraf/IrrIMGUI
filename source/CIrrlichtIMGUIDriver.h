@@ -149,19 +149,6 @@ namespace Driver
 
       /// @}
 
-      /// @{
-      /// @name Irrlicht helper methods
-
-      /// @brief Creates a Texture object from the currently loaded Fonts.
-      /// @return Returns ITexture object as IMGUI Texture ID.
-      ImTextureID CIrrlichtIMGUIDriver::copyTextureIDFromGUIFont(void);
-
-      /// @brief Deleted the memory from this texture ID.
-      /// @param pGUITexture is a pointer to the texture object.
-      void CIrrlichtIMGUIDriver::deleteTextureID(CGUITexture * pGUITexture);
-
-      /// @}
-
   };
 
 }
