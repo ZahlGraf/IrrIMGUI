@@ -133,7 +133,7 @@ namespace Driver
       IIMGUIDriver(pDevice)
   {
     setupFunctionPointer();
-
+    LOG_WARNING("{IrrIMGUI-GL} Start native OpenGL GUI renderer. This renderer is just a test and fall-back solution and it is not officially supported.\n");
     return;
   }
 
