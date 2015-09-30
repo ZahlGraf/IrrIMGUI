@@ -22,23 +22,26 @@
 # SOFTWARE.
 #
 
-if (IRRIMGUI_NATIVE_OPENGL)
-	message(STATUS "Looking for OpenGL header and library...")
+message(STATUS "Looking for OpenGL header and library...")
 
-	find_package(OpenGL)
+find_package(OpenGL)
 
-	if (OPENGL_FOUND)
-		MESSAGE(STATUS "OpenGL Correctly Found:")
-		MESSAGE(STATUS " * Include-Dir: ${OPENGL_INCLUDE_DIR}")
-		MESSAGE(STATUS " * Libraries: ${OPENGL_LIBRARIES}")	
-		INCLUDE_DIRECTORIES(${OPENGL_INCLUDE_DIR})
-		SET(IRRIMGUI_DEPENDENCY_LIBRARIES
-		${IRRIMGUI_DEPENDENCY_LIBRARIES}
-		${OPENGL_LIBRARIES}
-		)
+if (OPENGL_FOUND)
+	MESSAGE(STATUS "OpenGL Correctly Found:")
+	MESSAGE(STATUS " * Include-Dir: ${OPENGL_INCLUDE_DIR}")
+	MESSAGE(STATUS " * Libraries: ${OPENGL_LIBRARIES}")	
+	INCLUDE_DIRECTORIES(${OPENGL_INCLUDE_DIR})
+	SET(IRRIMGUI_DEPENDENCY_LIBRARIES
+	${IRRIMGUI_DEPENDENCY_LIBRARIES}
+	${OPENGL_LIBRARIES}
+	)
 	
+else ()
+
+	if (IRRIMGUI_BUILD_EXAMPLES)
+		MESSAGE(WARNING "OpenGL environment missing, when Irrlicht is linked with OpenGL this will lead to linker errors for examples.")
 	else ()
-		MESSAGE(STATUS "OpenGL environment missing")
-	
+		MESSAGE(STATUS "OpenGL environment missing.")
 	endif ()
+	
 endif ()
