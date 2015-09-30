@@ -38,10 +38,10 @@ endif ()
 
 if ((UNIX) OR (APPLE))
 	message(STATUS "    * X11:      ${X11_FOUND}")
-endif ()
 
-if (IRRIMGUI_BUILD_EXAMPLES)
-	message(STATUS "    * xf86vm:   ${X11_xf86vmode_FOUND}")
+	if (IRRIMGUI_BUILD_EXAMPLES)
+		message(STATUS "    * xf86vm:   ${X11_xf86vmode_FOUND}")
+	endif ()
 endif ()
 
 message(STATUS " ")
