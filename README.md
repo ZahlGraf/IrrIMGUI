@@ -53,9 +53,11 @@ Following Features are supported so far:
 
 #### Highlights
 * Added Irrlicht High Level Renderer.
+* **Note:** The Irrlicht High Level Renderer supports Irrlicht OpenGL and DirectX9 driver. DirectX8 is untested so far and the software render driver are missing necessary features (drawing primitives).
 
 #### Fixes
 * Created GUI Handle object in all examples with `new` to be able to destroy it before Irrlicht Driver is dropped. 
+* **Attention:** Look at the new examples! Take care, that you destory your GUI Handle object _before_ destroying the Irrlicht Device. Otherwise your application will crash, when IrrIMGUI tries to free-up allocated memory.
 
 #### Dependency Versions
 * [IMGUI 1.45](https://github.com/ocornut/imgui/tree/v1.45)
@@ -206,7 +208,7 @@ how to build a library with CMake.
  
  * _IRRIMGUI_IRRLICHT_DIRECT_INCLUDES_ = [On|Off] enable this option when you include your Irrlicht headers with `#include <irrlicht.h>` instead of `#include <Irrlicht/irrlicht.h>`  
  
- * _IRRIMGUI_NATIVE_OPENGL_ = [On|Off] enable this for version 0.1, since a Irrlicht driver is not available so far  
+ * _IRRIMGUI_NATIVE_OPENGL_ = [On|Off] enable this option only for tests or as fallback solution. The native OpenGL renderer is not officially supported.   
  
  * _IRRIMGUI_STATIC_LIBRARY_ = [On|Off] enable this if you want to compile IrrIMGUI as static library. **Attention: In this case you also need a static Irrlicht library!**
   
