@@ -27,9 +27,25 @@ message(STATUS "The following settings have been applied:")
 message(STATUS " -> Dependencies found:")
 message(STATUS "    * IMGUI:    ${IMGUI_FOUND}")
 message(STATUS "    * Irrlicht: ${IRRLICHT_FOUND}")
+
+if (IRRIMGUI_BUILD_EXAMPLES)
+	message(STATUS "    * OpenGL:   ${OPENGL_FOUND}")
+endif ()
+
+if (IRRIMGUI_LINK_TO_DIRECTX)
+	message(STATUS "    * DirectX9: ${DirectX9_FOUND}")
+endif ()
+
+if ((UNIX) OR (APPLE))
+	message(STATUS "    * X11:      ${X11_FOUND}")
+endif ()
+
+if (IRRIMGUI_BUILD_EXAMPLES)
+	message(STATUS "    * xf86vm:   ${X11_xf86vmode_FOUND}")
+endif ()
+
 message(STATUS " ")
 message(STATUS " -> Optional dependencies found:")
-message(STATUS "    * OpenGL:   ${OPENGL_FOUND}")
 message(STATUS "    * Doxygen:  ${DOXYGEN_FOUND}")
 message(STATUS " ")
 message(STATUS " -> Options set:")
