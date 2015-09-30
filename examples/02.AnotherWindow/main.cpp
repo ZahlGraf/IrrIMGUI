@@ -142,6 +142,7 @@ void runScene(void)
     if (IsReturnPressed || ImGui::Button("Send", ImVec2(40, 20)))
     {
       std::cout << "Input Text: " << String << "\n";
+      String[0] = '\0';
     }
     ImGui::EndGroup();
     ImGui::End();
