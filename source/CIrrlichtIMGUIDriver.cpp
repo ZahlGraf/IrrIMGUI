@@ -99,6 +99,24 @@ namespace IrrlichtHelper
   /// @param pIrrDriver  Is a pointer to the Irrlicht driver object.
   /// @param pGUITexture is a pointer to the texture object.
   void deleteTextureID(irr::video::IVideoDriver * pIrrDriver, CGUITexture * pGUITexture);
+
+  /// @brief Applies a workaround for an Irrlicht issue with moving clipping planes.
+  /// @param pIrrDriver  Is a pointer to the Irrlicht driver object.
+  void applyMovingClippingPlaneWorkaround(irr::video::IVideoDriver * pIrrDriver);
+
+  /// @brief Sets the standard GUI material settings.
+  /// @param rMaterial Is a reference to the material where the settings should be applied to.
+  /// @param pTexture  Is the texture, that should be used.
+  void setupStandardGUIMaterial(irr::video::SMaterial &rMaterial, irr::video::ITexture * pTexture);
+
+  /// @brief Apples a clipping rectangle. Outside of this rectangle nothing is rendered.
+  /// @param pIrrDriver    Is a pointer to the Irrlicht driver object.
+  /// @param ClippingRecht Is the IMGUI clipping rect to apply.
+  void applyClippingRect(irr::video::IVideoDriver * pIrrDriver, ImVec4 &rClippingRect);
+
+  /// @brief Disables the clipping rectangle.
+  /// @param pIrrDriver    Is a pointer to the Irrlicht driver object.
+  void disableClippingRect(irr::video::IVideoDriver * pIrrDriver);
 }
 
   CIrrlichtIMGUIDriver::CIrrlichtIMGUIDriver(irr::IrrlichtDevice * const pDevice):
@@ -126,10 +144,12 @@ namespace IrrlichtHelper
   {
     pDrawData->ScaleClipRects(ImGui::GetIO().DisplayFramebufferScale);
 
-    irr::video::IVideoDriver * pIrrDriver = getIrrDevice()->getVideoDriver();
+    irr::video::IVideoDriver * const pIrrDriver = getIrrDevice()->getVideoDriver();
     pIrrDriver->enableMaterial2D(true);
     pIrrDriver->getMaterial2D().BackfaceCulling = false;
     pIrrDriver->getMaterial2D().FrontfaceCulling = false;
+
+    IrrlichtHelper::applyMovingClippingPlaneWorkaround(pIrrDriver);
 
     for (int CommandListIndex = 0; CommandListIndex < pDrawData->CmdListsCount; CommandListIndex++)
     {
@@ -148,7 +168,10 @@ namespace IrrlichtHelper
     irr::u32 LastUsedIndex = 0;
     irr::u32 const NumberOfVertex = pCommandList->VtxBuffer.size();
 
-    // TODO: this costs a lot of performance!
+    // TODO: Workaround for incompatible Vertex datatype in IMGUI.
+    //       This costs a lot of performance... nevertheless it seems
+    //       that the Irrlicht driver is still faster than the
+    //       native OpenGL driver.
     irr::video::S3DVertex * const pVertexArray = new irr::video::S3DVertex[NumberOfVertex];
     IrrlichtHelper::copyImGuiVertices2IrrlichtVertices(pCommandList->VtxBuffer, pVertexArray);
 
@@ -170,24 +193,10 @@ namespace IrrlichtHelper
         irr::video::ITexture * const pIrrlichtTexture = static_cast<irr::video::ITexture * const>(pGUITexture->mGPUTextureID);
 
         irr::video::SMaterial Material;
-        Material.setTexture(0, pIrrlichtTexture);
-        Material.MaterialType = irr::video::EMT_ONETEXTURE_BLEND;
-        Material.MaterialTypeParam = irr::video::pack_textureBlendFunc(irr::video::EBF_SRC_ALPHA, irr::video::EBF_ONE_MINUS_SRC_ALPHA, irr::video::EMFN_MODULATE_1X, irr::video::EAS_VERTEX_COLOR | irr::video::EAS_TEXTURE);
-        Material.setFlag(irr::video::EMF_ANTI_ALIASING, false);
-        Material.setFlag(irr::video::EMF_BILINEAR_FILTER, true);
-        Material.setFlag(irr::video::EMF_ZBUFFER, false);
-        Material.setFlag(irr::video::EMF_BLEND_OPERATION, false);
-        Material.setFlag(irr::video::EMF_BACK_FACE_CULLING, false);
-        Material.setFlag(irr::video::EMF_FRONT_FACE_CULLING, false);
-        Material.setFlag(irr::video::EMF_ANISOTROPIC_FILTER, false);
-        Material.setFlag(irr::video::EMF_TRILINEAR_FILTER, false);
-        Material.UseMipMaps = false;
+        IrrlichtHelper::setupStandardGUIMaterial(Material, pIrrlichtTexture);
         pIrrDriver->setMaterial(Material);
 
-        // TODO: encapsulate!
-        glEnable(GL_SCISSOR_TEST);
-        float const FrameBufferHeight = ImGui::GetIO().DisplaySize.y * ImGui::GetIO().DisplayFramebufferScale.y;
-        glScissor((int)pDrawCommand->ClipRect.x, (int)(FrameBufferHeight - pDrawCommand->ClipRect.w), (int)(pDrawCommand->ClipRect.z - pDrawCommand->ClipRect.x), (int)(pDrawCommand->ClipRect.w - pDrawCommand->ClipRect.y));
+        IrrlichtHelper::applyClippingRect(pIrrDriver, pDrawCommand->ClipRect);
 
         pIrrDriver->draw2DVertexPrimitiveList(
             pVertexArray,
@@ -199,7 +208,8 @@ namespace IrrlichtHelper
             irr::video::EIT_16BIT
             );
 
-        glDisable(GL_SCISSOR_TEST);
+
+        IrrlichtHelper::disableClippingRect(pIrrDriver);
 
         LastUsedIndex += pDrawCommand->ElemCount;
 
@@ -450,7 +460,7 @@ namespace IrrlichtHelper
     {
       ImDrawVert &rImGUIVertex = rIMGUIVertexBuffer[i];
 
-      pIrrlichtVertex[i].Pos     = irr::core::vector3df(static_cast<irr::f32>(rImGUIVertex.pos.x)-0.375, static_cast<irr::f32>(rImGUIVertex.pos.y)-0.375, 0.0) ;
+      pIrrlichtVertex[i].Pos     = irr::core::vector3df(static_cast<irr::f32>(rImGUIVertex.pos.x)-0.375, static_cast<irr::f32>(rImGUIVertex.pos.y)-0.375, 0.0);
       pIrrlichtVertex[i].Normal  = irr::core::vector3df(0.0, 0.0, 1.0);
       pIrrlichtVertex[i].Color   = getColorFromImGuiColor(rImGUIVertex.col);
       pIrrlichtVertex[i].TCoords = irr::core::vector2df(static_cast<irr::f32>(rImGUIVertex.uv.x), static_cast<irr::f32>(rImGUIVertex.uv.y));
@@ -584,6 +594,104 @@ namespace IrrlichtHelper
     return;
   }
 
+  void applyMovingClippingPlaneWorkaround(irr::video::IVideoDriver * const pIrrDriver)
+  {
+    // TODO: Workaround for the wrong clipping plane issue in Irrlicht.
+    //       See: http://irrlicht.sourceforge.net/forum/viewtopic.php?f=7&t=50992
+    //
+    //       Clipping planes are applied with matrix settings of the last rendered object.
+    //       This could be a rotating 3D object, so the clipping plane will rotative with
+    //       this object.
+    //       To prevent this error, we can draw a very simple and invisible 2D object to the
+    //       screen before applying the first clipping plane. Thus the matrix settings are
+    //       prepared for 2D and the clipping plane error disappears.
+
+    irr::u32 const NumberOfVertex = 3;
+    irr::video::S3DVertex * const pDummyVertices = new irr::video::S3DVertex[NumberOfVertex];
+    pDummyVertices[0].Pos    = irr::core::vector3df(-20.0f,-20.0f, 0.0f);
+    pDummyVertices[0].Normal = irr::core::vector3df( 0.0f,  0.0f, 1.0f);
+    pDummyVertices[0].Color  = irr::video::SColor(0, 255, 0, 0);
+    pDummyVertices[1].Pos    = irr::core::vector3df(-10.0f,-20.0f, 0.0f);
+    pDummyVertices[1].Normal = irr::core::vector3df( 0.0f,  0.0f, 1.0f);
+    pDummyVertices[1].Color  = irr::video::SColor(0, 255, 0, 0);
+    pDummyVertices[2].Pos    = irr::core::vector3df(-20.0f,-10.0f, 0.0f);
+    pDummyVertices[2].Normal = irr::core::vector3df( 0.0f,  0.0f, 1.0f);
+    pDummyVertices[2].Color  = irr::video::SColor(0, 255, 0, 0);
+
+    irr::u16 const pDummyIndices[3] = {0, 1, 2};
+
+    bool const BackfaceCulling                     = pIrrDriver->getMaterial2D().BackfaceCulling;
+    bool const FrontfaceCulling                    = pIrrDriver->getMaterial2D().FrontfaceCulling;
+    irr::video::E_MATERIAL_TYPE const MaterialType = pIrrDriver->getMaterial2D().MaterialType;
+    irr::f32 const MaterialParam                   = pIrrDriver->getMaterial2D().MaterialTypeParam;
+
+    pIrrDriver->getMaterial2D().BackfaceCulling   = false;
+    pIrrDriver->getMaterial2D().FrontfaceCulling  = false;
+    pIrrDriver->getMaterial2D().MaterialType      = irr::video::EMT_ONETEXTURE_BLEND;
+    pIrrDriver->getMaterial2D().MaterialTypeParam = irr::video::pack_textureBlendFunc(irr::video::EBF_SRC_ALPHA, irr::video::EBF_ONE_MINUS_SRC_ALPHA, irr::video::EMFN_MODULATE_1X, irr::video::EAS_VERTEX_COLOR);
+    pIrrDriver->setMaterial(pIrrDriver->getMaterial2D());
+
+    pIrrDriver->draw2DVertexPrimitiveList(
+        pDummyVertices,
+        NumberOfVertex,
+        pDummyIndices,
+        1,
+        irr::video::EVT_STANDARD,
+        irr::scene::EPT_TRIANGLES,
+        irr::video::EIT_16BIT
+        );
+
+    pIrrDriver->getMaterial2D().BackfaceCulling   = BackfaceCulling;
+    pIrrDriver->getMaterial2D().FrontfaceCulling  = FrontfaceCulling;
+    pIrrDriver->getMaterial2D().MaterialType      = MaterialType;
+    pIrrDriver->getMaterial2D().MaterialTypeParam = MaterialParam;
+
+    delete[] pDummyVertices;
+
+    return;
+  }
+
+  void setupStandardGUIMaterial(irr::video::SMaterial &rMaterial, irr::video::ITexture * const pTexture)
+  {
+    rMaterial.setTexture(0, pTexture);
+    rMaterial.MaterialType = irr::video::EMT_ONETEXTURE_BLEND;
+    rMaterial.MaterialTypeParam = irr::video::pack_textureBlendFunc(irr::video::EBF_SRC_ALPHA, irr::video::EBF_ONE_MINUS_SRC_ALPHA, irr::video::EMFN_MODULATE_1X, irr::video::EAS_VERTEX_COLOR | irr::video::EAS_TEXTURE);
+    rMaterial.setFlag(irr::video::EMF_ANTI_ALIASING,      false);
+    rMaterial.setFlag(irr::video::EMF_BILINEAR_FILTER,    true);
+    rMaterial.setFlag(irr::video::EMF_ZBUFFER,            false);
+    rMaterial.setFlag(irr::video::EMF_BLEND_OPERATION,    false);
+    rMaterial.setFlag(irr::video::EMF_BACK_FACE_CULLING,  false);
+    rMaterial.setFlag(irr::video::EMF_FRONT_FACE_CULLING, false);
+    rMaterial.setFlag(irr::video::EMF_ANISOTROPIC_FILTER, false);
+    rMaterial.setFlag(irr::video::EMF_TRILINEAR_FILTER,   false);
+    rMaterial.UseMipMaps = false;
+
+    return;
+  }
+
+  void applyClippingRect(irr::video::IVideoDriver * const pIrrDriver, ImVec4 &rClippingRect)
+  {
+    irr::core::plane3df LeftPlane   (irr::core::vector3df(rClippingRect.x, 0.0f, 0.0f), irr::core::vector3df( 1.0f,  0.0f, 0.0f));
+    irr::core::plane3df RightPlane  (irr::core::vector3df(rClippingRect.z, 0.0f, 0.0f), irr::core::vector3df(-1.0f,  0.0f, 0.0f));
+    irr::core::plane3df TopPlane    (irr::core::vector3df(0.0f, rClippingRect.y, 0.0f), irr::core::vector3df( 0.0f,  1.0f, 0.0f));
+    irr::core::plane3df BottomPlane (irr::core::vector3df(0.0f, rClippingRect.w, 0.0f), irr::core::vector3df( 0.0f, -1.0f, 0.0f));
+    pIrrDriver->setClipPlane(0, LeftPlane,   true);
+    pIrrDriver->setClipPlane(1, RightPlane,  true);
+    pIrrDriver->setClipPlane(2, TopPlane,    true);
+    pIrrDriver->setClipPlane(3, BottomPlane, true);
+
+    return;
+  }
+
+  void disableClippingRect(irr::video::IVideoDriver * const pIrrDriver)
+  {
+    pIrrDriver->enableClipPlane(0, false);
+    pIrrDriver->enableClipPlane(1, false);
+    pIrrDriver->enableClipPlane(2, false);
+    pIrrDriver->enableClipPlane(3, false);
+
+    return;
+  }
 }
 }
 }
