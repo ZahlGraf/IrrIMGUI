@@ -45,6 +45,7 @@ SET (IRRIMGUI_PRIVATE_HEADER_FILES
 	source/IIMGUIDriver.h
 	source/IrrIMGUIDebug_priv.h
 	source/CGUITexture.h
+	source/CIrrlichtIMGUIDriver.h
 )
 
 SET (IRRIMGUI_SOURCE_FILES
@@ -55,4 +56,5 @@ SET (IRRIMGUI_SOURCE_FILES
 	source/COpenGLIMGUIDriver.cpp
 	source/IIMGUIDriver.cpp
 	source/CGUITexture.cpp
+	source/CIrrlichtIMGUIDriver.cpp
 )
