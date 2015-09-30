@@ -25,7 +25,7 @@ Of course IMGUI is not as complex like CEGUI. But for small application it is th
 However if you need a complex user interface with scripted widgets and events, and a highly adaptable template system, you should use CEGUI instead. But take care, you will end up with much more code and dependencies.
 
 Following Features are supported so far:
-* An Irrlicht bases render engine, that uses high level Irrlicht functions to draw the GUI elements (upcoming version 0.2).
+* An Irrlicht bases render engine, that uses high level Irrlicht functions to draw the GUI elements.
 * A native OpenGL renderer for test purposes and as a fall-back solution.
 * An out of the box working Event Receiver for Irrlicht to bind mouse and keyboard events to the GUI.
 * The input event handling for IMGUI can be easily customized to bind new input devices like joystick and another key-types to the GUI.
@@ -38,10 +38,11 @@ Following Features are supported so far:
 ### Upcomming: master-branch (unstable not tested yet)
 
 #### Highlights
-* nothing planned
+* Added Irrlicht High Level Renderer (supports only OpenGL so far)
 
 #### Fixes
-* nothing planned
+* Create GUI object in all examples with `new` to be able to destroy it before Irrlicht Driver is dropped. 
+  **Attention:** Take care, that in your applications, the GUI object is not destroyed after the Irrlicht Driver has    been dropped, otherwise the GUI handle cannot free-up internal allocated memory and the application will crash.
 
 #### Dependency Versions
 * [IMGUI 1.45](https://github.com/ocornut/imgui/tree/v1.45)
@@ -269,7 +270,7 @@ The full source code can be found in the file [examples/01.HelloWorld/main.cpp](
   **Attention:** It is very important to delete the GUI handle object _before_ you drop or delete the Irrlicht device. Otherwise you will get a memory access violation when the GUI handle frees up the internal memory and tries to use the Irrlicht device for that.
 ```cpp
   // Create GUI object
-  CIMGUIHandle * const pGUI new CIMGUIHandle(pDevice, &EventReceiver);
+  CIMGUIHandle * const pGUI = new CIMGUIHandle(pDevice, &EventReceiver);
 ```
 
 * **Draw GUI elements to the screen:** You can create the GUI elements inside the main-loop after calling `pGUI->startGUI();`. This function prepares the GUI for the next frame and passes the state of Mouse and Keyboard to IMGUI. 
@@ -308,7 +309,7 @@ The full source code can be found in the file [examples/01.HelloWorld/main.cpp](
   }
 
   // free up memory
-  delete pGUI;
+  delete(pGUI);
   pDevice->drop();
  ```
  
