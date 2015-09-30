@@ -115,7 +115,7 @@ namespace IrrlichtHelper
 
   /// @brief Apples a clipping rectangle. Outside of this rectangle nothing is rendered.
   /// @param pIrrDriver    Is a pointer to the Irrlicht driver object.
-  /// @param ClippingRecht Is the IMGUI clipping rect to apply.
+  /// @param rClippingRect Is the IMGUI clipping rect to apply.
   void applyClippingRect(irr::video::IVideoDriver * pIrrDriver, ImVec4 &rClippingRect);
 
   /// @brief Disables the clipping rectangle.
@@ -477,10 +477,10 @@ namespace IrrlichtHelper
   {
     ImColor const Color(ImGuiColor);
 
-    irr::u8 const Red   = Color.Value.x * 255;
-    irr::u8 const Green = Color.Value.y * 255;
-    irr::u8 const Blue  = Color.Value.z * 255;
-    irr::u8 const Alpha = Color.Value.w * 255;
+    irr::u8 const Red   = static_cast<irr::u8>(Color.Value.x * 255);
+    irr::u8 const Green = static_cast<irr::u8>(Color.Value.y * 255);
+    irr::u8 const Blue  = static_cast<irr::u8>(Color.Value.z * 255);
+    irr::u8 const Alpha = static_cast<irr::u8>(Color.Value.w * 255);
 
     return irr::video::SColor(Alpha, Red, Green, Blue);
   }
@@ -489,7 +489,7 @@ namespace IrrlichtHelper
   {
     irr::u32 const NumberOfVertex = rIMGUIVertexBuffer.size();
 
-    for (int i = 0; i < NumberOfVertex; i++)
+    for (irr::u32 i = 0; i < NumberOfVertex; i++)
     {
       ImDrawVert &rImGUIVertex = rIMGUIVertexBuffer[i];
 
@@ -518,7 +518,7 @@ namespace IrrlichtHelper
         pImageData       = reinterpret_cast<irr::u32 *>(pPixelData);
         IsTempMemoryUsed = false;
 
-        for (int X = 0; X < (Width * Height); X++)
+        for (irr::u32 X = 0; X < (Width * Height); X++)
         {
           irr::video::SColor Color = getColorFromImGuiColor(pImageData[X]);
           Color.getData(&pImageData[X], irr::video::ECF_A8R8G8B8);
@@ -530,7 +530,7 @@ namespace IrrlichtHelper
         pImageData       = new irr::u32[Width * Height];
         IsTempMemoryUsed = true;
 
-        for (int X = 0; X < (Width * Height); X++)
+        for (irr::u32 X = 0; X < (Width * Height); X++)
         {
           // set only Alpha
           irr::video::SColor Color(pPixelData[X], 255, 255, 255);
