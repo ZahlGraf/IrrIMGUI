@@ -149,6 +149,9 @@ namespace Driver
 
       /// @}
 
+      /// @brief An pixel offset that is applied to every vertex.
+      static irr::core::vector3df mOffset;
+
   };
 
 }
