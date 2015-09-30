@@ -62,25 +62,5 @@ if ((UNIX) OR (APPLE))
 	else ()
 		MESSAGE(WARNING "X11 xf86vm library is missing. Not all tools and examples may compile correctly...")
 	endif ()
-
-	if (FALSE)	
-	# only tools need this
-	if (X11_Xft_FOUND AND IRRLICHT_BUILD_TOOLS)
-		MESSAGE(STATUS "X11 Xft library correctly Found:")
-		MESSAGE(STATUS " * Include-Dir: ${X11_Xft_INCLUDE_PATH}")
-		MESSAGE(STATUS " * Libraries: ${X11_Xft_LIB}")	
-		
-		INCLUDE_DIRECTORIES(
-			${X11_Xft_INCLUDE_PATH}
-		)
-		
-		SET(IRRLICHT_DEPENDENCY_LIBRARIES
-			${IRRLICHT_DEPENDENCY_LIBRARIES}
-			${X11_Xft_LIB}
-		)
-	else ()
-		MESSAGE(WARNING "X11 Xft library is missing. Not all tools and examples may compile correctly...")
-	endif ()
-	endif ()
 	
 endif ()
