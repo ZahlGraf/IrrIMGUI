@@ -94,6 +94,7 @@ FUNCTION(BUILD_APP_GENERIC APP_NAME APP_SOURCE_FILES APP_HEADER_FILES APP_INSTAL
 		INCLUDE(DependencyOpenGL)
 		INCLUDE(DependencyDirectX9)
 		INCLUDE(DependencyDoxygen)
+		INCLUDE(DependencyX11)
 
 		# Print all settings
 		#INCLUDE(PrintSettings)

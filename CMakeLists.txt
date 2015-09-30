@@ -64,6 +64,7 @@ INCLUDE(DependencyIrrlicht)
 INCLUDE(DependencyOpenGL)
 INCLUDE(DependencyDirectX9)
 INCLUDE(DependencyDoxygen)
+INCLUDE(DependencyX11)
 
 # Print all settings
 INCLUDE(PrintSettings)
