@@ -38,12 +38,10 @@ Following Features are supported so far:
 ### Upcomming: master-branch (unstable not tested yet)
 
 #### Highlights
-* Added Irrlicht High Level Renderer.
-  **Note:** It works well with OpenGL and DirectX9. DirectX8 is not tested so far (but should work). Software renderer will not work, since they do not support all necessary features.
+* nothing planned
 
 #### Fixes
-* Created GUI Handle object in all examples with `new` to be able to destroy it before Irrlicht Driver is dropped. 
-  **Attention:** Take care, that in your applications, the GUI Handle object is not destroyed after the Irrlicht Driver has been dropped, otherwise the GUI Handle cannot free-up internal allocated memory and the application will crash.
+* nothing planned
 
 #### Dependency Versions
 * [IMGUI 1.45](https://github.com/ocornut/imgui/tree/v1.45)
@@ -51,12 +49,13 @@ Following Features are supported so far:
 * Other versions may work as well, but they are not tested.
 
 
-### 27.9.2015: Version 0.1.0 ([Download Source](https://github.com/ZahlGraf/IrrIMGUI/archive/v0.1.0.zip)) ([Download Binaries](http://irrimgui.netzeband.eu/binaries/irrimgui_v0.1.0.zip))
+### 30.9.2015: Version 0.2.0 ([Download Source](https://github.com/ZahlGraf/IrrIMGUI/archive/v0.2.0.zip)) ([Download Binaries](http://irrimgui.netzeband.eu/binaries/irrimgui_v0.2.0.zip))
 
 #### Highlights
-* OpenGL native driver
-* Full multi-font support
-* Full support for IImage, ITexture and Raw Image data
+* Added Irrlicht High Level Renderer.
+
+#### Fixes
+* Created GUI Handle object in all examples with `new` to be able to destroy it before Irrlicht Driver is dropped. 
 
 #### Dependency Versions
 * [IMGUI 1.45](https://github.com/ocornut/imgui/tree/v1.45)
@@ -88,6 +87,9 @@ Following Features are supported so far:
 * GCC (64bit, Linux): debug, shared library
 * GCC (64bit, Linux): release, static library
 * GCC (64bit, Linux): release, shared library
+* Visual C++ 2015 (64bit - native OpenGL GUI renderer): debug, shared library
+* MinGW (32bit - native OpenGL GUI renderer): release, static library
+* GCC (64bit, Linux - native OpenGL GUI renderer): release, shared library
 
 ## <a name="ExampleImages"></a>Example Images
 A picture is worth a thousand Words. So I will show you some examples:
@@ -326,5 +328,43 @@ You can find further example descriptions inside the [Wiki](https://github.com/Z
 A full API description can be found inside the Doxygen [documentation](http://zahlgraf.github.io/IrrIMGUI/).
  
 ## <a name="VersionHistory"></a>Version History
+### 27.9.2015: Version 0.1.0 ([Download Source](https://github.com/ZahlGraf/IrrIMGUI/archive/v0.1.0.zip)) ([Download Binaries](http://irrimgui.netzeband.eu/binaries/irrimgui_v0.1.0.zip))
+
+#### Highlights
+* OpenGL native driver
+* Full multi-font support
+* Full support for IImage, ITexture and Raw Image data
+
+#### Dependency Versions
+* [IMGUI 1.45](https://github.com/ocornut/imgui/tree/v1.45)
+* [Irrlicht 1.8.3](http://irrlicht.sourceforge.net/2015/09/irrlicht-1-8-3-released/)
+* Other versions may work as well, but they are not tested.
+
+#### Tested Build Variants
+* Visual C++ 2015 (64bit): debug, static library
+* Visual C++ 2015 (64bit): debug, shared library
+* Visual C++ 2015 (64bit): release, static library
+* Visual C++ 2015 (64bit): release, shared library
+* Visual C++ 2015 (32bit): debug, static library
+* Visual C++ 2015 (32bit): debug, shared library
+* Visual C++ 2015 (32bit): release, static library
+* Visual C++ 2015 (32bit): release, shared library
+* MinGW (32bit): debug, static library
+* MinGW (32bit): debug, shared library
+* MinGW (32bit): release, static library
+* MinGW (32bit): release, shared library
+* MinGW (64bit): debug, static library
+* MinGW (64bit): debug, shared library
+* MinGW (64bit): release, static library
+* MinGW (64bit): release, shared library
+* Intel 16.0 (with MSVC 2015) (64bit, Win7): debug, static library
+* Intel 16.0 (with MSVC 2015) (64bit, Win7): debug, shared library
+* Intel 16.0 (with MSVC 2015) (64bit, Win7): release, static library
+* Intel 16.0 (with MSVC 2015) (64bit, Win7): release, shared library
+* GCC (64bit, Linux): debug, static library
+* GCC (64bit, Linux): debug, shared library
+* GCC (64bit, Linux): release, static library
+* GCC (64bit, Linux): release, shared library
+
 
 
