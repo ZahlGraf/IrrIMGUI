@@ -61,7 +61,7 @@ namespace Driver
 namespace IrrlichtHelper
 {
   /// @brief A magic number for the default font ID IMGUI.
-  static irr::u8 const IMGUI_FONT_ID = 0;
+  static irr::u8 * const IMGUI_FONT_ID = nullptr;
 
   /// @brief This is used to create an unique texture name.
   static irr::u32 TextureCreationID = 0;
