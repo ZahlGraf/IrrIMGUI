@@ -66,7 +66,7 @@ mingw-win32_NAME=MinGW (32bit - native OpenGL GUI renderer)
 MINGWWIN32_RELEASE_SHARED_OGL=${INSTALL_DIR}/mingw-win32-opengl/release/static
 
 gcc-linux64_NAME=GCC (64bit, Linux - native OpenGL GUI renderer)
-GCCLINUX64_DEBUG_SHARED_OGL=${INSTALL_DIR}/gcc-linux64-opengl/debug/shared
+GCCLINUX64_DEBUG_SHARED_OGL=${INSTALL_DIR}/gcc-linux64-opengl/release/shared
 
 INSTALL_DIRS += ${MSVC2015WIN64_DEBUG_STATIC}
 INSTALL_DIRS += ${MSVC2015WIN64_DEBUG_SHARED}
