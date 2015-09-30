@@ -38,7 +38,8 @@ Following Features are supported so far:
 ### Upcomming: master-branch (unstable not tested yet)
 
 #### Highlights
-* Added Irrlicht High Level Renderer
+* Added Irrlicht High Level Renderer.
+  **Note:** It works well with OpenGL and DirectX9. DirectX8 is not tested so far (but should work). Software renderer will not work, since they do not support all necessary features.
 
 #### Fixes
 * Created GUI Handle object in all examples with `new` to be able to destroy it before Irrlicht Driver is dropped. 
