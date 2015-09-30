@@ -1,6 +1,6 @@
 # edit the following three version numbers
 SET(VERSION_MAJOR 0)
-SET(VERSION_MINOR 1)
+SET(VERSION_MINOR 2)
 SET(VERSION_RELEASE 0)
 
 #
