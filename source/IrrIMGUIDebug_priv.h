@@ -103,6 +103,17 @@
 
 #define IS_DEBUG_LEVEL(LEVEL) ((DEBUG_LEVEL) >= (LEVEL))
 
+#ifndef _DEBUG
+#ifndef NDEBUG
+#ifndef _NDEBUG
+
+// Debug is default for all compiles where not _NDEBUG or NDEBUG has been defined
+#define _DEBUG
+
+#endif // _NDEBUG
+#endif // NDEBUG
+#endif // _DEBUG
+
 #ifdef _DEBUG
 #ifndef DEBUG_LEVEL
 #define DEBUG_LEVEL DEBUG_LEVEL_NOTE
