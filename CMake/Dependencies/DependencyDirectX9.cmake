@@ -39,7 +39,7 @@ if(IRRIMGUI_LINK_TO_DIRECTX)
 			)			
 			
 		else ()
-			MESSAGE(SEND_ERROR "DirectX environment missing")
+			MESSAGE(STATUS "DirectX environment missing")
 			
 		endif ()
 	
