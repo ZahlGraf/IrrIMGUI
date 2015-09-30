@@ -66,6 +66,9 @@ namespace IrrlichtHelper
   /// @brief This is used to create an unique texture name.
   static irr::u32 TextureCreationID = 0;
 
+  /// @brief Indicates, if trilinear filter should be enabled for textures.
+  static bool IsTrilinearFilterEnabled = false;
+
   /// @brief Translates an IMGUI Color to an Irrlicht Color.
   /// @param ImGuiColor is the u32 Color value from IMGUI.
   /// @return Returns a SColor object for Irrlicht.
@@ -74,7 +77,8 @@ namespace IrrlichtHelper
   /// @brief Copies a list of IMGUI vertices to a list of Irrlicht Vertices.
   /// @param rIMGUIVertexBuffer Is an IMGUI Vertex-Buffer object.
   /// @param pIrrlichtVertex    Is a pointer to an Irrlicht Vertex Array.
-  void copyImGuiVertices2IrrlichtVertices(ImVector<ImDrawVert> &rIMGUIVertexBuffer, irr::video::S3DVertex * pIrrlichtVertex);
+  /// @param rOffset            Is an offset that is applied to every vertex.
+  void copyImGuiVertices2IrrlichtVertices(ImVector<ImDrawVert> &rIMGUIVertexBuffer, irr::video::S3DVertex * pIrrlichtVertex, irr::core::vector3df const &rOffset);
 
   /// @brief Creates a Texture object from the currently loaded Fonts.
   /// @param pIrrDriver  Is a pointer to the Irrlicht driver object.
@@ -119,10 +123,38 @@ namespace IrrlichtHelper
   void disableClippingRect(irr::video::IVideoDriver * pIrrDriver);
 }
 
+  irr::core::vector3df CIrrlichtIMGUIDriver::mOffset(0.0f, 0.0f, 0.0f);
+
   CIrrlichtIMGUIDriver::CIrrlichtIMGUIDriver(irr::IrrlichtDevice * const pDevice):
     IIMGUIDriver(pDevice)
   {
     setupFunctionPointer();
+
+    irr::video::IVideoDriver * pDriver = pDevice->getVideoDriver();
+    irr::video::E_DRIVER_TYPE Type = pDriver->getDriverType();
+
+    switch(Type)
+    {
+      case irr::video::EDT_OPENGL:
+        mOffset = irr::core::vector3df(-0.375f, -0.375f, 0.0f);
+        IrrlichtHelper::IsTrilinearFilterEnabled = false;
+        LOG_NOTE("{IrrIMGUI-Irr} Start Irrlicht High Level GUI renderer in OpenGL mode.\n");
+        break;
+
+      case irr::video::EDT_DIRECT3D9:
+      case irr::video::EDT_DIRECT3D8:
+        mOffset = irr::core::vector3df(0.0f, 0.0f, 0.0f);
+        IrrlichtHelper::IsTrilinearFilterEnabled = true;
+        LOG_NOTE("{IrrIMGUI-Irr} Start Irrlicht High Level GUI renderer in DirectX mode.\n");
+        break;
+
+      default:
+        mOffset = irr::core::vector3df(0.0f, 0.0f, 0.0f);
+        LOG_WARNING("{IrrIMGUI-Irr} Start Irrlicht High Level GUI renderer in unknown video mode, this Irrlicht renderer might not be supported!\n");
+        break;
+    }
+
+
     return;
   }
 
@@ -145,9 +177,8 @@ namespace IrrlichtHelper
     pDrawData->ScaleClipRects(ImGui::GetIO().DisplayFramebufferScale);
 
     irr::video::IVideoDriver * const pIrrDriver = getIrrDevice()->getVideoDriver();
+    irr::video::SMaterial const CurrentMaterial = pIrrDriver->getMaterial2D();
     pIrrDriver->enableMaterial2D(true);
-    pIrrDriver->getMaterial2D().BackfaceCulling = false;
-    pIrrDriver->getMaterial2D().FrontfaceCulling = false;
 
     IrrlichtHelper::applyMovingClippingPlaneWorkaround(pIrrDriver);
 
@@ -157,6 +188,7 @@ namespace IrrlichtHelper
     }
 
     pIrrDriver->enableMaterial2D(false);
+    pIrrDriver->getMaterial2D() = CurrentMaterial;
 
     return;
   }
@@ -173,7 +205,7 @@ namespace IrrlichtHelper
     //       that the Irrlicht driver is still faster than the
     //       native OpenGL driver.
     irr::video::S3DVertex * const pVertexArray = new irr::video::S3DVertex[NumberOfVertex];
-    IrrlichtHelper::copyImGuiVertices2IrrlichtVertices(pCommandList->VtxBuffer, pVertexArray);
+    IrrlichtHelper::copyImGuiVertices2IrrlichtVertices(pCommandList->VtxBuffer, pVertexArray, mOffset);
 
     irr::video::IVideoDriver * pIrrDriver = getIrrDevice()->getVideoDriver();
 
@@ -195,6 +227,7 @@ namespace IrrlichtHelper
         irr::video::SMaterial Material;
         IrrlichtHelper::setupStandardGUIMaterial(Material, pIrrlichtTexture);
         pIrrDriver->setMaterial(Material);
+        pIrrDriver->getMaterial2D() = Material;
 
         IrrlichtHelper::applyClippingRect(pIrrDriver, pDrawCommand->ClipRect);
 
@@ -452,7 +485,7 @@ namespace IrrlichtHelper
     return irr::video::SColor(Alpha, Red, Green, Blue);
   }
 
-  void copyImGuiVertices2IrrlichtVertices(ImVector<ImDrawVert> &rIMGUIVertexBuffer, irr::video::S3DVertex * const pIrrlichtVertex)
+  void copyImGuiVertices2IrrlichtVertices(ImVector<ImDrawVert> &rIMGUIVertexBuffer, irr::video::S3DVertex * const pIrrlichtVertex, irr::core::vector3df const &rOffset)
   {
     irr::u32 const NumberOfVertex = rIMGUIVertexBuffer.size();
 
@@ -460,7 +493,7 @@ namespace IrrlichtHelper
     {
       ImDrawVert &rImGUIVertex = rIMGUIVertexBuffer[i];
 
-      pIrrlichtVertex[i].Pos     = irr::core::vector3df(static_cast<irr::f32>(rImGUIVertex.pos.x)-0.375, static_cast<irr::f32>(rImGUIVertex.pos.y)-0.375, 0.0);
+      pIrrlichtVertex[i].Pos     = irr::core::vector3df(static_cast<irr::f32>(rImGUIVertex.pos.x), static_cast<irr::f32>(rImGUIVertex.pos.y), 0.0) + rOffset;
       pIrrlichtVertex[i].Normal  = irr::core::vector3df(0.0, 0.0, 1.0);
       pIrrlichtVertex[i].Color   = getColorFromImGuiColor(rImGUIVertex.col);
       pIrrlichtVertex[i].TCoords = irr::core::vector2df(static_cast<irr::f32>(rImGUIVertex.uv.x), static_cast<irr::f32>(rImGUIVertex.uv.y));
@@ -656,14 +689,14 @@ namespace IrrlichtHelper
     rMaterial.setTexture(0, pTexture);
     rMaterial.MaterialType = irr::video::EMT_ONETEXTURE_BLEND;
     rMaterial.MaterialTypeParam = irr::video::pack_textureBlendFunc(irr::video::EBF_SRC_ALPHA, irr::video::EBF_ONE_MINUS_SRC_ALPHA, irr::video::EMFN_MODULATE_1X, irr::video::EAS_VERTEX_COLOR | irr::video::EAS_TEXTURE);
-    rMaterial.setFlag(irr::video::EMF_ANTI_ALIASING,      false);
-    rMaterial.setFlag(irr::video::EMF_BILINEAR_FILTER,    true);
+    rMaterial.setFlag(irr::video::EMF_ANTI_ALIASING,      true);
+    rMaterial.setFlag(irr::video::EMF_BILINEAR_FILTER,    false);
     rMaterial.setFlag(irr::video::EMF_ZBUFFER,            false);
     rMaterial.setFlag(irr::video::EMF_BLEND_OPERATION,    false);
     rMaterial.setFlag(irr::video::EMF_BACK_FACE_CULLING,  false);
     rMaterial.setFlag(irr::video::EMF_FRONT_FACE_CULLING, false);
     rMaterial.setFlag(irr::video::EMF_ANISOTROPIC_FILTER, false);
-    rMaterial.setFlag(irr::video::EMF_TRILINEAR_FILTER,   false);
+    rMaterial.setFlag(irr::video::EMF_TRILINEAR_FILTER,   IsTrilinearFilterEnabled);
     rMaterial.UseMipMaps = false;
 
     return;
