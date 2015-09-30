@@ -1,0 +1,6 @@
+<map id="IrrIMGUI::Private::Driver::IrrlichtHelper::applyClippingRect" name="IrrIMGUI::Private::Driver::IrrlichtHelper::applyClippingRect">
+<area shape="rect" id="node3" href="$class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_irrlicht_i_m_g_u_i_driver.html#a5468f2b5dbc5f6988ed24e56deea87fa" title="Renders a single command list. " alt="" coords="190,5,365,61"/>
+<area shape="rect" id="node5" href="$class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_irrlicht_i_m_g_u_i_driver.html#afb72393aeb71f818c010843a571e665a" title="Renders a full IMGUI draw list (called by the IMGUI system). " alt="" coords="414,5,589,61"/>
+<area shape="rect" id="node7" href="$class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_irrlicht_i_m_g_u_i_driver.html#a2db2ebb686a313d02512720060fb728d" title="Setups the IMGUI function pointer. " alt="" coords="638,5,813,61"/>
+<area shape="rect" id="node9" href="$class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_irrlicht_i_m_g_u_i_driver.html#a432b93666f4b700cfeada9eca1bc5018" title="The constructor. " alt="" coords="862,5,1037,61"/>
+</map>

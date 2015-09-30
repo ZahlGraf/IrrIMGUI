@@ -1,6 +1,7 @@
 var searchData=
 [
   ['getchar',['getChar',['../class_irr_i_m_g_u_i_1_1_c_char_fifo.html#ae8c039b9eeae9e0a449898f24a2704e5',1,'IrrIMGUI::CCharFifo']]],
+  ['getcolorfromimguicolor',['getColorFromImGuiColor',['../namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_irrlicht_helper.html#a7220bfdaa397a43811b423f6fdd25061',1,'IrrIMGUI::Private::Driver::IrrlichtHelper']]],
   ['getglenum',['getGlEnum',['../namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#a98e9ca73df255d31f58e7ee3579cefcb',1,'IrrIMGUI::Private::Driver::OpenGLHelper']]],
   ['getglyphrangeschinese',['getGlyphRangesChinese',['../class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_handle.html#ae1d22c762f788fd259c95c9c937d5892',1,'IrrIMGUI::CIMGUIHandle']]],
   ['getglyphrangescyrillic',['getGlyphRangesCyrillic',['../class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_handle.html#ac0252de57a8e2f8613481ddf0d907608',1,'IrrIMGUI::CIMGUIHandle']]],

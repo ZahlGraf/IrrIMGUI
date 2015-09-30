@@ -1,0 +1,11 @@
+<map id="IrrIMGUI::Private::Driver::CIrrlichtIMGUIDriver::setupFunctionPointer" name="IrrIMGUI::Private::Driver::CIrrlichtIMGUIDriver::setupFunctionPointer">
+<area shape="rect" id="node3" href="$class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_irrlicht_i_m_g_u_i_driver.html#afb72393aeb71f818c010843a571e665a" title="Renders a full IMGUI draw list (called by the IMGUI system). " alt="" coords="230,72,405,128"/>
+<area shape="rect" id="node5" href="$class_irr_i_m_g_u_i_1_1_private_1_1_i_i_m_g_u_i_driver.html#a94b7f916794405c54573ca55a678bf7f" title="IrrIMGUI::Private::\lIIMGUIDriver::getIrrDevice" alt="" coords="760,5,928,46"/>
+<area shape="rect" id="node7" href="$namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_irrlicht_helper.html#a39d45380f0d83f83a34f139ced59f5f6" title="Applies a workaround for an Irrlicht issue with moving clipping planes. " alt="" coords="453,72,704,128"/>
+<area shape="rect" id="node9" href="$class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_irrlicht_i_m_g_u_i_driver.html#a5468f2b5dbc5f6988ed24e56deea87fa" title="Renders a single command list. " alt="" coords="491,163,666,219"/>
+<area shape="rect" id="node11" href="$namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_irrlicht_helper.html#a7c12009098e3c40179bfbad23c3fec08" title="Copies a list of IMGUI vertices to a list of Irrlicht Vertices. " alt="" coords="753,70,935,141"/>
+<area shape="rect" id="node16" href="$namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_irrlicht_helper.html#a2f54b24bd44561c4907536ef8e9fe222" title="Sets the standard GUI material settings. " alt="" coords="753,165,935,221"/>
+<area shape="rect" id="node18" href="$namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_irrlicht_helper.html#a00f82d193c76c20781667172005f301b" title="Apples a clipping rectangle. Outside of this rectangle nothing is rendered. " alt="" coords="777,245,911,301"/>
+<area shape="rect" id="node20" href="$namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_irrlicht_helper.html#a54146a6b4f6f620480991c2219f84d86" title="Disables the clipping rectangle. " alt="" coords="772,325,916,381"/>
+<area shape="rect" id="node13" href="$namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_irrlicht_helper.html#a7220bfdaa397a43811b423f6fdd25061" title="Translates an IMGUI Color to an Irrlicht Color. " alt="" coords="985,77,1157,133"/>
+</map>

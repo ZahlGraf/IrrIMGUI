@@ -1,0 +1,5 @@
+<map id="IrrIMGUI::Private::Driver::IrrlichtHelper::deleteTextureID" name="IrrIMGUI::Private::Driver::IrrlichtHelper::deleteTextureID">
+<area shape="rect" id="node3" href="$class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_irrlicht_i_m_g_u_i_driver.html#a61f54ec4ac0b2eaa09372f1be075c744" title="Updates a GUI texture object with raw data. " alt="" coords="190,5,365,61"/>
+<area shape="rect" id="node5" href="$class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_irrlicht_i_m_g_u_i_driver.html#af86bb64e08e1a6b85702402057843447" title="Updates a GUI texture with the currently loaded fonts. " alt="" coords="190,85,365,141"/>
+<area shape="rect" id="node7" href="$class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_irrlicht_i_m_g_u_i_driver.html#ab6552dde88a34305ee774f815c2d216b" title="Deletes an texture from graphic memory. " alt="" coords="190,165,365,221"/>
+</map>

@@ -34,6 +34,7 @@ var searchData=
   ['mmousepositiony',['mMousePositionY',['../class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_event_storage.html#a7f224e3732dc737dbb6f02d4f230d3d1',1,'IrrIMGUI::CIMGUIEventStorage']]],
   ['mmousewheelposition',['mMouseWheelPosition',['../class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_event_storage.html#a462c05b4c11f8daf4c32d77bc5ddb5e8',1,'IrrIMGUI::CIMGUIEventStorage']]],
   ['mnextpressed',['mNextPressed',['../class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_event_storage.html#a6e92e1821822293f82adfca50eb2d8f1',1,'IrrIMGUI::CIMGUIEventStorage']]],
+  ['moffset',['mOffset',['../class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_irrlicht_i_m_g_u_i_driver.html#a6050fd5c178754553a6d5299ea5d6fd3',1,'IrrIMGUI::Private::Driver::CIrrlichtIMGUIDriver']]],
   ['moldtexture',['mOldTexture',['../class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper_1_1_c_open_g_l_state.html#a8178209b51a4190972f852624b3776f6',1,'IrrIMGUI::Private::Driver::OpenGLHelper::COpenGLState']]],
   ['mpbuffer',['mpBuffer',['../class_irr_i_m_g_u_i_1_1_debug_1_1_c_channel_buffer.html#af3c176e830aae025fbe9149a8613198a',1,'IrrIMGUI::Debug::CChannelBuffer']]],
   ['mpdevice',['mpDevice',['../class_irr_i_m_g_u_i_1_1_private_1_1_i_i_m_g_u_i_driver.html#a9ffae0b2bd23b3b78aec515679bb222d',1,'IrrIMGUI::Private::IIMGUIDriver']]],

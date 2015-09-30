@@ -8,6 +8,7 @@ var searchData=
   ['cimguieventreceiver',['CIMGUIEventReceiver',['../class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_event_receiver.html',1,'IrrIMGUI']]],
   ['cimguieventstorage',['CIMGUIEventStorage',['../class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_event_storage.html',1,'IrrIMGUI']]],
   ['cimguihandle',['CIMGUIHandle',['../class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_handle.html',1,'IrrIMGUI']]],
+  ['cirrlichtimguidriver',['CIrrlichtIMGUIDriver',['../class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_irrlicht_i_m_g_u_i_driver.html',1,'IrrIMGUI::Private::Driver']]],
   ['copenglimguidriver',['COpenGLIMGUIDriver',['../class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_open_g_l_i_m_g_u_i_driver.html',1,'IrrIMGUI::Private::Driver']]],
   ['copenglstate',['COpenGLState',['../class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper_1_1_c_open_g_l_state.html',1,'IrrIMGUI::Private::Driver::OpenGLHelper']]]
 ];

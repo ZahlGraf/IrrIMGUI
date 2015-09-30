@@ -1,0 +1,4 @@
+<map id="IrrIMGUI::Private::Driver::IrrlichtHelper::copyTextureIDFromImage" name="IrrIMGUI::Private::Driver::IrrlichtHelper::copyTextureIDFromImage">
+<area shape="rect" id="node3" href="$class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_irrlicht_i_m_g_u_i_driver.html#a001c4b7122568cd122cee8d593985ba0" title="Creates a GUI texture object out of an Irrlicht image. " alt="" coords="233,5,407,61"/>
+<area shape="rect" id="node5" href="$class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_irrlicht_i_m_g_u_i_driver.html#a761ebface2dfeea6f7fd21c631280a82" title="Updates a GUI texture object with an Irrlicht image. " alt="" coords="233,85,407,141"/>
+</map>

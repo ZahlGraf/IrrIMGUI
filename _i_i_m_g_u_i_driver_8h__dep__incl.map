@@ -1,6 +1,8 @@
 <map id="D:/Projects/CPP/Libraries/IrrIMGUI/IrrIMGUI/source/IIMGUIDriver.h" name="D:/Projects/CPP/Libraries/IrrIMGUI/IrrIMGUI/source/IIMGUIDriver.h">
 <area shape="rect" id="node3" href="$_c_i_m_g_u_i_handle_8cpp.html" title="Contains a handle to setup the IMGUI for Irrlicht. " alt="" coords="5,109,176,165"/>
-<area shape="rect" id="node5" href="$_c_open_g_l_i_m_g_u_i_driver_8h.html" title="Contains a driver that uses native OpenGL functions to render the GUI. " alt="" coords="200,109,371,165"/>
+<area shape="rect" id="node5" href="$_c_irrlicht_i_m_g_u_i_driver_8h.html" title="Contains a driver that uses Irrlicht primitive drawing functions to render the GUI. " alt="" coords="200,109,371,165"/>
 <area shape="rect" id="node9" href="$_i_i_m_g_u_i_driver_8cpp.html" title="Contains a driver interface for IMGUI. " alt="" coords="323,213,493,269"/>
-<area shape="rect" id="node7" href="$_c_open_g_l_i_m_g_u_i_driver_8cpp.html" title="Contains a driver that uses native OpenGL functions to render the GUI. " alt="" coords="123,213,299,269"/>
+<area shape="rect" id="node11" href="$_c_open_g_l_i_m_g_u_i_driver_8h.html" title="Contains a driver that uses native OpenGL functions to render the GUI. " alt="" coords="445,109,616,165"/>
+<area shape="rect" id="node7" href="$_c_irrlicht_i_m_g_u_i_driver_8cpp.html" title="Contains a driver that uses Irrlicht primitive drawing functions to render the GUI. " alt="" coords="128,213,299,269"/>
+<area shape="rect" id="node13" href="$_c_open_g_l_i_m_g_u_i_driver_8cpp.html" title="Contains a driver that uses native OpenGL functions to render the GUI. " alt="" coords="517,213,693,269"/>
 </map>

@@ -1,0 +1,4 @@
+<map id="IrrIMGUI::Private::Driver::IrrlichtHelper::copyTextureIDFromGUIFont" name="IrrIMGUI::Private::Driver::IrrlichtHelper::copyTextureIDFromGUIFont">
+<area shape="rect" id="node3" href="$class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_irrlicht_i_m_g_u_i_driver.html#aa4c90647fb03833d918e5704e77122cc" title="Creates a GUI texture out of the currently loaded fonts. " alt="" coords="246,5,421,61"/>
+<area shape="rect" id="node5" href="$class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_irrlicht_i_m_g_u_i_driver.html#af86bb64e08e1a6b85702402057843447" title="Updates a GUI texture with the currently loaded fonts. " alt="" coords="246,85,421,141"/>
+</map>

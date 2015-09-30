@@ -1,0 +1,7 @@
+<map id="IrrIMGUI::Private::Driver::IrrlichtHelper::copyTextureIDFromRawData" name="IrrIMGUI::Private::Driver::IrrlichtHelper::copyTextureIDFromRawData">
+<area shape="rect" id="node3" href="$class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_irrlicht_i_m_g_u_i_driver.html#a7bdba366e522aed8b1a8dd759eb2b0f3" title="Creates a GUI texture object out of raw data. " alt="" coords="257,5,431,61"/>
+<area shape="rect" id="node5" href="$class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_irrlicht_i_m_g_u_i_driver.html#a61f54ec4ac0b2eaa09372f1be075c744" title="Updates a GUI texture object with raw data. " alt="" coords="257,85,431,141"/>
+<area shape="rect" id="node7" href="$namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_irrlicht_helper.html#a10230a5fd212a1e53c44aa618cb04b64" title="Creates a Texture object from the currently loaded Fonts. " alt="" coords="249,165,439,221"/>
+<area shape="rect" id="node9" href="$class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_irrlicht_i_m_g_u_i_driver.html#aa4c90647fb03833d918e5704e77122cc" title="Creates a GUI texture out of the currently loaded fonts. " alt="" coords="489,125,663,181"/>
+<area shape="rect" id="node11" href="$class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_irrlicht_i_m_g_u_i_driver.html#af86bb64e08e1a6b85702402057843447" title="Updates a GUI texture with the currently loaded fonts. " alt="" coords="489,205,663,261"/>
+</map>

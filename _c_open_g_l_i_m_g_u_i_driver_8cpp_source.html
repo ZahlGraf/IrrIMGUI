@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">IrrIMGUI
-   &#160;<span id="projectnumber">0.1.0</span>
+   &#160;<span id="projectnumber">0.2.0</span>
    </div>
   </td>
  </tr>
@@ -110,7 +110,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">namespace </span>Private</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;{</div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="namespace_irr_i_m_g_u_i_1_1_private_1_1_driver.html">   54</a></span>&#160;<span class="keyword">namespace </span>Driver</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">namespace </span>Driver</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;{</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
 <div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html">   58</a></span>&#160;  <span class="keyword">namespace </span>OpenGLHelper</div>
@@ -151,7 +151,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;      <a class="code" href="class_irr_i_m_g_u_i_1_1_private_1_1_i_i_m_g_u_i_driver.html">IIMGUIDriver</a>(pDevice)</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;  {</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <a class="code" href="class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_open_g_l_i_m_g_u_i_driver.html#ac5ec26cfbd76e61fa9170186d87eb65b">setupFunctionPointer</a>();</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <a class="code" href="group___irr_i_m_g_u_i_private.html#ga13c99850324ea586fa0c10595e632a54">LOG_WARNING</a>(<span class="stringliteral">&quot;{IrrIMGUI-GL} Start native OpenGL GUI renderer. This renderer is just a test and fall-back solution and it is not officially supported.\n&quot;</span>);</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;  }</div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;</div>
@@ -670,251 +670,106 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;</div>
 <div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;    ImTextureID <span class="keyword">const</span> TextureID = <a class="code" href="namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#a9ef6343053f61c732970f0e3bbd1b3c7">createTextureIDFromRawData</a>(<a class="code" href="namespace_irr_i_m_g_u_i_1_1_private.html#ae9f11513bf9c00f907f9bae27471f8f1ab1f88572489364195a17ac1cc9ddd231">ECF_A8</a>, pPixelData, Width, Height);</div>
 <div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;</div>
-<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;    <span class="comment">// Store Texture information in IMGUI system</span></div>
-<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;    rGUIIO.Fonts-&gt;ClearTexData();</div>
-<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;</div>
-<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;    <span class="keywordflow">return</span> TextureID;</div>
-<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;  }</div>
-<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;</div>
-<div class="line"><a name="l00661"></a><span class="lineno"><a class="line" href="namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#a18fb8b546294b39a390d222e0e3413cf">  661</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#a18fb8b546294b39a390d222e0e3413cf">deleteTextureFromMemory</a>(<a class="code" href="class_irr_i_m_g_u_i_1_1_private_1_1_c_g_u_i_texture.html">CGUITexture</a> * pGUITexture)</div>
-<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;  {</div>
-<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;    <span class="keywordflow">if</span> (pGUITexture-&gt;<a class="code" href="class_irr_i_m_g_u_i_1_1_private_1_1_c_g_u_i_texture.html#a5ad74644ba24217de44f6805e37abed4">mIsUsingOwnMemory</a>)</div>
-<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;    {</div>
-<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;      <a class="code" href="group___irr_i_m_g_u_i_private.html#ga31235b3c754b08386395d911f3c58a02">LOG_NOTE</a>(<span class="stringliteral">&quot;{IrrIMGUI-GL} Delete GPU memory. Handle: &quot;</span> &lt;&lt; std::hex &lt;&lt; pGUITexture-&gt;<a class="code" href="class_irr_i_m_g_u_i_1_1_private_1_1_c_g_u_i_texture.html#ad63222d6058185968e42269c525373e1">mGPUTextureID</a> &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>);</div>
-<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;      GLuint TextureID = <span class="keyword">static_cast&lt;</span>GLuint<span class="keyword">&gt;</span>(<span class="keyword">reinterpret_cast&lt;</span>intptr_t<span class="keyword">&gt;</span>(pGUITexture-&gt;<a class="code" href="class_irr_i_m_g_u_i_1_1_private_1_1_c_g_u_i_texture.html#ad63222d6058185968e42269c525373e1">mGPUTextureID</a>));</div>
-<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;      glDeleteTextures(1, &amp;TextureID);</div>
-<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;    }</div>
-<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;    pGUITexture-&gt;<a class="code" href="class_irr_i_m_g_u_i_1_1_private_1_1_c_g_u_i_texture.html#ae2ae8d07a096df750b0bc27a570acbee">mIsValid</a> = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;    <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;  }</div>
-<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;</div>
-<div class="line"><a name="l00673"></a><span class="lineno"><a class="line" href="namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#a98e9ca73df255d31f58e7ee3579cefcb">  673</a></span>&#160;  GLenum <a class="code" href="namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#a98e9ca73df255d31f58e7ee3579cefcb">getGlEnum</a>(GLenum <span class="keyword">const</span> Which)</div>
-<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;  {</div>
-<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;    GLint Vector[30];</div>
-<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;    glGetIntegerv(Which, Vector);</div>
-<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;    <span class="keywordflow">return</span> Vector[0];</div>
-<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;  }</div>
-<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;</div>
-<div class="line"><a name="l00680"></a><span class="lineno"><a class="line" href="namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#a2e5e34ef446fadda79dc3ef18db75f4f">  680</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#a2e5e34ef446fadda79dc3ef18db75f4f">restoreGLBit</a>(GLenum <span class="keyword">const</span> WhichBit, <span class="keywordtype">bool</span> <span class="keyword">const</span> Value)</div>
-<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;  {</div>
-<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;    <span class="keywordflow">if</span> (Value)</div>
-<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;    {</div>
-<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;      glEnable(WhichBit);</div>
-<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;    }</div>
-<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;    {</div>
-<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;      glDisable(WhichBit);</div>
-<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;    }</div>
-<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;  }</div>
-<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;</div>
-<div class="line"><a name="l00692"></a><span class="lineno"><a class="line" href="class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper_1_1_c_open_g_l_state.html#a25a0b26babb98d2839db4f10337de931">  692</a></span>&#160;  <a class="code" href="class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper_1_1_c_open_g_l_state.html#a25a0b26babb98d2839db4f10337de931">COpenGLState::COpenGLState</a>(<span class="keywordtype">void</span>)</div>
-<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;  {</div>
-<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;    <span class="comment">// store current texture</span></div>
-<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;    glGetIntegerv(GL_TEXTURE_BINDING_2D, &amp;<a class="code" href="class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper_1_1_c_open_g_l_state.html#a8178209b51a4190972f852624b3776f6">mOldTexture</a>);</div>
-<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;</div>
-<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;    <span class="comment">// store other settings</span></div>
-<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;    glPushAttrib(GL_ENABLE_BIT | GL_COLOR_BUFFER_BIT | GL_TRANSFORM_BIT);</div>
-<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;</div>
-<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;    <span class="comment">// store projection matrix</span></div>
-<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;    glMatrixMode(GL_PROJECTION);</div>
-<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;    glPushMatrix();</div>
-<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;</div>
-<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;    <span class="comment">// store view matrix</span></div>
-<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;    glMatrixMode(GL_MODELVIEW);</div>
-<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;    glPushMatrix();</div>
-<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;</div>
-<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;    <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;  }</div>
-<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;</div>
-<div class="line"><a name="l00711"></a><span class="lineno"><a class="line" href="class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper_1_1_c_open_g_l_state.html#a6026c7dbebb6aadd4c17f22badf6c175">  711</a></span>&#160;  <a class="code" href="class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper_1_1_c_open_g_l_state.html#a6026c7dbebb6aadd4c17f22badf6c175">COpenGLState::~COpenGLState</a>(<span class="keywordtype">void</span>)</div>
-<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;  {</div>
-<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;    <span class="comment">// restore view matrix</span></div>
-<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;    glMatrixMode(GL_MODELVIEW);</div>
-<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;    glPopMatrix();</div>
-<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;</div>
-<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;    <span class="comment">// restore projection matrix</span></div>
-<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;    glMatrixMode(GL_PROJECTION);</div>
-<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;    glPopMatrix();</div>
-<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;</div>
-<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;    <span class="comment">// restore other settings</span></div>
-<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;    glPopAttrib();</div>
-<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;</div>
-<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;    <span class="comment">// restore texture</span></div>
-<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;    glBindTexture(GL_TEXTURE_2D, <a class="code" href="class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper_1_1_c_open_g_l_state.html#a8178209b51a4190972f852624b3776f6">mOldTexture</a>);</div>
-<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;</div>
-<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;    <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;  }</div>
-<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;</div>
-<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;}</div>
-<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;</div>
+<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;    rGUIIO.Fonts-&gt;ClearTexData();</div>
+<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;</div>
+<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;    <span class="keywordflow">return</span> TextureID;</div>
+<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;  }</div>
+<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;</div>
+<div class="line"><a name="l00660"></a><span class="lineno"><a class="line" href="namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#a18fb8b546294b39a390d222e0e3413cf">  660</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#a18fb8b546294b39a390d222e0e3413cf">deleteTextureFromMemory</a>(<a class="code" href="class_irr_i_m_g_u_i_1_1_private_1_1_c_g_u_i_texture.html">CGUITexture</a> * pGUITexture)</div>
+<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;  {</div>
+<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;    <span class="keywordflow">if</span> (pGUITexture-&gt;<a class="code" href="class_irr_i_m_g_u_i_1_1_private_1_1_c_g_u_i_texture.html#a5ad74644ba24217de44f6805e37abed4">mIsUsingOwnMemory</a>)</div>
+<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;    {</div>
+<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;      <a class="code" href="group___irr_i_m_g_u_i_private.html#ga31235b3c754b08386395d911f3c58a02">LOG_NOTE</a>(<span class="stringliteral">&quot;{IrrIMGUI-GL} Delete GPU memory. Handle: &quot;</span> &lt;&lt; std::hex &lt;&lt; pGUITexture-&gt;<a class="code" href="class_irr_i_m_g_u_i_1_1_private_1_1_c_g_u_i_texture.html#ad63222d6058185968e42269c525373e1">mGPUTextureID</a> &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;      GLuint TextureID = <span class="keyword">static_cast&lt;</span>GLuint<span class="keyword">&gt;</span>(<span class="keyword">reinterpret_cast&lt;</span>intptr_t<span class="keyword">&gt;</span>(pGUITexture-&gt;<a class="code" href="class_irr_i_m_g_u_i_1_1_private_1_1_c_g_u_i_texture.html#ad63222d6058185968e42269c525373e1">mGPUTextureID</a>));</div>
+<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;      glDeleteTextures(1, &amp;TextureID);</div>
+<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;    }</div>
+<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;    pGUITexture-&gt;<a class="code" href="class_irr_i_m_g_u_i_1_1_private_1_1_c_g_u_i_texture.html#ae2ae8d07a096df750b0bc27a570acbee">mIsValid</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;    <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;  }</div>
+<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;</div>
+<div class="line"><a name="l00672"></a><span class="lineno"><a class="line" href="namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#a98e9ca73df255d31f58e7ee3579cefcb">  672</a></span>&#160;  GLenum <a class="code" href="namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#a98e9ca73df255d31f58e7ee3579cefcb">getGlEnum</a>(GLenum <span class="keyword">const</span> Which)</div>
+<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;  {</div>
+<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;    GLint Vector[30];</div>
+<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;    glGetIntegerv(Which, Vector);</div>
+<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;    <span class="keywordflow">return</span> Vector[0];</div>
+<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;  }</div>
+<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;</div>
+<div class="line"><a name="l00679"></a><span class="lineno"><a class="line" href="namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#a2e5e34ef446fadda79dc3ef18db75f4f">  679</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#a2e5e34ef446fadda79dc3ef18db75f4f">restoreGLBit</a>(GLenum <span class="keyword">const</span> WhichBit, <span class="keywordtype">bool</span> <span class="keyword">const</span> Value)</div>
+<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;  {</div>
+<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;    <span class="keywordflow">if</span> (Value)</div>
+<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;    {</div>
+<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;      glEnable(WhichBit);</div>
+<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;    }</div>
+<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;    {</div>
+<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;      glDisable(WhichBit);</div>
+<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;    }</div>
+<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;  }</div>
+<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;</div>
+<div class="line"><a name="l00691"></a><span class="lineno"><a class="line" href="class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper_1_1_c_open_g_l_state.html#a25a0b26babb98d2839db4f10337de931">  691</a></span>&#160;  <a class="code" href="class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper_1_1_c_open_g_l_state.html#a25a0b26babb98d2839db4f10337de931">COpenGLState::COpenGLState</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;  {</div>
+<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;    <span class="comment">// store current texture</span></div>
+<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;    glGetIntegerv(GL_TEXTURE_BINDING_2D, &amp;<a class="code" href="class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper_1_1_c_open_g_l_state.html#a8178209b51a4190972f852624b3776f6">mOldTexture</a>);</div>
+<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;</div>
+<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;    <span class="comment">// store other settings</span></div>
+<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;    glPushAttrib(GL_ENABLE_BIT | GL_COLOR_BUFFER_BIT | GL_TRANSFORM_BIT);</div>
+<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;</div>
+<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;    <span class="comment">// store projection matrix</span></div>
+<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;    glMatrixMode(GL_PROJECTION);</div>
+<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;    glPushMatrix();</div>
+<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;</div>
+<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;    <span class="comment">// store view matrix</span></div>
+<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;    glMatrixMode(GL_MODELVIEW);</div>
+<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;    glPushMatrix();</div>
+<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;</div>
+<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;    <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;  }</div>
+<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;</div>
+<div class="line"><a name="l00710"></a><span class="lineno"><a class="line" href="class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper_1_1_c_open_g_l_state.html#a6026c7dbebb6aadd4c17f22badf6c175">  710</a></span>&#160;  <a class="code" href="class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper_1_1_c_open_g_l_state.html#a6026c7dbebb6aadd4c17f22badf6c175">COpenGLState::~COpenGLState</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;  {</div>
+<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;    <span class="comment">// restore view matrix</span></div>
+<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;    glMatrixMode(GL_MODELVIEW);</div>
+<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;    glPopMatrix();</div>
+<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;</div>
+<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;    <span class="comment">// restore projection matrix</span></div>
+<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;    glMatrixMode(GL_PROJECTION);</div>
+<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;    glPopMatrix();</div>
+<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;</div>
+<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;    <span class="comment">// restore other settings</span></div>
+<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;    glPopAttrib();</div>
+<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;</div>
+<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;    <span class="comment">// restore texture</span></div>
+<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;    glBindTexture(GL_TEXTURE_2D, <a class="code" href="class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper_1_1_c_open_g_l_state.html#a8178209b51a4190972f852624b3776f6">mOldTexture</a>);</div>
+<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;</div>
+<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;    <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;  }</div>
+<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;</div>
+<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;}</div>
+<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;</div>
+<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;}</div>
 <div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;}</div>
 <div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;}</div>
-<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;}</div>
+<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;</div>
 <div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;</div>
-<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;</div>
-<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;<span class="comment">/* Pure Irrlicht implementation:</span></div>
-<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;<span class="comment">  irr::u32 * pImageData = new irr::u32[Width * Height];</span></div>
-<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;<span class="comment">  for (int X = 0; X &lt; (Width * Height); X++)</span></div>
-<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;<span class="comment">  {</span></div>
-<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;<span class="comment">    // set only Alpha</span></div>
-<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;<span class="comment">    irr::video::SColor Color(PixelData[X], 255, 255, 255);</span></div>
-<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;<span class="comment">    Color.getData(&amp;pImageData[X], irr::video::ECF_A8R8G8B8);</span></div>
-<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;<span class="comment">  }</span></div>
-<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;<span class="comment">  pIrrDriver-&gt;setTextureCreationFlag(irr::video::ETCF_CREATE_MIP_MAPS, false);</span></div>
-<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;<span class="comment">  irr::core::dimension2d&lt;irr::u32&gt; const Size(Width, Height);</span></div>
-<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;<span class="comment">  irr::video::IImage * const pImage = pIrrDriver-&gt;createImageFromData(irr::video::ECF_A8R8G8B8, Size, pImageData);</span></div>
-<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;<span class="comment">  pTexture = pIrrDriver-&gt;addTexture(&quot;DefaultIMGUITexture&quot;, pImage);</span></div>
-<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;<span class="comment">  if (rGUIIO.RenderDrawListsFn == COpenGLIMGUIDriver::drawGUIList)</span></div>
-<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;<span class="comment">  {</span></div>
-<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;<span class="comment">    // Store Texture information in IMGUI system</span></div>
-<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;<span class="comment">    rGUIIO.Fonts-&gt;TexID = pTexture;</span></div>
-<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;<span class="comment">    rGUIIO.Fonts-&gt;ClearInputData();</span></div>
-<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;<span class="comment">    rGUIIO.Fonts-&gt;ClearTexData();</span></div>
-<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;<span class="comment">  }</span></div>
-<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;<span class="comment">  delete[] pImageData;</span></div>
-<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;</div>
-<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;<span class="preprocessor">#if 0 // Pure irrlicht implementation</span></div>
-<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;<span class="keywordtype">void</span> COpenGLIMGUIDriver::drawCommandList(ImDrawList * <span class="keyword">const</span> pCommandList)</div>
-<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;{</div>
-<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;</div>
-<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;  <span class="comment">/*</span></div>
-<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;<span class="comment">  const ImDrawList* cmd_list = draw_data-&gt;CmdLists[n];</span></div>
-<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;<span class="comment">  const unsigned char* vtx_buffer = (const unsigned char*)&amp;cmd_list-&gt;VtxBuffer.front();</span></div>
-<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;<span class="comment">  const ImDrawIdx* idx_buffer = &amp;cmd_list-&gt;IdxBuffer.front();</span></div>
-<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;<span class="comment">  glVertexPointer(2, GL_FLOAT, sizeof(ImDrawVert), (void*)(vtx_buffer + OFFSETOF(ImDrawVert, pos)));</span></div>
-<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;<span class="comment">  glTexCoordPointer(2, GL_FLOAT, sizeof(ImDrawVert), (void*)(vtx_buffer + OFFSETOF(ImDrawVert, uv)));</span></div>
-<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;<span class="comment">  glColorPointer(4, GL_UNSIGNED_BYTE, sizeof(ImDrawVert), (void*)(vtx_buffer + OFFSETOF(ImDrawVert, col)));</span></div>
-<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;<span class="comment">  for (int cmd_i = 0; cmd_i &lt; cmd_list-&gt;CmdBuffer.size(); cmd_i++)</span></div>
-<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;<span class="comment">  {</span></div>
-<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;<span class="comment">      const ImDrawCmd* pcmd = &amp;cmd_list-&gt;CmdBuffer[cmd_i];</span></div>
-<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;<span class="comment">      if (pcmd-&gt;UserCallback)</span></div>
-<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;<span class="comment">      {</span></div>
-<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;<span class="comment">          pcmd-&gt;UserCallback(cmd_list, pcmd);</span></div>
-<div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;<span class="comment">      }</span></div>
-<div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;<span class="comment">      else</span></div>
-<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;<span class="comment">      {</span></div>
-<div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;<span class="comment">          glBindTexture(GL_TEXTURE_2D, (GLuint)(intptr_t)pcmd-&gt;TextureId);</span></div>
-<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;<span class="comment">          glScissor((int)pcmd-&gt;ClipRect.x, (int)(fb_height - pcmd-&gt;ClipRect.w), (int)(pcmd-&gt;ClipRect.z - pcmd-&gt;ClipRect.x), (int)(pcmd-&gt;ClipRect.w - pcmd-&gt;ClipRect.y));</span></div>
-<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;<span class="comment">          glDrawElements(GL_TRIANGLES, (GLsizei)pcmd-&gt;ElemCount, GL_UNSIGNED_SHORT, idx_buffer);</span></div>
-<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;<span class="comment">      }</span></div>
-<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;<span class="comment">      idx_buffer += pcmd-&gt;ElemCount;</span></div>
-<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;<span class="comment">  }</span></div>
-<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;</div>
-<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;  <span class="comment">//ImDrawVert Vertex;</span></div>
-<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;</div>
-<div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;  irr::u16 * <span class="keyword">const</span> pIndices = &amp;(pCommandList-&gt;IdxBuffer.front());</div>
-<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160;</div>
-<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;  irr::u32 LastIndex = 0;</div>
-<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;  irr::u32 NumberOfVertex = pCommandList-&gt;VtxBuffer.size();</div>
-<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;  irr::video::S3DVertex * <span class="keyword">const</span> pVertexArray = <span class="keyword">new</span> irr::video::S3DVertex[NumberOfVertex];</div>
-<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;</div>
-<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;  <span class="comment">/*</span></div>
-<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;<span class="comment">  pIrrDriver-&gt;enableMaterial2D(true);</span></div>
-<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;<span class="comment">  pIrrDriver-&gt;getMaterial2D().TextureLayer[0].BilinearFilter=false;</span></div>
-<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;<span class="comment">  pIrrDriver-&gt;getMaterial2D().TextureLayer[0].AnisotropicFilter=false;</span></div>
-<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;<span class="comment">  pIrrDriver-&gt;getMaterial2D().TextureLayer[0].TrilinearFilter=false;</span></div>
-<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;<span class="comment">  pIrrDriver-&gt;getMaterial2D().TextureLayer[0].LODBias=-4;</span></div>
-<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;<span class="comment">  pIrrDriver-&gt;getMaterial2D().AntiAliasing=irr::video::EAAM_OFF;</span></div>
-<div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;</div>
-<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; NumberOfVertex; i++)</div>
-<div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160;  {</div>
-<div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160;    ImDrawVert &amp;rImGUIVertex = pCommandList-&gt;VtxBuffer[i];</div>
-<div class="line"><a name="l00813"></a><span class="lineno">  813</span>&#160;</div>
-<div class="line"><a name="l00814"></a><span class="lineno">  814</span>&#160;    pVertexArray[i].Pos     = irr::core::vector3df(static_cast&lt;irr::f32&gt;(rImGUIVertex.pos.x), static_cast&lt;irr::f32&gt;(rImGUIVertex.pos.y), 0.0) ;</div>
-<div class="line"><a name="l00815"></a><span class="lineno">  815</span>&#160;    pVertexArray[i].Normal  = irr::core::vector3df(0.0, 0.0, 1.0);</div>
-<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160;    irr::u8 <span class="keyword">const</span> Red   = (rImGUIVertex.col &gt;&gt;  0) &amp; 0xFF;</div>
-<div class="line"><a name="l00817"></a><span class="lineno">  817</span>&#160;    irr::u8 <span class="keyword">const</span> Green = (rImGUIVertex.col &gt;&gt;  8) &amp; 0xFF;</div>
-<div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160;    irr::u8 <span class="keyword">const</span> Blue  = (rImGUIVertex.col &gt;&gt; 16) &amp; 0xFF;</div>
-<div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160;    irr::u8 <span class="keyword">const</span> Alpha = (rImGUIVertex.col &gt;&gt; 24) &amp; 0xFF;</div>
-<div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160;    pVertexArray[i].Color   = irr::video::SColor(Alpha, Red, Green, Blue);</div>
-<div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160;    pVertexArray[i].TCoords = irr::core::vector2df(static_cast&lt;irr::f32&gt;(rImGUIVertex.uv.x), static_cast&lt;irr::f32&gt;(rImGUIVertex.uv.y));</div>
-<div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160;  }</div>
-<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;</div>
-<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160;  pIrrDriver-&gt;enableMaterial2D(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;</div>
-<div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> CommandIndex = 0; CommandIndex &lt; pCommandList-&gt;CmdBuffer.size(); CommandIndex++)</div>
-<div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160;  {</div>
-<div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160;    ImDrawCmd * <span class="keyword">const</span> pDrawCommand = &amp;pCommandList-&gt;CmdBuffer[CommandIndex];</div>
-<div class="line"><a name="l00829"></a><span class="lineno">  829</span>&#160;</div>
-<div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160;    <span class="comment">// TODO: implement user callback function!</span></div>
-<div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160;</div>
-<div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160;    <span class="keyword">auto</span> pTexture = <span class="keyword">static_cast&lt;</span>irr::video::ITexture*<span class="keyword">&gt;</span>(pDrawCommand-&gt;TextureId);</div>
-<div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160;    irr::video::SMaterial Material;</div>
-<div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160;</div>
-<div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160;    Material.MaterialType = irr::video::EMT_ONETEXTURE_BLEND;</div>
-<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;    Material.MaterialTypeParam = irr::video::pack_textureBlendFunc(irr::video::EBF_SRC_ALPHA, irr::video::EBF_ONE_MINUS_SRC_ALPHA, irr::video::EMFN_MODULATE_1X, irr::video::EAS_VERTEX_COLOR | irr::video::EAS_TEXTURE);</div>
-<div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;    Material.setTexture(0, pTexture);</div>
-<div class="line"><a name="l00838"></a><span class="lineno">  838</span>&#160;    Material.UseMipMaps = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160;    Material.Thickness = 0.0;</div>
-<div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160;</div>
-<div class="line"><a name="l00841"></a><span class="lineno">  841</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00842"></a><span class="lineno">  842</span>&#160;<span class="comment">    pIrrDriver-&gt;getMaterial2D().MaterialType = irr::video::EMT_ONETEXTURE_BLEND;</span></div>
-<div class="line"><a name="l00843"></a><span class="lineno">  843</span>&#160;<span class="comment">    pIrrDriver-&gt;getMaterial2D().MaterialTypeParam = irr::video::pack_textureBlendFunc(irr::video::EBF_SRC_ALPHA, irr::video::EBF_ONE_MINUS_SRC_ALPHA, irr::video::EMFN_MODULATE_1X, irr::video::EAS_VERTEX_COLOR | irr::video::EAS_TEXTURE);</span></div>
-<div class="line"><a name="l00844"></a><span class="lineno">  844</span>&#160;<span class="comment">    pIrrDriver-&gt;getMaterial2D().setTexture(0, pTexture);</span></div>
-<div class="line"><a name="l00845"></a><span class="lineno">  845</span>&#160;<span class="comment">    pIrrDriver-&gt;getMaterial2D().Thickness = 0.0;</span></div>
-<div class="line"><a name="l00846"></a><span class="lineno">  846</span>&#160;<span class="comment">    */</span></div>
-<div class="line"><a name="l00847"></a><span class="lineno">  847</span>&#160;</div>
-<div class="line"><a name="l00848"></a><span class="lineno">  848</span>&#160;    Material.setFlag(irr::video::EMF_ANTI_ALIASING, <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00849"></a><span class="lineno">  849</span>&#160;    Material.setFlag(irr::video::EMF_BILINEAR_FILTER, <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00850"></a><span class="lineno">  850</span>&#160;    Material.setFlag(irr::video::EMF_ZBUFFER, <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00851"></a><span class="lineno">  851</span>&#160;    Material.setFlag(irr::video::EMF_BLEND_OPERATION, <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00852"></a><span class="lineno">  852</span>&#160;    Material.setFlag(irr::video::EMF_BACK_FACE_CULLING, <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00853"></a><span class="lineno">  853</span>&#160;    Material.setFlag(irr::video::EMF_FRONT_FACE_CULLING, <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00854"></a><span class="lineno">  854</span>&#160;    Material.setFlag(irr::video::EMF_ANISOTROPIC_FILTER, <span class="keyword">true</span>);</div>
-<div class="line"><a name="l00855"></a><span class="lineno">  855</span>&#160;    Material.setFlag(irr::video::EMF_TRILINEAR_FILTER, <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00856"></a><span class="lineno">  856</span>&#160;    Material.TextureLayer[0].LODBias = -4;</div>
-<div class="line"><a name="l00857"></a><span class="lineno">  857</span>&#160;    Material.AntiAliasing = irr::video::EAAM_OFF;</div>
-<div class="line"><a name="l00858"></a><span class="lineno">  858</span>&#160;</div>
-<div class="line"><a name="l00859"></a><span class="lineno">  859</span>&#160;    pIrrDriver-&gt;setMaterial(Material);</div>
-<div class="line"><a name="l00860"></a><span class="lineno">  860</span>&#160;</div>
-<div class="line"><a name="l00861"></a><span class="lineno">  861</span>&#160;    pIrrDriver-&gt;draw2DVertexPrimitiveList(</div>
-<div class="line"><a name="l00862"></a><span class="lineno">  862</span>&#160;        pVertexArray,</div>
-<div class="line"><a name="l00863"></a><span class="lineno">  863</span>&#160;        NumberOfVertex,</div>
-<div class="line"><a name="l00864"></a><span class="lineno">  864</span>&#160;        &amp;pIndices[LastIndex],</div>
-<div class="line"><a name="l00865"></a><span class="lineno">  865</span>&#160;        pDrawCommand-&gt;ElemCount / 3,</div>
-<div class="line"><a name="l00866"></a><span class="lineno">  866</span>&#160;        irr::video::EVT_STANDARD,</div>
-<div class="line"><a name="l00867"></a><span class="lineno">  867</span>&#160;        irr::scene::EPT_TRIANGLES,</div>
-<div class="line"><a name="l00868"></a><span class="lineno">  868</span>&#160;        irr::video::EIT_16BIT</div>
-<div class="line"><a name="l00869"></a><span class="lineno">  869</span>&#160;        );</div>
-<div class="line"><a name="l00870"></a><span class="lineno">  870</span>&#160;</div>
-<div class="line"><a name="l00871"></a><span class="lineno">  871</span>&#160;    LastIndex += pDrawCommand-&gt;ElemCount;</div>
-<div class="line"><a name="l00872"></a><span class="lineno">  872</span>&#160;</div>
-<div class="line"><a name="l00873"></a><span class="lineno">  873</span>&#160;  }</div>
-<div class="line"><a name="l00874"></a><span class="lineno">  874</span>&#160;</div>
-<div class="line"><a name="l00875"></a><span class="lineno">  875</span>&#160;  <span class="keyword">delete</span>[] pVertexArray;</div>
-<div class="line"><a name="l00876"></a><span class="lineno">  876</span>&#160;</div>
-<div class="line"><a name="l00877"></a><span class="lineno">  877</span>&#160;  <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00878"></a><span class="lineno">  878</span>&#160;}</div>
-<div class="line"><a name="l00879"></a><span class="lineno">  879</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00880"></a><span class="lineno">  880</span>&#160;</div>
-<div class="line"><a name="l00881"></a><span class="lineno">  881</span>&#160;<span class="preprocessor">#endif // _IRRIMGUI_NATIVE_OPENGL_</span></div>
+<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;<span class="preprocessor">#endif // _IRRIMGUI_NATIVE_OPENGL_</span></div>
 <div class="ttc" id="_irr_i_m_g_u_i_debug__priv_8h_html"><div class="ttname"><a href="_irr_i_m_g_u_i_debug__priv_8h.html">IrrIMGUIDebug_priv.h</a></div><div class="ttdoc">Contains defines for debug handling. </div></div>
 <div class="ttc" id="namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper_html_aec167b87965445a2bbd44e218e550a71"><div class="ttname"><a href="namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#aec167b87965445a2bbd44e218e550a71">IrrIMGUI::Private::Driver::OpenGLHelper::getTextureIDFromIrrlichtTexture</a></div><div class="ttdeci">ImTextureID getTextureIDFromIrrlichtTexture(irr::video::ITexture *pTexture)</div><div class="ttdoc">Extracts the GPU memory ID for GUI usage from the ITexture object. </div><div class="ttdef"><b>Definition:</b> <a href="_c_open_g_l_i_m_g_u_i_driver_8cpp_source.html#l00607">COpenGLIMGUIDriver.cpp:607</a></div></div>
 <div class="ttc" id="class_irr_i_m_g_u_i_1_1_private_1_1_c_g_u_i_texture_html_aa99f956222aacf725b4ddce92bd8dd7a"><div class="ttname"><a href="class_irr_i_m_g_u_i_1_1_private_1_1_c_g_u_i_texture.html#aa99f956222aacf725b4ddce92bd8dd7a">IrrIMGUI::Private::CGUITexture::mSourceType</a></div><div class="ttdeci">TextureSourceType mSourceType</div><div class="ttdef"><b>Definition:</b> <a href="_c_g_u_i_texture_8h_source.html#l00075">CGUITexture.h:75</a></div></div>
-<div class="ttc" id="namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper_html_a18fb8b546294b39a390d222e0e3413cf"><div class="ttname"><a href="namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#a18fb8b546294b39a390d222e0e3413cf">IrrIMGUI::Private::Driver::OpenGLHelper::deleteTextureFromMemory</a></div><div class="ttdeci">void deleteTextureFromMemory(CGUITexture *pGUITexture)</div><div class="ttdoc">Deleted a texture from memory if it uses its own memory. </div><div class="ttdef"><b>Definition:</b> <a href="_c_open_g_l_i_m_g_u_i_driver_8cpp_source.html#l00661">COpenGLIMGUIDriver.cpp:661</a></div></div>
+<div class="ttc" id="namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper_html_a18fb8b546294b39a390d222e0e3413cf"><div class="ttname"><a href="namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#a18fb8b546294b39a390d222e0e3413cf">IrrIMGUI::Private::Driver::OpenGLHelper::deleteTextureFromMemory</a></div><div class="ttdeci">void deleteTextureFromMemory(CGUITexture *pGUITexture)</div><div class="ttdoc">Deleted a texture from memory if it uses its own memory. </div><div class="ttdef"><b>Definition:</b> <a href="_c_open_g_l_i_m_g_u_i_driver_8cpp_source.html#l00660">COpenGLIMGUIDriver.cpp:660</a></div></div>
 <div class="ttc" id="namespace_irr_i_m_g_u_i_1_1_private_html_afdbc4ba84603b12f356687fcb3a80de1a834bf897fd4ea3eb8e2e1ea7076e26d4"><div class="ttname"><a href="namespace_irr_i_m_g_u_i_1_1_private.html#afdbc4ba84603b12f356687fcb3a80de1a834bf897fd4ea3eb8e2e1ea7076e26d4">IrrIMGUI::Private::ETST_IMAGE</a></div><div class="ttdef"><b>Definition:</b> <a href="_c_g_u_i_texture_8h_source.html#l00051">CGUITexture.h:51</a></div></div>
 <div class="ttc" id="group___irr_i_m_g_u_i_private_html_gaa602d6a994c0ee7d7afc6d26f54f95f1"><div class="ttname"><a href="group___irr_i_m_g_u_i_private.html#gaa602d6a994c0ee7d7afc6d26f54f95f1">LOG_ERROR</a></div><div class="ttdeci">#define LOG_ERROR(string)</div><div class="ttdoc">Prints an error to std::out. It is only active for debug level 0 or higher. </div><div class="ttdef"><b>Definition:</b> <a href="_irr_i_m_g_u_i_debug__priv_8h_source.html#l00098">IrrIMGUIDebug_priv.h:98</a></div></div>
-<div class="ttc" id="namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper_html_a98e9ca73df255d31f58e7ee3579cefcb"><div class="ttname"><a href="namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#a98e9ca73df255d31f58e7ee3579cefcb">IrrIMGUI::Private::Driver::OpenGLHelper::getGlEnum</a></div><div class="ttdeci">GLenum getGlEnum(GLenum const Which)</div><div class="ttdef"><b>Definition:</b> <a href="_c_open_g_l_i_m_g_u_i_driver_8cpp_source.html#l00673">COpenGLIMGUIDriver.cpp:673</a></div></div>
+<div class="ttc" id="namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper_html_a98e9ca73df255d31f58e7ee3579cefcb"><div class="ttname"><a href="namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#a98e9ca73df255d31f58e7ee3579cefcb">IrrIMGUI::Private::Driver::OpenGLHelper::getGlEnum</a></div><div class="ttdeci">GLenum getGlEnum(GLenum const Which)</div><div class="ttdef"><b>Definition:</b> <a href="_c_open_g_l_i_m_g_u_i_driver_8cpp_source.html#l00672">COpenGLIMGUIDriver.cpp:672</a></div></div>
 <div class="ttc" id="class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper_1_1_c_open_g_l_state_html"><div class="ttname"><a href="class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper_1_1_c_open_g_l_state.html">IrrIMGUI::Private::Driver::OpenGLHelper::COpenGLState</a></div><div class="ttdoc">Helper Class to store and restore the OpenGL state. </div><div class="ttdef"><b>Definition:</b> <a href="_c_open_g_l_i_m_g_u_i_driver_8cpp_source.html#l00118">COpenGLIMGUIDriver.cpp:118</a></div></div>
 <div class="ttc" id="union_irr_i_m_g_u_i_1_1_private_1_1_texture_source_html_a6ab6030cc7ff662819bee88db2188ee5"><div class="ttname"><a href="union_irr_i_m_g_u_i_1_1_private_1_1_texture_source.html#a6ab6030cc7ff662819bee88db2188ee5">IrrIMGUI::Private::TextureSource::TextureID</a></div><div class="ttdeci">irr::video::ITexture * TextureID</div><div class="ttdef"><b>Definition:</b> <a href="_c_g_u_i_texture_8h_source.html#l00059">CGUITexture.h:59</a></div></div>
 <div class="ttc" id="namespace_irr_i_m_g_u_i_1_1_private_html_afdbc4ba84603b12f356687fcb3a80de1aebedc3d1bacf44f9453c97dc2bb81cae"><div class="ttname"><a href="namespace_irr_i_m_g_u_i_1_1_private.html#afdbc4ba84603b12f356687fcb3a80de1aebedc3d1bacf44f9453c97dc2bb81cae">IrrIMGUI::Private::ETST_RAWDATA</a></div><div class="ttdef"><b>Definition:</b> <a href="_c_g_u_i_texture_8h_source.html#l00052">CGUITexture.h:52</a></div></div>
 <div class="ttc" id="group___irr_i_m_g_u_i_private_html_ga221dfbfa35638f4fb0a15ca6887e0dc0"><div class="ttname"><a href="group___irr_i_m_g_u_i_private.html#ga221dfbfa35638f4fb0a15ca6887e0dc0">FASSERT</a></div><div class="ttdeci">#define FASSERT(expr)</div><div class="ttdoc">An assertion for detecting fatal errors. This assertion is also active in the non-debug version...</div><div class="ttdef"><b>Definition:</b> <a href="_irr_i_m_g_u_i_debug__priv_8h_source.html#l00077">IrrIMGUIDebug_priv.h:77</a></div></div>
 <div class="ttc" id="class_irr_i_m_g_u_i_1_1_private_1_1_i_i_m_g_u_i_driver_html"><div class="ttname"><a href="class_irr_i_m_g_u_i_1_1_private_1_1_i_i_m_g_u_i_driver.html">IrrIMGUI::Private::IIMGUIDriver</a></div><div class="ttdoc">Interface for an IMGUI Driver to setup the IMGUI render system. </div><div class="ttdef"><b>Definition:</b> <a href="_i_i_m_g_u_i_driver_8h_source.html#l00064">IIMGUIDriver.h:64</a></div></div>
-<div class="ttc" id="class_irr_i_m_g_u_i_1_1_private_1_1_i_i_m_g_u_i_driver_html_a94b7f916794405c54573ca55a678bf7f"><div class="ttname"><a href="class_irr_i_m_g_u_i_1_1_private_1_1_i_i_m_g_u_i_driver.html#a94b7f916794405c54573ca55a678bf7f">IrrIMGUI::Private::IIMGUIDriver::getIrrDevice</a></div><div class="ttdeci">irr::IrrlichtDevice * getIrrDevice(void)</div><div class="ttdef"><b>Definition:</b> <a href="_i_i_m_g_u_i_driver_8cpp_source.html#l00148">IIMGUIDriver.cpp:148</a></div></div>
+<div class="ttc" id="class_irr_i_m_g_u_i_1_1_private_1_1_i_i_m_g_u_i_driver_html_a94b7f916794405c54573ca55a678bf7f"><div class="ttname"><a href="class_irr_i_m_g_u_i_1_1_private_1_1_i_i_m_g_u_i_driver.html#a94b7f916794405c54573ca55a678bf7f">IrrIMGUI::Private::IIMGUIDriver::getIrrDevice</a></div><div class="ttdeci">static irr::IrrlichtDevice * getIrrDevice(void)</div><div class="ttdef"><b>Definition:</b> <a href="_i_i_m_g_u_i_driver_8cpp_source.html#l00152">IIMGUIDriver.cpp:152</a></div></div>
 <div class="ttc" id="class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_open_g_l_i_m_g_u_i_driver_html_a333c0e27499d30e44a2fb4066bd179f6"><div class="ttname"><a href="class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_open_g_l_i_m_g_u_i_driver.html#a333c0e27499d30e44a2fb4066bd179f6">IrrIMGUI::Private::Driver::COpenGLIMGUIDriver::drawGUIList</a></div><div class="ttdeci">static void drawGUIList(ImDrawData *pDrawData)</div><div class="ttdoc">Renders a full IMGUI draw list (called by the IMGUI system). </div><div class="ttdef"><b>Definition:</b> <a href="_c_open_g_l_i_m_g_u_i_driver_8cpp_source.html#l00202">COpenGLIMGUIDriver.cpp:202</a></div></div>
 <div class="ttc" id="class_irr_i_m_g_u_i_1_1_private_1_1_c_g_u_i_texture_html_ae2ae8d07a096df750b0bc27a570acbee"><div class="ttname"><a href="class_irr_i_m_g_u_i_1_1_private_1_1_c_g_u_i_texture.html#ae2ae8d07a096df750b0bc27a570acbee">IrrIMGUI::Private::CGUITexture::mIsValid</a></div><div class="ttdeci">bool mIsValid</div><div class="ttdef"><b>Definition:</b> <a href="_c_g_u_i_texture_8h_source.html#l00077">CGUITexture.h:77</a></div></div>
 <div class="ttc" id="namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper_html_a5fc3ca39eb818651ee7723a6d8c0b539"><div class="ttname"><a href="namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#a5fc3ca39eb818651ee7723a6d8c0b539">IrrIMGUI::Private::Driver::OpenGLHelper::copyTextureIDFromIrrlichtImage</a></div><div class="ttdeci">ImTextureID copyTextureIDFromIrrlichtImage(irr::video::IImage *pImage)</div><div class="ttdoc">Copies the content of an IImage object into the GPU memory. </div><div class="ttdef"><b>Definition:</b> <a href="_c_open_g_l_i_m_g_u_i_driver_8cpp_source.html#l00546">COpenGLIMGUIDriver.cpp:546</a></div></div>
 <div class="ttc" id="namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper_html_a16516cb02b781fb12f632a6c53666dd3"><div class="ttname"><a href="namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#a16516cb02b781fb12f632a6c53666dd3">IrrIMGUI::Private::Driver::OpenGLHelper::copyTextureIDFromIrrlichtTexture</a></div><div class="ttdeci">ImTextureID copyTextureIDFromIrrlichtTexture(irr::video::ITexture *pTexture)</div><div class="ttdoc">Copies the content of an ITexture object into the GPU memory. </div><div class="ttdef"><b>Definition:</b> <a href="_c_open_g_l_i_m_g_u_i_driver_8cpp_source.html#l00572">COpenGLIMGUIDriver.cpp:572</a></div></div>
-<div class="ttc" id="namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper_html_a2e5e34ef446fadda79dc3ef18db75f4f"><div class="ttname"><a href="namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#a2e5e34ef446fadda79dc3ef18db75f4f">IrrIMGUI::Private::Driver::OpenGLHelper::restoreGLBit</a></div><div class="ttdeci">void restoreGLBit(GLenum const WhichBit, bool const Value)</div><div class="ttdoc">Restores an OpenGL Bit. </div><div class="ttdef"><b>Definition:</b> <a href="_c_open_g_l_i_m_g_u_i_driver_8cpp_source.html#l00680">COpenGLIMGUIDriver.cpp:680</a></div></div>
+<div class="ttc" id="namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper_html_a2e5e34ef446fadda79dc3ef18db75f4f"><div class="ttname"><a href="namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#a2e5e34ef446fadda79dc3ef18db75f4f">IrrIMGUI::Private::Driver::OpenGLHelper::restoreGLBit</a></div><div class="ttdeci">void restoreGLBit(GLenum const WhichBit, bool const Value)</div><div class="ttdoc">Restores an OpenGL Bit. </div><div class="ttdef"><b>Definition:</b> <a href="_c_open_g_l_i_m_g_u_i_driver_8cpp_source.html#l00679">COpenGLIMGUIDriver.cpp:679</a></div></div>
 <div class="ttc" id="class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_open_g_l_i_m_g_u_i_driver_html_ae8889bc916690ae10576b320d50e1126"><div class="ttname"><a href="class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_open_g_l_i_m_g_u_i_driver.html#ae8889bc916690ae10576b320d50e1126">IrrIMGUI::Private::Driver::COpenGLIMGUIDriver::drawCommandList</a></div><div class="ttdeci">static void drawCommandList(ImDrawList *pCommandList)</div><div class="ttdoc">Renders a single command list. </div><div class="ttdef"><b>Definition:</b> <a href="_c_open_g_l_i_m_g_u_i_driver_8cpp_source.html#l00164">COpenGLIMGUIDriver.cpp:164</a></div></div>
 <div class="ttc" id="namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper_html_a9ef6343053f61c732970f0e3bbd1b3c7"><div class="ttname"><a href="namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#a9ef6343053f61c732970f0e3bbd1b3c7">IrrIMGUI::Private::Driver::OpenGLHelper::createTextureIDFromRawData</a></div><div class="ttdeci">ImTextureID createTextureIDFromRawData(EColorFormat ColorFormat, irr::u8 *pPixelData, irr::u32 Width, irr::u32 Height)</div><div class="ttdoc">Creates an new texture from raw data inside the GPU memory. When the color format does not fit to the...</div><div class="ttdef"><b>Definition:</b> <a href="_c_open_g_l_i_m_g_u_i_driver_8cpp_source.html#l00504">COpenGLIMGUIDriver.cpp:504</a></div></div>
 <div class="ttc" id="class_irr_i_m_g_u_i_1_1_i_g_u_i_texture_html"><div class="ttname"><a href="class_irr_i_m_g_u_i_1_1_i_g_u_i_texture.html">IrrIMGUI::IGUITexture</a></div><div class="ttdef"><b>Definition:</b> <a href="_i_g_u_i_texture_8h_source.html#l00043">IGUITexture.h:43</a></div></div>
@@ -927,7 +782,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="namespace_irr_i_m_g_u_i_1_1_private_html_afdbc4ba84603b12f356687fcb3a80de1aa28bab1991dfa4c7d27ce1f3db2077b8"><div class="ttname"><a href="namespace_irr_i_m_g_u_i_1_1_private.html#afdbc4ba84603b12f356687fcb3a80de1aa28bab1991dfa4c7d27ce1f3db2077b8">IrrIMGUI::Private::ETST_GUIFONT</a></div><div class="ttdef"><b>Definition:</b> <a href="_c_g_u_i_texture_8h_source.html#l00053">CGUITexture.h:53</a></div></div>
 <div class="ttc" id="namespace_irr_i_m_g_u_i_1_1_private_html_ae9f11513bf9c00f907f9bae27471f8f1ab46751958f364ca9abc8d890f418d3d4"><div class="ttname"><a href="namespace_irr_i_m_g_u_i_1_1_private.html#ae9f11513bf9c00f907f9bae27471f8f1ab46751958f364ca9abc8d890f418d3d4">IrrIMGUI::Private::ECF_R8G8B8A8</a></div><div class="ttdoc">32bit word with Red at the MSB and Blue at the LSB. </div><div class="ttdef"><b>Definition:</b> <a href="_i_i_m_g_u_i_driver_8h_source.html#l00057">IIMGUIDriver.h:57</a></div></div>
 <div class="ttc" id="group___irr_i_m_g_u_i_private_html_ga31235b3c754b08386395d911f3c58a02"><div class="ttname"><a href="group___irr_i_m_g_u_i_private.html#ga31235b3c754b08386395d911f3c58a02">LOG_NOTE</a></div><div class="ttdeci">#define LOG_NOTE(string)</div><div class="ttdoc">Prints an note to std::out. It is only active for debug level 2. </div><div class="ttdef"><b>Definition:</b> <a href="_irr_i_m_g_u_i_debug__priv_8h_source.html#l00090">IrrIMGUIDebug_priv.h:90</a></div></div>
-<div class="ttc" id="class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper_1_1_c_open_g_l_state_html_a25a0b26babb98d2839db4f10337de931"><div class="ttname"><a href="class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper_1_1_c_open_g_l_state.html#a25a0b26babb98d2839db4f10337de931">IrrIMGUI::Private::Driver::OpenGLHelper::COpenGLState::COpenGLState</a></div><div class="ttdeci">COpenGLState(void)</div><div class="ttdoc">The Constructor stored the OpenGL state. </div><div class="ttdef"><b>Definition:</b> <a href="_c_open_g_l_i_m_g_u_i_driver_8cpp_source.html#l00692">COpenGLIMGUIDriver.cpp:692</a></div></div>
+<div class="ttc" id="class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper_1_1_c_open_g_l_state_html_a25a0b26babb98d2839db4f10337de931"><div class="ttname"><a href="class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper_1_1_c_open_g_l_state.html#a25a0b26babb98d2839db4f10337de931">IrrIMGUI::Private::Driver::OpenGLHelper::COpenGLState::COpenGLState</a></div><div class="ttdeci">COpenGLState(void)</div><div class="ttdoc">The Constructor stored the OpenGL state. </div><div class="ttdef"><b>Definition:</b> <a href="_c_open_g_l_i_m_g_u_i_driver_8cpp_source.html#l00691">COpenGLIMGUIDriver.cpp:691</a></div></div>
+<div class="ttc" id="group___irr_i_m_g_u_i_private_html_ga13c99850324ea586fa0c10595e632a54"><div class="ttname"><a href="group___irr_i_m_g_u_i_private.html#ga13c99850324ea586fa0c10595e632a54">LOG_WARNING</a></div><div class="ttdeci">#define LOG_WARNING(string)</div><div class="ttdoc">Prints an warning to std::out. It is only active for debug level 1 or higher. </div><div class="ttdef"><b>Definition:</b> <a href="_irr_i_m_g_u_i_debug__priv_8h_source.html#l00094">IrrIMGUIDebug_priv.h:94</a></div></div>
 <div class="ttc" id="namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper_html_a665d991af08d0d5e906f46f8c5cc43ce"><div class="ttname"><a href="namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#a665d991af08d0d5e906f46f8c5cc43ce">IrrIMGUI::Private::Driver::OpenGLHelper::copyTextureIDFromGUIFont</a></div><div class="ttdeci">ImTextureID copyTextureIDFromGUIFont(void)</div><div class="ttdoc">Copies the current loaded GUI Fonts into the GPU memory. </div><div class="ttdef"><b>Definition:</b> <a href="_c_open_g_l_i_m_g_u_i_driver_8cpp_source.html#l00644">COpenGLIMGUIDriver.cpp:644</a></div></div>
 <div class="ttc" id="class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_open_g_l_i_m_g_u_i_driver_html_ade239a73249ec2f21449e2eea24b2bb8"><div class="ttname"><a href="class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_open_g_l_i_m_g_u_i_driver.html#ade239a73249ec2f21449e2eea24b2bb8">IrrIMGUI::Private::Driver::COpenGLIMGUIDriver::createTexture</a></div><div class="ttdeci">virtual IGUITexture * createTexture(EColorFormat ColorFormat, irr::u8 *pPixelData, irr::u32 Width, irr::u32 Height)</div><div class="ttdoc">Creates a GUI texture object out of raw data. </div><div class="ttdef"><b>Definition:</b> <a href="_c_open_g_l_i_m_g_u_i_driver_8cpp_source.html#l00245">COpenGLIMGUIDriver.cpp:245</a></div></div>
 <div class="ttc" id="namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper_html_a33120ef8e646ffed505c92b1d817966c"><div class="ttname"><a href="namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#a33120ef8e646ffed505c92b1d817966c">IrrIMGUI::Private::Driver::OpenGLHelper::createTextureInMemory</a></div><div class="ttdeci">ImTextureID createTextureInMemory(GLint OpenGLColorFormat, irr::u8 *pPixelData, irr::u32 Width, irr::u32 Height)</div><div class="ttdoc">Creates an new texture from raw data inside the GPU memory. For this, the Color Format must be alread...</div><div class="ttdef"><b>Definition:</b> <a href="_c_open_g_l_i_m_g_u_i_driver_8cpp_source.html#l00481">COpenGLIMGUIDriver.cpp:481</a></div></div>
@@ -940,7 +796,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="namespace_irr_i_m_g_u_i_html"><div class="ttname"><a href="namespace_irr_i_m_g_u_i.html">IrrIMGUI</a></div><div class="ttdoc">Main namespace for Irrlicht IMGUI binding. </div><div class="ttdef"><b>Definition:</b> <a href="_c_channel_buffer_8cpp_source.html#l00037">CChannelBuffer.cpp:37</a></div></div>
 <div class="ttc" id="union_irr_i_m_g_u_i_1_1_private_1_1_texture_source_html_a1be66ccf1827927420315851c373380b"><div class="ttname"><a href="union_irr_i_m_g_u_i_1_1_private_1_1_texture_source.html#a1be66ccf1827927420315851c373380b">IrrIMGUI::Private::TextureSource::ImageID</a></div><div class="ttdeci">irr::video::IImage * ImageID</div><div class="ttdef"><b>Definition:</b> <a href="_c_g_u_i_texture_8h_source.html#l00060">CGUITexture.h:60</a></div></div>
 <div class="ttc" id="class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_open_g_l_i_m_g_u_i_driver_html_ac5ec26cfbd76e61fa9170186d87eb65b"><div class="ttname"><a href="class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_open_g_l_i_m_g_u_i_driver.html#ac5ec26cfbd76e61fa9170186d87eb65b">IrrIMGUI::Private::Driver::COpenGLIMGUIDriver::setupFunctionPointer</a></div><div class="ttdeci">void setupFunctionPointer(void)</div><div class="ttdoc">Setups the IMGUI function pointer. </div><div class="ttdef"><b>Definition:</b> <a href="_c_open_g_l_i_m_g_u_i_driver_8cpp_source.html#l00145">COpenGLIMGUIDriver.cpp:145</a></div></div>
-<div class="ttc" id="class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper_1_1_c_open_g_l_state_html_a6026c7dbebb6aadd4c17f22badf6c175"><div class="ttname"><a href="class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper_1_1_c_open_g_l_state.html#a6026c7dbebb6aadd4c17f22badf6c175">IrrIMGUI::Private::Driver::OpenGLHelper::COpenGLState::~COpenGLState</a></div><div class="ttdeci">~COpenGLState(void)</div><div class="ttdoc">The Destructor restores the state. </div><div class="ttdef"><b>Definition:</b> <a href="_c_open_g_l_i_m_g_u_i_driver_8cpp_source.html#l00711">COpenGLIMGUIDriver.cpp:711</a></div></div>
+<div class="ttc" id="class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper_1_1_c_open_g_l_state_html_a6026c7dbebb6aadd4c17f22badf6c175"><div class="ttname"><a href="class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper_1_1_c_open_g_l_state.html#a6026c7dbebb6aadd4c17f22badf6c175">IrrIMGUI::Private::Driver::OpenGLHelper::COpenGLState::~COpenGLState</a></div><div class="ttdeci">~COpenGLState(void)</div><div class="ttdoc">The Destructor restores the state. </div><div class="ttdef"><b>Definition:</b> <a href="_c_open_g_l_i_m_g_u_i_driver_8cpp_source.html#l00710">COpenGLIMGUIDriver.cpp:710</a></div></div>
 <div class="ttc" id="_c_open_g_l_i_m_g_u_i_driver_8h_html"><div class="ttname"><a href="_c_open_g_l_i_m_g_u_i_driver_8h.html">COpenGLIMGUIDriver.h</a></div><div class="ttdoc">Contains a driver that uses native OpenGL functions to render the GUI. </div></div>
 <div class="ttc" id="class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_open_g_l_i_m_g_u_i_driver_html_a767e16f97bee65a5375a225e1b207eb2"><div class="ttname"><a href="class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_open_g_l_i_m_g_u_i_driver.html#a767e16f97bee65a5375a225e1b207eb2">IrrIMGUI::Private::Driver::COpenGLIMGUIDriver::deleteTexture</a></div><div class="ttdeci">virtual void deleteTexture(IGUITexture *pGUITexture)</div><div class="ttdoc">Deletes an texture from graphic memory. </div><div class="ttdef"><b>Definition:</b> <a href="_c_open_g_l_i_m_g_u_i_driver_8cpp_source.html#l00451">COpenGLIMGUIDriver.cpp:451</a></div></div>
 <div class="ttc" id="class_irr_i_m_g_u_i_1_1_private_1_1_c_g_u_i_texture_html_ad4f31822cd39a739ef03315f5f3b2fa2"><div class="ttname"><a href="class_irr_i_m_g_u_i_1_1_private_1_1_c_g_u_i_texture.html#ad4f31822cd39a739ef03315f5f3b2fa2">IrrIMGUI::Private::CGUITexture::mSource</a></div><div class="ttdeci">TextureSource mSource</div><div class="ttdef"><b>Definition:</b> <a href="_c_g_u_i_texture_8h_source.html#l00076">CGUITexture.h:76</a></div></div>
