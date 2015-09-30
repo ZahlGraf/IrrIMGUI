@@ -22,11 +22,7 @@
 # SOFTWARE.
 #
 
-if (UNIX)						
-	SET (OS_DEPENDENT_LIBRARIES
-		${OS_DEPENDENT_LIBRARIES}
-		Xxf86vm
-	)	
+if ((UNIX) OR (APPLE))						
 	
 	SET (IMGUI_API_VALUE
 	)
