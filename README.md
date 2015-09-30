@@ -208,7 +208,7 @@ how to build a library with CMake.
  
  * _IRRIMGUI_IRRLICHT_DIRECT_INCLUDES_ = [On|Off] enable this option when you include your Irrlicht headers with `#include <irrlicht.h>` instead of `#include <Irrlicht/irrlicht.h>`  
  
- * _IRRIMGUI_NATIVE_OPENGL_ = [On|Off] enable this for version 0.1, since a Irrlicht driver is not available so far  
+ * _IRRIMGUI_NATIVE_OPENGL_ = [On|Off] enable this option only for tests or as fallback solution. The native OpenGL renderer is not officially supported.   
  
  * _IRRIMGUI_STATIC_LIBRARY_ = [On|Off] enable this if you want to compile IrrIMGUI as static library. **Attention: In this case you also need a static Irrlicht library!**
   
