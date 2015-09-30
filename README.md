@@ -38,11 +38,11 @@ Following Features are supported so far:
 ### Upcomming: master-branch (unstable not tested yet)
 
 #### Highlights
-* Added Irrlicht High Level Renderer (supports only OpenGL so far)
+* Added Irrlicht High Level Renderer
 
 #### Fixes
-* Create GUI object in all examples with `new` to be able to destroy it before Irrlicht Driver is dropped. 
-  **Attention:** Take care, that in your applications, the GUI object is not destroyed after the Irrlicht Driver has    been dropped, otherwise the GUI handle cannot free-up internal allocated memory and the application will crash.
+* Created GUI Handle object in all examples with `new` to be able to destroy it before Irrlicht Driver is dropped. 
+  **Attention:** Take care, that in your applications, the GUI Handle object is not destroyed after the Irrlicht Driver has been dropped, otherwise the GUI Handle cannot free-up internal allocated memory and the application will crash.
 
 #### Dependency Versions
 * [IMGUI 1.45](https://github.com/ocornut/imgui/tree/v1.45)
