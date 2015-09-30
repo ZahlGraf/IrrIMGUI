@@ -55,6 +55,7 @@ void runScene(void)
   // Irrlicht Settings
   SIrrlichtCreationParameters IrrlichtParams;
   IrrlichtParams.DriverType    = video::EDT_OPENGL;
+  //IrrlichtParams.DriverType    = video::EDT_DIRECT3D9;
   IrrlichtParams.WindowSize    = core::dimension2d<u32>(1024, 800);
   IrrlichtParams.Bits          = 32;
   IrrlichtParams.Fullscreen    = false;
