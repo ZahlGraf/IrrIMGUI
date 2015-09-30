@@ -53,9 +53,11 @@ Following Features are supported so far:
 
 #### Highlights
 * Added Irrlicht High Level Renderer.
+* **Note:** The Irrlicht High Level Renderer supports Irrlicht OpenGL and DirectX9 driver. DirectX8 is untested so far and the software render driver are missing necessary features (drawing primitives).
 
 #### Fixes
 * Created GUI Handle object in all examples with `new` to be able to destroy it before Irrlicht Driver is dropped. 
+* **Attention:** Look at the new examples! Take care, that you destory your GUI Handle object _before_ destroying the Irrlicht Device. Otherwise your application will crash, when IrrIMGUI tries to free-up allocated memory.
 
 #### Dependency Versions
 * [IMGUI 1.45](https://github.com/ocornut/imgui/tree/v1.45)
