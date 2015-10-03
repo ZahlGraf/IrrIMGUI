@@ -83,6 +83,7 @@ namespace Private
       LOG_ERROR("The Font Texture has not been deleted!\n");
     }
 
+    ImGui::GetIO().Fonts->Clear();
     ImGui::Shutdown();
     return;
   }
