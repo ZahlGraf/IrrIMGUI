@@ -53,6 +53,7 @@ namespace IrrIMGUI
 
   CIMGUIHandle::CIMGUIHandle(irr::IrrlichtDevice * pDevice, CIMGUIEventStorage * pEventStorage)
   {
+    pDevice->grab();
 
     mpGUIDriver = IIMGUIDriver::getInstance(pDevice);
     mLastTime    = static_cast<float>(pDevice->getTimer()->getRealTime()) / 1000.0f;
@@ -64,6 +65,7 @@ namespace IrrIMGUI
 
   CIMGUIHandle::~CIMGUIHandle(void)
   {
+    irr::IrrlichtDevice * const pIrrDevice = mpGUIDriver->getIrrDevice();
 
     if (mHandleInstances == 0)
     {
@@ -78,6 +80,8 @@ namespace IrrIMGUI
         IIMGUIDriver::deleteInstance();
       }
     }
+
+    pIrrDevice->drop();
 
     return;
   }
