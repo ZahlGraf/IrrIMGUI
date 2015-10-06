@@ -30,6 +30,7 @@
 
 // library includes
 #include <IrrIMGUI/IrrIMGUI.h>
+#include "CIMGUIHandle.h"
 #include "IIMGUIDriver.h"
 #include "IrrIMGUIDebug_priv.h"
 

@@ -32,8 +32,8 @@
 #define IRRIMGUI_INCLUDE_IRRIMGUI_IRRIMGUI_H_
 
 // module includes
-#include "IrrIMGUIConfig.h"
-#include "CIMGUIHandle.h"
+#include "IrrIMGUI/IrrIMGUIConfig.h"
+#include "IIMGUIHandle.h"
 #include "CIMGUIEventReceiver.h"
 
 /**
