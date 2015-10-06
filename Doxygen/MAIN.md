@@ -21,6 +21,7 @@
     * [Step 2: Initialize Irrlicht Device and GUI](#ShortUsageReferenceGettingStartedStep2)
     * [Step 3: Start GUI Frame](#ShortUsageReferenceGettingStartedStep3)
     * [Step 4: Render GUI](#ShortUsageReferenceGettingStartedStep4)
+    * [Step 5: Delete GUI](#ShortUsageReferenceGettingStartedStep5)
 	
   * [Use custom Event Receiver](#ShortUsageReferenceCustomEventReceiver)
     * [Method 1: Inherit from standard Event Receiver](#ShortUsageReferenceCustomEventReceiverMethod1)
@@ -47,7 +48,7 @@
  
 ## <a name="MostImportantBookmarks"></a> Most Important API Bookmarks
  
- * Class IrrIMGUI::CIMGUIHandle - Use this class as main handle to the Irrlicht IMGUI Binding
+ * Class IrrIMGUI::IIMGUIHandle - Use this class as main handle to the Irrlicht IMGUI Binding
  * Class IrrIMGUI::CIMGUIEventReceiver - A standard Event Receiver for Irrlicht, that passes all Mouse and Keyboard events to the GUI
  * Class IrrIMGUI::IGUITexture - A general texture object for drawing images to the GUI
  
@@ -90,14 +91,14 @@
   IrrlichtDevice * const pDevice = createDeviceEx(IrrlichtParams);
   
   // Create GUI object
-  CIMGUIHandle GUI(pDevice, &EventReceiver);
+  IIMGUIHandle * const pGUI = createIMGUI(pDevice, &EventReceiver);
 ```
 
 #### <a name="ShortUsageReferenceGettingStartedStep3"></a> Step 3: Start GUI Frame
 Inside the Main-Loop:
 ```cpp
 	// create the GUI elements
-    GUI.startGUI();
+    pGUI->startGUI();
     ImGui::Begin("My first Window");
     ImGui::Text("Hello World!");
     if (ImGui::Button("Exit", ImVec2(40, 20)))
@@ -115,7 +116,13 @@ Inside the Main-Loop:
     pSceneManager->drawAll();
 	
 	// render the GUI
-    GUI.drawAll();
+    pGUI->drawAll();
+```
+
+#### <a name="ShortUsageReferenceGettingStartedStep5"></a> Step 5: Delete GUI
+After the Main-Loop:
+```cpp
+    pGUI->drop();
 ```
 
 	
@@ -155,15 +162,15 @@ class CMyOwnEventReceiver : private IrrIMGUI::CIMGUIEventReceiver
 
 ```cpp
 // load the Cousine-Regular.ttf file from the media directory
-ImFont *pCousine16 = GUI.addFontFromFileTTF("../../media/Cousine-Regular.ttf", 16.0f);
-ImFont *pCousine24 = GUI.addFontFromFileTTF("../../media/Cousine-Regular.ttf", 24.0f);
+ImFont *pCousine16 = pGUI->addFontFromFileTTF("../../media/Cousine-Regular.ttf", 16.0f);
+ImFont *pCousine24 = pGUI->addFontFromFileTTF("../../media/Cousine-Regular.ttf", 24.0f);
 ```
 * Hint: Look-up for further methods to load fonts in the GUI Handle class ( @ref LoadFonts )
 
 #### <a name="ShortUsageReferenceFontsStep2"></a> Step 2: Compile Fonts
 
 ```cpp
-GUI.compileFonts();
+pGUI->compileFonts();
 ```
 
 #### <a name="ShortUsageReferenceFontsStep3"></a> Step 3: Activate a Font
@@ -189,7 +196,7 @@ Inside the Main-Loop:
 #### <a name="ShortUsageReferenceFontsOptional"></a> Optional: Reset Fonts
 
 ```cpp
-GUI.resetFonts();
+pGUI->resetFonts();
 ```
 	
 ### <a name="ShortUsageReferenceImages"></a> Use images
@@ -208,8 +215,8 @@ irr::video::IImage * pSpaceX = pDriver->createImageFromFile("../../media/SpaceX.
 #### <a name="ShortUsageReferenceImagesStep2"></a> Step 2: Create GUI Texture
 
 ```cpp
- IrrIMGUI::IGUITexture * pSoyuzTex  = GUI.createTexture(pSoyuz);
- IrrIMGUI::IGUITexture * pSpaceXTex = GUI.createTexture(pSpaceX);
+ IrrIMGUI::IGUITexture * pSoyuzTex  = pGUI->createTexture(pSoyuz);
+ IrrIMGUI::IGUITexture * pSpaceXTex = pGUI->createTexture(pSpaceX);
 ```
 
 * Hint: Look-up for further methods to create textures in the GUI Handle class ( @ref CreateTextures )
@@ -234,8 +241,8 @@ Inside the Main-Loop:
 ```cpp
   pSoyuz->drop();
   pSpaceX->drop();
-  GUI.deleteTexture(pSoyuzTex);
-  GUI.deleteTexture(pSpaceXTex);
+  pGUI->deleteTexture(pSoyuzTex);
+  pGUI->deleteTexture(pSpaceXTex);
 ```
 
 ### <a name="ShortUsageReferenceTextures"></a> Use Irrlicht textures
@@ -249,7 +256,7 @@ Inside the Main-Loop:
   video::ITexture * const pRenderTarget = pDriver->addRenderTargetTexture(core::dimension2d<u32>(384, 300), "Moon");
   
   // create GUI Texture handle
-  IGUITexture * const pRenderTextureID  = GUI.createTexture(pRenderTarget);
+  IGUITexture * const pRenderTextureID  = pGUI->createTexture(pRenderTarget);
 ```
 
 * Hint: Look-up for further methods to create textures in the GUI Handle class ( @ref CreateTextures )
@@ -258,13 +265,13 @@ Inside the Main-Loop:
 
 Inside the Main-Loop:
 ```cpp
-    GUI.updateTexture(pRenderTextureID, pRenderTarget);
+    pGUI->updateTexture(pRenderTextureID, pRenderTarget);
 ```
 
 #### <a name="ShortUsageReferenceImagesStep2"></a> Step 2: Free-up GUI texture memory
 
 ```cpp
-  GUI.deleteTexture(pRenderTextureID);
+  pGUI->deleteTexture(pRenderTextureID);
 ```
 
 ### <a name="AdditionalLinks"></a> Additional Project Links
