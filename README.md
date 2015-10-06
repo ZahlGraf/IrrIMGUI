@@ -40,10 +40,10 @@ Following Features are supported so far:
 ### Upcomming: master-branch (unstable not tested yet)
 
 #### Highlights
-* nothing planned
+* **Interface break:** Use the factory function `createIMGUI(...)` for creating the IMGUI handle object and call `drop` at the end, instead of delete it (more information here: [Developers Blog](https://github.com/ZahlGraf/IrrIMGUI/wiki/Developers-Blog#20151006))
 
 #### Fixes
-* nothing planned
+* Fixed a small memory leak (the font data was not deleted when shutdown IMGUI at the end of application). 
 
 #### Dependency Versions
 * [IMGUI 1.45](https://github.com/ocornut/imgui/tree/v1.45)
