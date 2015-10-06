@@ -1,5 +1,7 @@
 # Irrlicht Binding for IMGUI
 
+**Shortcuts: [[Devlopers Blog]](https://github.com/ZahlGraf/IrrIMGUI/wiki/Developers-Blog) - [[Last Version]](#LatestVersionNews) - [[HowToStart]](#HowToStart)**
+
 ## Index
 
 * [Introduction](#Introduction)
