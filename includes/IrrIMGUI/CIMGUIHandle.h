@@ -32,14 +32,15 @@
 #define IRRIMGUI_INCLUDE_IRRIMGUI_CIMGUIHANDLE_H_
 
 // library includes
-#include <IrrIMGUI/IrrIMGUI.h>
-#include <IrrIMGUI/CIMGUIEventStorage.h>
-#include "IncludeIrrlicht.h"
+#include <IrrIMGUI/IncludeIrrlicht.h>
 
 // module includes
-#include "SIMGUISettings.h"
-#include "IrrIMGUIConfig.h"
-#include "IGUITexture.h"
+#include <IrrIMGUI/IrrIMGUI.h>
+#include <IrrIMGUI/CIMGUIEventStorage.h>
+#include <IrrIMGUI/SIMGUISettings.h>
+#include <IrrIMGUI/IrrIMGUIConfig.h>
+#include <IrrIMGUI/IGUITexture.h>
+#include <IrrIMGUI/IIMGUIHandle.h>
 
 /**
  * @addtogroup IrrIMGUI
@@ -96,7 +97,7 @@ namespace IrrIMGUI
    @endcode
    *
    */
-  class IRRIMGUI_DLL_API CIMGUIHandle
+  class IRRIMGUI_DLL_API CIMGUIHandle : public IIMGUIHandle
   {
     public:
 
@@ -109,20 +110,22 @@ namespace IrrIMGUI
        *
        * @param pDevice       Is a pointer to the Irrlicht Device.
        * @param pEventStorage Is a pointer to the Event Storage that is used to transfer Mouse and Key input informations to the IMGUI. If you pass NULL or nullptr, no input informations are passed to the GUI.
+       * @param pSettings     Is a pointer to the a Settings structure.
+       */
+      CIMGUIHandle(irr::IrrlichtDevice * pDevice, CIMGUIEventStorage * pEventStorage = nullptr, SIMGUISettings const * pSettings = nullptr);
+
+      /**
+       * @brief Use this constructor when you want special settings.
+       * @note  When you use multiple instances of this handle class, the settings will be applied to all instances at the same time.
+       *
+       * @param pDevice       Is a pointer to the Irrlicht Device.
+       * @param pEventStorage Is a pointer to the Event Storage that is used to transfer Mouse and Key input informations to the IMGUI. If you pass NULL or nullptr, no input informations are passed to the GUI.
        * @param rSettings     Is a reference to the a Settings structure.
        */
       CIMGUIHandle(irr::IrrlichtDevice * pDevice, CIMGUIEventStorage * pEventStorage, SIMGUISettings const &rSettings);
 
-      /**
-       * @brief Use this constructor when you don't want to change the settings (using defualt settings or the settings that have been applied last time).
-       *
-       * @param pDevice       Is a pointer to the Irrlicht Device.
-       * @param pEventStorage Is a pointer to the Event Storage that is used to transfer Mouse and Key input informations to the IMGUI. If you pass NULL or nullptr, no input informations are passed to the GUI.
-       */
-      CIMGUIHandle(irr::IrrlichtDevice * pDevice, CIMGUIEventStorage * pEventStorage);
-
       /// @brief Destructor
-      ~CIMGUIHandle(void);
+      virtual ~CIMGUIHandle(void);
 
       /// @}
 
@@ -130,10 +133,10 @@ namespace IrrIMGUI
       /// @name Render and drawing methods
 
       /// @brief Call this methods before you draw the IMGUI elements and before calling "drawAll()".
-      void startGUI(void);
+      virtual void startGUI(void);
 
       /// @brief Call this function after "startGUI()" and after you draw your GUI elements. It will render all elements to the screen (do not call it before rendering the 3D Scene!).
-      void drawAll(void);
+      virtual void drawAll(void);
 
       /// @}
 
@@ -141,11 +144,11 @@ namespace IrrIMGUI
       /// @name GUI settings
 
       /// @return Returns a constant reference to the currently applied settings structure.
-      SIMGUISettings const &getSettings(void) const;
+      virtual SIMGUISettings const &getSettings(void) const;
 
       /// @param rSettings is a reference to a Setting structure that should be applied.
       /// @note  The settings are applied to all GUI handles at the same time, since IMGUI uses internally a single instance.
-      void setSettings(SIMGUISettings const &rSettings);
+      virtual void setSettings(SIMGUISettings const &rSettings);
 
       /// @}
 
@@ -158,14 +161,14 @@ namespace IrrIMGUI
        * @param pFontConfig Is a pointer to the font configuration.
        * @return Returns a pointer to the font for later usage with PushFont(...) to activate this font.
        */
-      ImFont * addFont(ImFontConfig const * pFontConfig);
+      virtual ImFont * addFont(ImFontConfig const * pFontConfig);
 
       /**
        * @brief Adds the default font to the IMGUI memory.
        * @param pFontConfig Is a pointer to the font configuration.
        * @return Returns a pointer to the font for later usage with PushFont(...) to activate this font.
        */
-      ImFont * addDefaultFont(ImFontConfig const * pFontConfig = NULL);
+      virtual ImFont * addDefaultFont(ImFontConfig const * pFontConfig = NULL);
 
       /**
        * @brief Adds a font from a TTF file to the IMGUI memory.
@@ -175,7 +178,7 @@ namespace IrrIMGUI
        * @param pGlyphRanges    Is the Glyph-Range to select the correct character set.
        * @return Returns a pointer to the font for later usage with PushFont(...) to activate this font.
        */
-      ImFont * addFontFromFileTTF(char const * pFileName, float FontSizeInPixel, ImFontConfig const * pFontConfig = NULL, ImWchar const * pGlyphRanges = NULL);
+      virtual ImFont * addFontFromFileTTF(char const * pFileName, float FontSizeInPixel, ImFontConfig const * pFontConfig = NULL, ImWchar const * pGlyphRanges = NULL);
 
       /**
        * @brief Adds a font from a TTF byte array to the IMGUI memory.
@@ -188,7 +191,7 @@ namespace IrrIMGUI
        *
        * @attention This function transfers the ownership of 'pTTFData' to the IMGUI System and will be deleted automatically. Do not delete it by yourself!
        */
-      ImFont * addFontFromMemoryTTF(void * pTTFData, int TTFSize, float FontSizeInPixel, ImFontConfig const * pFontConfig = NULL, ImWchar const * pGlyphRanges = NULL);
+      virtual ImFont * addFontFromMemoryTTF(void * pTTFData, int TTFSize, float FontSizeInPixel, ImFontConfig const * pFontConfig = NULL, ImWchar const * pGlyphRanges = NULL);
 
       /**
        * @brief Adds a font from a compressed TTF byte array to the IMGUI memory.
@@ -201,7 +204,7 @@ namespace IrrIMGUI
        *
        * @note This function does not transfer the ownership of the byte array. You are responsible for delete this memory after the font is in graphic memory.
        */
-      ImFont * addFontFromMemoryCompressedTTF(void const * pCompressedTTFData, int CompressedTTFSize, float FontSizeInPixel, ImFontConfig const * pFontConfig = NULL, ImWchar const * pGlyphRanges = NULL);
+      virtual ImFont * addFontFromMemoryCompressedTTF(void const * pCompressedTTFData, int CompressedTTFSize, float FontSizeInPixel, ImFontConfig const * pFontConfig = NULL, ImWchar const * pGlyphRanges = NULL);
 
       /**
        * @brief Adds a font from a compressed TTF byte array that uses the base85 character encoding to the IMGUI memory.
@@ -213,14 +216,14 @@ namespace IrrIMGUI
        *
        * @note This function does not transfer the ownership of the byte array. You are responsible for delete this memory after the font is in graphic memory.
        */
-      ImFont * addFontFromMemoryCompressedBase85TTF(char const * pCompressedTTFDataBase85, float FontSizeInPixel, ImFontConfig const * pFontConfig = NULL, const ImWchar * pGlyphRanges = NULL);
+      virtual ImFont * addFontFromMemoryCompressedBase85TTF(char const * pCompressedTTFDataBase85, float FontSizeInPixel, ImFontConfig const * pFontConfig = NULL, const ImWchar * pGlyphRanges = NULL);
 
       /// @brief This function copies all fonts that have been added with "addFont/addDefaultFont" into graphic memory.
       /// @attention Call this function before using the fonts that have been added.
-      void compileFonts(void);
+      virtual void compileFonts(void);
 
       /// @brief Resets the font memory and restores the default font as the one and only font in the system.
-      void resetFonts(void);
+      virtual void resetFonts(void);
 
       /// @}
 
@@ -229,16 +232,16 @@ namespace IrrIMGUI
       /// @name Common Font Glyph-Ranges
 
       /// @return Returns the Basic Latin and Extended Latin Range.
-      ImWchar const * getGlyphRangesDefault(void);
+      virtual ImWchar const * getGlyphRangesDefault(void);
 
       /// @return Returns the Default + Hiragana, Katakana, Half-Width, Selection of 1946 Ideographs
-      ImWchar const * getGlyphRangesJapanese(void);
+      virtual ImWchar const * getGlyphRangesJapanese(void);
 
       /// @return Returns the Japanese + full set of about 21000 CJK Unified Ideographs
-      ImWchar const * getGlyphRangesChinese(void);
+      virtual ImWchar const * getGlyphRangesChinese(void);
 
       /// @return Default + about 400 Cyrillic characters
-      ImWchar const * getGlyphRangesCyrillic(void);
+      virtual ImWchar const * getGlyphRangesCyrillic(void);
 
       /// @}
 
@@ -249,28 +252,28 @@ namespace IrrIMGUI
       /// @brief Creates a GUI texture object out of an Irrlicht image.
       /// @param pImage Is a pointer to an Irrlicht image object.
       /// @return Returns an GUI texture object.
-      IGUITexture *createTexture(irr::video::IImage * pImage);
+      virtual IGUITexture *createTexture(irr::video::IImage * pImage);
 
       /// @brief Creates a GUI texture object out of an Irrlicht texture.
       /// @param pTexture Is a pointer to an Irrlicht texture object.
       /// @return Returns an GUI texture object.
-      IGUITexture *createTexture(irr::video::ITexture * pTexture);
+      virtual IGUITexture *createTexture(irr::video::ITexture * pTexture);
 
       /// @brief Updates a GUI texture object with an Irrlicht image.
       /// @param pGUITexture Is a pointer to the GUI texture object.
       /// @param pImage      Is a pointer to an Irrlicht image object.
-      void updateTexture(IGUITexture * pGUITexture, irr::video::IImage * pImage);
+      virtual void updateTexture(IGUITexture * pGUITexture, irr::video::IImage * pImage);
 
       /// @brief Updates a GUI texture object with an Irrlicht texture.
       /// @param pGUITexture Is a pointer to the GUI texture object.
       /// @param pTexture    Is a pointer to an Irrlicht image object.
-      void updateTexture(IGUITexture * pGUITexture, irr::video::ITexture * pTexture);
+      virtual void updateTexture(IGUITexture * pGUITexture, irr::video::ITexture * pTexture);
 
       /**
        * @brief Deletes an texture from graphic memory.
        * @param pGUITexture Is a pointer to the texture to delete. Do not use it afterwards!
        */
-      void deleteTexture(IGUITexture * pGUITexture);
+      virtual void deleteTexture(IGUITexture * pGUITexture);
 
       /// @}
 
