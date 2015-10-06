@@ -25,7 +25,7 @@
  * @file   CIMGUIHandle.cpp
  * @author Andre Netzeband
  * @brief  Contains a handle to setup the IMGUI for Irrlicht.
- * @addtogroup IrrIMGUI
+ * @addtogroup IrrIMGUIPrivate
  */
 
 // library includes
@@ -35,20 +35,21 @@
 #include "IrrIMGUIDebug_priv.h"
 
 /**
- * @addtogroup IrrIMGUI
+ * @addtogroup IrrIMGUIPrivate
  * @{
  */
 
 namespace IrrIMGUI
 {
-  using namespace Private;
-
-  irr::u32 CIMGUIHandle::mHandleInstances = 0;
 
   IIMGUIHandle * createIMGUI(irr::IrrlichtDevice * pDevice, CIMGUIEventStorage * pEventStorage, SIMGUISettings const * pSettings)
   {
-    return new CIMGUIHandle(pDevice, pEventStorage, pSettings);
+    return new Private::CIMGUIHandle(pDevice, pEventStorage, pSettings);
   }
+
+namespace Private
+{
+  irr::u32 CIMGUIHandle::mHandleInstances = 0;
 
   CIMGUIHandle::CIMGUIHandle(irr::IrrlichtDevice * const pDevice, CIMGUIEventStorage * const pEventStorage, SIMGUISettings const &rSettings):
       CIMGUIHandle(pDevice, pEventStorage, &rSettings)
@@ -304,6 +305,7 @@ namespace IrrIMGUI
   }
 
 
+}
 }
 
 /**
