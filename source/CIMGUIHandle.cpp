@@ -44,14 +44,18 @@ namespace IrrIMGUI
 
   irr::u32 CIMGUIHandle::mHandleInstances = 0;
 
-  CIMGUIHandle::CIMGUIHandle(irr::IrrlichtDevice * pDevice, CIMGUIEventStorage * pEventStorage, SIMGUISettings const &rSettings):
-    CIMGUIHandle(pDevice, pEventStorage)
+  IIMGUIHandle * createIMGUI(irr::IrrlichtDevice * pDevice, CIMGUIEventStorage * pEventStorage, SIMGUISettings const * pSettings)
   {
-    mpGUIDriver->setSettings(rSettings);
+    return new CIMGUIHandle(pDevice, pEventStorage, pSettings);
+  }
+
+  CIMGUIHandle::CIMGUIHandle(irr::IrrlichtDevice * const pDevice, CIMGUIEventStorage * const pEventStorage, SIMGUISettings const &rSettings):
+      CIMGUIHandle(pDevice, pEventStorage, &rSettings)
+  {
     return;
   }
 
-  CIMGUIHandle::CIMGUIHandle(irr::IrrlichtDevice * pDevice, CIMGUIEventStorage * pEventStorage)
+  CIMGUIHandle::CIMGUIHandle(irr::IrrlichtDevice * const pDevice, CIMGUIEventStorage * const pEventStorage, SIMGUISettings const * const pSettings)
   {
     pDevice->grab();
 
@@ -59,6 +63,11 @@ namespace IrrIMGUI
     mLastTime    = static_cast<float>(pDevice->getTimer()->getRealTime()) / 1000.0f;
     mpEventStorage = pEventStorage;
     mHandleInstances++;
+
+    if (pSettings)
+    {
+      mpGUIDriver->setSettings(*pSettings);
+    }
 
     return;
   }

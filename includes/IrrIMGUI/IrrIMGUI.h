@@ -69,6 +69,13 @@
 /// @brief Main namespace for Irrlicht IMGUI binding
 namespace IrrIMGUI
 {
+
+  /// @brief Creates an IMGUI handle object.
+  /// @param pDevice       Is a pointer to an Irrlicht device.
+  /// @param pEventStorage Is a pointer to an event storage.
+  /// @param pSettings     Is a pointer to a settings structure.
+  /// @return Returns an IIMGUIHandle object. Destroy this object with IIMGUIHandle::drop()
+  IIMGUIHandle * createIMGUI(irr::IrrlichtDevice * pDevice, CIMGUIEventStorage * pEventStorage = nullptr, SIMGUISettings const * pSettings = nullptr);
 }
 
 /**
