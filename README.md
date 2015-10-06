@@ -272,12 +272,11 @@ The full source code can be found in the file [examples/01.HelloWorld/main.cpp](
   IrrlichtDevice * const pDevice = createDeviceEx(IrrlichtParams);
 ```
 
-* **Create a GUI object:** Before you can use the GUI system, you need to create a CGUIHandle object:
- The GUI handle needs a pointer to the Irrlicht device and to the event receiver, to be able to pass events to the GUI.
-  **Attention:** It is very important to delete the GUI handle object _before_ you drop or delete the Irrlicht device. Otherwise you will get a memory access violation when the GUI handle frees up the internal memory and tries to use the Irrlicht device for that.
+* **Create a GUI object:** Before you can use the GUI system, you need to create a IMGUI handle object:
+ The corresponding factory function needs a pointer to the Irrlicht device and to the event receiver, to be able to pass events to the GUI.
 ```cpp
   // Create GUI object
-  CIMGUIHandle * const pGUI = new CIMGUIHandle(pDevice, &EventReceiver);
+  IIMGUIHandle * const pGUI = createIMGUI(pDevice, &EventReceiver);
 ```
 
 * **Draw GUI elements to the screen:** You can create the GUI elements inside the main-loop after calling `pGUI->startGUI();`. This function prepares the GUI for the next frame and passes the state of Mouse and Keyboard to IMGUI. 
@@ -316,7 +315,7 @@ The full source code can be found in the file [examples/01.HelloWorld/main.cpp](
   }
 
   // free up memory
-  delete(pGUI);
+  pGUI->drop();
   pDevice->drop();
  ```
  
