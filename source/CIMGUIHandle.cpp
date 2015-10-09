@@ -41,12 +41,6 @@
 
 namespace IrrIMGUI
 {
-
-  IIMGUIHandle * createIMGUI(irr::IrrlichtDevice * pDevice, CIMGUIEventStorage * pEventStorage, SIMGUISettings const * pSettings)
-  {
-    return new Private::CIMGUIHandle(pDevice, pEventStorage, pSettings);
-  }
-
 namespace Private
 {
   irr::u32 CIMGUIHandle::mHandleInstances = 0;
