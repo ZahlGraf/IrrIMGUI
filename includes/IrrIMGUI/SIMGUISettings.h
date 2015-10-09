@@ -59,6 +59,15 @@ namespace IrrIMGUI
       bool mIsGUIMouseCursorEnabled;
 
       /// @}
+
+      bool operator==(SIMGUISettings const &rCompareSettings)
+      {
+        bool AreAllSettingsEqual = true;
+
+        AreAllSettingsEqual = AreAllSettingsEqual && (mIsGUIMouseCursorEnabled == rCompareSettings.mIsGUIMouseCursorEnabled);
+
+        return AreAllSettingsEqual;
+      }
   };
 }
 
