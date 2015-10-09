@@ -30,7 +30,7 @@
 
 // module includes
 #include <IrrIMGUI/IrrIMGUI.h>
-#include "IrrIMGUIDebug_priv.h"
+#include <IrrIMGUIDebug_priv.h>
 
 #define STATIC_ARRAY_SIZE(ARRAY) (sizeof(ARRAY)/sizeof(ARRAY[0]))     // TODO: maybe use a template for the type
 

@@ -42,7 +42,7 @@
 // module includes
 #include "CIrrlichtIMGUIDriver.h"
 #include "CGUITexture.h"
-#include "IrrIMGUIDebug_priv.h"
+#include <IrrIMGUIDebug_priv.h>
 
 /**
 * @addtogroup IrrIMGUIPrivate

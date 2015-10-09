@@ -36,7 +36,7 @@
 #include "IIMGUIDriver.h"
 #include "COpenGLIMGUIDriver.h"
 #include "CIrrlichtIMGUIDriver.h"
-#include "IrrIMGUIDebug_priv.h"
+#include <IrrIMGUIDebug_priv.h>
 
 /**
  * @addtogroup IrrIMGUIPrivate

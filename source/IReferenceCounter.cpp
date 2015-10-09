@@ -30,7 +30,7 @@
 
 // library includes
 #include <IrrIMGUI/IReferenceCounter.h>
-#include "IrrIMGUIDebug_priv.h"
+#include <IrrIMGUIDebug_priv.h>
 
 /**
  * @addtogroup IrrIMGUI

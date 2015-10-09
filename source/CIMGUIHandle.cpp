@@ -32,7 +32,7 @@
 #include <IrrIMGUI/IrrIMGUI.h>
 #include "CIMGUIHandle.h"
 #include "IIMGUIDriver.h"
-#include "IrrIMGUIDebug_priv.h"
+#include <IrrIMGUIDebug_priv.h>
 
 /**
  * @addtogroup IrrIMGUIPrivate

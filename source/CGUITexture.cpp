@@ -39,7 +39,8 @@ namespace Private
   CGUITexture::CGUITexture(void):
     mIsUsingOwnMemory(false),
     mSourceType(ETST_UNKNOWN),
-    mIsValid(true)
+    mIsValid(true),
+    mGPUTextureID(nullptr)
   {
     return;
   }
