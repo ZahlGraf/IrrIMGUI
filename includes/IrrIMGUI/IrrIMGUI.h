@@ -41,7 +41,7 @@
  * @brief An Irrlicht IMGUI binding.
  * @details
  * There are two main classes to use as an interface between Irrlicht and IMGUI:
- * @li IrrIMGUI::CIMGUIHandle        to setup, draw and render the GUI
+ * @li IrrIMGUI::IIMGUIHandle        to setup, draw and render the GUI. Create an object of this class with IrrIMGUI::createIMGUI
  * @li IrrIMGUI::CIMGUIEventReceiver to capture the irrlicht events and pass them to the IMGUI system.
  *
  * If you need an own event receiver, you can simply inherit from IrrIMGUI::CIMGUIEventReceiver. In the OnEevent method you can trigger your own actions according to the events.
@@ -75,7 +75,7 @@ namespace IrrIMGUI
   /// @param pEventStorage Is a pointer to an event storage.
   /// @param pSettings     Is a pointer to a settings structure.
   /// @return Returns an IIMGUIHandle object. Destroy this object with IIMGUIHandle::drop()
-  IIMGUIHandle * createIMGUI(irr::IrrlichtDevice * pDevice, CIMGUIEventStorage * pEventStorage = nullptr, SIMGUISettings const * pSettings = nullptr);
+  IRRIMGUI_DLL_API IIMGUIHandle * createIMGUI(irr::IrrlichtDevice * pDevice, CIMGUIEventStorage * pEventStorage = nullptr, SIMGUISettings const * pSettings = nullptr);
 }
 
 /**
