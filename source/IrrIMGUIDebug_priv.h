@@ -36,6 +36,11 @@
 #include <IrrIMGUI/IrrIMGUI.h>
 #include <IrrIMGUI/IrrIMGUIDebug.h>
 
+#ifdef CPPUTEST_USE_MALLOC_MACROS
+#include <IrrIMGUI/UnitTest/UnitTest.h>
+#define UNIT_TEST true
+#endif
+
 /**
  * @addtogroup IrrIMGUIPrivate
  * @{
@@ -127,7 +132,13 @@
 #define _TOSTR(x) #x
 #define TOSTR(x) _TOSTR(x)
 
+#ifdef UNIT_TEST
+/// in unit test case just fail a CHECK
+#define FASSERT(expr) CHECK((expr))
+#else
+/// throw exception
 #define FASSERT(expr) if (!(expr)) { throw IrrIMGUI::Debug::ExAssert(__FILE__ "[" TOSTR(__LINE__) "] Assertion failed: \'" TOSTR(expr) "'\n"); }
+#endif
 
 #ifdef _DEBUG
 #define ASSERT(expr)  if (!(expr)) FASSERT(expr)
