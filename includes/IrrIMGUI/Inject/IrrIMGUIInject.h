@@ -25,7 +25,7 @@
  * @file   IrrIMGUIInject.h
  * @author Andre Netzeband
  * @brief  Functions for dependency injection.
- * @addtogroup IrrIMGUIUTest
+ * @addtogroup IrrIMGUIInject
  */
 
 #ifndef LIBS_IRRIMGUI_INCLUDES_IRRIMGUI_INJECT_IRRIMGUIINJECT_H_
@@ -35,9 +35,9 @@
 #include <IrrIMGUI/IrrIMGUI.h>
 
 /**
- * @defgroup IrrIMGUIUTest UnitTest
+ * @defgroup IrrIMGUIInject Inject
  * @addtogroup IrrIMGUI
- * @brief Unit test related definitions.
+ * @brief Definitions for dependency injection.
  *
  * @{
  */
@@ -52,7 +52,8 @@ namespace Inject
   typedef IrrIMGUI::IIMGUIHandle * (IMGUIFactory)(irr::IrrlichtDevice * pDevice, IrrIMGUI::CIMGUIEventStorage * pEventStorage, IrrIMGUI::SIMGUISettings const * pSettings);
 
   /// @param pFactoryFunction Is a function pointer to the IMGUI factory function to use.
-  IRRIMGUI_DLL_API void setIMGUIFactory(IMGUIFactory * pFactoryFunction = IrrIMGUI::createIMGUI);
+  ///        If it is NULL, it will use the default factory function.
+  IRRIMGUI_DLL_API void setIMGUIFactory(IMGUIFactory * pFactoryFunction = nullptr);
 
   /// @return Returns the current factory function pointer for creating an IMGUI handle instance.
   IRRIMGUI_DLL_API IMGUIFactory * getIMGUIFactory(void);
