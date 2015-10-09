@@ -33,31 +33,33 @@
 #include <IrrIMGUI/Inject/IrrIMGUIInject.h>
 #include "IrrIMGUIDebug_priv.h"
 #include "CIMGUIHandle.h"
+#include <IrrIMGUIInject_priv.h>
 
 namespace IrrIMGUI
 {
-namespace Inject
+namespace Private
 {
-  /// @brief Creates a real IMGUI object (the real factory function for it)
-  /// @param pDevice       Is a pointer to an Irrlicht device.
-  /// @param pEventStorage Is a pointer to an input event storage.
-  /// @param pSettings     Is a pointer to a settings struct to apply.
-  /// @return Returns a pointer to an IMGUI handle object.
   IIMGUIHandle * createRealIMGUI(irr::IrrlichtDevice * pDevice, CIMGUIEventStorage * pEventStorage, SIMGUISettings const * pSettings)
   {
     ASSERT(pDevice);
 
     return new Private::CIMGUIHandle(pDevice, pEventStorage, pSettings);
   }
+}
 
+namespace Inject
+{
 
   /// @brief Stores the factory function, that should be used for creating an IIMGUIHandle instances.
-  static IMGUIFactory * pIMGUIFactoryFunction = createRealIMGUI;
+  static IMGUIFactory * pIMGUIFactoryFunction = IrrIMGUI::Private::createRealIMGUI;
 
 
-  void setIMGUIFactory(IMGUIFactory * const pFactoryFunction)
+  void setIMGUIFactory(IMGUIFactory * pFactoryFunction)
   {
-    FASSERT(pFactoryFunction);
+    if (pFactoryFunction == nullptr)
+    {
+      pFactoryFunction = IrrIMGUI::Private::createRealIMGUI;
+    }
 
     pIMGUIFactoryFunction = pFactoryFunction;
     return;
