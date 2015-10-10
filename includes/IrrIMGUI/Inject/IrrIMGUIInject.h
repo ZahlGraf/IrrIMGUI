@@ -36,7 +36,7 @@
 
 /**
  * @defgroup IrrIMGUIInject Inject
- * @addtogroup IrrIMGUI
+ * @ingroup IrrIMGUI
  * @brief Definitions for dependency injection.
  *
  * @{

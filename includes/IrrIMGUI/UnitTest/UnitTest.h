@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 /**
- * @file   UTest.h
+ * @file   UnitTest.h
  * @author Andre Netzeband
  * @brief  Main-header for the unit test interface.
  * @addtogroup IrrIMGUIUTest
@@ -52,7 +52,7 @@
 
 /**
  * @defgroup IrrIMGUIUTest UnitTest
- * @addtogroup IrrIMGUI
+ * @ingroup IrrIMGUI
  * @brief Unit test related definitions.
  *
  * @{

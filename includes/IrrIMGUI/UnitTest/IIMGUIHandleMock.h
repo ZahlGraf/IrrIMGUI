@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 /**
- * @file   IIMGUIHandleMock.cpp
+ * @file   IIMGUIHandleMock.h
  * @author Andre Netzeband
  * @brief  Contains a CppUMock compatible mock of the IIMGUIHanlde class.
  * @addtogroup IrrIMGUIUTest
@@ -40,16 +40,15 @@
 #include <IrrIMGUI/Inject/IrrIMGUIInject.h>
 #include <IrrIMGUI/IMGUIHelper.h>
 
-/*
+/**
  * @addtogroup IrrIMGUIUTest
- *
  * @{
  */
 
 namespace IrrIMGUI
 {
 
-/// @brief Contains test related definitions
+/// @brief Contains unit test related definitions
 namespace UnitTest
 {
 
