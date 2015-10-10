@@ -33,6 +33,7 @@
 #include "CIMGUIHandle.h"
 #include "IIMGUIDriver.h"
 #include <IrrIMGUIDebug_priv.h>
+#include <IrrIMGUI/IMGUIHelper.h>
 
 /**
  * @addtogroup IrrIMGUIPrivate
@@ -56,7 +57,7 @@ namespace Private
     pDevice->grab();
 
     mpGUIDriver = IIMGUIDriver::getInstance(pDevice);
-    mLastTime    = static_cast<float>(pDevice->getTimer()->getRealTime()) / 1000.0f;
+    mLastTime    = static_cast<float>(pDevice->getTimer()->getTime()) / 1000.0f;
     mpEventStorage = pEventStorage;
     mHandleInstances++;
 
@@ -98,97 +99,10 @@ namespace Private
     return;
   }
 
-  void CIMGUIHandle::updateScreenSize(void)
-  {
-    ImGuiIO& rGUIIO = ImGui::GetIO();
-
-    irr::core::dimension2d<irr::u32> const &rRenderTargetSize = mpGUIDriver->getIrrDevice()->getVideoDriver()->getCurrentRenderTargetSize();
-    rGUIIO.DisplaySize = ImVec2(static_cast<float>(rRenderTargetSize.Width), static_cast<float>(rRenderTargetSize.Height));
-
-    return;
-  }
-
-  void CIMGUIHandle::updateTimer(void)
-  {
-    ImGuiIO& rGUIIO = ImGui::GetIO();
-
-    irr::f32 const CurrentTime = static_cast<float>(mpGUIDriver->getIrrDevice()->getTimer()->getRealTime()) / 1000.0f;
-    irr::f32 const DeltaTime   = CurrentTime - mLastTime;
-    mLastTime = CurrentTime;
-
-    rGUIIO.DeltaTime = ((float)(DeltaTime > 0.0f ? DeltaTime : 0.00001f));
-
-    return;
-  }
-
-  void CIMGUIHandle::updateMouse(void)
-  {
-    if (mpEventStorage)
-    {
-      ImGuiIO& rGUIIO = ImGui::GetIO();
-
-      enum MouseButtons
-      {
-        Left   = 0,
-        Right  = 1,
-        Middle = 2,
-      };
-      rGUIIO.MousePos          = ImVec2(static_cast<float>(mpEventStorage->mMousePositionX), static_cast<float>(mpEventStorage->mMousePositionY));
-      rGUIIO.MouseDown[Left]   = mpEventStorage->mIsLeftMouseButtonPressed;
-      rGUIIO.MouseDown[Middle] = mpEventStorage->mIsMiddleMouseButtonPressed;
-      rGUIIO.MouseDown[Right]  = mpEventStorage->mIsRightMouseButtonPressed;
-      rGUIIO.MouseWheel        = mpEventStorage->mMouseWheelPosition;
-      mpEventStorage->mMouseWheelPosition = 0.0f;
-    }
-
-    return;
-  }
-
-  void CIMGUIHandle::updateKeyboard(void)
-  {
-    if (mpEventStorage)
-    {
-      ImGuiIO& rGUIIO = ImGui::GetIO();
-
-      rGUIIO.KeysDown[irr::KEY_TAB]    = mpEventStorage->mTabPressed;
-      rGUIIO.KeysDown[irr::KEY_LEFT]   = mpEventStorage->mLeftPressed;
-      rGUIIO.KeysDown[irr::KEY_RIGHT]  = mpEventStorage->mRightPressed;
-      rGUIIO.KeysDown[irr::KEY_UP]     = mpEventStorage->mUpPressed;
-      rGUIIO.KeysDown[irr::KEY_DOWN]   = mpEventStorage->mDownPressed;
-      rGUIIO.KeysDown[irr::KEY_PRIOR]  = mpEventStorage->mPriorPressed;
-      rGUIIO.KeysDown[irr::KEY_NEXT]   = mpEventStorage->mNextPressed;
-      rGUIIO.KeysDown[irr::KEY_HOME]   = mpEventStorage->mHomePressed;
-      rGUIIO.KeysDown[irr::KEY_END]    = mpEventStorage->mEndPressed;
-      rGUIIO.KeysDown[irr::KEY_DELETE] = mpEventStorage->mDeletePressed;
-      rGUIIO.KeysDown[irr::KEY_BACK]   = mpEventStorage->mBackPressed;
-      rGUIIO.KeysDown[irr::KEY_RETURN] = mpEventStorage->mReturnPressed;
-      rGUIIO.KeysDown[irr::KEY_ESCAPE] = mpEventStorage->mEscapePressed;
-      rGUIIO.KeysDown[irr::KEY_KEY_A]  = mpEventStorage->mKeyAPressed;
-      rGUIIO.KeysDown[irr::KEY_KEY_C]  = mpEventStorage->mKeyCPressed;
-      rGUIIO.KeysDown[irr::KEY_KEY_V]  = mpEventStorage->mKeyVPressed;
-      rGUIIO.KeysDown[irr::KEY_KEY_X]  = mpEventStorage->mKeyXPressed;
-      rGUIIO.KeysDown[irr::KEY_KEY_Y]  = mpEventStorage->mKeyYPressed;
-      rGUIIO.KeysDown[irr::KEY_KEY_Z]  = mpEventStorage->mKeyZPressed;
-      rGUIIO.KeyCtrl                   = mpEventStorage->mCtrlPressed;
-      rGUIIO.KeyShift                  = mpEventStorage->mShiftPressed;
-      rGUIIO.KeyAlt                    = mpEventStorage->mAltPressed;
-
-      while(!mpEventStorage->mCharFifo.isEmpty())
-      {
-        rGUIIO.AddInputCharacter(mpEventStorage->mCharFifo.getChar());
-      }
-    }
-
-    return;
-  }
-
   void CIMGUIHandle::startGUI(void)
   {
 
-    updateScreenSize();
-    updateTimer();
-    updateMouse();
-    updateKeyboard();
+    updateIMGUIFrameValues(mpGUIDriver->getIrrDevice(), mpEventStorage, &mLastTime);
 
     // start new GUI frame
     ImGui::NewFrame();
