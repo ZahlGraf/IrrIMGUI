@@ -143,6 +143,7 @@ namespace Private
       delete(mpInstance);
       mpInstance = nullptr;
       mInstances = 0;
+      FASSERT(ImGui::GetIO().MetricsAllocs == 0);
 
       WasDeleted = true;
     }
