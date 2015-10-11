@@ -134,11 +134,13 @@
 
 #ifdef UNIT_TEST
 /// in unit test case just fail a CHECK
-#define FASSERT(expr) CHECK((expr))
+#define FASSERT(expr) if (IrrIMGUI::Debug::AreUnitTestAssertionsEnabled) { CHECK((expr)); } else { TEST_ASSERT((expr)); }
 #else
 /// throw exception
-#define FASSERT(expr) if (!(expr)) { throw IrrIMGUI::Debug::ExAssert(__FILE__ "[" TOSTR(__LINE__) "] Assertion failed: \'" TOSTR(expr) "'\n"); }
+#define FASSERT(expr) TEST_ASSERT((expr))
 #endif
+
+#define TEST_ASSERT(expr) if (!(expr)) { throw IrrIMGUI::Debug::ExAssert(__FILE__ "[" TOSTR(__LINE__) "] Assertion failed: \'" TOSTR(expr) "'\n"); }
 
 #ifdef _DEBUG
 #define ASSERT(expr)  if (!(expr)) FASSERT(expr)

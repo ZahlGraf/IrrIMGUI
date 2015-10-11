@@ -167,6 +167,9 @@ namespace Debug
 
   /// @brief A channel for errors.
   IRRIMGUI_DLL_API extern CChannel ErrorOutput;
+
+  /// @brief If this is true, assertions do not throw exceptions, but fail a unit test check.
+  IRRIMGUI_DLL_API extern bool AreUnitTestAssertionsEnabled;
 }
 }
 

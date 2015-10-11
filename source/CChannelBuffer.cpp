@@ -131,6 +131,8 @@ namespace Debug
   CChannel WarningOutput(std::cout, "[Warning] ");
 
   CChannel ErrorOutput(std::cerr,   "[Error]   ");
+
+  bool AreUnitTestAssertionsEnabled = true;
 }
 }
 
