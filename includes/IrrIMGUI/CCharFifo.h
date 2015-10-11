@@ -74,10 +74,13 @@ namespace IrrIMGUI
       ImWchar getChar(void);
 
       /// @return Returns true, when the Fifo is empty.
-      bool isEmpty(void);
+      bool isEmpty(void) const;
 
       /// @return Returns true, when the Fifo is full.
-      bool isFull(void);
+      bool isFull(void) const;
+
+      /// @return Returns the number of characters inside the Fifo.
+      irr::u8 getNumberOfElements(void) const;
 
       /// @}
 
