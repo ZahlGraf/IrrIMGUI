@@ -58,6 +58,14 @@
  * @{
  */
 
+namespace IrrIMGUI
+{
+/// @brief Contains unit test related definitions
+namespace UnitTest
+{
+}
+}
+
 #ifdef DOXYGEN
 
 /// @brief Checks if two arguments are not equal.

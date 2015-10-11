@@ -48,7 +48,6 @@
 namespace IrrIMGUI
 {
 
-/// @brief Contains unit test related definitions
 namespace UnitTest
 {
 
