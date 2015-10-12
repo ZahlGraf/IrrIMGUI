@@ -221,7 +221,10 @@ namespace IrrlichtHelper
       {
 
         CGUITexture * const pGUITexture = static_cast<CGUITexture * const>(pDrawCommand->TextureId);
+
+        FASSERT(pGUITexture);
         FASSERT(pGUITexture->mIsValid);
+
         irr::video::ITexture * const pIrrlichtTexture = static_cast<irr::video::ITexture * const>(pGUITexture->mGPUTextureID);
 
         irr::video::SMaterial Material;
