@@ -597,8 +597,6 @@ TEST(TestEventReceiver, checkMouseButtonEvents)
 
 void testSingleKey(CIMGUIEventReceiver &rEventReceiver, irr::IrrlichtDevice * const pDevice, IIMGUIHandle * const pGUI, irr::u32 * const pFrame, irr::u32 const FrameTime, irr::EKEY_CODE const Key)
 {
-  printf("Key: 0x%x\n", Key);
-
   SInputCompare InputCompare;
 
   irr::SEvent Event;
