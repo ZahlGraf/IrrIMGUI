@@ -37,12 +37,12 @@ using namespace IrrIMGUI;
 
 TEST_GROUP(IIMGUIHandleMock)
 {
-  void setup(void)
+  TEST_SETUP()
   {
     IrrIMGUI::UnitTest::IIMGUIHandleMock::enableMock();
   }
 
-  void teardown()
+  TEST_TEARDOWN()
   {
     IrrIMGUI::UnitTest::IIMGUIHandleMock::disableMock();
   }
@@ -69,6 +69,7 @@ TEST(IIMGUIHandleMock, checkCreateAndDestory)
   IIMGUIHandle * const pGUI = createIMGUI(pDevice, &EventStorage, &Settings);
 
   pGUI->drop();
+  pDevice->drop();
 
   return;
 }
@@ -87,6 +88,8 @@ TEST(IIMGUIHandleMock, checkStartGUIAndDrawAll)
   pGUI->drawAll();
 
   pGUI->drop();
+
+  pDevice->drop();
 
   return;
 }
@@ -109,6 +112,7 @@ TEST(IIMGUIHandleMock, checkSetAndGetSettings)
   CHECK(Settings == ReturnSettings);
 
   pGUI->drop();
+  pDevice->drop();
 
   return;
 }
@@ -167,6 +171,7 @@ TEST(IIMGUIHandleMock, checkFontFunctions)
   ImFont * const pFont6 = pGUI->addFontFromMemoryCompressedBase85TTF(pCompressedTTFDataBase85, FontSizeInPixel, &FontConfig, GlyphRanges);
 
   pGUI->drop();
+  pDevice->drop();
 
   return;
 }
@@ -187,6 +192,7 @@ TEST(IIMGUIHandleMock, checkCompileAndResetFonts)
   pGUI->resetFonts();
 
   pGUI->drop();
+  pDevice->drop();
 
   return;
 }
@@ -216,6 +222,7 @@ TEST(IIMGUIHandleMock, checkGetGlyphRanges)
   CHECK_EQUAL(ImGui::GetIO().Fonts->GetGlyphRangesCyrillic(), pRange4);
 
   pGUI->drop();
+  pDevice->drop();
 
   return;
 }
@@ -239,6 +246,7 @@ TEST(IIMGUIHandleMock, checkCreateTextures)
   IGUITexture * const pGUITexture2 = pGUI->createTexture(pTexture);
 
   pGUI->drop();
+  pDevice->drop();
 
   return;
 }
@@ -265,6 +273,7 @@ TEST(IIMGUIHandleMock, checkUpdateTextures)
   pGUI->updateTexture(pGUITexture1, pTexture);
 
   pGUI->drop();
+  pDevice->drop();
 
   return;
 }
@@ -285,6 +294,7 @@ TEST(IIMGUIHandleMock, checkDeleteTexture)
   pGUI->deleteTexture(pGUITexture);
 
   pGUI->drop();
+  pDevice->drop();
 
   return;
 }
