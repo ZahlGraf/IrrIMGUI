@@ -73,6 +73,7 @@ class IIMGUIHandleMock : public IrrIMGUI::IIMGUIHandle
       if (areIMGUICallsEnabled())
       {
         createIMGUIDummyFont();
+        ImGui::GetIO().RenderDrawListsFn = drawGUIList;
       }
       return;
     }
@@ -289,7 +290,6 @@ class IIMGUIHandleMock : public IrrIMGUI::IIMGUIHandle
 
     /// @name Methods to control the behavior of the Mock.
     /// @{
-
     static void enableMock(void)
     {
       IrrIMGUI::Inject::setIMGUIFactory(createMock);
@@ -359,9 +359,16 @@ class IIMGUIHandleMock : public IrrIMGUI::IIMGUIHandle
       return &DummyRange[0];
     }
 
+    /// @brief Factory method for the mock.
     static IIMGUIHandle * createMock(irr::IrrlichtDevice * const pDevice, IrrIMGUI::CIMGUIEventStorage * const pEventStorage = nullptr, IrrIMGUI::SIMGUISettings const * const pSettings = nullptr)
     {
       return new IIMGUIHandleMock(pDevice, pEventStorage, pSettings);
+    }
+
+    /// @brief Dummy draw method.
+    static void drawGUIList(ImDrawData * pDrawData)
+    {
+      return;
     }
 
   };
