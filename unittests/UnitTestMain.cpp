@@ -33,7 +33,7 @@
 #include <CppUTest/TestRegistry.h>
 #include <CppUTestExt/MockSupportPlugin.h>
 
-#define COLORED_OUTPUT
+//#define COLORED_OUTPUT
 
 int main(int Arguments, char ** ppCommandLineList)
 {
