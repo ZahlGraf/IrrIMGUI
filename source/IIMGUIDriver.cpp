@@ -37,6 +37,7 @@
 #include "COpenGLIMGUIDriver.h"
 #include "CIrrlichtIMGUIDriver.h"
 #include <IrrIMGUIDebug_priv.h>
+#include <IrrIMGUI/IrrIMGUIConstants.h>
 
 /**
  * @addtogroup IrrIMGUIPrivate
@@ -178,6 +179,11 @@ namespace Private
       rGUIIO.MouseDrawCursor = true;
       mpDevice->getCursorControl()->setVisible(false);
     }
+    else
+    {
+      rGUIIO.MouseDrawCursor = false;
+      mpDevice->getCursorControl()->setVisible(true);
+    }
 
     return;
   }
@@ -186,11 +192,17 @@ namespace Private
   {
     // setup standard values
     ImGuiIO &rGUIIO = ImGui::GetIO();
-    for (int i = 0; i < 3; i++)
+
+    for (int i = 0; i < Const::NumberOfMouseButtons; i++)
     {
+      rGUIIO.MouseClicked[i]          = false;
+      rGUIIO.MouseDoubleClicked[i]    = false;
+      rGUIIO.MouseDown[i]             = false;
+      rGUIIO.MouseClickedTime[i]      = -FLT_MAX;
       rGUIIO.MouseDownDurationPrev[i] = -1.0f;
-      rGUIIO.MouseDownDuration[i] = -1.0;
+      rGUIIO.MouseDownDuration[i]     = -1.0f;
     }
+    rGUIIO.MouseWheel = 0.0f;
 
     return;
   }
