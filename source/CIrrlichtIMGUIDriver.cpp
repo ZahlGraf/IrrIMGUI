@@ -148,6 +148,11 @@ namespace IrrlichtHelper
         LOG_NOTE("{IrrIMGUI-Irr} Start Irrlicht High Level GUI renderer in DirectX mode.\n");
         break;
 
+      case irr::video::EDT_NULL:
+        mOffset = irr::core::vector3df(0.0f, 0.0f, 0.0f);
+        IrrlichtHelper::IsTrilinearFilterEnabled = false;
+        break;
+
       default:
         mOffset = irr::core::vector3df(0.0f, 0.0f, 0.0f);
         LOG_WARNING("{IrrIMGUI-Irr} Start Irrlicht High Level GUI renderer in unknown video mode, this Irrlicht renderer might not be supported!\n");
