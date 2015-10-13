@@ -32,6 +32,7 @@
 #include <IrrIMGUI/UnitTest/UnitTest.h>
 #include <IrrIMGUI/IrrIMGUI.h>
 #include <IrrIMGUI/IrrIMGUIDebug.h>
+#include <IrrIMGUI/IrrIMGUIConstants.h>
 #include <type_traits>
 
 using namespace IrrIMGUI;
@@ -47,6 +48,7 @@ TEST_GROUP(TestEventReceiver)
   }
 };
 
+/// @brief This struct is used to compare the IMGUI input state with the expected state.
 struct SInputCompare
 {
   public:
@@ -56,7 +58,7 @@ struct SInputCompare
       mMousePos.y = 0.0f;
       mMouseWheel = 0.0f;
 
-      for (int i = 0; i < NumberOfMouseButtons; i++)
+      for (int i = 0; i < Const::NumberOfMouseButtons; i++)
       {
         mMouseDown[i] = false;
       }
@@ -94,7 +96,6 @@ struct SInputCompare
     }
 
     enum Constants {
-      NumberOfMouseButtons = sizeof(ImGuiIO::MouseDown)/sizeof(bool),
       NumberOfInputChars   = sizeof(ImGuiIO::InputCharacters)/sizeof(ImWchar),
     };
     static_assert(std::is_same<ImWchar[NumberOfInputChars], decltype(ImGuiIO::InputCharacters)>::value, "The input character type is different between testcase and IMGUI!");
@@ -105,7 +106,7 @@ struct SInputCompare
     float  mMouseWheel;
     static_assert(std::is_same<decltype(mMouseWheel), decltype(ImGuiIO::MouseWheel)>::value, "The mouse wheel type is different between testcase and IMGUI!");
 
-    bool   mMouseDown[NumberOfMouseButtons];
+    bool   mMouseDown[Const::NumberOfMouseButtons];
     static_assert(std::is_same<decltype(mMouseDown), decltype(ImGuiIO::MouseDown)>::value,       "The mouse down array type is different between testcase and IMGUI!");
 
     char   mInputCharacters[NumberOfInputChars];
@@ -143,7 +144,7 @@ struct SInputCompare
       CHECK_EQUAL(mMousePos.y, rIMGUI.MousePos.y);
       CHECK_EQUAL(mMouseWheel, rIMGUI.MouseWheel);
 
-      for (int i = 0; i < NumberOfMouseButtons; i++)
+      for (int i = 0; i < Const::NumberOfMouseButtons; i++)
       {
         CHECK_EQUAL(mMouseDown[i], rIMGUI.MouseDown[i]);
       }
