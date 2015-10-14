@@ -29,11 +29,14 @@
  */
 
 // library includes
+#define STB_DEFINE
+#include "stb_compress_only.h"
 #include <IrrIMGUI/UnitTest/UnitTest.h>
 #include <IrrIMGUI/IIMGUIHandle.h>
 #include <IrrIMGUI/IrrIMGUI.h>
 #include <IrrIMGUI/Inject/IrrIMGUIInject.h>
 #include <IrrIMGUI/IrrIMGUIConstants.h>
+#include <IrrIMGUIDebug_priv.h>
 
 using namespace IrrIMGUI;
 
@@ -218,6 +221,54 @@ TEST(TestIMGUIHandle, checkDrawCallback)
   return;
 }
 
+
+/**
+ * The following three functions for Base85 encoding are mostly copied from:
+ * https://github.com/ocornut/imgui/blob/master/extra_fonts/binary_to_compressed_c.cpp
+ *
+ * This file is part of the IMGUI project from Omar Cornut (https://github.com/ocornut/imgui)
+ * Thus the implementation of "getEncodedBase85Size", "encodeBase85Byte", "encodeBase85" belongs
+ * to the same license like the implementation in the original file!
+ *
+ */
+size_t getEncodedBase85Size(size_t const InputDataLength)
+{
+  return ((InputDataLength+3)/4)*(5)+1;
+}
+
+irr::u8 encodeBase85Byte(irr::u32 const Data32Bit)
+{
+  irr::u32 Data = (Data32Bit % 85) + 35;
+  Data = (Data >= '\\') ? Data + 1 : Data;
+
+  // must fit in 8 bit
+  FASSERT(Data <= 255);
+
+  return Data;
+}
+
+void encodeBase85(irr::u8 * const pOutputData, irr::u8 * const pInputData, size_t const InputDataLength)
+{
+  size_t OutputIndex = 0;
+  for(size_t i = 0; i < InputDataLength; i += 4)
+  {
+    irr::u32 const Data32Bit = *(reinterpret_cast<irr::u32 *>(&pInputData[i]));
+
+    pOutputData[OutputIndex] = encodeBase85Byte(Data32Bit);
+    OutputIndex++;
+    pOutputData[OutputIndex] = encodeBase85Byte(Data32Bit/(85));
+    OutputIndex++;
+    pOutputData[OutputIndex] = encodeBase85Byte(Data32Bit/(85*85));
+    OutputIndex++;
+    pOutputData[OutputIndex] = encodeBase85Byte(Data32Bit/(85*85*85));
+    OutputIndex++;
+    pOutputData[OutputIndex] = encodeBase85Byte(Data32Bit/(85*85*85*85));
+    OutputIndex++;
+  }
+
+  return;
+}
+
 TEST(TestIMGUIHandle, checkFontMethods)
 {
   ImGuiIO &rIMGUI = ImGui::GetIO();
@@ -258,13 +309,27 @@ TEST(TestIMGUIHandle, checkFontMethods)
   FontConfig.FontDataOwnedByAtlas = false;
   FontConfig.FontData = nullptr;
   pGUI->addFontFromMemoryTTF(pData, FontConfig.FontDataSize, FontConfig.SizePixels, &FontConfig);
-  delete[] pData;
   pGUI->compileFonts();
 
   CHECK_EQUAL(5, rIMGUI.Fonts->Fonts.size());
 
-  // TODO: We need a compressed and a base85 coded font to test the other two methods.
-  //       If someone has a nice free and small font for that available, please share it...
+  size_t const Length = FontConfig.FontDataSize;
+  size_t const MaxLength = stb_get_compression_length(Length);
+  irr::u8 * const pCompressedData = new irr::u8[MaxLength];
+  size_t const CompressedLength = stb_compress((stb_uchar*)pCompressedData, (stb_uchar*)pData, Length);
+  pGUI->addFontFromMemoryCompressedTTF(pCompressedData, CompressedLength, FontConfig.SizePixels);
+
+  CHECK_EQUAL(6, rIMGUI.Fonts->Fonts.size());
+
+  irr::u8 * const pEncodedData = new irr::u8[getEncodedBase85Size(CompressedLength)];
+  encodeBase85(pEncodedData, pCompressedData, CompressedLength);
+  pGUI->addFontFromMemoryCompressedBase85TTF((char*)pEncodedData, FontConfig.SizePixels);
+
+  CHECK_EQUAL(7, rIMGUI.Fonts->Fonts.size());
+
+  delete[] pData;
+  delete[] pCompressedData;
+  delete[] pEncodedData;
 
   // reset all fonts to default
   pGUI->resetFonts();
