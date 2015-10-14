@@ -124,7 +124,7 @@ You can also draw a render target texture to the GUI (example program 06.RenderW
 ### <a name="HowToStart_Preparations"></a> Preparations
 
 * You need a compiled [Irrlicht](http://irrlicht.sourceforge.net/) library. Please test with the Irrlicht examples, if the library works as expected.
-* Download the Irrlicht IMGUI binding (IrrIMGUI): [Download](#LatestVersion)
+* Download the Irrlicht IMGUI binding (IrrIMGUI): [Download](#LatestVersionNews)
 * Download the latest version of [IMGUI](https://github.com/ocornut/imgui/) and copy all files from the ZIP into the directory `<IrrIMGUI-Path>/dependency/IMGUI`
   The IrrIMGUI and IMGUI files are compiled together to a single shared or static library file. 
 * When you want to compile IrrIMGUI as library, you need [CMake](http://www.cmake.org/) to generate the makefiles or project file you want to use
