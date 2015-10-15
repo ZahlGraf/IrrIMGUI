@@ -32,8 +32,8 @@
 #include <IrrIMGUI/IrrIMGUI.h>
 #include "CIMGUIHandle.h"
 #include "IIMGUIDriver.h"
-#include <IrrIMGUIDebug_priv.h>
 #include <IrrIMGUI/IMGUIHelper.h>
+#include "private/IrrIMGUIDebug_priv.h"
 
 /**
  * @addtogroup IrrIMGUIPrivate

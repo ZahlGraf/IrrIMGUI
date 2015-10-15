@@ -36,7 +36,7 @@
 #include "IIMGUIDriver.h"
 #include "COpenGLIMGUIDriver.h"
 #include "CIrrlichtIMGUIDriver.h"
-#include <IrrIMGUIDebug_priv.h>
+#include "private/IrrIMGUIDebug_priv.h"
 #include <IrrIMGUI/IrrIMGUIConstants.h>
 
 /**
@@ -60,6 +60,7 @@ namespace Private
   {
     LOG_NOTE("{IrrIMGUI} Create Singleton Instance of IIMGUIDriver.\n");
     mInstances++;
+    mTextureInstances = 0;
 
     FASSERT(mInstances == 1);
 
@@ -74,7 +75,7 @@ namespace Private
 
   IIMGUIDriver::~IIMGUIDriver(void)
   {
-    if (mTextureInstances > 0)
+    if (mTextureInstances != 0)
     {
       LOG_ERROR("Not all images created with CIMGUIHandle::createTextureFromImage(...) have been deleted with CIMGUIHandle::deleteTexture(...). There are " << mTextureInstances << " images left!\n");
     }

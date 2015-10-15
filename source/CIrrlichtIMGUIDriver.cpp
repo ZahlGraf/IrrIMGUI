@@ -41,8 +41,8 @@
 
 // module includes
 #include "CIrrlichtIMGUIDriver.h"
-#include "CGUITexture.h"
-#include <IrrIMGUIDebug_priv.h>
+#include "private/CGUITexture.h"
+#include "private/IrrIMGUIDebug_priv.h"
 
 /**
 * @addtogroup IrrIMGUIPrivate
@@ -273,9 +273,6 @@ namespace IrrlichtHelper
     pGUITexture->mIsValid          = true;
     pGUITexture->mGPUTextureID     = IrrlichtHelper::copyTextureIDFromRawData(getIrrDevice()->getVideoDriver(), ColorFormat, pPixelData, Width, Height);
 
-    void * const pFontTexture = reinterpret_cast<void *>(pGUITexture);
-    ImGui::GetIO().Fonts->TexID = pFontTexture;
-
     return pGUITexture;
   }
 
@@ -349,8 +346,8 @@ namespace IrrlichtHelper
       IrrlichtHelper::deleteTextureID(getIrrDevice()->getVideoDriver(), pRealTexture);
 
       pRealTexture->mIsUsingOwnMemory = true;
-      pRealTexture->mSourceType       = ETST_GUIFONT;
-      pRealTexture->mSource.GUIFontID = IrrlichtHelper::IMGUI_FONT_ID;
+      pRealTexture->mSourceType       = ETST_RAWDATA;
+      pRealTexture->mSource.RawDataID = pPixelData;
       pRealTexture->mIsValid          = true;
       pRealTexture->mGPUTextureID     = IrrlichtHelper::copyTextureIDFromRawData(getIrrDevice()->getVideoDriver(), ColorFormat, pPixelData, Width, Height);
     }

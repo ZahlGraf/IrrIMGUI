@@ -45,7 +45,7 @@
 // module includes
 #include "COpenGLIMGUIDriver.h"
 #include "IrrIMGUIDebug_priv.h"
-#include "CGUITexture.h"
+#include "private/CGUITexture.h"
 
 namespace IrrIMGUI
 {

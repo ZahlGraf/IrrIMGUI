@@ -29,7 +29,7 @@
  */
 
 // module includes
-#include "CGUITexture.h"
+#include "private/CGUITexture.h"
 
 namespace IrrIMGUI
 {
