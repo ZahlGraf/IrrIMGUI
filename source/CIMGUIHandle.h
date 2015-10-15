@@ -51,7 +51,7 @@ namespace IrrIMGUI
 namespace Private
 {
   // forward declaration
-  class IRRIMGUI_DLL_API IIMGUIDriver;
+  class IIMGUIDriver;
 
   /**
    * @brief Use an object of this class to setup the IMGUI for Irrlicht and to render the content.
@@ -96,7 +96,7 @@ namespace Private
    @endcode
    *
    */
-  class IRRIMGUI_DLL_API CIMGUIHandle : public IIMGUIHandle
+  class CIMGUIHandle : public IIMGUIHandle
   {
     public:
 

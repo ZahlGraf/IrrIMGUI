@@ -42,7 +42,7 @@ namespace IrrIMGUI
   /// @param pDevice       Is a pointer to an Irrlicht device.
   /// @param pEventStorage Is a pointer to the event storage. If this pointer is NULL, no input event update is performed.
   /// @param pLastTime     Is a pointer to a variable where the time from the last update is stored (in seconds).
-  void updateIMGUIFrameValues(irr::IrrlichtDevice * const pDevice,  CIMGUIEventStorage * const pEventStorage, irr::f32 * const pLastTime);
+  IRRIMGUI_DLL_API void updateIMGUIFrameValues(irr::IrrlichtDevice * const pDevice,  CIMGUIEventStorage * const pEventStorage, irr::f32 * const pLastTime);
 }
 
 /**
