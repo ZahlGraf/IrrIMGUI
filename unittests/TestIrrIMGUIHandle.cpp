@@ -37,6 +37,9 @@
 #include <IrrIMGUI/Inject/IrrIMGUIInject.h>
 #include <IrrIMGUI/IrrIMGUIConstants.h>
 #include <IrrIMGUIDebug_priv.h>
+#include <CGUITexture.h>
+#include <typeinfo>
+#include <iostream>
 
 using namespace IrrIMGUI;
 
@@ -347,7 +350,109 @@ TEST(TestIMGUIHandle, checkFontMethods)
   return;
 }
 
-// TODO: check glyph methods
-// TODO: check texture creation methods
-// TODO: check texture update methods
-// TODO: check texture delete method
+TEST(TestIMGUIHandle, checkGlyphMethods)
+{
+  ImGuiIO &rIMGUI = ImGui::GetIO();
+
+  irr::IrrlichtDevice * const pDevice = irr::createDevice(irr::video::EDT_NULL);
+  IIMGUIHandle * const pGUI = createIMGUI(pDevice);
+
+  CHECK_EQUAL(rIMGUI.Fonts->GetGlyphRangesChinese(),  pGUI->getGlyphRangesChinese());
+  CHECK_EQUAL(rIMGUI.Fonts->GetGlyphRangesCyrillic(), pGUI->getGlyphRangesCyrillic());
+  CHECK_EQUAL(rIMGUI.Fonts->GetGlyphRangesDefault(),  pGUI->getGlyphRangesDefault());
+  CHECK_EQUAL(rIMGUI.Fonts->GetGlyphRangesJapanese(), pGUI->getGlyphRangesJapanese());
+
+  pGUI->drop();
+  pDevice->drop();
+}
+
+TEST(TestIMGUIHandle, checkImageTextureCreation)
+{
+  ImGuiIO &rIMGUI = ImGui::GetIO();
+
+  irr::IrrlichtDevice * const pDevice = irr::createDevice(irr::video::EDT_NULL);
+  IIMGUIHandle * const pGUI = createIMGUI(pDevice);
+
+  irr::video::IImage * const pImage1 = pDevice->getVideoDriver()->createImage(irr::video::ECF_A8R8G8B8, irr::core::dimension2du(100, 100));
+  irr::video::IImage * const pImage2 = pDevice->getVideoDriver()->createImage(irr::video::ECF_A8R8G8B8, irr::core::dimension2du(200, 200));
+  IGUITexture * const pGUITexture = pGUI->createTexture(pImage1);
+
+  CHECK_NOT_EQUAL(nullptr, pGUITexture);
+  STRCMP_EQUAL("class IrrIMGUI::Private::CGUITexture", typeid(*pGUITexture).name());
+
+  Private::CGUITexture * const pRealGUITexture = dynamic_cast<IrrIMGUI::Private::CGUITexture*>(pGUITexture);
+
+  CHECK_EQUAL(true,                pRealGUITexture->mIsValid);
+  CHECK_EQUAL(Private::ETST_IMAGE, pRealGUITexture->mSourceType);
+  CHECK_EQUAL(pImage1,             pRealGUITexture->mSource.ImageID);
+  CHECK_NOT_EQUAL(NULL,            pRealGUITexture->mGPUTextureID);
+
+  pGUI->updateTexture(pGUITexture, pImage2);
+
+  CHECK_EQUAL(true,                pRealGUITexture->mIsValid);
+  CHECK_EQUAL(Private::ETST_IMAGE, pRealGUITexture->mSourceType);
+  CHECK_EQUAL(pImage2,             pRealGUITexture->mSource.ImageID);
+  CHECK_NOT_EQUAL(NULL,            pRealGUITexture->mGPUTextureID);
+
+  irr::video::ITexture * const pIrrTexture = pDevice->getVideoDriver()->addTexture("test1", pImage1);
+  pGUI->updateTexture(pGUITexture, pIrrTexture);
+
+  CHECK_EQUAL(true,                  pRealGUITexture->mIsValid);
+  CHECK_EQUAL(Private::ETST_TEXTURE, pRealGUITexture->mSourceType);
+  CHECK_EQUAL(pIrrTexture,           pRealGUITexture->mSource.TextureID);
+  CHECK_NOT_EQUAL(NULL,              pRealGUITexture->mGPUTextureID);
+
+  pGUI->deleteTexture(pGUITexture);
+
+  pImage1->drop();
+  pImage2->drop();
+  pGUI->drop();
+  pDevice->drop();
+}
+
+TEST(TestIMGUIHandle, checkTextureTextureCreation)
+{
+  ImGuiIO &rIMGUI = ImGui::GetIO();
+
+  irr::IrrlichtDevice * const pDevice = irr::createDevice(irr::video::EDT_NULL);
+  IIMGUIHandle * const pGUI = createIMGUI(pDevice);
+
+  irr::video::IImage * const pImage1 = pDevice->getVideoDriver()->createImage(irr::video::ECF_A8R8G8B8, irr::core::dimension2du(100, 100));
+  irr::video::IImage * const pImage2 = pDevice->getVideoDriver()->createImage(irr::video::ECF_A8R8G8B8, irr::core::dimension2du(200, 200));
+
+  irr::video::ITexture * const pIrrTexture1 = pDevice->getVideoDriver()->addTexture("test1", pImage1);
+  irr::video::ITexture * const pIrrTexture2 = pDevice->getVideoDriver()->addTexture("test2", pImage2);
+
+  IGUITexture * const pGUITexture = pGUI->createTexture(pIrrTexture1);
+
+  CHECK_NOT_EQUAL(nullptr, pGUITexture);
+  STRCMP_EQUAL("class IrrIMGUI::Private::CGUITexture", typeid(*pGUITexture).name());
+
+  Private::CGUITexture * const pRealGUITexture = dynamic_cast<IrrIMGUI::Private::CGUITexture*>(pGUITexture);
+
+  CHECK_EQUAL(true,                  pRealGUITexture->mIsValid);
+  CHECK_EQUAL(Private::ETST_TEXTURE, pRealGUITexture->mSourceType);
+  CHECK_EQUAL(pIrrTexture1,          pRealGUITexture->mSource.TextureID);
+  CHECK_NOT_EQUAL(NULL,              pRealGUITexture->mGPUTextureID);
+
+  pGUI->updateTexture(pGUITexture, pIrrTexture2);
+
+  CHECK_EQUAL(true,                  pRealGUITexture->mIsValid);
+  CHECK_EQUAL(Private::ETST_TEXTURE, pRealGUITexture->mSourceType);
+  CHECK_EQUAL(pIrrTexture2,          pRealGUITexture->mSource.TextureID);
+  CHECK_NOT_EQUAL(NULL,              pRealGUITexture->mGPUTextureID);
+
+  pGUI->updateTexture(pGUITexture, pImage1);
+
+  CHECK_EQUAL(true,                pRealGUITexture->mIsValid);
+  CHECK_EQUAL(Private::ETST_IMAGE, pRealGUITexture->mSourceType);
+  CHECK_EQUAL(pImage1,             pRealGUITexture->mSource.ImageID);
+  CHECK_NOT_EQUAL(NULL,            pRealGUITexture->mGPUTextureID);
+
+  pGUI->deleteTexture(pGUITexture);
+
+  pImage1->drop();
+  pImage2->drop();
+  pGUI->drop();
+  pDevice->drop();
+}
