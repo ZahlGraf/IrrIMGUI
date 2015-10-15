@@ -68,7 +68,7 @@ void runScene(void)
   FASSERT(pDevice);
 
   // Create GUI object
-  CIMGUIHandle * const pGUI = new CIMGUIHandle(pDevice, &EventReceiver);
+  IIMGUIHandle * const pGUI = createIMGUI(pDevice, &EventReceiver);
 
   video::IVideoDriver  * const pDriver       = pDevice->getVideoDriver();
   scene::ISceneManager * const pSceneManager = pDevice->getSceneManager();
@@ -301,7 +301,7 @@ void runScene(void)
   pGUI->deleteTexture(&rSoyuz);
   pGUI->deleteTexture(&rSpaceX);
 
-  delete(pGUI);
+  pGUI->drop();
   pDevice->drop();
 
 }
