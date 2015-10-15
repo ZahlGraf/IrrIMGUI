@@ -31,9 +31,9 @@
 // module includes
 #include <IrrIMGUI/IrrIMGUI.h>
 #include <IrrIMGUI/Inject/IrrIMGUIInject.h>
-#include "IrrIMGUIDebug_priv.h"
+#include "private/IrrIMGUIDebug_priv.h"
 #include "CIMGUIHandle.h"
-#include <IrrIMGUIInject_priv.h>
+#include "private/IrrIMGUIInject_priv.h"
 
 namespace IrrIMGUI
 {
