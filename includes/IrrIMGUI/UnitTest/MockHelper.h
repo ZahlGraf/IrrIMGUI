@@ -22,45 +22,41 @@
  * SOFTWARE.
  */
 /**
- * @file   UnitTest.cpp
+ * @file   MockHelper.h
  * @author Andre Netzeband
- * @brief  Contains helper functions for the unit testing.
- * @addtogroup IrrIMGUIPrivate
+ * @brief  Contains definitions used inside IIMGUIHandleMock, but they must stay independent from the mock, to prevent a too close coupling to the unit test framework from the DLL.
+ * @addtogroup IrrIMGUIUTest
  */
 
+#ifndef LIBS_IRRIMGUI_INCLUDES_IRRIMGUI_UNITTEST_MOCKHELPER_H_
+#define LIBS_IRRIMGUI_INCLUDES_IRRIMGUI_UNITTEST_MOCKHELPER_H_
 
-// library includes
-#include <IrrIMGUI/IncludeIrrlicht.h>
-#include <IrrIMGUI/IncludeIMGUI.h>
-#include <IrrIMGUI/CIMGUIEventStorage.h>
-#include "private/CGUITexture.h"
-#include <IrrIMGUI/UnitTest/MockHelper.h>
+// module includes
+#include <IrrIMGUI/IrrIMGUIConfig.h>
+
+/**
+ * @addtogroup IrrIMGUIUTest
+ * @{
+ */
 
 namespace IrrIMGUI
 {
 namespace UnitTest
 {
+  class IIMGUIHandleMock;
 
-  void createIMGUIDummyFont(void)
+  /// @brief This helper class contains definitions, that can not be in IMGUIHandleMock, to prevent tight coupling between DLL and Unit Test Framework.
+  class MockHelper
   {
-    ImGuiIO& rGUIIO = ImGui::GetIO();
+    private:
+      friend IIMGUIHandleMock;
 
-    unsigned char * pPixelData;
-    int Width;
-    int Height;
-    int BytePerPixel;
-    rGUIIO.Fonts->GetTexDataAsRGBA32(&pPixelData, &Width, &Height, &BytePerPixel);
-
-    return;
-  }
-
-  IGUITexture * getDummyTexture(void)
-  {
-    static Private::CGUITexture DummyTexture;
-    return &DummyTexture;
-  }
-
-  bool MockHelper::mIsImGuiActivated = true;
-
+      /// @brief If this variable is true, the mock will perform minimal IMGUI calls to not generate an error with IMGUI.
+      IRRIMGUI_DLL_API static bool         mIsImGuiActivated;
+  };
 }
 }
+
+
+
+#endif /* LIBS_IRRIMGUI_INCLUDES_IRRIMGUI_UNITTEST_MOCKHELPER_H_ */

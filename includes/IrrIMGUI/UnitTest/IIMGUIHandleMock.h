@@ -31,14 +31,13 @@
 #ifndef UNITTESTS_MOCKIIMGUIHANDLE_H_
 #define UNITTESTS_MOCKIIMGUIHANDLE_H_
 
-// library includes
-#include <IrrIMGUI/UnitTest/UnitTest.h>
-#include <IrrIMGUI/CIMGUIEventStorage.h>
-#include <IrrIMGUI/IIMGUIHandle.h>
-
 // module includes
 #include <IrrIMGUI/Inject/IrrIMGUIInject.h>
 #include <IrrIMGUI/IMGUIHelper.h>
+#include <IrrIMGUI/CIMGUIEventStorage.h>
+#include <IrrIMGUI/IIMGUIHandle.h>
+#include <IrrIMGUI/UnitTest/UnitTest.h>
+#include <IrrIMGUI/UnitTest/MockHelper.h>
 
 /**
  * @addtogroup IrrIMGUIUTest
@@ -304,7 +303,7 @@ class IIMGUIHandleMock : public IrrIMGUI::IIMGUIHandle
 
     static void enableIMGUICalls(bool const Enable = true)
     {
-      mIsImGuiActivated = Enable;
+      MockHelper::mIsImGuiActivated = Enable;
       return;
     }
 
@@ -316,7 +315,7 @@ class IIMGUIHandleMock : public IrrIMGUI::IIMGUIHandle
 
     static bool areIMGUICallsEnabled(void)
     {
-      return mIsImGuiActivated;
+      return MockHelper::mIsImGuiActivated;
     }
 
     /// @}
@@ -330,9 +329,6 @@ class IIMGUIHandleMock : public IrrIMGUI::IIMGUIHandle
 
     /// @brief Stores a pointer to an Event Storage.
     IrrIMGUI::CIMGUIEventStorage * const mpEventStorage;
-
-    /// @brief If this variable is true, the mock will perform minimal IMGUI calls to not generate an error with IMGUI.
-    IRRIMGUI_DLL_API static bool         mIsImGuiActivated;
 
     /// @brief Stores the last time in seconds, when an update was done.
     irr::f32                             mLastTime;
