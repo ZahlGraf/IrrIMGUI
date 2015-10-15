@@ -51,5 +51,8 @@ namespace Const
 }
 }
 
+/**
+ * @}
+ */
 
 #endif /* LIBS_IRRIMGUI_INCLUDES_IRRIMGUI_IRRIMGUICONSTANTS_H_ */

@@ -57,6 +57,8 @@ namespace UnitTest
 }
 }
 
-
+/**
+ * @}
+ */
 
 #endif /* LIBS_IRRIMGUI_INCLUDES_IRRIMGUI_UNITTEST_MOCKHELPER_H_ */
