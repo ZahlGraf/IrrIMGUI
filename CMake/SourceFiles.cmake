@@ -27,34 +27,48 @@ INCLUDE_DIRECTORIES(
   )
 
 SET (IRRIMGUI_PUBLIC_HEADER_FILES
+	includes/IrrIMGUI/Inject/IrrIMGUIInject.h
+	includes/IrrIMGUI/UnitTest/IIMGUIHandleMock.h
+	includes/IrrIMGUI/UnitTest/IncludeCppUTest.h
+	includes/IrrIMGUI/UnitTest/MockHelper.h
+	includes/IrrIMGUI/UnitTest/UnitTest.h
 	includes/IrrIMGUI/CCharFifo.h
 	includes/IrrIMGUI/CIMGUIEventReceiver.h
 	includes/IrrIMGUI/CIMGUIEventStorage.h
-	includes/IrrIMGUI/CIMGUIHandle.h
-	includes/IrrIMGUI/IrrIMGUI.h
+	includes/IrrIMGUI/IGUITexture.h
+	includes/IrrIMGUI/IIMGUIHandle.h
+	includes/IrrIMGUI/IMGUIHelper.h
+	includes/IrrIMGUI/IncludeIMGUI.h
+	includes/IrrIMGUI/IncludeIrrlicht.h
+	includes/IrrIMGUI/IReferenceCounter.h
+	includes/IrrIMGUI/IrrIMGUI.h	
+	includes/IrrIMGUI/IrrIMGUIConfig.h
+	includes/IrrIMGUI/IrrIMGUIConstants.h
 	includes/IrrIMGUI/IrrIMGUIDebug.h
 	includes/IrrIMGUI/SIMGUISettings.h
-	includes/IrrIMGUI/IncludeIrrlicht.h
-	includes/IrrIMGUI/IncludeIMGUI.h
-	includes/IrrIMGUI/IrrIMGUIConfig.h
-	includes/IrrIMGUI/IGUITexture.h
 )
 
 SET (IRRIMGUI_PRIVATE_HEADER_FILES
+	source/private/CGUITexture.h
+	source/private/IrrIMGUIDebug_priv.h
+	source/private/IrrIMGUIInject_priv.h
+	source/CIMGUIHandle.h
+	source/CIrrlichtIMGUIDriver.h
 	source/COpenGLIMGUIDriver.h
 	source/IIMGUIDriver.h
-	source/IrrIMGUIDebug_priv.h
-	source/CGUITexture.h
-	source/CIrrlichtIMGUIDriver.h
 )
 
 SET (IRRIMGUI_SOURCE_FILES
 	source/CChannelBuffer.cpp
 	source/CCharFifo.cpp
+	source/CGUITexture.cpp
 	source/CIMGUIEventReceiver.cpp
 	source/CIMGUIHandle.cpp
+	source/CIrrlichtIMGUIDriver.cpp
 	source/COpenGLIMGUIDriver.cpp
 	source/IIMGUIDriver.cpp
-	source/CGUITexture.cpp
-	source/CIrrlichtIMGUIDriver.cpp
+	source/IMGUIHelper.cpp
+	source/IReferenceCounter.cpp
+	source/IrrIMGUIInject.cpp
+	source/UnitTest.cpp
 )
