@@ -28,6 +28,7 @@ INCLUDE_DIRECTORIES(
 
 SET (IRRIMGUI_PUBLIC_HEADER_FILES
 	includes/IrrIMGUI/Inject/IrrIMGUIInject.h
+	includes/IrrIMGUI/Tools/CBasicMemoryLeakDetection.h
 	includes/IrrIMGUI/UnitTest/IIMGUIHandleMock.h
 	includes/IrrIMGUI/UnitTest/IncludeCppUTest.h
 	includes/IrrIMGUI/UnitTest/MockHelper.h
@@ -59,6 +60,7 @@ SET (IRRIMGUI_PRIVATE_HEADER_FILES
 )
 
 SET (IRRIMGUI_SOURCE_FILES
+	source/CBasicMemoryLeakDetection.cpp
 	source/CChannelBuffer.cpp
 	source/CCharFifo.cpp
 	source/CGUITexture.cpp
