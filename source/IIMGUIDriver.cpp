@@ -64,6 +64,7 @@ namespace Private
 
     FASSERT(mInstances == 1);
 
+    pDevice->grab();
     mpDevice = pDevice;
 
     setupMouseControl();
@@ -87,6 +88,8 @@ namespace Private
 
     ImGui::GetIO().Fonts->Clear();
     ImGui::Shutdown();
+
+    mpDevice->drop();
     return;
   }
 

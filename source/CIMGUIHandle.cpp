@@ -54,8 +54,6 @@ namespace Private
 
   CIMGUIHandle::CIMGUIHandle(irr::IrrlichtDevice * const pDevice, CIMGUIEventStorage * const pEventStorage, SIMGUISettings const * const pSettings)
   {
-    pDevice->grab();
-
     mpGUIDriver = IIMGUIDriver::getInstance(pDevice);
     mLastTime    = static_cast<float>(pDevice->getTimer()->getTime()) / 1000.0f;
     mpEventStorage = pEventStorage;
@@ -86,8 +84,6 @@ namespace Private
         IIMGUIDriver::deleteInstance();
       }
     }
-
-    pIrrDevice->drop();
 
     return;
   }
