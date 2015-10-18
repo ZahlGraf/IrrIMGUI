@@ -67,7 +67,7 @@ namespace Tools
     _CrtMemCheckpoint(&CurrentMemoryState);
     _CrtMemDifference(&MemoryDifference, &mMemoryState, &CurrentMemoryState);
 
-    MemoryLeak = MemoryDifference.lSizes[_NORMAL_BLOCK];
+    MemoryLeak = static_cast<int>(MemoryDifference.lSizes[_NORMAL_BLOCK]);
 
 #endif // _ENABLE_MEMORY_LEAK_DETECTION_
 

@@ -268,6 +268,7 @@ void encodeBase85(irr::u8 * const pOutputData, irr::u8 * const pInputData, size_
     pOutputData[OutputIndex] = encodeBase85Byte(Data32Bit/(85*85*85*85));
     OutputIndex++;
   }
+  pOutputData[OutputIndex] = '\0';
 
   return;
 }
@@ -318,8 +319,8 @@ TEST(TestIMGUIHandle, checkFontMethods)
   size_t const Length = FontConfig.FontDataSize;
   size_t const MaxLength = stb_get_compression_length(Length);
   irr::u8 * const pCompressedData = new irr::u8[MaxLength];
-  size_t const CompressedLength = stb_compress((stb_uchar*)pCompressedData, (stb_uchar*)pData, Length);
-  pGUI->addFontFromMemoryCompressedTTF(pCompressedData, CompressedLength, FontConfig.SizePixels);
+  size_t const CompressedLength = stb_compress((stb_uchar*)pCompressedData, (stb_uchar*)pData, static_cast<stb_uint>(Length));
+  pGUI->addFontFromMemoryCompressedTTF(pCompressedData, static_cast<int>(CompressedLength), FontConfig.SizePixels);
 
   CHECK_EQUAL(6, rIMGUI.Fonts->Fonts.size());
 
