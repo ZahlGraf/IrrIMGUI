@@ -31,12 +31,12 @@
 #ifndef LIBS_IRRIMGUI_INCLUDES_IRRIMGUI_TOOLS_CBASICMEMORYLEAKDETECTION_H_
 #define LIBS_IRRIMGUI_INCLUDES_IRRIMGUI_TOOLS_CBASICMEMORYLEAKDETECTION_H_
 
+// module includes
+#include <IrrIMGUI/IrrIMGUIConfig.h>
+
 #ifdef _IRRIMGUI_COMPILER_MSVC_AT_LEAST_2010_
 #define _ENABLE_MEMORY_LEAK_DETECTION_
 #endif // _IRRIMGUI_COMPILER_MSVC_AT_LEAST_2010_
-
-// module includes
-#include <IrrIMGUI/IrrIMGUIConfig.h>
 
 #ifdef _ENABLE_MEMORY_LEAK_DETECTION_
 #include <crtdbg.h>
@@ -97,12 +97,16 @@ namespace Tools
 
       /// @brief Compares the current memory state with the stored one.
       /// @return Returns the number of bytes that are different between both states (should be 0 when no memory leak occurred).
-      size_t compareMemoryState(void);
+      int compareMemoryState(void);
+
+      /// @brief Resets the memory state to prepare a new detection.
+      void resetMemoryState(void);
 
     private:
 #ifdef _ENABLE_MEMORY_LEAK_DETECTION_
-      _CrtMemState MemoryState;
+      _CrtMemState mMemoryState;
 #endif // _ENABLE_MEMORY_LEAK_DETECTION_
+      bool mWasMemoryChecked;
   };
 
 }

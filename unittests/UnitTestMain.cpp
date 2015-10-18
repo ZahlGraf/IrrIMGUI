@@ -32,17 +32,28 @@
 #include <CppUTest/CommandLineTestRunner.h>
 #include <CppUTest/TestRegistry.h>
 #include <CppUTestExt/MockSupportPlugin.h>
+#include <CppUTestExt/MockSupport.h>
+
+// module includes
+#include <IrrIMGUI/UnitTest/BasicMemoryLeakDetectionPlugin.h>
 
 //#define COLORED_OUTPUT
 
-int main(int Arguments, char ** ppCommandLineList)
+int main(int Arguments, char const ** ppCommandLineList)
 {
   MockSupportPlugin MockPlugin;
   TestRegistry::getCurrentRegistry()->installPlugin(&MockPlugin);
 
+  IrrIMGUI::UnitTest::BasicMemoryLeakDetectionPlugin MemoryPlugin;
+  TestRegistry::getCurrentRegistry()->installPlugin(&MemoryPlugin);
+
+  char const ** ppArgumentList;
+  int     NumberOfArguments;
+  bool    IsOwnArgumentMemory;
+
 #ifdef COLORED_OUTPUT
   // enable colored output by default
-  char ** ppArgumentList = new char*[Arguments+2];
+  ppArgumentList = new char*[Arguments+2];
 
   for (int i = 0; i < Arguments; i++)
   {
@@ -50,13 +61,23 @@ int main(int Arguments, char ** ppCommandLineList)
   }
   ppArgumentList[Arguments+0] = "-v";
   ppArgumentList[Arguments+1] = "-c";
+  NumberOfArguments = Arguments+2;
+  IsOwnArgumentMemory = true;
 
-  int ReturnValue = CommandLineTestRunner::RunAllTests(Arguments+2, ppArgumentList);
+#else  // COLORED_OUTPUT
+  ppArgumentList = ppCommandLineList;
+  NumberOfArguments = Arguments;
+  IsOwnArgumentMemory = false;
 
-  delete[] ppArgumentList;
+#endif // COLORED_OUTPUT
+
+  mock().clear();
+  int ReturnValue = CommandLineTestRunner::RunAllTests(NumberOfArguments, ppArgumentList);
+
+  if (IsOwnArgumentMemory)
+  {
+    delete[] ppArgumentList;
+  }
+
   return ReturnValue;
-#else
-  return CommandLineTestRunner::RunAllTests(Arguments, ppCommandLineList);
-#endif
-
 }

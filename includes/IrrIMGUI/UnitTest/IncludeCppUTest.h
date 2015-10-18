@@ -33,6 +33,7 @@
 
 #include <CppUTest/UTest.h>
 #include <CppUTest/UTestMacros.h>
+#include <CppUTest/TestPlugin.h>
 #include <CppUTestExt/MockSupport.h>
 
 #endif // IRRIMGUI_INCLUDE_IRRIMGUI_INCLUDECPPUTEST_H_
