@@ -96,18 +96,26 @@ struct SInputCompare
     }
 
     enum Constants {
-      NumberOfInputChars   = sizeof(ImGuiIO::InputCharacters)/sizeof(ImWchar),
+      NumberOfInputChars   = 17,
     };
+#ifdef IRRIMGUI_CONFIG_SIZEOF_FROM_CLASSMEMBER
     static_assert(std::is_same<ImWchar[NumberOfInputChars], decltype(ImGuiIO::InputCharacters)>::value, "The input character type is different between testcase and IMGUI!");
+#endif // IRRIMGUI_CONFIG_SIZEOF_FROM_CLASSMEMBER
 
     ImVec2 mMousePos;
+#ifdef IRRIMGUI_CONFIG_SIZEOF_FROM_CLASSMEMBER
     static_assert(std::is_same<decltype(mMousePos), decltype(ImGuiIO::MousePos)>::value, "The mouse position vector is different between testcase and IMGUI!");
+#endif // IRRIMGUI_CONFIG_SIZEOF_FROM_CLASSMEMBER
 
     float  mMouseWheel;
+#ifdef IRRIMGUI_CONFIG_SIZEOF_FROM_CLASSMEMBER
     static_assert(std::is_same<decltype(mMouseWheel), decltype(ImGuiIO::MouseWheel)>::value, "The mouse wheel type is different between testcase and IMGUI!");
+#endif // IRRIMGUI_CONFIG_SIZEOF_FROM_CLASSMEMBER
 
     bool   mMouseDown[Const::NumberOfMouseButtons];
+#ifdef IRRIMGUI_CONFIG_SIZEOF_FROM_CLASSMEMBER
     static_assert(std::is_same<decltype(mMouseDown), decltype(ImGuiIO::MouseDown)>::value,       "The mouse down array type is different between testcase and IMGUI!");
+#endif // IRRIMGUI_CONFIG_SIZEOF_FROM_CLASSMEMBER
 
     char   mInputCharacters[NumberOfInputChars];
 

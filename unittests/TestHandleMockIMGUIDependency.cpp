@@ -105,8 +105,8 @@ TEST(MockIMGUIDependency, checkMinimumGameLoop)
     if ((Frames >= 100) && (Frames < 110))
     {
       // simulates a click on the Exit button
-      EventStorage.mMousePositionX = ButtonPosition.x + ButtonSize.x/2.0f;
-      EventStorage.mMousePositionY = ButtonPosition.y + ButtonSize.y/2.0f;
+      EventStorage.mMousePositionX = static_cast<irr::s32>(ButtonPosition.x + ButtonSize.x/2.0f);
+      EventStorage.mMousePositionY = static_cast<irr::s32>(ButtonPosition.y + ButtonSize.y/2.0f);
       EventStorage.mIsLeftMouseButtonPressed = true;
     }
 
@@ -222,8 +222,8 @@ TEST(MockIMGUIDependency, checkFontGameLoop)
     if ((Frames >= 100) && (Frames < 110))
     {
       // simulates a click on the Exit button
-      EventStorage.mMousePositionX = ButtonPosition.x + ButtonSize.x/2.0f;
-      EventStorage.mMousePositionY = ButtonPosition.y + ButtonSize.y/2.0f;
+      EventStorage.mMousePositionX = static_cast<irr::s32>(ButtonPosition.x + ButtonSize.x/2.0f);
+      EventStorage.mMousePositionY = static_cast<irr::s32>(ButtonPosition.y + ButtonSize.y/2.0f);
       EventStorage.mIsLeftMouseButtonPressed = true;
     }
 
@@ -324,8 +324,8 @@ TEST(MockIMGUIDependency, checkResetFontGameLoop)
     if ((Frames >= 100) && (Frames < 110))
     {
       // simulates a click on the Exit button
-      EventStorage.mMousePositionX = ButtonPosition.x + ButtonSize.x/2.0f;
-      EventStorage.mMousePositionY = ButtonPosition.y + ButtonSize.y/2.0f;
+      EventStorage.mMousePositionX = static_cast<irr::s32>(ButtonPosition.x + ButtonSize.x/2.0f);
+      EventStorage.mMousePositionY = static_cast<irr::s32>(ButtonPosition.y + ButtonSize.y/2.0f);
       EventStorage.mIsLeftMouseButtonPressed = true;
     }
 
@@ -415,8 +415,8 @@ TEST(MockIMGUIDependency, checkImageFontGameLoop)
     if ((Frames >= 100) && (Frames < 110))
     {
       // simulates a click on the Exit button
-      EventStorage.mMousePositionX = ButtonPosition.x + ButtonSize.x/2.0f;
-      EventStorage.mMousePositionY = ButtonPosition.y + ButtonSize.y/2.0f;
+      EventStorage.mMousePositionX = static_cast<irr::s32>(ButtonPosition.x + ButtonSize.x/2.0f);
+      EventStorage.mMousePositionY = static_cast<irr::s32>(ButtonPosition.y + ButtonSize.y/2.0f);
       EventStorage.mIsLeftMouseButtonPressed = true;
     }
 

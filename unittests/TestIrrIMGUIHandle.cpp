@@ -29,6 +29,8 @@
  */
 
 // library includes
+#include <typeinfo>
+#include <iostream>
 #define STB_DEFINE
 #include "stb_compress_only.h"
 #include <IrrIMGUI/UnitTest/UnitTest.h>
@@ -38,8 +40,6 @@
 #include <IrrIMGUI/IrrIMGUIConstants.h>
 #include <IrrIMGUIDebug_priv.h>
 #include <CGUITexture.h>
-#include <typeinfo>
-#include <iostream>
 
 using namespace IrrIMGUI;
 
@@ -58,7 +58,7 @@ TEST(TestIMGUIHandle, checkIfHandleGrabsAndDropsIrrlicht)
 {
   irr::IrrlichtDevice * const pDevice = irr::createDevice(irr::video::EDT_NULL);
 
-  irr::u32 const IrrDeviceRefCount = pDevice->getReferenceCount();
+  irr::s32 const IrrDeviceRefCount = pDevice->getReferenceCount();
 
   IIMGUIHandle * const pGUI = createIMGUI(pDevice);
 
@@ -283,7 +283,6 @@ TEST(TestIMGUIHandle, checkFontMethods)
 
   ImFontConfig FontConfig = *(rIMGUI.Fonts->Fonts[0]->ConfigData);
   FontConfig.FontDataOwnedByAtlas = false;
-  irr::u8 Data[100];
 
   // test new font with reused data from default font
   pGUI->addFont(&FontConfig);
