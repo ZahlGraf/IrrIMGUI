@@ -22,34 +22,19 @@
 # SOFTWARE.
 #
 
-if (WIN32)						
+SET (IRRIMGUI_BUILD_UNITTESTS OFF CACHE BOOL "Enables the unit-test compilation.")
 
-	if (GCC_LIKE_COMPILER)
-		SET (OS_DEPENDENT_LIBRARIES
-			${OS_DEPENDENT_LIBRARIES}
-			imm32.lib
-		)	
-		
-		# The MingW compiler needs directx libraries if Irrlicht has DirectX support enabled
-		SET(IRRIMGUI_LINK_TO_DIRECTX ON)
-		
-		if (IRRIMGUI_STATIC_LIBRARY)
-			SET(CMAKE_CXX_FLAGS
-				"${CMAKE_CXX_FLAGS} -static -lpthread -static-libgcc -static-libstdc++ "
-			)
-		endif ()
+if (IRRIMGUI_BUILD_UNITTESTS)
+	message(STATUS "Build Unit Tests...")
+	
+	SET(IRRIMGUI_CPPUTEST_INCLUDE_DIR "NOT-FOUND" CACHE PATH "The include directory for CppUTest headers.")
+	SET(IRRIMGUI_CPPUTEST_MAIN        "NOT-FOUND" CACHE FILEPATH "The path to the CppUTest main library.")
+	SET(IRRIMGUI_CPPUTEST_EXTENSION   "NOT-FOUND" CACHE FILEPATH "The path to the CppUTest extension library.")
 
-	else ()
+	ADD_DEFINITIONS(	
+	-DCPPUTEST_USE_MEM_LEAK_DETECTION=0
+	)			
 	
-		SET (OS_DEPENDENT_LIBRARIES
-			${OS_DEPENDENT_LIBRARIES}
-			winmm.lib			
-		)	
-	
-	endif ()
-		
-	SET (IMGUI_API_VALUE
-		"IMGUI_API=__declspec(dllexport)"
-	)
-		
+else ()
+	message(STATUS "Do not build Unit Tests...")
 endif ()
