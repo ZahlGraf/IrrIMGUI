@@ -46,8 +46,13 @@ namespace Const
 {
   enum EConstants {
     /// @brief The number of mouse buttons supported by IMGUI.
-    NumberOfMouseButtons = sizeof(ImGuiIO::MouseDown)/sizeof(bool),
+    NumberOfMouseButtons = 5,
   };
+
+#ifdef IRRIMGUI_CONFIG_SIZEOF_FROM_CLASSMEMBER
+  static_assert(NumberOfMouseButtons == sizeof(ImGuiIO::MouseDown)/sizeof(bool), "The number of mouse buttons are different in IMGUI and IrrIMGUI!");
+#endif // IRRIMGUI_CONFIG_SIZEOF_FROM_CLASSMEMBER
+
 }
 }
 

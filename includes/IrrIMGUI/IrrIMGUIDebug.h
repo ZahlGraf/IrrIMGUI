@@ -152,7 +152,7 @@ namespace Debug
       ExAssert(char const * pText):mpText(pText) {};
 
       /// @return Returns the static text.
-      virtual char const *what(void) const noexcept {return mpText;}
+      virtual char const *what(void) const NOEXCEPT {return mpText;}
 
     private:
       char const * const mpText;
