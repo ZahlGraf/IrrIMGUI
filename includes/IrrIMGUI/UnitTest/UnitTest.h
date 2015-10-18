@@ -34,22 +34,6 @@
 // library includes
 #include "IncludeCppUTest.h"
 
-#ifndef CPPUTEST_USE_MALLOC_MACROS
-#ifdef __GNUC__
-#warning("Warning: CppUTest memory detection is disabled. Please include CppUTest/MemoryLeakDetectorNewMacros.h and CppUTest/MemoryLeakDetectorMallocMacros.h as first global header in your unit test project.")
-#else
-#pragma message ("Warning: CppUTest memory detection is disabled. Please include CppUTest/MemoryLeakDetectorNewMacros.h and CppUTest/MemoryLeakDetectorMallocMacros.h as first global header in your unit test project.")
-#endif
-#endif // CPPUTEST_USE_MALLOC_MACROS
-
-#ifndef CPPUTEST_USE_NEW_MACROS
-#ifdef __GNUC__
-#warning("Warning: CppUTest memory detection is disabled. Please include CppUTest/MemoryLeakDetectorNewMacros.h and CppUTest/MemoryLeakDetectorMallocMacros.h as first global header in your unit test project.")
-#else
-#pragma message ("Warning: CppUTest memory detection is disabled. Please include CppUTest/MemoryLeakDetectorNewMacros.h and CppUTest/MemoryLeakDetectorMallocMacros.h as first global header in your unit test project.")
-#endif
-#endif // CPPUTEST_USE_NEW_MACROS
-
 /**
  * @defgroup IrrIMGUIUTest UnitTest
  * @ingroup IrrIMGUI
