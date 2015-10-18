@@ -47,6 +47,7 @@ TEST_GROUP(TestMemoryLeakDetection)
 
   TEST_TEARDOWN()
   {
+    IrrIMGUI::Debug::ErrorOutput.setupStream(std::cout);
   }
 };
 

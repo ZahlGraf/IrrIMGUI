@@ -39,6 +39,19 @@ using namespace IrrIMGUI;
 
 TEST_GROUP(ReferenceCounter)
 {
+  TEST_SETUP()
+  {
+    // store current error output stream buffer
+    mpStoredBuffer = IrrIMGUI::Debug::ErrorOutput.rdbuf();
+  }
+
+  TEST_TEARDOWN()
+  {
+    // reset original error output stream buffer
+    IrrIMGUI::Debug::ErrorOutput.rdbuf(mpStoredBuffer);
+  }
+
+  std::streambuf * mpStoredBuffer;
 };
 
 TEST(ReferenceCounter, createInstance)
@@ -100,16 +113,13 @@ TEST(ReferenceCounter, checkErrorWhenCounterIsWrongAtDeletion)
 
   pTestCounter->grab();
 
-  // store current error output stream buffer
-  std::streambuf * const pStoredBuffer = IrrIMGUI::Debug::ErrorOutput.rdbuf();
-
   // redirect to string
   std::stringstream CheckBuffer;
   IrrIMGUI::Debug::ErrorOutput.rdbuf(CheckBuffer.rdbuf());
 
   // store address of object
   std::stringstream ObjectAddress;
-  ObjectAddress << std::hex << pStoredBuffer;
+  ObjectAddress << std::hex << pTestCounter;
 
   // store current reference counter
   std::stringstream ReferenceNumber;
@@ -131,9 +141,6 @@ TEST(ReferenceCounter, checkErrorWhenCounterIsWrongAtDeletion)
   std::size_t const CounterPosition = ErrorString.find("references");
   CHECK_NOT_EQUAL(CounterPosition, std::string::npos);
   CHECK_NOT_EQUAL(ErrorString.find(ReferenceNumber.str(), CounterPosition), std::string::npos);
-
-  // reset original error output stream buffer
-  IrrIMGUI::Debug::ErrorOutput.rdbuf(pStoredBuffer);
 
   return;
 }
