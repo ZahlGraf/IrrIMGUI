@@ -30,7 +30,7 @@
 
 // module includes
 #include <IrrIMGUI/Tools/CBasicMemoryLeakDetection.h>
-#include <IrrIMGUIDebug_priv.h>
+#include "private/IrrIMGUIDebug_priv.h"
 
 namespace IrrIMGUI
 {
