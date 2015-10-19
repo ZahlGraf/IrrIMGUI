@@ -104,13 +104,10 @@ namespace Private
 
       switch(Type)
       {
+        case irr::video::EDT_NULL: // for unit testing
         case irr::video::EDT_OPENGL:
           mpInstance = new Driver::COpenGLIMGUIDriver(pDevice);
           mpFontTexture = mpInstance->createFontTexture();
-          break;
-
-        case irr::video::EDT_DIRECT3D9:
-          FASSERT(false); // need to be implemented
           break;
 
         default:
