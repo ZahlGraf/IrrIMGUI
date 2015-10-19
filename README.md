@@ -43,12 +43,18 @@ Following Features are supported so far:
 
 #### Highlights
 * **Interface break:** Use the factory function `createIMGUI(...)` for creating the IMGUI handle object and call `drop` at the end, instead of delete it (more information here: [Developers Blog](https://github.com/ZahlGraf/IrrIMGUI/wiki/Developers-Blog#20151006))
+* Added a basic memory leak detection class for Visual Studio Debug Builds
+* Added a CppUTest Plugin for memory leak detection with Visual Studio Debug Builds
+* Added CppUTest Support for unit testing of applications that uses IrrIMGUI (see Wiki: [UnitTest](https://github.com/ZahlGraf/IrrIMGUI/wiki/UnitTesting))
+* Added a Mock-Class for the IrrIMGUI handle to make unit testing with IrrIMGUI easier
+* Added around 60 unit tests for the IrrIMGUI library itself (Unit Test can be build with CMake open `IRRIMGUI_BUIL_UNITTESTS`
 
 #### Fixes
 * Fixed a small memory leak (the font data was not deleted when shutdown IMGUI at the end of application). 
+* Fixed several warnings/errors with older Visual Studio Versions, like the unknown "noexcept" keyword (see #2)
 
 #### Dependency Versions
-* [IMGUI 1.45](https://github.com/ocornut/imgui/tree/v1.45)
+* [IMGUI 1.46](https://github.com/ocornut/imgui/tree/v1.46)
 * [Irrlicht 1.8.3](http://irrlicht.sourceforge.net/2015/09/irrlicht-1-8-3-released/)
 * Other versions may work as well, but they are not tested.
 
