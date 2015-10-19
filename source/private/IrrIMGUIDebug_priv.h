@@ -36,7 +36,7 @@
 #include <IrrIMGUI/IrrIMGUI.h>
 #include <IrrIMGUI/IrrIMGUIDebug.h>
 
-#ifdef CPPUTEST_USE_MALLOC_MACROS
+#ifdef IRRIMGUI_UNIT_TEST
 #include <IrrIMGUI/UnitTest/UnitTest.h>
 #define UNIT_TEST true
 #endif
