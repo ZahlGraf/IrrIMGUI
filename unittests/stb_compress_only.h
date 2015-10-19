@@ -386,16 +386,16 @@ static int stb_compress_chunk(stb_uchar *history,
          ++q;
       } else if (best > 2  &&  best <= 0x80    &&  dist <= 0x100) {
          outliterals(lit_start, q-lit_start); lit_start = (q += best);
-         stb_out(0x80 + best-1);
-         stb_out(dist-1);
+         stb_out(static_cast<unsigned char>(0x80 + best-1));
+         stb_out(static_cast<unsigned char>(dist-1));
       } else if (best > 5  &&  best <= 0x100   &&  dist <= 0x4000) {
          outliterals(lit_start, q-lit_start); lit_start = (q += best);
          stb_out2(static_cast<stb_uint>(0x4000 + dist-1));
-         stb_out(best-1);
+         stb_out(static_cast<unsigned char>(best-1));
       } else if (best > 7  &&  best <= 0x100   &&  dist <= 0x80000) {
          outliterals(lit_start, q-lit_start); lit_start = (q += best);
          stb_out3(static_cast<stb_uint>(0x180000 + dist-1));
-         stb_out(best-1);
+         stb_out(static_cast<unsigned char>(best-1));
       } else if (best > 8  &&  best <= 0x10000 &&  dist <= 0x80000) {
          outliterals(lit_start, q-lit_start); lit_start = (q += best);
          stb_out3(static_cast<stb_uint>(0x100000 + dist-1));
@@ -406,7 +406,7 @@ static int stb_compress_chunk(stb_uchar *history,
          if (best <= 0x100) {
             stb_out(0x06);
             stb_out3(static_cast<stb_uint>(dist-1));
-            stb_out(best-1);
+            stb_out(static_cast<unsigned char>(best-1));
          } else {
             stb_out(0x04);
             stb_out3(static_cast<stb_uint>(dist-1));
