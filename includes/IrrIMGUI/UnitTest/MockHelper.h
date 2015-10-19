@@ -45,6 +45,12 @@ namespace UnitTest
 {
   class IIMGUIHandleMock;
 
+  /// @brief Creates a dummy font in IMGUI to prevent errors for unit-tests that uses the mock.
+  IRRIMGUI_DLL_API void createIMGUIDummyFont(void);
+
+  /// @return Returns a dummy texture object for unit-test cases.
+  IRRIMGUI_DLL_API IGUITexture * getDummyTexture(void);
+
   /// @brief This helper class contains definitions, that can not be in IMGUIHandleMock, to prevent tight coupling between DLL and Unit Test Framework.
   class MockHelper
   {

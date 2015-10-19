@@ -31,6 +31,9 @@
 #ifndef LIBS_IRRIMGUI_INCLUDES_IRRIMGUI_IMGUIHELPER_H_
 #define LIBS_IRRIMGUI_INCLUDES_IRRIMGUI_IMGUIHELPER_H_
 
+// module includes
+#include <IrrIMGUI/IrrIMGUIConfig.h>
+
 /**
  * @addtogroup IrrIMGUI
  * @{

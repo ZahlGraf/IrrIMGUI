@@ -50,7 +50,7 @@ namespace Private
   /// @param pEventStorage Is a pointer to an input event storage.
   /// @param pSettings     Is a pointer to a settings struct to apply.
   /// @return Returns a pointer to an IMGUI handle object.
-  IIMGUIHandle * createRealIMGUI(irr::IrrlichtDevice * pDevice, CIMGUIEventStorage * pEventStorage, SIMGUISettings const * pSettings);
+  IRRIMGUI_DLL_API IIMGUIHandle * createRealIMGUI(irr::IrrlichtDevice * pDevice, CIMGUIEventStorage * pEventStorage, SIMGUISettings const * pSettings);
 
 }
 }

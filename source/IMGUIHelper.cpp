@@ -32,6 +32,7 @@
 #include <IrrIMGUI/IncludeIrrlicht.h>
 #include <IrrIMGUI/IncludeIMGUI.h>
 #include <IrrIMGUI/CIMGUIEventStorage.h>
+#include <IrrIMGUI/IMGUIHelper.h>
 #include "private/CGUITexture.h"
 
 namespace IrrIMGUI

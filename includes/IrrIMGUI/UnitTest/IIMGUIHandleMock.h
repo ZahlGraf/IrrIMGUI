@@ -50,12 +50,6 @@ namespace IrrIMGUI
 namespace UnitTest
 {
 
-/// @brief Creates a dummy font in IMGUI to prevent errors for unit-tests that uses the mock.
-void createIMGUIDummyFont(void);
-
-/// @return Returns a dummy texture object for unit-test cases.
-IGUITexture * getDummyTexture(void);
-
 class IIMGUIHandleMock : public IrrIMGUI::IIMGUIHandle
 {
   public:
