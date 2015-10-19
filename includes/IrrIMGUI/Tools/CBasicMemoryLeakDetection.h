@@ -114,6 +114,9 @@ namespace Tools
 }
 }
 
+/**
+ * @}
+ */
 
 
 #endif /* LIBS_IRRIMGUI_INCLUDES_IRRIMGUI_TOOLS_CBASICMEMORYLEAKDETECTION_H_ */
