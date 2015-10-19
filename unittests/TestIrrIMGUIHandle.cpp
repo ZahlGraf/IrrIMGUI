@@ -150,6 +150,7 @@ TEST(TestIMGUIHandle, checkIfHandleSetupsFunctionPointer)
 
 TEST(TestIMGUIHandle, checkFrameUpdate)
 {
+  float CurrentGUITime;
   ImGuiIO &rIMGUI = ImGui::GetIO();
 
   irr::IrrlichtDevice * const pDevice = irr::createDevice(irr::video::EDT_NULL);
@@ -157,6 +158,7 @@ TEST(TestIMGUIHandle, checkFrameUpdate)
   pDevice->getTimer()->setTime(0);
 
   IIMGUIHandle * const pGUI = createIMGUI(pDevice);
+  float const InitialGUITime = ImGui::GetTime();
 
   rIMGUI.DeltaTime = 0.0f;
   rIMGUI.DisplaySize = ImVec2(0.0f, 0.0f);
@@ -168,7 +170,8 @@ TEST(TestIMGUIHandle, checkFrameUpdate)
 
   CHECK_NOT_EQUAL(0.0f,    rIMGUI.DisplaySize.x);
   CHECK_NOT_EQUAL(0.0f,    rIMGUI.DisplaySize.y);
-  CHECK_EQUAL_TOLERANCE(0.016f, 0.001f, ImGui::GetTime());
+  CurrentGUITime = ImGui::GetTime();
+  CHECK_EQUAL_TOLERANCE(InitialGUITime + 0.016f, 0.001f, CurrentGUITime);
   CHECK_EQUAL(LastFrame+1, ImGui::GetFrameCount());
 
   pGUI->drawAll();
@@ -179,7 +182,8 @@ TEST(TestIMGUIHandle, checkFrameUpdate)
 
   CHECK_NOT_EQUAL(0.0f,    rIMGUI.DisplaySize.x);
   CHECK_NOT_EQUAL(0.0f,    rIMGUI.DisplaySize.y);
-  CHECK_EQUAL_TOLERANCE(0.032f, 0.001f, ImGui::GetTime());
+  CurrentGUITime = ImGui::GetTime();
+  CHECK_EQUAL_TOLERANCE(InitialGUITime + 0.032f, 0.001f, CurrentGUITime);
   CHECK_EQUAL(LastFrame+2, ImGui::GetFrameCount());
 
   pGUI->drawAll();
