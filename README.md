@@ -45,7 +45,7 @@ Following Features are supported so far:
 * **Interface break:** Use the factory function `createIMGUI(...)` for creating the IMGUI handle object and call `drop` at the end, instead of delete it (more information here: [Developers Blog](https://github.com/ZahlGraf/IrrIMGUI/wiki/Developers-Blog#20151006))
 * Added a basic memory leak detection class for Visual Studio Debug Builds
 * Added a CppUTest Plugin for memory leak detection with Visual Studio Debug Builds
-* Added CppUTest Support for unit testing of applications that uses IrrIMGUI (see Wiki: [UnitTest](https://github.com/ZahlGraf/IrrIMGUI/wiki/UnitTesting))
+* Added CppUTest Support for unit testing of applications that uses IrrIMGUI (see Wiki: [UnitTest](https://github.com/ZahlGraf/IrrIMGUI/wiki/UnitTests))
 * Added a Mock-Class for the IrrIMGUI handle to make unit testing with IrrIMGUI easier
 * Added around 60 unit tests for the IrrIMGUI library itself (Unit Test can be build with CMake open `IRRIMGUI_BUIL_UNITTESTS`
 
