@@ -2,7 +2,7 @@
 
 **Shortcuts: [[Kanban Board]](https://waffle.io/ZahlGraf/IrrIMGUI) - [[Devlopers Blog]](https://github.com/ZahlGraf/IrrIMGUI/wiki/Developers-Blog) - [[Last Version]](#LatestVersionNews) - [[HowToStart]](#HowToStart)**
 
-**ATTENTION:** The version on the master branch is unstable and it could be that it does not compile. If you need a stable version, please look at the latest release.
+**ATTENTION:** The version on the master branch is unstable. For a stable version please look at [Latest Version News](#LatestVersionNews).
 
 ## Index
 
