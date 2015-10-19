@@ -67,7 +67,18 @@ namespace Tools
     _CrtMemCheckpoint(&CurrentMemoryState);
     _CrtMemDifference(&MemoryDifference, &mMemoryState, &CurrentMemoryState);
 
-    MemoryLeak = static_cast<int>(MemoryDifference.lSizes[_NORMAL_BLOCK]);
+    MemoryLeak += static_cast<int>(MemoryDifference.lSizes[_NORMAL_BLOCK]);
+    MemoryLeak += static_cast<int>(MemoryDifference.lSizes[_IGNORE_BLOCK]);
+    MemoryLeak += static_cast<int>(MemoryDifference.lSizes[_CLIENT_BLOCK]);
+
+    /*
+    if (MemoryLeak)
+    {
+      LOG_WARNING("Detected Memory Leak for _NORMAL_BLOCK: " << std::dec << MemoryDifference.lSizes[_NORMAL_BLOCK] << std::endl);
+      LOG_WARNING("Detected Memory Leak for _IGNORE_BLOCK: " << std::dec << MemoryDifference.lSizes[_IGNORE_BLOCK] << std::endl);
+      LOG_WARNING("Detected Memory Leak for _CLIENT_BLOCK: " << std::dec << MemoryDifference.lSizes[_CLIENT_BLOCK] << std::endl);
+    }
+    */
 
 #endif // _ENABLE_MEMORY_LEAK_DETECTION_
 
