@@ -193,7 +193,7 @@ TEST(TestIMGUIHandle, checkFrameUpdate)
 static int ArgumentTest = 42;
 void checkDrawCommand(ImDrawList const * const pParentList, ImDrawCmd const * const pCmd)
 {
-  MOCK_FUNC().withConstPointerParameter("pParentList", pParentList).withConstPointerParameter("pCmd", pCmd);
+  MOCK_FUNC("checkDrawCommand").withConstPointerParameter("pParentList", pParentList).withConstPointerParameter("pCmd", pCmd);
 
   POINTERS_EQUAL(&ArgumentTest, pCmd->UserCallbackData);
 
@@ -319,6 +319,7 @@ TEST(TestIMGUIHandle, checkFontMethods)
   size_t const Length = FontConfig.FontDataSize;
   size_t const MaxLength = stb_get_compression_length(Length);
   irr::u8 * const pCompressedData = new irr::u8[MaxLength];
+  memset(pCompressedData, 0, MaxLength);
   size_t const CompressedLength = stb_compress((stb_uchar*)pCompressedData, (stb_uchar*)pData, static_cast<stb_uint>(Length));
   pGUI->addFontFromMemoryCompressedTTF(pCompressedData, static_cast<int>(CompressedLength), FontConfig.SizePixels);
 
@@ -378,7 +379,7 @@ TEST(TestIMGUIHandle, checkImageTextureCreation)
   IGUITexture * const pGUITexture = pGUI->createTexture(pImage1);
 
   CHECK_NOT_EQUAL(nullptr, pGUITexture);
-  STRCMP_EQUAL("class IrrIMGUI::Private::CGUITexture", typeid(*pGUITexture).name());
+  STRCMP_EQUAL(typeid(IrrIMGUI::Private::CGUITexture).name(), typeid(*pGUITexture).name());
 
   Private::CGUITexture * const pRealGUITexture = dynamic_cast<IrrIMGUI::Private::CGUITexture*>(pGUITexture);
 
@@ -426,7 +427,7 @@ TEST(TestIMGUIHandle, checkTextureTextureCreation)
   IGUITexture * const pGUITexture = pGUI->createTexture(pIrrTexture1);
 
   CHECK_NOT_EQUAL(nullptr, pGUITexture);
-  STRCMP_EQUAL("class IrrIMGUI::Private::CGUITexture", typeid(*pGUITexture).name());
+  STRCMP_EQUAL(typeid(IrrIMGUI::Private::CGUITexture).name(), typeid(*pGUITexture).name());
 
   Private::CGUITexture * const pRealGUITexture = dynamic_cast<IrrIMGUI::Private::CGUITexture*>(pGUITexture);
 

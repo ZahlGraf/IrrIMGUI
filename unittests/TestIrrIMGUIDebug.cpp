@@ -155,8 +155,8 @@ TEST(TestIrrIMGUIDebug, checkAssertionMacro)
   catch(Debug::ExAssert &rException)
   {
     WasExceptionTriggered = true;
-    std::cout << rException.what();
-    //STRCMP_EQUAL("true");
+    std::stringstream AssertionText(rException.what());
+    CHECK_NOT_EQUAL(std::string::npos, AssertionText.str().find("Assertion failed: '(false)'"));
   }
 
   CHECK_EQUAL(true, WasExceptionTriggered);

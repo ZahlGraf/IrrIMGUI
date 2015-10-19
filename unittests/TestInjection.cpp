@@ -59,7 +59,7 @@ TEST(IrrIMGUIInject, checkDefaultInjection)
 
 IIMGUIHandle * testFactory(irr::IrrlichtDevice * pDevice, CIMGUIEventStorage * pEventStorage, SIMGUISettings const * pSettings)
 {
-  MOCK_FUNC().MOCK_ARG(pDevice).MOCK_ARG(pEventStorage).withConstPointerParameter("pSettings", pSettings);
+  MOCK_FUNC("testFactory").MOCK_ARG(pDevice).MOCK_ARG(pEventStorage).withConstPointerParameter("pSettings", pSettings);
 
   return static_cast<IIMGUIHandle *>(mock().returnPointerValueOrDefault(nullptr));
 }

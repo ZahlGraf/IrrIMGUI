@@ -67,7 +67,7 @@ class IIMGUIHandleMock : public IrrIMGUI::IIMGUIHandle
       mpEventStorage(pEventStorage),
       mLastTime(static_cast<irr::f32>(pDevice->getTimer()->getTime())/1000.0f)
     {
-      MOCK_FUNC().MOCK_ARG(pDevice).MOCK_ARG(pEventStorage).MOCK_ARG(pSettings);
+      MOCK_FUNC("IIMGUIHandleMock::IIMGUIHandleMock").MOCK_ARG(pDevice).MOCK_ARG(pEventStorage).MOCK_ARG(pSettings);
 
       if (areIMGUICallsEnabled())
       {
@@ -79,7 +79,7 @@ class IIMGUIHandleMock : public IrrIMGUI::IIMGUIHandle
 
     virtual ~IIMGUIHandleMock(void)
     {
-      MOCK_FUNC();
+      MOCK_FUNC("IIMGUIHandleMock::~IIMGUIHandleMock");
 
       if (areIMGUICallsEnabled())
       {
@@ -92,7 +92,7 @@ class IIMGUIHandleMock : public IrrIMGUI::IIMGUIHandle
 
     virtual void startGUI(void)
     {
-      MOCK_FUNC();
+      MOCK_FUNC("IIMGUIHandleMock::startGUI");
 
       if (areIMGUICallsEnabled())
       {
@@ -105,7 +105,7 @@ class IIMGUIHandleMock : public IrrIMGUI::IIMGUIHandle
 
     virtual void drawAll(void)
     {
-      MOCK_FUNC();
+      MOCK_FUNC("IIMGUIHandleMock::drawAll");
 
       if (areIMGUICallsEnabled())
       {
@@ -117,7 +117,7 @@ class IIMGUIHandleMock : public IrrIMGUI::IIMGUIHandle
 
     virtual IrrIMGUI::SIMGUISettings const &getSettings(void) const
     {
-      MOCK_FUNC();
+      MOCK_FUNC("IIMGUIHandleMock::getSettings");
 
       IrrIMGUI::SIMGUISettings const * const pReturnSettings = static_cast<IrrIMGUI::SIMGUISettings const *>(mock().returnConstPointerValueOrDefault(reinterpret_cast<void const *>(&mDefaultSettings)));
       return *pReturnSettings;
@@ -125,7 +125,7 @@ class IIMGUIHandleMock : public IrrIMGUI::IIMGUIHandle
 
     virtual void setSettings(IrrIMGUI::SIMGUISettings const &rSettings)
     {
-      MOCK_FUNC().MOCK_ARG(&rSettings);
+      MOCK_FUNC("IIMGUIHandleMock::setSettings").MOCK_ARG(&rSettings);
       mDefaultSettings = rSettings;
 
       return;
@@ -133,49 +133,49 @@ class IIMGUIHandleMock : public IrrIMGUI::IIMGUIHandle
 
     virtual ImFont * addFont(ImFontConfig const * pFontConfig)
     {
-      MOCK_FUNC().MOCK_ARG(pFontConfig);
+      MOCK_FUNC("IIMGUIHandleMock::addFont").MOCK_ARG(pFontConfig);
 
       return static_cast<ImFont*>(mock().returnPointerValueOrDefault(getDummyFont()));
     }
 
     virtual ImFont * addDefaultFont(ImFontConfig const * pFontConfig = NULL)
     {
-      MOCK_FUNC().MOCK_ARG(pFontConfig);
+      MOCK_FUNC("IIMGUIHandleMock::addDefaultFont").MOCK_ARG(pFontConfig);
 
       return static_cast<ImFont*>(mock().returnPointerValueOrDefault(getDummyFont()));
     }
 
     virtual ImFont * addFontFromFileTTF(char const * pFileName, float FontSizeInPixel, ImFontConfig const * pFontConfig = NULL, ImWchar const * pGlyphRanges = NULL)
     {
-      MOCK_FUNC().MOCK_ARG(pFileName).MOCK_ARG(FontSizeInPixel).MOCK_ARG(pFontConfig).MOCK_ARG(pGlyphRanges);
+      MOCK_FUNC("IIMGUIHandleMock::addFontFromFileTTF").MOCK_ARG(pFileName).MOCK_ARG(FontSizeInPixel).MOCK_ARG(pFontConfig).MOCK_ARG(pGlyphRanges);
 
       return static_cast<ImFont*>(mock().returnPointerValueOrDefault(getDummyFont()));
     }
 
     virtual ImFont * addFontFromMemoryTTF(void * pTTFData, int TTFSize, float FontSizeInPixel, ImFontConfig const * pFontConfig = NULL, ImWchar const * pGlyphRanges = NULL)
     {
-      MOCK_FUNC().MOCK_ARG(pTTFData).MOCK_ARG(FontSizeInPixel).MOCK_ARG(TTFSize).MOCK_ARG(pFontConfig).MOCK_ARG(pGlyphRanges);
+      MOCK_FUNC("IIMGUIHandleMock::addFontFromMemoryTTF").MOCK_ARG(pTTFData).MOCK_ARG(FontSizeInPixel).MOCK_ARG(TTFSize).MOCK_ARG(pFontConfig).MOCK_ARG(pGlyphRanges);
 
       return static_cast<ImFont*>(mock().returnPointerValueOrDefault(getDummyFont()));
     }
 
     virtual ImFont * addFontFromMemoryCompressedTTF(void const * pCompressedTTFData, int CompressedTTFSize, float FontSizeInPixel, ImFontConfig const * pFontConfig = NULL, ImWchar const * pGlyphRanges = NULL)
     {
-      MOCK_FUNC().MOCK_ARG(pCompressedTTFData).MOCK_ARG(CompressedTTFSize).MOCK_ARG(FontSizeInPixel).MOCK_ARG(pFontConfig).MOCK_ARG(pGlyphRanges);
+      MOCK_FUNC("IIMGUIHandleMock::addFontFromMemoryCompressedTTF").MOCK_ARG(pCompressedTTFData).MOCK_ARG(CompressedTTFSize).MOCK_ARG(FontSizeInPixel).MOCK_ARG(pFontConfig).MOCK_ARG(pGlyphRanges);
 
       return static_cast<ImFont*>(mock().returnPointerValueOrDefault(getDummyFont()));
     }
 
     virtual ImFont * addFontFromMemoryCompressedBase85TTF(char const * pCompressedTTFDataBase85, float FontSizeInPixel, ImFontConfig const * pFontConfig = NULL, const ImWchar * pGlyphRanges = NULL)
     {
-      MOCK_FUNC().MOCK_ARG(pCompressedTTFDataBase85).MOCK_ARG(FontSizeInPixel).MOCK_ARG(pFontConfig).MOCK_ARG(pGlyphRanges);
+      MOCK_FUNC("IIMGUIHandleMock::addFontFromMemoryCompressedBase85TTF").MOCK_ARG(pCompressedTTFDataBase85).MOCK_ARG(FontSizeInPixel).MOCK_ARG(pFontConfig).MOCK_ARG(pGlyphRanges);
 
       return static_cast<ImFont*>(mock().returnPointerValueOrDefault(getDummyFont()));
     }
 
     virtual void compileFonts(void)
     {
-      MOCK_FUNC();
+      MOCK_FUNC("IIMGUIHandleMock::compileFonts");
 
       if (areIMGUICallsEnabled())
       {
@@ -187,7 +187,7 @@ class IIMGUIHandleMock : public IrrIMGUI::IIMGUIHandle
 
     virtual void resetFonts(void)
     {
-      MOCK_FUNC();
+      MOCK_FUNC("IIMGUIHandleMock::resetFonts");
 
       if (areIMGUICallsEnabled())
       {
@@ -200,7 +200,7 @@ class IIMGUIHandleMock : public IrrIMGUI::IIMGUIHandle
 
     virtual ImWchar const * getGlyphRangesDefault(void)
     {
-      MOCK_FUNC();
+      MOCK_FUNC("IIMGUIHandleMock::getGlyphRangesDefault");
 
       ImWchar const * pGlyphRange = getGlyphRangesDummy();
       if (areIMGUICallsEnabled())
@@ -213,7 +213,7 @@ class IIMGUIHandleMock : public IrrIMGUI::IIMGUIHandle
 
     virtual ImWchar const * getGlyphRangesJapanese(void)
     {
-      MOCK_FUNC();
+      MOCK_FUNC("IIMGUIHandleMock::getGlyphRangesJapanese");
 
       ImWchar const * pGlyphRange = getGlyphRangesDummy();
       if (areIMGUICallsEnabled())
@@ -226,7 +226,7 @@ class IIMGUIHandleMock : public IrrIMGUI::IIMGUIHandle
 
     virtual ImWchar const * getGlyphRangesChinese(void)
     {
-      MOCK_FUNC();
+      MOCK_FUNC("IIMGUIHandleMock::getGlyphRangesChinese");
 
       ImWchar const * pGlyphRange = getGlyphRangesDummy();
       if (areIMGUICallsEnabled())
@@ -239,7 +239,7 @@ class IIMGUIHandleMock : public IrrIMGUI::IIMGUIHandle
 
     virtual ImWchar const * getGlyphRangesCyrillic(void)
     {
-      MOCK_FUNC();
+      MOCK_FUNC("IIMGUIHandleMock::getGlyphRangesCyrillic");
 
       ImWchar const * pGlyphRange = getGlyphRangesDummy();
       if (areIMGUICallsEnabled())
@@ -252,35 +252,35 @@ class IIMGUIHandleMock : public IrrIMGUI::IIMGUIHandle
 
     virtual IrrIMGUI::IGUITexture *createTexture(irr::video::IImage * pImage)
     {
-      MOCK_FUNC().MOCK_ARG(pImage);
+      MOCK_FUNC("IIMGUIHandleMock::createTexture").MOCK_ARG(pImage);
 
       return (static_cast<IrrIMGUI::IGUITexture*>(mock().returnPointerValueOrDefault(getDummyTexture())));
     }
 
     virtual IrrIMGUI::IGUITexture *createTexture(irr::video::ITexture * pTexture)
     {
-      MOCK_FUNC().MOCK_ARG(pTexture);
+      MOCK_FUNC("IIMGUIHandleMock::createTexture").MOCK_ARG(pTexture);
 
       return (static_cast<IrrIMGUI::IGUITexture*>(mock().returnPointerValueOrDefault(getDummyTexture())));
     }
 
     virtual void updateTexture(IrrIMGUI::IGUITexture * pGUITexture, irr::video::IImage * pImage)
     {
-      MOCK_FUNC().MOCK_ARG(pGUITexture).MOCK_ARG(pImage);
+      MOCK_FUNC("IIMGUIHandleMock::updateTexture").MOCK_ARG(pGUITexture).MOCK_ARG(pImage);
 
       return;
     }
 
     virtual void updateTexture(IrrIMGUI::IGUITexture * pGUITexture, irr::video::ITexture * pTexture)
     {
-      MOCK_FUNC().MOCK_ARG(pGUITexture).MOCK_ARG(pTexture);
+      MOCK_FUNC("IIMGUIHandleMock::updateTexture").MOCK_ARG(pGUITexture).MOCK_ARG(pTexture);
 
       return;
     }
 
     virtual void deleteTexture(IrrIMGUI::IGUITexture * pGUITexture)
     {
-      MOCK_FUNC().MOCK_ARG(pGUITexture);
+      MOCK_FUNC("IIMGUIHandleMock::deleteTexture").MOCK_ARG(pGUITexture);
 
       return;
     }

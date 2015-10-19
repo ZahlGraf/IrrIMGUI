@@ -55,13 +55,13 @@ TEST(IIMGUIHandleMock, checkCreateAndDestory)
   SIMGUISettings Settings;
 
   // check call to constructor
-  mock().expectOneCall("IrrIMGUI::UnitTest::IIMGUIHandleMock::IIMGUIHandleMock")
+  mock().expectOneCall("IIMGUIHandleMock::IIMGUIHandleMock")
           .withParameter("pDevice",               pDevice)
           .withParameter("pEventStorage",         &EventStorage)
           .withConstPointerParameter("pSettings", &Settings);
 
   // check call to destructor
-  mock().expectOneCall("IrrIMGUI::UnitTest::IIMGUIHandleMock::~IIMGUIHandleMock");
+  mock().expectOneCall("IIMGUIHandleMock::~IIMGUIHandleMock");
 
   // ignore everything else (we don't want to be too rigid here)
   mock().ignoreOtherCalls();
@@ -78,8 +78,8 @@ TEST(IIMGUIHandleMock, checkStartGUIAndDrawAll)
 {
   irr::IrrlichtDevice * const pDevice = irr::createDevice(irr::video::EDT_NULL);
 
-  mock().expectOneCall("IrrIMGUI::UnitTest::IIMGUIHandleMock::startGUI");
-  mock().expectOneCall("IrrIMGUI::UnitTest::IIMGUIHandleMock::drawAll");
+  mock().expectOneCall("IIMGUIHandleMock::startGUI");
+  mock().expectOneCall("IIMGUIHandleMock::drawAll");
   mock().ignoreOtherCalls();
 
   IIMGUIHandle * const pGUI = createIMGUI(pDevice);
@@ -100,8 +100,8 @@ TEST(IIMGUIHandleMock, checkSetAndGetSettings)
   SIMGUISettings Settings;
   Settings.mIsGUIMouseCursorEnabled = false;
 
-  mock().expectOneCall("IrrIMGUI::UnitTest::IIMGUIHandleMock::setSettings").withConstPointerParameter("&rSettings", &Settings);
-  mock().expectOneCall("IrrIMGUI::UnitTest::IIMGUIHandleMock::getSettings");
+  mock().expectOneCall("IIMGUIHandleMock::setSettings").withConstPointerParameter("&rSettings", &Settings);
+  mock().expectOneCall("IIMGUIHandleMock::getSettings");
   mock().ignoreOtherCalls();
 
   IIMGUIHandle * const pGUI = createIMGUI(pDevice);
@@ -122,13 +122,13 @@ TEST(IIMGUIHandleMock, checkFontFunctions)
   irr::IrrlichtDevice * const pDevice = irr::createDevice(irr::video::EDT_NULL);
   ImFontConfig FontConfig;
 
-  mock().expectOneCall("IrrIMGUI::UnitTest::IIMGUIHandleMock::addFont").withConstPointerParameter("pFontConfig", &FontConfig);
-  mock().expectOneCall("IrrIMGUI::UnitTest::IIMGUIHandleMock::addDefaultFont").withConstPointerParameter("pFontConfig", &FontConfig);
+  mock().expectOneCall("IIMGUIHandleMock::addFont").withConstPointerParameter("pFontConfig", &FontConfig);
+  mock().expectOneCall("IIMGUIHandleMock::addDefaultFont").withConstPointerParameter("pFontConfig", &FontConfig);
 
   char const TTFFileName[] = "TestFile.ttf";
   float const FontSizeInPixel = 12.0f;
   ImWchar const GlyphRanges[] = {0, 10};
-  mock().expectOneCall("IrrIMGUI::UnitTest::IIMGUIHandleMock::addFontFromFileTTF")
+  mock().expectOneCall("IIMGUIHandleMock::addFontFromFileTTF")
           .withParameter("pFileName", TTFFileName)
           .withParameter("FontSizeInPixel", FontSizeInPixel)
           .withConstPointerParameter("pFontConfig", &FontConfig)
@@ -136,7 +136,7 @@ TEST(IIMGUIHandleMock, checkFontFunctions)
 
   void * const pTTFData = reinterpret_cast<void *>(static_cast<size_t>(0x42));
   int const TTFSize = 100;
-  mock().expectOneCall("IrrIMGUI::UnitTest::IIMGUIHandleMock::addFontFromMemoryTTF")
+  mock().expectOneCall("IIMGUIHandleMock::addFontFromMemoryTTF")
           .withParameter("pTTFData", pTTFData)
           .withParameter("TTFSize", TTFSize)
           .withParameter("FontSizeInPixel", FontSizeInPixel)
@@ -145,7 +145,7 @@ TEST(IIMGUIHandleMock, checkFontFunctions)
 
   void * const pCompressedTTFData = reinterpret_cast<void *>(static_cast<size_t>(0x10101010));
   int const CompressedTTFSize = 200;
-  mock().expectOneCall("IrrIMGUI::UnitTest::IIMGUIHandleMock::addFontFromMemoryCompressedTTF")
+  mock().expectOneCall("IIMGUIHandleMock::addFontFromMemoryCompressedTTF")
           .withConstPointerParameter("pCompressedTTFData", pCompressedTTFData)
           .withParameter("CompressedTTFSize", CompressedTTFSize)
           .withParameter("FontSizeInPixel", FontSizeInPixel)
@@ -153,7 +153,7 @@ TEST(IIMGUIHandleMock, checkFontFunctions)
           .withConstPointerParameter("pGlyphRanges", GlyphRanges);
 
   char const pCompressedTTFDataBase85[]="123456789ABCDF";
-  mock().expectOneCall("IrrIMGUI::UnitTest::IIMGUIHandleMock::addFontFromMemoryCompressedBase85TTF")
+  mock().expectOneCall("IIMGUIHandleMock::addFontFromMemoryCompressedBase85TTF")
           .withParameter("pCompressedTTFDataBase85", pCompressedTTFDataBase85)
           .withParameter("FontSizeInPixel", FontSizeInPixel)
           .withConstPointerParameter("pFontConfig", &FontConfig)
@@ -182,8 +182,8 @@ TEST(IIMGUIHandleMock, checkCompileAndResetFonts)
   SIMGUISettings Settings;
   Settings.mIsGUIMouseCursorEnabled = false;
 
-  mock().expectOneCall("IrrIMGUI::UnitTest::IIMGUIHandleMock::compileFonts");
-  mock().expectOneCall("IrrIMGUI::UnitTest::IIMGUIHandleMock::resetFonts");
+  mock().expectOneCall("IIMGUIHandleMock::compileFonts");
+  mock().expectOneCall("IIMGUIHandleMock::resetFonts");
   mock().ignoreOtherCalls();
 
   IIMGUIHandle * const pGUI = createIMGUI(pDevice);
@@ -203,10 +203,10 @@ TEST(IIMGUIHandleMock, checkGetGlyphRanges)
   SIMGUISettings Settings;
   Settings.mIsGUIMouseCursorEnabled = false;
 
-  mock().expectOneCall("IrrIMGUI::UnitTest::IIMGUIHandleMock::getGlyphRangesDefault");
-  mock().expectOneCall("IrrIMGUI::UnitTest::IIMGUIHandleMock::getGlyphRangesJapanese");
-  mock().expectOneCall("IrrIMGUI::UnitTest::IIMGUIHandleMock::getGlyphRangesChinese");
-  mock().expectOneCall("IrrIMGUI::UnitTest::IIMGUIHandleMock::getGlyphRangesCyrillic");
+  mock().expectOneCall("IIMGUIHandleMock::getGlyphRangesDefault");
+  mock().expectOneCall("IIMGUIHandleMock::getGlyphRangesJapanese");
+  mock().expectOneCall("IIMGUIHandleMock::getGlyphRangesChinese");
+  mock().expectOneCall("IIMGUIHandleMock::getGlyphRangesCyrillic");
   mock().ignoreOtherCalls();
 
   IIMGUIHandle * const pGUI = createIMGUI(pDevice);
@@ -236,14 +236,16 @@ TEST(IIMGUIHandleMock, checkCreateTextures)
   irr::video::IImage   * const pImage   = pDevice->getVideoDriver()->createImage(irr::video::ECF_A8R8G8B8, irr::core::dimension2d<irr::u32>(100, 100));
   irr::video::ITexture * const pTexture = pDevice->getVideoDriver()->addTexture("test", pImage);
 
-  mock().expectOneCall("IrrIMGUI::UnitTest::IIMGUIHandleMock::createTexture").withParameter("pImage", pImage);
-  mock().expectOneCall("IrrIMGUI::UnitTest::IIMGUIHandleMock::createTexture").withParameter("pTexture", pTexture);
+  mock().expectOneCall("IIMGUIHandleMock::createTexture").withParameter("pImage", pImage);
+  mock().expectOneCall("IIMGUIHandleMock::createTexture").withParameter("pTexture", pTexture);
   mock().ignoreOtherCalls();
 
   IIMGUIHandle * const pGUI = createIMGUI(pDevice);
 
   IGUITexture * const pGUITexture1 = pGUI->createTexture(pImage);
   IGUITexture * const pGUITexture2 = pGUI->createTexture(pTexture);
+
+  pImage->drop();
 
   pGUI->drop();
   pDevice->drop();
@@ -263,14 +265,16 @@ TEST(IIMGUIHandleMock, checkUpdateTextures)
   IGUITexture * const pGUITexture1 = nullptr;
   IGUITexture * const pGUITexture2 = nullptr;
 
-  mock().expectOneCall("IrrIMGUI::UnitTest::IIMGUIHandleMock::updateTexture").withParameter("pGUITexture", pGUITexture2).withParameter("pImage", pImage);
-  mock().expectOneCall("IrrIMGUI::UnitTest::IIMGUIHandleMock::updateTexture").withParameter("pGUITexture", pGUITexture1).withParameter("pTexture", pTexture);
+  mock().expectOneCall("IIMGUIHandleMock::updateTexture").withParameter("pGUITexture", pGUITexture2).withParameter("pImage", pImage);
+  mock().expectOneCall("IIMGUIHandleMock::updateTexture").withParameter("pGUITexture", pGUITexture1).withParameter("pTexture", pTexture);
   mock().ignoreOtherCalls();
 
   IIMGUIHandle * const pGUI = createIMGUI(pDevice);
 
   pGUI->updateTexture(pGUITexture2, pImage);
   pGUI->updateTexture(pGUITexture1, pTexture);
+
+  pImage->drop();
 
   pGUI->drop();
   pDevice->drop();
@@ -286,7 +290,7 @@ TEST(IIMGUIHandleMock, checkDeleteTexture)
 
   IGUITexture * const pGUITexture = nullptr;
 
-  mock().expectOneCall("IrrIMGUI::UnitTest::IIMGUIHandleMock::deleteTexture").withParameter("pGUITexture", pGUITexture);
+  mock().expectOneCall("IIMGUIHandleMock::deleteTexture").withParameter("pGUITexture", pGUITexture);
   mock().ignoreOtherCalls();
 
   IIMGUIHandle * const pGUI = createIMGUI(pDevice);

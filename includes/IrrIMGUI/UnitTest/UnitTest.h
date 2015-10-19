@@ -102,7 +102,7 @@ namespace UnitTest
   if ((Maximum)   != (Maximum))   {UtestShell::getCurrent()->print("WARNING:\n\tThe \"Minimum\" parameter is evaluated multiple times resulting in different values.\n\tThus the value in the error message is probably incorrect.", file, line);}   \
 }                                                   \
 
-#define MOCK_FUNC()         mock().actualCall(__FUNCTION__)
+#define MOCK_FUNC(Name)     mock().actualCall(Name)
 #define MOCK_ARG(Argument)  withParameter(#Argument, Argument)
 
 #endif // DOXYGEN

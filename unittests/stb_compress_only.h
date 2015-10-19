@@ -201,6 +201,7 @@ CREDITS
 
 #include <cstdio>
 #include <assert.h>
+#include <string.h>
 
 #ifndef STB__INCLUDE_STB_H
 #define STB__INCLUDE_STB_H
@@ -231,7 +232,19 @@ static void stb__write(unsigned char v)
    ++stb__outbytes;
 }
 
-#define stb_out(v)    (stb__out ? *stb__out++ = (stb_uchar) (v) : stb__write((stb_uchar) (v)))
+static void stb_out(unsigned char v)
+{
+  if (stb__out)
+  {
+    *stb__out++ = (stb_uchar) (v);
+  }
+  else
+  {
+    stb__write((stb_uchar) (v));
+  }
+  return;
+}
+
 #define stb__hc2(q,h,c,d)   (((h) << 14) + ((h) >> 18) + (q[c] << 7) + q[d])
 #define stb__hc3(q,c,d,e)   ((q[c] << 14) + (q[d] << 7) + q[e])
 

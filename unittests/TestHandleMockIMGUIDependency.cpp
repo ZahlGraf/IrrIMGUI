@@ -378,6 +378,9 @@ TEST(MockIMGUIDependency, checkImageFontGameLoop)
   IGUITexture &rSoyuz  = *pGUI->createTexture(pSoyuz);
   IGUITexture &rSpaceX = *pGUI->createTexture(pSpaceX);
 
+  pSoyuz->drop();
+  pSpaceX->drop();
+
   // Start main loop
   irr::u32 Frames = 0;
   irr::u32 const TimeDelta = 16;
