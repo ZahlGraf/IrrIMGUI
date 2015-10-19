@@ -2,7 +2,7 @@
 
 **Shortcuts: [[Kanban Board]](https://waffle.io/ZahlGraf/IrrIMGUI) - [[Devlopers Blog]](https://github.com/ZahlGraf/IrrIMGUI/wiki/Developers-Blog) - [[Last Version]](#LatestVersionNews) - [[HowToStart]](#HowToStart)**
 
-**ATTENTION:** Do not download the version from the master-branch. Use the Tag [v0.2.0](https://github.com/ZahlGraf/IrrIMGUI/releases/tag/v0.2.0) for download, since Version 0.2.0 is the latest stable version and currently the master-branch does not compile.
+**ATTENTION:** The version on the master branch is unstable and it could be that it does not compile. If you need a stable version, please look at the latest release.
 
 ## Index
 
