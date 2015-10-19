@@ -298,7 +298,7 @@ static void outliterals(stb_uchar *in, size_t numlit)
    }
 
    if      (numlit ==     0)    ;
-   else if (numlit <=    32)    stb_out (static_cast<stb_uint>(0x000020 + numlit-1));
+   else if (numlit <=    32)    stb_out (static_cast<unsigned char>(0x000020 + numlit-1));
    else if (numlit <=  2048)    stb_out2(static_cast<stb_uint>(0x000800 + numlit-1));
    else /*  numlit <= 65536) */ stb_out3(static_cast<stb_uint>(0x070000 + numlit-1));
 
@@ -343,7 +343,7 @@ static int stb_compress_chunk(stb_uchar *history,
    // the hashing; this means we won't compress the last few bytes
    // unless they were part of something longer
    while (q < start+length && q+12 < end) {
-      int m;
+      size_t m;
       stb_uint h1,h2,h3,h4, h;
       stb_uchar *t;
       size_t best = 2, dist=0;
@@ -357,7 +357,7 @@ static int stb_compress_chunk(stb_uchar *history,
 
       #define STB__TRY(t,p)  /* avoid retrying a match we already tried */ \
                       if (p ? dist != q-t : 1)                             \
-                      if ((m = stb_matchlen(t, q, match_max)) > best)     \
+                      if ((m = static_cast<size_t>(stb_matchlen(t, q, match_max))) > best)     \
                       if (stb__nc(m,q-(t)))                                \
                           best = m, dist = q - (t)
 
