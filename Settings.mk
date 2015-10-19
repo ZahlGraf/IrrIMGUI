@@ -21,6 +21,33 @@ MSVC2015WIN32_RELEASE_STATIC=${INSTALL_DIR}/msvc2015-win32/release/static
 MSVC2015WIN32_RELEASE_SHARED=${INSTALL_DIR}/msvc2015-win32/release/shared
 
 #####################################################
+## Visual C++ 2013 (Windows7 64bit)
+#####################################################
+msvc2013-win64_NAME=Visual C++ 2013 (64bit)
+MSVC2013WIN64_DEBUG_STATIC=${INSTALL_DIR}/msvc2013-win64/debug/static
+MSVC2013WIN64_DEBUG_SHARED=${INSTALL_DIR}/msvc2013-win64/debug/shared
+MSVC2013WIN64_RELEASE_STATIC=${INSTALL_DIR}/msvc2013-win64/release/static
+MSVC2013WIN64_RELEASE_SHARED=${INSTALL_DIR}/msvc2013-win64/release/shared
+
+#####################################################
+## Visual C++ 2013 (Windows7 32bit)
+#####################################################
+msvc2013-win32_NAME=Visual C++ 2013 (32bit)
+MSVC2013WIN32_DEBUG_STATIC=${INSTALL_DIR}/msvc2013-win32/debug/static
+MSVC2013WIN32_DEBUG_SHARED=${INSTALL_DIR}/msvc2013-win32/debug/shared
+MSVC2013WIN32_RELEASE_STATIC=${INSTALL_DIR}/msvc2013-win32/release/static
+MSVC2013WIN32_RELEASE_SHARED=${INSTALL_DIR}/msvc2013-win32/release/shared
+
+#####################################################
+## Visual C++ 2012 (Windows7 32bit)
+#####################################################
+msvc2012-win32_NAME=Visual C++ 2012 (32bit)
+MSVC2012WIN32_DEBUG_STATIC=${INSTALL_DIR}/msvc2012-win32/debug/static
+MSVC2012WIN32_DEBUG_SHARED=${INSTALL_DIR}/msvc2012-win32/debug/shared
+MSVC2012WIN32_RELEASE_STATIC=${INSTALL_DIR}/msvc2012-win32/release/static
+MSVC2012WIN32_RELEASE_SHARED=${INSTALL_DIR}/msvc2012-win32/release/shared
+
+#####################################################
 ## MinGW (Windows7 32bit)
 #####################################################
 mingw-win32_NAME=MinGW (32bit)
@@ -77,6 +104,21 @@ INSTALL_DIRS += ${MSVC2015WIN32_DEBUG_STATIC}
 INSTALL_DIRS += ${MSVC2015WIN32_DEBUG_SHARED}
 INSTALL_DIRS += ${MSVC2015WIN32_RELEASE_STATIC}
 INSTALL_DIRS += ${MSVC2015WIN32_RELEASE_SHARED}
+
+INSTALL_DIRS += ${MSVC2013WIN64_DEBUG_STATIC}
+INSTALL_DIRS += ${MSVC2013WIN64_DEBUG_SHARED}
+INSTALL_DIRS += ${MSVC2013WIN64_RELEASE_STATIC}
+INSTALL_DIRS += ${MSVC2013WIN64_RELEASE_SHARED}
+
+INSTALL_DIRS += ${MSVC2013WIN32_DEBUG_STATIC}
+INSTALL_DIRS += ${MSVC2013WIN32_DEBUG_SHARED}
+INSTALL_DIRS += ${MSVC2013WIN32_RELEASE_STATIC}
+INSTALL_DIRS += ${MSVC2013WIN32_RELEASE_SHARED}
+
+INSTALL_DIRS += ${MSVC2012WIN32_DEBUG_STATIC}
+INSTALL_DIRS += ${MSVC2012WIN32_DEBUG_SHARED}
+INSTALL_DIRS += ${MSVC2012WIN32_RELEASE_STATIC}
+INSTALL_DIRS += ${MSVC2012WIN32_RELEASE_SHARED}
 
 INSTALL_DIRS += ${MINGWWIN32_DEBUG_STATIC}
 INSTALL_DIRS += ${MINGWWIN32_DEBUG_SHARED}
