@@ -70,9 +70,11 @@ namespace UnitTest
 #define CHECK_IN_RANGE(Minimum, Maximum, TestValue)
 
 /// @brief Creates a mock entry into the mock database for the current function/method.
-#define MOCK_FUNC()
+/// @param Name Is the name of the function.
+#define MOCK_FUNC(Name)
 
 /// @brief Creates a mock entry for an argument of the current function mock.
+/// @param Argument Is the name of the argument.
 #define MOCK_ARG(Argument)
 
 #else // DOXYGEN

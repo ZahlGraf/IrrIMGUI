@@ -3,7 +3,7 @@
 
  * **Visit the GitHub repository:** [Repository](https://github.com/ZahlGraf/IrrIMGUI)
  * **Screenshots:** [Example Pictures](https://github.com/ZahlGraf/IrrIMGUI#ExampleImages)
- * **Download this library:** [Download](https://github.com/ZahlGraf/IrrIMGUI#Download)
+ * **Download this library:** [Download](https://github.com/ZahlGraf/IrrIMGUI#LatestVersionNews)
  * **HowTo build this library:** [Build process](https://github.com/ZahlGraf/IrrIMGUI#HowToStart_Preparations)
  * **Online API documentation:** [Doxygen](http://zahlgraf.github.io/IrrIMGUI/index.html)
  * **Example description:** [Examples](https://github.com/ZahlGraf/IrrIMGUI/wiki/Example-1:-Hello-World)
@@ -43,6 +43,17 @@
     * [Step 1: Create GUI Texture](#ShortUsageReferenceTexturesStep1)
     * [Optional: Update GUI Texture](#ShortUsageReferenceTexturesOptional)
     * [Step 2: Free-up GUI texture memory](#ShortUsageReferenceImagesStep2)  
+	
+  * [Dependency Injection](#ShortUsageReferenceDependencyInjection)
+    * [Step 1: Create your own factory](#ShortUsageReferenceDependencyInjectionStep1)
+    * [Step 2: Setting up your factory](#ShortUsageReferenceDependencyInjectionStep2)  
+    * [Step 3: Reset factory to default](#ShortUsageReferenceDependencyInjectionStep3)  
+
+  * [IIMGUIHandle Mock](#ShortUsageReferenceIMGUIHandleMock)
+    * [Step 1: Enable- and Disable Mock](#ShortUsageReferenceIMGUIHandleMockStep1)
+    * [Step 2: Expecting calls](#ShortUsageReferenceIMGUIHandleMockStep2)  
+
+  * [Memory Leak Detection](#ShortUsageReferenceMemoryLeakDetection)
 	
  * [Additional Project Links](#AdditionalLinks)
  
@@ -272,6 +283,107 @@ Inside the Main-Loop:
 
 ```cpp
   pGUI->deleteTexture(pRenderTextureID);
+```
+
+### <a name="ShortUsageReferenceDependencyInjection"></a>Dependency Injection
+
+**Full explanation:** [Unit Testing](https://github.com/ZahlGraf/IrrIMGUI/wiki/UnitTests#Injection)
+
+#### <a name="ShortUsageReferenceDependencyInjectionStep1"></a>Step 1: Create your own factory
+
+```cpp
+IrrIMGUI::IIMGUIHandle * dummyFactory(irr::IrrlichtDevice * pDevice, IrrIMGUI::CIMGUIEventStorage * pEventStorage, IrrIMGUI::SIMGUISettings const * pSettings)
+{
+  // create an object that is derived from IIMGUIHandle and return the pointer to it...
+  return NULL;
+}
+```
+
+#### <a name="ShortUsageReferenceDependencyInjectionStep2"></a>Step 2: Setting up your factory
+
+```cpp
+  IrrIMGUI::Inject::setIMGUIFactory(dummyFactory);
+```
+
+#### <a name="ShortUsageReferenceDependencyInjectionStep3"></a>Step 3: Reset factory to default
+
+```cpp
+  IrrIMGUI::Inject::setIMGUIFactory();
+```
+
+### <a name="ShortUsageReferenceIMGUIHandleMock"></a>IIMGUIHandle Mock
+
+**Full explanation:** [Unit Testing](https://github.com/ZahlGraf/IrrIMGUI/wiki/UnitTests#IMGUIHandleMock)
+
+#### <a name="ShortUsageReferenceIMGUIHandleMockStep1"></a>Step 1: Enable- and Disable Mock
+
+**Attention:** Disable the Mock always inside the tear-down-function.
+
+```cpp
+#include <IrrIMGUI/UnitTest/IIMGUIHandleMock.h>
+
+TEST_GROUP(TestGroupName)
+{
+  TEST_SETUP()
+  {
+    IrrIMGUI::UnitTest::IIMGUIHandleMock::enableMock();
+  }
+
+  TEST_TEARDOWN()
+  {
+    IrrIMGUI::UnitTest::IIMGUIHandleMock::disableMock();
+  }
+};
+```
+
+#### <a name="ShortUsageReferenceIMGUIHandleMockStep2"></a>Step 2: Expecting calls
+
+```cpp
+TEST(TestGroupName, checkCreateAndDestory)
+{
+  irr::IrrlichtDevice * const pDevice = irr::createDevice(irr::video::EDT_NULL);
+  CIMGUIEventStorage EventStorage;
+  SIMGUISettings Settings;
+
+  // Expect call to constructor
+  mock().expectOneCall("IIMGUIHandleMock::IIMGUIHandleMock")
+          .withParameter("pDevice",               pDevice)
+          .withParameter("pEventStorage",         &EventStorage)
+          .withConstPointerParameter("pSettings", &Settings);
+
+  // Expect call to destructor
+  mock().expectOneCall("IIMGUIHandleMock::~IIMGUIHandleMock");
+
+  // ignore everything else (we don't want to be too rigid here)
+  mock().ignoreOtherCalls();
+
+  IIMGUIHandle * const pGUI = createIMGUI(pDevice, &EventStorage, &Settings);
+
+  pGUI->drop();
+  pDevice->drop();
+
+  return;
+}
+```
+
+### <a name="ShortUsageReferenceMemoryLeakDetection"></a>Memory Leak Detection
+
+**Full explanation:** [Unit Testing](https://github.com/ZahlGraf/IrrIMGUI/wiki/UnitTests#MemoryLeakDetection)
+
+```cpp
+// library includes
+#include <IrrIMGUI/Tools/CBasicMemoryLeakDetection.h>
+
+int main(int Arguments, char const ** ppCommandLineList)
+{
+  IrrIMGUI::Tools::CBasicMemoryLeakDetection MemoryLeakDetection;
+
+  {
+    // here is your application code...
+  }
+
+  return 0;
+}
 ```
 
 ### <a name="AdditionalLinks"></a> Additional Project Links

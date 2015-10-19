@@ -48,6 +48,11 @@ namespace IrrIMGUI
 namespace Inject
 {
 
+  /**
+   * @addtogroup IrrIMGUIInject
+   * @{
+   */
+
   /// @brief The type of the IMGUI factory function.
   typedef IrrIMGUI::IIMGUIHandle * (IMGUIFactory)(irr::IrrlichtDevice * pDevice, IrrIMGUI::CIMGUIEventStorage * pEventStorage, IrrIMGUI::SIMGUISettings const * pSettings);
 
@@ -57,6 +62,10 @@ namespace Inject
 
   /// @return Returns the current factory function pointer for creating an IMGUI handle instance.
   IRRIMGUI_DLL_API IMGUIFactory * getIMGUIFactory(void);
+
+  /**
+   * @}
+   */
 
 }
 }
