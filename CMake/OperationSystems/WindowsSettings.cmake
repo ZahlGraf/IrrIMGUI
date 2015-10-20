@@ -38,7 +38,14 @@ if (WIN32)
 				"${CMAKE_CXX_FLAGS} -static -lpthread -static-libgcc -static-libstdc++ "
 			)
 		endif ()
-		
+
+	else ()
+	
+		SET (OS_DEPENDENT_LIBRARIES
+			${OS_DEPENDENT_LIBRARIES}
+			winmm.lib			
+		)	
+	
 	endif ()
 		
 	SET (IMGUI_API_VALUE

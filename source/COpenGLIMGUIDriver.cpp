@@ -44,8 +44,8 @@
 
 // module includes
 #include "COpenGLIMGUIDriver.h"
-#include "IrrIMGUIDebug_priv.h"
-#include "CGUITexture.h"
+#include "private/IrrIMGUIDebug_priv.h"
+#include "private/CGUITexture.h"
 
 namespace IrrIMGUI
 {
@@ -252,7 +252,14 @@ namespace Driver
     pRealGUITexture->mSource.RawDataID = pPixelData;
     pRealGUITexture->mIsValid          = true;
 
-    pRealGUITexture->mGPUTextureID = OpenGLHelper::createTextureIDFromRawData(ColorFormat, pPixelData, Width, Height);
+    if (this->getIrrDevice()->getVideoDriver()->getDriverType() != irr::video::EDT_NULL)
+    {
+      pRealGUITexture->mGPUTextureID = OpenGLHelper::createTextureIDFromRawData(ColorFormat, pPixelData, Width, Height);
+    }
+    else
+    {
+      pRealGUITexture->mGPUTextureID = (ImTextureID)0x1;
+    }
 
     return pRealGUITexture;
   }
@@ -268,14 +275,28 @@ namespace Driver
     pRealGUITexture->mSource.TextureID = pTexture;
     pRealGUITexture->mIsValid          = true;
 
-    pRealGUITexture->mGPUTextureID = OpenGLHelper::getTextureIDFromIrrlichtTexture(pTexture);
+    if (this->getIrrDevice()->getVideoDriver()->getDriverType() != irr::video::EDT_NULL)
+    {
+      pRealGUITexture->mGPUTextureID = OpenGLHelper::getTextureIDFromIrrlichtTexture(pTexture);
+    }
+    else
+    {
+      pRealGUITexture->mGPUTextureID = (ImTextureID)0x1;
+    }
 #else
     pRealGUITexture->mIsUsingOwnMemory = true;
     pRealGUITexture->mSourceType       = ETST_TEXTURE;
     pRealGUITexture->mSource.TextureID = pTexture;
     pRealGUITexture->mIsValid          = true;
 
-    pRealGUITexture->mGPUTextureID = OpenGLHelper::copyTextureIDFromIrrlichtTexture(pTexture);
+    if (this->getIrrDevice()->getVideoDriver()->getDriverType() != irr::video::EDT_NULL)
+    {
+      pRealGUITexture->mGPUTextureID = OpenGLHelper::copyTextureIDFromIrrlichtTexture(pTexture);
+    }
+    else
+    {
+      pRealGUITexture->mGPUTextureID = (ImTextureID)0x1;
+    }
 #endif
     return pRealGUITexture;
   }
@@ -289,7 +310,15 @@ namespace Driver
     pGUITexture->mSourceType       = ETST_IMAGE;
     pGUITexture->mSource.ImageID   = pImage;
     pGUITexture->mIsValid          = true;
-    pGUITexture->mGPUTextureID     = OpenGLHelper::copyTextureIDFromIrrlichtImage(pImage);
+
+    if (this->getIrrDevice()->getVideoDriver()->getDriverType() != irr::video::EDT_NULL)
+    {
+      pGUITexture->mGPUTextureID     = OpenGLHelper::copyTextureIDFromIrrlichtImage(pImage);
+    }
+    else
+    {
+      pGUITexture->mGPUTextureID = (ImTextureID)0x1;
+    }
 
     return pGUITexture;
   }
@@ -303,7 +332,23 @@ namespace Driver
     pGUITexture->mSourceType       = ETST_GUIFONT;
     pGUITexture->mSource.GUIFontID = 0;
     pGUITexture->mIsValid          = true;
-    pGUITexture->mGPUTextureID     = OpenGLHelper::copyTextureIDFromGUIFont();
+
+    if (this->getIrrDevice()->getVideoDriver()->getDriverType() != irr::video::EDT_NULL)
+    {
+      pGUITexture->mGPUTextureID     = OpenGLHelper::copyTextureIDFromGUIFont();
+    }
+    else
+    {
+      ImGuiIO &rGUIIO  = ImGui::GetIO();
+
+      irr::u8 * pPixelData;
+      int Width, Height;
+      rGUIIO.Fonts->GetTexDataAsAlpha8(&pPixelData, &Width, &Height);
+      rGUIIO.Fonts->ClearTexData();
+
+      pGUITexture->mGPUTextureID = (ImTextureID)0x1;
+    }
+
 
     void * const pFontTexture = reinterpret_cast<void *>(pGUITexture);
     ImGui::GetIO().Fonts->TexID = pFontTexture;
@@ -334,14 +379,24 @@ namespace Driver
 
     if (IsRecreateNecessary)
     {
-      OpenGLHelper::deleteTextureFromMemory(pRealGUITexture);
+      if (this->getIrrDevice()->getVideoDriver()->getDriverType() != irr::video::EDT_NULL)
+      {
+        OpenGLHelper::deleteTextureFromMemory(pRealGUITexture);
+      }
 
       pRealGUITexture->mIsUsingOwnMemory = true;
       pRealGUITexture->mSourceType       = ETST_RAWDATA;
       pRealGUITexture->mSource.RawDataID = pPixelData;
       pRealGUITexture->mIsValid          = true;
 
-      pRealGUITexture->mGPUTextureID     = OpenGLHelper::createTextureIDFromRawData(ColorFormat, pPixelData, Width, Height);
+      if (this->getIrrDevice()->getVideoDriver()->getDriverType() != irr::video::EDT_NULL)
+      {
+        pRealGUITexture->mGPUTextureID     = OpenGLHelper::createTextureIDFromRawData(ColorFormat, pPixelData, Width, Height);
+      }
+      else
+      {
+        pRealGUITexture->mGPUTextureID = (ImTextureID)0x1;
+      }
     }
 
     return;
@@ -370,7 +425,10 @@ namespace Driver
 
     if (IsRecreateNecessary)
     {
-      OpenGLHelper::deleteTextureFromMemory(pRealGUITexture);
+      if (this->getIrrDevice()->getVideoDriver()->getDriverType() != irr::video::EDT_NULL)
+      {
+        OpenGLHelper::deleteTextureFromMemory(pRealGUITexture);
+      }
 
 #ifdef _IRRIMGUI_FAST_OPENGL_TEXTURE_HANDLE_
       pRealGUITexture->mIsUsingOwnMemory = false;
@@ -378,14 +436,28 @@ namespace Driver
       pRealGUITexture->mSource.TextureID = pTexture;
       pRealGUITexture->mIsValid          = true;
 
-      pRealGUITexture->mGPUTextureID = OpenGLHelper::getTextureIDFromIrrlichtTexture(pTexture);
+      if (this->getIrrDevice()->getVideoDriver()->getDriverType() != irr::video::EDT_NULL)
+      {
+        pRealGUITexture->mGPUTextureID = OpenGLHelper::getTextureIDFromIrrlichtTexture(pTexture);
+      }
+      else
+      {
+        pRealGUITexture->mGPUTextureID = (ImTextureID)0x1;
+      }
 #else
       pRealGUITexture->mIsUsingOwnMemory = true;
       pRealGUITexture->mSourceType       = ETST_TEXTURE;
       pRealGUITexture->mSource.TextureID = pTexture;
       pRealGUITexture->mIsValid          = true;
 
-      pRealGUITexture->mGPUTextureID = OpenGLHelper::copyTextureIDFromIrrlichtTexture(pTexture);
+      if (this->getIrrDevice()->getVideoDriver()->getDriverType() != irr::video::EDT_NULL)
+      {
+        pRealGUITexture->mGPUTextureID = OpenGLHelper::copyTextureIDFromIrrlichtTexture(pTexture);
+      }
+      else
+      {
+        pRealGUITexture->mGPUTextureID = (ImTextureID)0x1;
+      }
 #endif
     }
 
@@ -415,14 +487,24 @@ namespace Driver
 
     if (IsRecreateNecessary)
     {
-      OpenGLHelper::deleteTextureFromMemory(pRealGUITexture);
+      if (this->getIrrDevice()->getVideoDriver()->getDriverType() != irr::video::EDT_NULL)
+      {
+        OpenGLHelper::deleteTextureFromMemory(pRealGUITexture);
+      }
 
       pRealGUITexture->mIsUsingOwnMemory = true;
-      pRealGUITexture->mSourceType       = ETST_TEXTURE;
+      pRealGUITexture->mSourceType       = ETST_IMAGE;
       pRealGUITexture->mSource.ImageID   = pImage;
       pRealGUITexture->mIsValid          = true;
 
-      pRealGUITexture->mGPUTextureID     = OpenGLHelper::copyTextureIDFromIrrlichtImage(pImage);
+      if (this->getIrrDevice()->getVideoDriver()->getDriverType() != irr::video::EDT_NULL)
+      {
+        pRealGUITexture->mGPUTextureID     = OpenGLHelper::copyTextureIDFromIrrlichtImage(pImage);
+      }
+      else
+      {
+        pRealGUITexture->mGPUTextureID = (ImTextureID)0x1;
+      }
     }
 
     return;
@@ -440,7 +522,22 @@ namespace Driver
     pRealGUITexture->mSourceType       = ETST_GUIFONT;
     pRealGUITexture->mSource.GUIFontID = 0;
     pRealGUITexture->mIsValid          = true;
-    pRealGUITexture->mGPUTextureID     = OpenGLHelper::copyTextureIDFromGUIFont();
+
+    if (this->getIrrDevice()->getVideoDriver()->getDriverType() != irr::video::EDT_NULL)
+    {
+      pRealGUITexture->mGPUTextureID     = OpenGLHelper::copyTextureIDFromGUIFont();
+    }
+    else
+    {
+      ImGuiIO &rGUIIO  = ImGui::GetIO();
+
+      irr::u8 * pPixelData;
+      int Width, Height;
+      rGUIIO.Fonts->GetTexDataAsAlpha8(&pPixelData, &Width, &Height);
+      rGUIIO.Fonts->ClearTexData();
+
+      pRealGUITexture->mGPUTextureID = (ImTextureID)0x1;
+    }
 
     void * const pFontTexture = reinterpret_cast<void *>(pGUITexture);
     ImGui::GetIO().Fonts->TexID = pFontTexture;
@@ -454,7 +551,11 @@ namespace Driver
 
     FASSERT(pRealGUITexture->mIsValid);
 
-    OpenGLHelper::deleteTextureFromMemory(pRealGUITexture);
+    if (this->getIrrDevice()->getVideoDriver()->getDriverType() != irr::video::EDT_NULL)
+    {
+      OpenGLHelper::deleteTextureFromMemory(pRealGUITexture);
+    }
+
     delete(pRealGUITexture);
     mTextureInstances--;
     return;
@@ -580,6 +681,7 @@ namespace OpenGLHelper
     irr::video::ECOLOR_FORMAT const ColorFormat = pTexture->getColorFormat();
     irr::u32 const Bytes = irr::video::IImage::getBitsPerPixelFromFormat(ColorFormat) / 8;
     irr::u8  * const pTextureData = reinterpret_cast<irr::u8 *>(pTexture->lock());
+
     FASSERT(pTextureData);
 
     for (int X = 0; X < Width; X++)

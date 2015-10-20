@@ -1,5 +1,9 @@
 # Irrlicht Binding for IMGUI
 
+**Shortcuts: [[Kanban Board]](https://waffle.io/ZahlGraf/IrrIMGUI) - [[Devlopers Blog]](https://github.com/ZahlGraf/IrrIMGUI/wiki/Developers-Blog) - [[Last Version]](#LatestVersionNews) - [[HowToStart]](#HowToStart)**
+
+**ATTENTION:** The version on the master branch is unstable. For a stable version please look at [Latest Version News](#LatestVersionNews).
+
 ## Index
 
 * [Introduction](#Introduction)
@@ -38,13 +42,19 @@ Following Features are supported so far:
 ### Upcomming: master-branch (unstable not tested yet)
 
 #### Highlights
-* nothing planned
+* **Interface break:** Use the factory function `createIMGUI(...)` for creating the IMGUI handle object and call `drop` at the end, instead of delete it (more information here: [Developers Blog](https://github.com/ZahlGraf/IrrIMGUI/wiki/Developers-Blog#20151006))
+* Added a basic memory leak detection class for Visual Studio Debug Builds
+* Added a CppUTest Plugin for memory leak detection with Visual Studio Debug Builds
+* Added CppUTest Support for unit testing of applications that uses IrrIMGUI (see Wiki: [UnitTest](https://github.com/ZahlGraf/IrrIMGUI/wiki/UnitTests))
+* Added a Mock-Class for the IrrIMGUI handle to make unit testing with IrrIMGUI easier
+* Added around 60 unit tests for the IrrIMGUI library itself (Unit Test can be build with CMake open `IRRIMGUI_BUIL_UNITTESTS`
 
 #### Fixes
-* nothing planned
+* Fixed a small memory leak (the font data was not deleted when shutdown IMGUI at the end of application). 
+* Fixed several warnings/errors with older Visual Studio Versions, like the unknown "noexcept" keyword (see #2)
 
 #### Dependency Versions
-* [IMGUI 1.45](https://github.com/ocornut/imgui/tree/v1.45)
+* [IMGUI 1.46](https://github.com/ocornut/imgui/tree/v1.46)
 * [Irrlicht 1.8.3](http://irrlicht.sourceforge.net/2015/09/irrlicht-1-8-3-released/)
 * Other versions may work as well, but they are not tested.
 
@@ -120,7 +130,7 @@ You can also draw a render target texture to the GUI (example program 06.RenderW
 ### <a name="HowToStart_Preparations"></a> Preparations
 
 * You need a compiled [Irrlicht](http://irrlicht.sourceforge.net/) library. Please test with the Irrlicht examples, if the library works as expected.
-* Download the Irrlicht IMGUI binding (IrrIMGUI): [Download](#LatestVersion)
+* Download the Irrlicht IMGUI binding (IrrIMGUI): [Download](#LatestVersionNews)
 * Download the latest version of [IMGUI](https://github.com/ocornut/imgui/) and copy all files from the ZIP into the directory `<IrrIMGUI-Path>/dependency/IMGUI`
   The IrrIMGUI and IMGUI files are compiled together to a single shared or static library file. 
 * When you want to compile IrrIMGUI as library, you need [CMake](http://www.cmake.org/) to generate the makefiles or project file you want to use
@@ -270,12 +280,11 @@ The full source code can be found in the file [examples/01.HelloWorld/main.cpp](
   IrrlichtDevice * const pDevice = createDeviceEx(IrrlichtParams);
 ```
 
-* **Create a GUI object:** Before you can use the GUI system, you need to create a CGUIHandle object:
- The GUI handle needs a pointer to the Irrlicht device and to the event receiver, to be able to pass events to the GUI.
-  **Attention:** It is very important to delete the GUI handle object _before_ you drop or delete the Irrlicht device. Otherwise you will get a memory access violation when the GUI handle frees up the internal memory and tries to use the Irrlicht device for that.
+* **Create a GUI object:** Before you can use the GUI system, you need to create a IMGUI handle object:
+ The corresponding factory function needs a pointer to the Irrlicht device and to the event receiver, to be able to pass events to the GUI.
 ```cpp
   // Create GUI object
-  CIMGUIHandle * const pGUI = new CIMGUIHandle(pDevice, &EventReceiver);
+  IIMGUIHandle * const pGUI = createIMGUI(pDevice, &EventReceiver);
 ```
 
 * **Draw GUI elements to the screen:** You can create the GUI elements inside the main-loop after calling `pGUI->startGUI();`. This function prepares the GUI for the next frame and passes the state of Mouse and Keyboard to IMGUI. 
@@ -314,7 +323,7 @@ The full source code can be found in the file [examples/01.HelloWorld/main.cpp](
   }
 
   // free up memory
-  delete(pGUI);
+  pGUI->drop();
   pDevice->drop();
  ```
  

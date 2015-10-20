@@ -82,6 +82,13 @@
 /// @li It is empty during static library compilation
 #define IMGUI_API
 
+/// @brief Not all modern compilers support the C++11 keyword noexcept. Thus this macro is empty for oder MSVC versions than 2015.
+///        For MingW, GCC, CLang or MSVC2015 (or higher versions) this macro contains the keyword noexcept.
+#define NOEXCEPT
+
+/// @brief This is defined if the compiler supports a sizeof from non-static class members (C++11 feature)
+#define IRRIMGUI_CONFIG_SIZEOF_FROM_CLASSMEMBER
+
 /// @}
 
 #endif
@@ -93,6 +100,50 @@
 
 // windows dependent settings
 #ifdef _IRRIMGUI_WINDOWS_
+
+#if defined(_MSC_VER)
+#define _IRRIMGUI_COMPILER_MSVC_
+
+#if (_MSC_VER < 1600)
+#define _IRRIMGUI_COMPILER_MSVC_OLD_
+#define _IRRIMGUI_COMPILER_MSVC_AT_LEAST_OLD_
+
+#elif ((_MSC_VER >= 1600) && (_MSC_VER < 1700))
+#define _IRRIMGUI_COMPILER_MSVC_2010_
+#define _IRRIMGUI_COMPILER_MSVC_AT_LEAST_OLD_
+#define _IRRIMGUI_COMPILER_MSVC_AT_LEAST_2010_
+
+#elif ((_MSC_VER >= 1700) && (_MSC_VER < 1800))
+#define _IRRIMGUI_COMPILER_MSVC_2012_
+#define _IRRIMGUI_COMPILER_MSVC_AT_LEAST_OLD_
+#define _IRRIMGUI_COMPILER_MSVC_AT_LEAST_2010_
+#define _IRRIMGUI_COMPILER_MSVC_AT_LEAST_2012_
+
+#elif ((_MSC_VER >= 1800) && (_MSC_VER < 1900))
+#define _IRRIMGUI_COMPILER_MSVC_2013_
+#define _IRRIMGUI_COMPILER_MSVC_AT_LEAST_OLD_
+#define _IRRIMGUI_COMPILER_MSVC_AT_LEAST_2010_
+#define _IRRIMGUI_COMPILER_MSVC_AT_LEAST_2012_
+#define _IRRIMGUI_COMPILER_MSVC_AT_LEAST_2013_
+
+#elif ((_MSC_VER >= 1900) && (_MSC_VER < 2000))
+#define _IRRIMGUI_COMPILER_MSVC_2015_
+#define _IRRIMGUI_COMPILER_MSVC_AT_LEAST_OLD_
+#define _IRRIMGUI_COMPILER_MSVC_AT_LEAST_2010_
+#define _IRRIMGUI_COMPILER_MSVC_AT_LEAST_2012_
+#define _IRRIMGUI_COMPILER_MSVC_AT_LEAST_2013_
+#define _IRRIMGUI_COMPILER_MSVC_AT_LEAST_2015_
+
+#elif (_MSC_VER >= 2000)
+#define _IRRIMGUI_COMPILER_MSVC_UNKNOWN_
+#define _IRRIMGUI_COMPILER_MSVC_AT_LEAST_OLD_
+#define _IRRIMGUI_COMPILER_MSVC_AT_LEAST_2010_
+#define _IRRIMGUI_COMPILER_MSVC_AT_LEAST_2012_
+#define _IRRIMGUI_COMPILER_MSVC_AT_LEAST_2013_
+#define _IRRIMGUI_COMPILER_MSVC_AT_LEAST_2015_
+
+#endif // _MSC_VER
+#endif // defined(_MSC_VER)
 
 // To build this library as static library, you have to define _IRRIMGUI_STATIC_LIB_ during compilation!
 #ifndef _IRRIMGUI_STATIC_LIB_
@@ -111,6 +162,38 @@
 #define IRRIMGUI_DLL_API
 
 #endif //_IRRIMGUI_WINDOWS_
+
+// define NOEXCEPT depending on compiler
+#ifdef _IRRIMGUI_COMPILER_MSVC_
+  #ifdef _IRRIMGUI_COMPILER_MSVC_AT_LEAST_2015_
+    // MSVC 2015 has it
+    #define NOEXCEPT noexcept
+
+  #else  // _IRRIMGUI_COMPILER_MSVC_AT_LEAST_2015_
+    // older MSVC than 2015 don't have it.
+    #define NOEXCEPT
+
+  #endif // _IRRIMGUI_COMPILER_MSVC_AT_LEAST_2015_
+
+#else // GCC/MingW/Clang
+  // Hopefully every modern Clang, MingW or GCC compiler has it... if not we need a similar solution like for MSVC
+  #define NOEXCEPT noexcept
+
+#endif // _IRRIMGUI_COMPILER_MSVC_
+
+// define IRRIMGUI_CONFIG_SIZEOF_FROM_CLASSMEMBER depending on compiler
+#ifdef _IRRIMGUI_COMPILER_MSVC_
+  #ifdef _IRRIMGUI_COMPILER_MSVC_AT_LEAST_2015_
+    // MSVC 2015 has it
+    #define IRRIMGUI_CONFIG_SIZEOF_FROM_CLASSMEMBER 1
+
+  #endif // _IRRIMGUI_COMPILER_MSVC_AT_LEAST_2015_
+
+#else // GCC/MingW/Clang
+  // Hopefully every modern Clang, MingW or GCC compiler has it... if not we need a similar solution like for MSVC
+    #define IRRIMGUI_CONFIG_SIZEOF_FROM_CLASSMEMBER 1
+
+#endif // _IRRIMGUI_COMPILER_MSVC_
 
 // os-independent settings
 #ifndef IMGUI_API

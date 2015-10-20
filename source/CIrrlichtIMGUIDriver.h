@@ -44,7 +44,7 @@
 #include <IrrIMGUI/IrrIMGUIConfig.h>
 #include <IrrIMGUI/IrrIMGUI.h>
 #include "IIMGUIDriver.h"
-#include "CGUITexture.h"
+#include "private/CGUITexture.h"
 
 namespace IrrIMGUI
 {

@@ -41,8 +41,8 @@
 
 // module includes
 #include "CIrrlichtIMGUIDriver.h"
-#include "CGUITexture.h"
-#include "IrrIMGUIDebug_priv.h"
+#include "private/CGUITexture.h"
+#include "private/IrrIMGUIDebug_priv.h"
 
 /**
 * @addtogroup IrrIMGUIPrivate
@@ -148,6 +148,11 @@ namespace IrrlichtHelper
         LOG_NOTE("{IrrIMGUI-Irr} Start Irrlicht High Level GUI renderer in DirectX mode.\n");
         break;
 
+      case irr::video::EDT_NULL:
+        mOffset = irr::core::vector3df(0.0f, 0.0f, 0.0f);
+        IrrlichtHelper::IsTrilinearFilterEnabled = false;
+        break;
+
       default:
         mOffset = irr::core::vector3df(0.0f, 0.0f, 0.0f);
         LOG_WARNING("{IrrIMGUI-Irr} Start Irrlicht High Level GUI renderer in unknown video mode, this Irrlicht renderer might not be supported!\n");
@@ -221,7 +226,10 @@ namespace IrrlichtHelper
       {
 
         CGUITexture * const pGUITexture = static_cast<CGUITexture * const>(pDrawCommand->TextureId);
+
+        FASSERT(pGUITexture);
         FASSERT(pGUITexture->mIsValid);
+
         irr::video::ITexture * const pIrrlichtTexture = static_cast<irr::video::ITexture * const>(pGUITexture->mGPUTextureID);
 
         irr::video::SMaterial Material;
@@ -264,9 +272,6 @@ namespace IrrlichtHelper
     pGUITexture->mSource.RawDataID = pPixelData;
     pGUITexture->mIsValid          = true;
     pGUITexture->mGPUTextureID     = IrrlichtHelper::copyTextureIDFromRawData(getIrrDevice()->getVideoDriver(), ColorFormat, pPixelData, Width, Height);
-
-    void * const pFontTexture = reinterpret_cast<void *>(pGUITexture);
-    ImGui::GetIO().Fonts->TexID = pFontTexture;
 
     return pGUITexture;
   }
@@ -341,8 +346,8 @@ namespace IrrlichtHelper
       IrrlichtHelper::deleteTextureID(getIrrDevice()->getVideoDriver(), pRealTexture);
 
       pRealTexture->mIsUsingOwnMemory = true;
-      pRealTexture->mSourceType       = ETST_GUIFONT;
-      pRealTexture->mSource.GUIFontID = IrrlichtHelper::IMGUI_FONT_ID;
+      pRealTexture->mSourceType       = ETST_RAWDATA;
+      pRealTexture->mSource.RawDataID = pPixelData;
       pRealTexture->mIsValid          = true;
       pRealTexture->mGPUTextureID     = IrrlichtHelper::copyTextureIDFromRawData(getIrrDevice()->getVideoDriver(), ColorFormat, pPixelData, Width, Height);
     }

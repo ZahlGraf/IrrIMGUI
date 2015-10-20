@@ -29,7 +29,7 @@
  */
 
 // module includes
-#include "CGUITexture.h"
+#include "private/CGUITexture.h"
 
 namespace IrrIMGUI
 {
@@ -39,7 +39,8 @@ namespace Private
   CGUITexture::CGUITexture(void):
     mIsUsingOwnMemory(false),
     mSourceType(ETST_UNKNOWN),
-    mIsValid(true)
+    mIsValid(true),
+    mGPUTextureID(nullptr)
   {
     return;
   }

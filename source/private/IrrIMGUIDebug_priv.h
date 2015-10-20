@@ -36,6 +36,11 @@
 #include <IrrIMGUI/IrrIMGUI.h>
 #include <IrrIMGUI/IrrIMGUIDebug.h>
 
+#ifdef IRRIMGUI_UNIT_TEST
+#include <IrrIMGUI/UnitTest/UnitTest.h>
+#define UNIT_TEST true
+#endif
+
 /**
  * @addtogroup IrrIMGUIPrivate
  * @{
@@ -127,7 +132,15 @@
 #define _TOSTR(x) #x
 #define TOSTR(x) _TOSTR(x)
 
-#define FASSERT(expr) if (!(expr)) { throw IrrIMGUI::Debug::ExAssert(__FILE__ "[" TOSTR(__LINE__) "] Assertion failed: \'" TOSTR(expr) "'\n"); }
+#ifdef UNIT_TEST
+/// in unit test case just fail a CHECK
+#define FASSERT(expr) if (IrrIMGUI::Debug::AreUnitTestAssertionsEnabled) { CHECK((expr)); } else { TEST_ASSERT((expr)); }
+#else
+/// throw exception
+#define FASSERT(expr) TEST_ASSERT((expr))
+#endif
+
+#define TEST_ASSERT(expr) if (!(expr)) { throw IrrIMGUI::Debug::ExAssert(__FILE__ "[" TOSTR(__LINE__) "] Assertion failed: \'" TOSTR(expr) "'\n"); }
 
 #ifdef _DEBUG
 #define ASSERT(expr)  if (!(expr)) FASSERT(expr)

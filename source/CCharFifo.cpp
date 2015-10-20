@@ -30,7 +30,7 @@
 
 // module includes
 #include <IrrIMGUI/IrrIMGUI.h>
-#include "IrrIMGUIDebug_priv.h"
+#include "private/IrrIMGUIDebug_priv.h"
 
 #define STATIC_ARRAY_SIZE(ARRAY) (sizeof(ARRAY)/sizeof(ARRAY[0]))     // TODO: maybe use a template for the type
 
@@ -83,20 +83,29 @@ namespace IrrIMGUI
       ReturnChar = mCharArray[mReadIndex];
       mReadIndex++;
     }
+    else
+    {
+      FASSERT(false);
+    }
 
     ASSERT(isFull() == false);
 
     return ReturnChar;
   }
 
-  bool CCharFifo::isEmpty(void)
+  bool CCharFifo::isEmpty(void) const
   {
     return mWriteIndex == mReadIndex;
   }
 
-  bool CCharFifo::isFull(void)
+  bool CCharFifo::isFull(void) const
   {
-    return (mWriteIndex+1) == mReadIndex;
+    return static_cast<irr::u8>(mWriteIndex+1) == mReadIndex;
+  }
+
+  irr::u8 CCharFifo::getNumberOfElements(void) const
+  {
+    return mWriteIndex-mReadIndex;
   }
 
 }

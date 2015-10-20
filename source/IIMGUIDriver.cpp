@@ -36,7 +36,8 @@
 #include "IIMGUIDriver.h"
 #include "COpenGLIMGUIDriver.h"
 #include "CIrrlichtIMGUIDriver.h"
-#include "IrrIMGUIDebug_priv.h"
+#include "private/IrrIMGUIDebug_priv.h"
+#include <IrrIMGUI/IrrIMGUIConstants.h>
 
 /**
  * @addtogroup IrrIMGUIPrivate
@@ -59,9 +60,11 @@ namespace Private
   {
     LOG_NOTE("{IrrIMGUI} Create Singleton Instance of IIMGUIDriver.\n");
     mInstances++;
+    mTextureInstances = 0;
 
     FASSERT(mInstances == 1);
 
+    pDevice->grab();
     mpDevice = pDevice;
 
     setupMouseControl();
@@ -73,7 +76,7 @@ namespace Private
 
   IIMGUIDriver::~IIMGUIDriver(void)
   {
-    if (mTextureInstances > 0)
+    if (mTextureInstances != 0)
     {
       LOG_ERROR("Not all images created with CIMGUIHandle::createTextureFromImage(...) have been deleted with CIMGUIHandle::deleteTexture(...). There are " << mTextureInstances << " images left!\n");
     }
@@ -83,7 +86,10 @@ namespace Private
       LOG_ERROR("The Font Texture has not been deleted!\n");
     }
 
+    ImGui::GetIO().Fonts->Clear();
     ImGui::Shutdown();
+
+    mpDevice->drop();
     return;
   }
 
@@ -98,13 +104,10 @@ namespace Private
 
       switch(Type)
       {
+        case irr::video::EDT_NULL: // for unit testing
         case irr::video::EDT_OPENGL:
           mpInstance = new Driver::COpenGLIMGUIDriver(pDevice);
           mpFontTexture = mpInstance->createFontTexture();
-          break;
-
-        case irr::video::EDT_DIRECT3D9:
-          FASSERT(false); // need to be implemented
           break;
 
         default:
@@ -142,6 +145,7 @@ namespace Private
       delete(mpInstance);
       mpInstance = nullptr;
       mInstances = 0;
+      FASSERT(ImGui::GetIO().MetricsAllocs == 0);
 
       WasDeleted = true;
     }
@@ -176,6 +180,11 @@ namespace Private
       rGUIIO.MouseDrawCursor = true;
       mpDevice->getCursorControl()->setVisible(false);
     }
+    else
+    {
+      rGUIIO.MouseDrawCursor = false;
+      mpDevice->getCursorControl()->setVisible(true);
+    }
 
     return;
   }
@@ -184,11 +193,17 @@ namespace Private
   {
     // setup standard values
     ImGuiIO &rGUIIO = ImGui::GetIO();
-    for (int i = 0; i < 3; i++)
+
+    for (int i = 0; i < Const::NumberOfMouseButtons; i++)
     {
+      rGUIIO.MouseClicked[i]          = false;
+      rGUIIO.MouseDoubleClicked[i]    = false;
+      rGUIIO.MouseDown[i]             = false;
+      rGUIIO.MouseClickedTime[i]      = -FLT_MAX;
       rGUIIO.MouseDownDurationPrev[i] = -1.0f;
-      rGUIIO.MouseDownDuration[i] = -1.0;
+      rGUIIO.MouseDownDuration[i]     = -1.0f;
     }
+    rGUIIO.MouseWheel = 0.0f;
 
     return;
   }
