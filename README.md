@@ -65,8 +65,8 @@ Following Features are supported so far:
 
 #### Fixes
 * Fixed a small memory leak (the font data was not deleted when shutdown IMGUI at the end of application). 
-* Fixed several warnings/errors with older Visual Studio Versions, like the unknown "noexcept" keyword (see #2)
-* Include local headers directly (pull request #9)
+* Fixed several warnings/errors with older Visual Studio Versions, like the unknown "noexcept" keyword (see [#2](https://github.com/ZahlGraf/IrrIMGUI/issues/2))
+* Include local headers directly (pull request [#9](https://github.com/ZahlGraf/IrrIMGUI/pull/9))
 
 #### Dependency Versions
 * [IMGUI 1.46](https://github.com/ocornut/imgui/tree/v1.46)
