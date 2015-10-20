@@ -1,0 +1,7 @@
+<map id="IrrIMGUI::UnitTest::IIMGUIHandleMock" name="IrrIMGUI::UnitTest::IIMGUIHandleMock">
+<area shape="rect" id="node2" href="$class_irr_i_m_g_u_i_1_1_i_i_m_g_u_i_handle.html" title="A interface to an IMGUI handle. Use this interface for mocking and dependency injection of the real I..." alt="" coords="18,96,173,123"/>
+<area shape="rect" id="node4" href="$class_irr_i_m_g_u_i_1_1_i_reference_counter.html" title="A class to count references. " alt="" coords="5,5,187,32"/>
+<area shape="rect" id="node6" href="$class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_event_storage.html" title="Stores the state of the Keyboard and Mouse input for IMGUI. " alt="" coords="198,96,396,123"/>
+<area shape="rect" id="node8" href="$class_irr_i_m_g_u_i_1_1_c_char_fifo.html" title="A Fifo Memory to store character inputs from the keyboard. " alt="" coords="230,5,364,32"/>
+<area shape="rect" id="node10" href="$struct_irr_i_m_g_u_i_1_1_s_i_m_g_u_i_settings.html" title="Stores the settings of the IMGUI. " alt="" coords="421,96,592,123"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="D:/Projects/CPP/Libraries/IrrIMGUI/IrrIMGUI/source/IMGUIHelper.cpp" name="D:/Projects/CPP/Libraries/IrrIMGUI/IrrIMGUI/source/IMGUIHelper.cpp">
+<area shape="rect" id="node3" href="$_include_irrlicht_8h.html" title="Helper file for including irrlicht from the correct location. " alt="" coords="35,259,195,285"/>
+<area shape="rect" id="node9" href="$_include_i_m_g_u_i_8h.html" title="Helper file for including IMGUI and applying the correct settings. " alt="" coords="258,259,419,285"/>
+<area shape="rect" id="node15" href="$_c_i_m_g_u_i_event_storage_8h.html" title="A storage memory to transfer Input&#45;Events from Irrlicht to the IMGUI. " alt="" coords="379,109,585,136"/>
+<area shape="rect" id="node23" href="$_i_m_g_u_i_helper_8h.html" title="Contains helper functions for the IMGUI handling. " alt="" coords="545,184,703,211"/>
+<area shape="rect" id="node26" href="$_c_g_u_i_texture_8h.html" title="Contains the class for a GUITexture object. " alt="" coords="154,109,301,136"/>
+<area shape="rect" id="node11" href="$_irr_i_m_g_u_i_config_8h.html" title="Helper file for preprocessor configuration. " alt="" coords="433,333,548,360"/>
+<area shape="rect" id="node17" href="$_c_char_fifo_8h.html" title="Class definition for a Fifo Memory. " alt="" coords="380,184,471,211"/>
+<area shape="rect" id="node29" href="$_i_g_u_i_texture_8h.html" title="Contains an interface to a GUITexture object. " alt="" coords="152,184,304,211"/>
+</map>

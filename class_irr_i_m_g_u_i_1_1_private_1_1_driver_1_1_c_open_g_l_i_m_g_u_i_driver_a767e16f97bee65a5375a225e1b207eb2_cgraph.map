@@ -1,3 +1,4 @@
 <map id="IrrIMGUI::Private::Driver::COpenGLIMGUIDriver::deleteTexture" name="IrrIMGUI::Private::Driver::COpenGLIMGUIDriver::deleteTexture">
-<area shape="rect" id="node3" href="$namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#a18fb8b546294b39a390d222e0e3413cf" title="Deleted a texture from memory if it uses its own memory. " alt="" coords="241,5,426,61"/>
+<area shape="rect" id="node3" href="$class_irr_i_m_g_u_i_1_1_private_1_1_i_i_m_g_u_i_driver.html#a94b7f916794405c54573ca55a678bf7f" title="IrrIMGUI::Private::\lIIMGUIDriver::getIrrDevice" alt="" coords="249,5,417,46"/>
+<area shape="rect" id="node5" href="$namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#a18fb8b546294b39a390d222e0e3413cf" title="Deleted a texture from memory if it uses its own memory. " alt="" coords="241,71,426,127"/>
 </map>

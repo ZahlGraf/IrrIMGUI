@@ -1,0 +1,16 @@
+<map id="D:/Projects/CPP/Libraries/IrrIMGUI/IrrIMGUI/source/CBasicMemoryLeakDetection.cpp" name="D:/Projects/CPP/Libraries/IrrIMGUI/IrrIMGUI/source/CBasicMemoryLeakDetection.cpp">
+<area shape="rect" id="node3" href="$_c_basic_memory_leak_detection_8h.html" title="Class for a very basic memory leak detection. " alt="" coords="999,110,1196,151"/>
+<area shape="rect" id="node7" href="$_irr_i_m_g_u_i_debug__priv_8h.html" title="Contains defines for debug handling. " alt="" coords="821,110,968,151"/>
+<area shape="rect" id="node5" href="$_irr_i_m_g_u_i_config_8h.html" title="Helper file for preprocessor configuration. " alt="" coords="567,573,733,600"/>
+<area shape="rect" id="node10" href="$_irr_i_m_g_u_i_8h.html" title="The main include file for the IMGUI bindinds. " alt="" coords="625,200,756,227"/>
+<area shape="rect" id="node46" href="$_irr_i_m_g_u_i_debug_8h.html" title="Contains defines for debug handling. " alt="" coords="808,200,976,227"/>
+<area shape="rect" id="node13" href="$_i_i_m_g_u_i_handle_8h.html" title="Contains a interface for a IMGUI handle. " alt="" coords="545,349,657,376"/>
+<area shape="rect" id="node34" href="$_c_i_m_g_u_i_event_receiver_8h.html" title="Contains a standard Event Receiver for Irrlicht that passed inputs to IMGUI. " alt="" coords="406,275,564,301"/>
+<area shape="rect" id="node15" href="$_i_g_u_i_texture_8h.html" title="Contains an interface to a GUITexture object. " alt="" coords="299,424,400,451"/>
+<area shape="rect" id="node22" href="$_i_reference_counter_8h.html" title="Contains a class to count references. " alt="" coords="475,424,613,451"/>
+<area shape="rect" id="node31" href="$_s_i_m_g_u_i_settings_8h.html" title="A storage the settings of the IMGUI. " alt="" coords="537,499,663,525"/>
+<area shape="rect" id="node17" href="$_include_i_m_g_u_i_8h.html" title="Helper file for including IMGUI and applying the correct settings. " alt="" coords="238,499,348,525"/>
+<area shape="rect" id="node25" href="$_include_irrlicht_8h.html" title="Helper file for including irrlicht from the correct location. " alt="" coords="104,499,213,525"/>
+<area shape="rect" id="node36" href="$_c_i_m_g_u_i_event_storage_8h.html" title="A storage memory to transfer Input&#45;Events from Irrlicht to the IMGUI. " alt="" coords="360,349,515,376"/>
+<area shape="rect" id="node38" href="$_c_char_fifo_8h.html" title="Class definition for a Fifo Memory. " alt="" coords="184,424,275,451"/>
+</map>

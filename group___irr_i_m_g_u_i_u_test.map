@@ -1,0 +1,8 @@
+<map id="UnitTest" name="UnitTest">
+<area shape="rect" id="node1" href="$group___irr_i_m_g_u_i_tools.html" title="Miscellaneous tools, that are not necessarily related to IMGUI or Irrlicht. " alt="" coords="192,67,245,93"/>
+<area shape="rect" id="node2" href="$group___irr_i_m_g_u_i.html" title="An Irrlicht IMGUI binding. " alt="" coords="184,5,253,32"/>
+<area shape="rect" id="node3" href="$group___irr_i_m_g_u_i_inject.html" title="Definitions for dependency injection. " alt="" coords="192,117,245,144"/>
+<area shape="rect" id="node4" href="$group___irr_i_m_g_u_i_priv.html" title="IrrIMGUIPriv" alt="" coords="173,168,264,195"/>
+<area shape="rect" id="node6" href="$group___irr_i_m_g_u_i_debug.html" title="Contains classes for debug purpose. " alt="" coords="189,219,248,245"/>
+<area shape="rect" id="node7" href="$group___irr_i_m_g_u_i_private.html" title="Private definitions for Irrlicht IMGUI bindings, do not use them outside, the interface may change a ..." alt="" coords="188,269,249,296"/>
+</map>

@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">IrrIMGUI
-   &#160;<span id="projectnumber">0.2.0</span>
+   &#160;<span id="projectnumber">0.3.0</span>
    </div>
   </td>
  </tr>
@@ -91,9 +91,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">IrrIMGUI::Private Namespace Reference<div class="ingroups"><a class="el" href="group___irr_i_m_g_u_i.html">IrrIMGUI</a> &raquo; <a class="el" href="group___irr_i_m_g_u_i_private.html">Private</a> &#124; <a class="el" href="group___irr_i_m_g_u_i.html">IrrIMGUI</a></div></div>  </div>
+<div class="title">IrrIMGUI::Private Namespace Reference<div class="ingroups"><a class="el" href="group___irr_i_m_g_u_i.html">IrrIMGUI</a> &raquo; <a class="el" href="group___irr_i_m_g_u_i_private.html">Private</a> &#124; <a class="el" href="group___irr_i_m_g_u_i_priv.html">IrrIMGUIPriv</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -113,6 +114,9 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_irr_i_m_g_u_i_1_1_private_1_1_c_i_m_g_u_i_driver_delete_helper.html">CIMGUIDriverDeleteHelper</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An helper class, that deletes the CIMGUIDriver instance when the program is closed and no other source has deleted it.  <a href="class_irr_i_m_g_u_i_1_1_private_1_1_c_i_m_g_u_i_driver_delete_helper.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_irr_i_m_g_u_i_1_1_private_1_1_c_i_m_g_u_i_handle.html">CIMGUIHandle</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use an object of this class to setup the IMGUI for Irrlicht and to render the content.  <a href="class_irr_i_m_g_u_i_1_1_private_1_1_c_i_m_g_u_i_handle.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_irr_i_m_g_u_i_1_1_private_1_1_i_i_m_g_u_i_driver.html">IIMGUIDriver</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface for an IMGUI <a class="el" href="namespace_irr_i_m_g_u_i_1_1_private_1_1_driver.html" title="Contains driver classes for the IMGUI render system. ">Driver</a> to setup the IMGUI render system.  <a href="class_irr_i_m_g_u_i_1_1_private_1_1_i_i_m_g_u_i_driver.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -121,6 +125,12 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
+<tr class="memitem:ae9f11513bf9c00f907f9bae27471f8f1"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_irr_i_m_g_u_i_1_1_private.html#ae9f11513bf9c00f907f9bae27471f8f1">EColorFormat</a> { <a class="el" href="namespace_irr_i_m_g_u_i_1_1_private.html#ae9f11513bf9c00f907f9bae27471f8f1a9c9efddad57fdb24ed8a9a5b3160c438">ECF_A8R8G8B8</a>, 
+<a class="el" href="namespace_irr_i_m_g_u_i_1_1_private.html#ae9f11513bf9c00f907f9bae27471f8f1ab46751958f364ca9abc8d890f418d3d4">ECF_R8G8B8A8</a>, 
+<a class="el" href="namespace_irr_i_m_g_u_i_1_1_private.html#ae9f11513bf9c00f907f9bae27471f8f1ab1f88572489364195a17ac1cc9ddd231">ECF_A8</a>
+ }<tr class="memdesc:ae9f11513bf9c00f907f9bae27471f8f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">The supported color formats for picture transformation and texture creating.  <a href="namespace_irr_i_m_g_u_i_1_1_private.html#ae9f11513bf9c00f907f9bae27471f8f1">More...</a><br /></td></tr>
+<tr class="separator:ae9f11513bf9c00f907f9bae27471f8f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</td></tr>
 <tr class="memitem:afdbc4ba84603b12f356687fcb3a80de1"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_irr_i_m_g_u_i_1_1_private.html#afdbc4ba84603b12f356687fcb3a80de1">TextureSourceType</a> { <br />
 &#160;&#160;<a class="el" href="namespace_irr_i_m_g_u_i_1_1_private.html#afdbc4ba84603b12f356687fcb3a80de1acf19de9cbec147e9ea62427d737e9ae6">ETST_TEXTURE</a>, 
 <a class="el" href="namespace_irr_i_m_g_u_i_1_1_private.html#afdbc4ba84603b12f356687fcb3a80de1a834bf897fd4ea3eb8e2e1ea7076e26d4">ETST_IMAGE</a>, 
@@ -131,22 +141,21 @@ Enumerations</h2></td></tr>
 <br />
  }<tr class="separator:afdbc4ba84603b12f356687fcb3a80de1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </td></tr>
-<tr class="memitem:ae9f11513bf9c00f907f9bae27471f8f1"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_irr_i_m_g_u_i_1_1_private.html#ae9f11513bf9c00f907f9bae27471f8f1">EColorFormat</a> { <a class="el" href="namespace_irr_i_m_g_u_i_1_1_private.html#ae9f11513bf9c00f907f9bae27471f8f1a9c9efddad57fdb24ed8a9a5b3160c438">ECF_A8R8G8B8</a>, 
-<a class="el" href="namespace_irr_i_m_g_u_i_1_1_private.html#ae9f11513bf9c00f907f9bae27471f8f1ab46751958f364ca9abc8d890f418d3d4">ECF_R8G8B8A8</a>, 
-<a class="el" href="namespace_irr_i_m_g_u_i_1_1_private.html#ae9f11513bf9c00f907f9bae27471f8f1ab1f88572489364195a17ac1cc9ddd231">ECF_A8</a>
- }<tr class="memdesc:ae9f11513bf9c00f907f9bae27471f8f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">The supported color formats for picture transformation and texture creating.  <a href="namespace_irr_i_m_g_u_i_1_1_private.html#ae9f11513bf9c00f907f9bae27471f8f1">More...</a><br /></td></tr>
-<tr class="separator:ae9f11513bf9c00f907f9bae27471f8f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ae0c070b8df474d5b73398174891be3cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_irr_i_m_g_u_i_1_1_i_i_m_g_u_i_handle.html">IIMGUIHandle</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_irr_i_m_g_u_i_1_1_private.html#ae0c070b8df474d5b73398174891be3cf">createRealIMGUI</a> (irr::IrrlichtDevice *pDevice, <a class="el" href="class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_event_storage.html">CIMGUIEventStorage</a> *pEventStorage, <a class="el" href="struct_irr_i_m_g_u_i_1_1_s_i_m_g_u_i_settings.html">SIMGUISettings</a> const *pSettings)</td></tr>
+<tr class="memdesc:ae0c070b8df474d5b73398174891be3cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a real IMGUI object (the real factory function for it)  <a href="#ae0c070b8df474d5b73398174891be3cf">More...</a><br /></td></tr>
+<tr class="separator:ae0c070b8df474d5b73398174891be3cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a55b0789b153a11316f77f08734c467f2"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_irr_i_m_g_u_i_1_1_private_1_1_c_i_m_g_u_i_driver_delete_helper.html">CIMGUIDriverDeleteHelper</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_irr_i_m_g_u_i_1_1_private.html#a55b0789b153a11316f77f08734c467f2">IMGUIDriverDeleteHelper</a></td></tr>
 <tr class="separator:a55b0789b153a11316f77f08734c467f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f46ee69a06d64d78539ec7701633fff"><td class="memItemLeft" align="right" valign="top">class <a class="el" href="group___irr_i_m_g_u_i.html#gab0ac930850c822781bc6ffd6b4958e52">IRRIMGUI_DLL_API</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_irr_i_m_g_u_i_1_1_private.html#a8f46ee69a06d64d78539ec7701633fff">IIMGUIDriver</a></td></tr>
-<tr class="separator:a8f46ee69a06d64d78539ec7701633fff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="namespace_irr_i_m_g_u_i_1_1_private.html" title="Private definitions for the IMGUI Irrlicht binding. Do not use them outside, the interface may change...">Private</a> definitions for the IMGUI Irrlicht binding. Do not use them outside, the interface may change a lot of times! </p>
+<p>Contains definitions for Dependency Injection. </p>
 </div><h2 class="groupheader">Enumeration Type Documentation</h2>
 <a class="anchor" id="ae9f11513bf9c00f907f9bae27471f8f1"></a>
 <div class="memitem">
@@ -201,21 +210,65 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a class="anchor" id="a8f46ee69a06d64d78539ec7701633fff"></a>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="ae0c070b8df474d5b73398174891be3cf"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">class <a class="el" href="group___irr_i_m_g_u_i.html#gab0ac930850c822781bc6ffd6b4958e52">IRRIMGUI_DLL_API</a> <a class="el" href="class_irr_i_m_g_u_i_1_1_private_1_1_i_i_m_g_u_i_driver.html">IrrIMGUI::Private::IIMGUIDriver</a></td>
+          <td class="memname"><a class="el" href="group___irr_i_m_g_u_i.html#gab0ac930850c822781bc6ffd6b4958e52">IRRIMGUI_DLL_API</a> <a class="el" href="class_irr_i_m_g_u_i_1_1_i_i_m_g_u_i_handle.html">IIMGUIHandle</a> * IrrIMGUI::Private::createRealIMGUI </td>
+          <td>(</td>
+          <td class="paramtype">irr::IrrlichtDevice *&#160;</td>
+          <td class="paramname"><em>pDevice</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_event_storage.html">CIMGUIEventStorage</a> *&#160;</td>
+          <td class="paramname"><em>pEventStorage</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_irr_i_m_g_u_i_1_1_s_i_m_g_u_i_settings.html">SIMGUISettings</a> const *&#160;</td>
+          <td class="paramname"><em>pSettings</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_c_i_m_g_u_i_handle_8h_source.html#l00053">53</a> of file <a class="el" href="_c_i_m_g_u_i_handle_8h_source.html">CIMGUIHandle.h</a>.</p>
+<p>Creates a real IMGUI object (the real factory function for it) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pDevice</td><td>Is a pointer to an Irrlicht device. </td></tr>
+    <tr><td class="paramname">pEventStorage</td><td>Is a pointer to an input event storage. </td></tr>
+    <tr><td class="paramname">pSettings</td><td>Is a pointer to a settings struct to apply. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns a pointer to an IMGUI handle object. </dd></dl>
+
+<p>Definition at line <a class="el" href="_irr_i_m_g_u_i_inject_8cpp_source.html#l00042">42</a> of file <a class="el" href="_irr_i_m_g_u_i_inject_8cpp_source.html">IrrIMGUIInject.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespace_irr_i_m_g_u_i_1_1_private_ae0c070b8df474d5b73398174891be3cf_icgraph.png" border="0" usemap="#namespace_irr_i_m_g_u_i_1_1_private_ae0c070b8df474d5b73398174891be3cf_icgraph" alt=""/></div>
+<map name="namespace_irr_i_m_g_u_i_1_1_private_ae0c070b8df474d5b73398174891be3cf_icgraph" id="namespace_irr_i_m_g_u_i_1_1_private_ae0c070b8df474d5b73398174891be3cf_icgraph">
+<area shape="rect" id="node3" href="group___irr_i_m_g_u_i_inject.html#gaa4e6e47212a4480c480e8c01eb6f8003" title="IrrIMGUI::Inject::setIMGUIFactory" alt="" coords="179,60,394,87"/>
+<area shape="rect" id="node5" href="class_irr_i_m_g_u_i_1_1_unit_test_1_1_i_i_m_g_u_i_handle_mock.html#ae37f45eedcae480a9a13a7f1d28c6991" title="IrrIMGUI::UnitTest\l::IIMGUIHandleMock::\lenableMock" alt="" coords="443,5,592,61"/>
+<area shape="rect" id="node7" href="class_irr_i_m_g_u_i_1_1_unit_test_1_1_i_i_m_g_u_i_handle_mock.html#a0ba583686ef8fbced4ecf3095dca00fa" title="IrrIMGUI::UnitTest\l::IIMGUIHandleMock::\ldisableMock" alt="" coords="443,85,592,141"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>
+<h2 class="groupheader">Variable Documentation</h2>
 <a class="anchor" id="a55b0789b153a11316f77f08734c467f2"></a>
 <div class="memitem">
 <div class="memproto">
@@ -234,7 +287,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_i_i_m_g_u_i_driver_8cpp_source.html#l00245">245</a> of file <a class="el" href="_i_i_m_g_u_i_driver_8cpp_source.html">IIMGUIDriver.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_i_i_m_g_u_i_driver_8cpp_source.html#l00260">260</a> of file <a class="el" href="_i_i_m_g_u_i_driver_8cpp_source.html">IIMGUIDriver.cpp</a>.</p>
 
 </div>
 </div>

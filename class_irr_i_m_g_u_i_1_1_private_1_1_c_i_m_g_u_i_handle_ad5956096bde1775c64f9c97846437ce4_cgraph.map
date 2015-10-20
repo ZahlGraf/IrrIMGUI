@@ -1,0 +1,11 @@
+<map id="IrrIMGUI::Private::CIMGUIHandle::startGUI" name="IrrIMGUI::Private::CIMGUIHandle::startGUI">
+<area shape="rect" id="node3" href="$namespace_irr_i_m_g_u_i.html#aaac1d4c6b373ceb5212ce586e64c4946" title="Updates the values for an IMGUI Frame, like delta time, input events and screen size. " alt="" coords="216,74,405,115"/>
+<area shape="rect" id="node20" href="$class_irr_i_m_g_u_i_1_1_private_1_1_i_i_m_g_u_i_driver.html#a94b7f916794405c54573ca55a678bf7f" title="IrrIMGUI::Private::\lIIMGUIDriver::getIrrDevice" alt="" coords="227,139,395,181"/>
+<area shape="rect" id="node5" href="$namespace_irr_i_m_g_u_i.html#afbc43bedd52f4360d18d394733c6d84e" title="Updates the IMGUI screen size. " alt="" coords="454,5,637,32"/>
+<area shape="rect" id="node7" href="$namespace_irr_i_m_g_u_i.html#a388bc29c064ce03cb5d54e65e6eead6a" title="Updated the IMGUI timer. " alt="" coords="471,56,619,83"/>
+<area shape="rect" id="node9" href="$namespace_irr_i_m_g_u_i.html#ae8204d24d3a29c6d54e065fcfbbd0bec" title="Updates the Mouse events from IMGUI. " alt="" coords="468,107,623,133"/>
+<area shape="rect" id="node11" href="$namespace_irr_i_m_g_u_i.html#a764b23699520a6cd979ee16c98b5a9d2" title="Updates the Keyboard events from IMGUI. " alt="" coords="460,157,631,184"/>
+<area shape="rect" id="node13" href="$class_irr_i_m_g_u_i_1_1_c_char_fifo.html#a760af426dd61a70d26aa9cdd71d72c4a" title="IrrIMGUI::CCharFifo\l::isEmpty" alt="" coords="870,121,1005,162"/>
+<area shape="rect" id="node15" href="$class_irr_i_m_g_u_i_1_1_c_char_fifo.html#ae8c039b9eeae9e0a449898f24a2704e5" title="IrrIMGUI::CCharFifo\l::getChar" alt="" coords="686,179,821,221"/>
+<area shape="rect" id="node18" href="$class_irr_i_m_g_u_i_1_1_c_char_fifo.html#a8061643adcd7df6af0ad7c19965a69ef" title="IrrIMGUI::CCharFifo\l::isFull" alt="" coords="870,186,1005,227"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="IrrIMGUI::UnitTest::IIMGUIHandleMock::resetFonts" name="IrrIMGUI::UnitTest::IIMGUIHandleMock::resetFonts">
+<area shape="rect" id="node3" href="$class_irr_i_m_g_u_i_1_1_unit_test_1_1_i_i_m_g_u_i_handle_mock.html#a3c217158dd4c10f2f21e410497270869" title="IrrIMGUI::UnitTest\l::IIMGUIHandleMock::\lareIMGUICallsEnabled" alt="" coords="213,5,365,61"/>
+<area shape="rect" id="node5" href="$namespace_irr_i_m_g_u_i_1_1_unit_test.html#a954f7875b2f32ae9ee40a61b915e2cd8" title="Creates a dummy font in IMGUI to prevent errors for unit&#45;tests that uses the mock. " alt="" coords="203,86,376,127"/>
+</map>

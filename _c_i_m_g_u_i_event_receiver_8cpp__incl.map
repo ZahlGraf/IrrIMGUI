@@ -1,8 +1,8 @@
 <map id="D:/Projects/CPP/Libraries/IrrIMGUI/IrrIMGUI/source/CIMGUIEventReceiver.cpp" name="D:/Projects/CPP/Libraries/IrrIMGUI/IrrIMGUI/source/CIMGUIEventReceiver.cpp">
-<area shape="rect" id="node3" href="$_c_i_m_g_u_i_event_receiver_8h.html" title="Contains a standard Event Receiver for Irrlicht that passed inputs to IMGUI. " alt="" coords="96,109,307,136"/>
-<area shape="rect" id="node5" href="$_c_i_m_g_u_i_event_storage_8h.html" title="A storage memory to transfer Input&#45;Events from Irrlicht to the IMGUI. " alt="" coords="98,184,304,211"/>
-<area shape="rect" id="node11" href="$_irr_i_m_g_u_i_config_8h.html" title="Helper file for preprocessor configuration. " alt="" coords="5,408,171,435"/>
-<area shape="rect" id="node15" href="$_include_irrlicht_8h.html" title="Helper file for including irrlicht from the correct location. " alt="" coords="312,333,421,360"/>
-<area shape="rect" id="node7" href="$_c_char_fifo_8h.html" title="Class definition for a Fifo Memory. " alt="" coords="171,259,261,285"/>
-<area shape="rect" id="node9" href="$_include_i_m_g_u_i_8h.html" title="Helper file for including IMGUI and applying the correct settings. " alt="" coords="177,333,287,360"/>
+<area shape="rect" id="node3" href="$_c_i_m_g_u_i_event_receiver_8h.html" title="Contains a standard Event Receiver for Irrlicht that passed inputs to IMGUI. " alt="" coords="29,109,240,136"/>
+<area shape="rect" id="node5" href="$_c_i_m_g_u_i_event_storage_8h.html" title="A storage memory to transfer Input&#45;Events from Irrlicht to the IMGUI. " alt="" coords="57,184,212,211"/>
+<area shape="rect" id="node11" href="$_irr_i_m_g_u_i_config_8h.html" title="Helper file for preprocessor configuration. " alt="" coords="5,408,120,435"/>
+<area shape="rect" id="node15" href="$_include_irrlicht_8h.html" title="Helper file for including irrlicht from the correct location. " alt="" coords="283,333,392,360"/>
+<area shape="rect" id="node7" href="$_c_char_fifo_8h.html" title="Class definition for a Fifo Memory. " alt="" coords="103,259,193,285"/>
+<area shape="rect" id="node9" href="$_include_i_m_g_u_i_8h.html" title="Helper file for including IMGUI and applying the correct settings. " alt="" coords="147,333,257,360"/>
 </map>

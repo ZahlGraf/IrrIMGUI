@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>IrrIMGUI: D:/Projects/CPP/Libraries/IrrIMGUI/IrrIMGUI/includes/IrrIMGUI/CIMGUIHandle.h File Reference</title>
+<title>IrrIMGUI: D:/Projects/CPP/Libraries/IrrIMGUI/IrrIMGUI/source/CIMGUIHandle.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">IrrIMGUI
-   &#160;<span id="projectnumber">0.2.0</span>
+   &#160;<span id="projectnumber">0.3.0</span>
    </div>
   </td>
  </tr>
@@ -83,14 +83,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_09e761304027c904456130627fd4dcf5.html">includes</a></li><li class="navelem"><a class="el" href="dir_89bb53d9c53b818802510d64176a91f7.html">IrrIMGUI</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_b2f33c71d4aa5e7af42a1ca61ff5af1b.html">source</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
 <div class="title">CIMGUIHandle.h File Reference</div>  </div>
 </div><!--header-->
@@ -98,43 +97,38 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>Contains a handle to setup the IMGUI for Irrlicht.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;<a class="el" href="_irr_i_m_g_u_i_8h_source.html">IrrIMGUI/IrrIMGUI.h</a>&gt;</code><br />
+<div class="textblock"><code>#include &lt;<a class="el" href="_include_irrlicht_8h_source.html">IrrIMGUI/IncludeIrrlicht.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_irr_i_m_g_u_i_8h_source.html">IrrIMGUI/IrrIMGUI.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="_c_i_m_g_u_i_event_storage_8h_source.html">IrrIMGUI/CIMGUIEventStorage.h</a>&gt;</code><br />
-<code>#include &quot;<a class="el" href="_include_irrlicht_8h_source.html">IncludeIrrlicht.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_s_i_m_g_u_i_settings_8h_source.html">SIMGUISettings.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_irr_i_m_g_u_i_config_8h_source.html">IrrIMGUIConfig.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_i_g_u_i_texture_8h_source.html">IGUITexture.h</a>&quot;</code><br />
+<code>#include &lt;<a class="el" href="_s_i_m_g_u_i_settings_8h_source.html">IrrIMGUI/SIMGUISettings.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_irr_i_m_g_u_i_config_8h_source.html">IrrIMGUI/IrrIMGUIConfig.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_i_g_u_i_texture_8h_source.html">IrrIMGUI/IGUITexture.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_i_i_m_g_u_i_handle_8h_source.html">IrrIMGUI/IIMGUIHandle.h</a>&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for CIMGUIHandle.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="_c_i_m_g_u_i_handle_8h__incl.png" border="0" usemap="#_d_1_2_projects_2_c_p_p_2_libraries_2_irr_i_m_g_u_i_2_irr_i_m_g_u_i_2includes_2_irr_i_m_g_u_i_2_c_i_m_g_u_i_handle_8h" alt=""/></div>
-<map name="_d_1_2_projects_2_c_p_p_2_libraries_2_irr_i_m_g_u_i_2_irr_i_m_g_u_i_2includes_2_irr_i_m_g_u_i_2_c_i_m_g_u_i_handle_8h" id="_d_1_2_projects_2_c_p_p_2_libraries_2_irr_i_m_g_u_i_2_irr_i_m_g_u_i_2includes_2_irr_i_m_g_u_i_2_c_i_m_g_u_i_handle_8h">
-<area shape="rect" id="node3" href="_irr_i_m_g_u_i_8h.html" title="The main include file for the IMGUI bindinds. " alt="" coords="276,109,407,136"/>
-<area shape="rect" id="node5" href="_irr_i_m_g_u_i_config_8h.html" title="Helper file for preprocessor configuration. " alt="" coords="335,483,451,509"/>
-<area shape="rect" id="node10" href="_c_i_m_g_u_i_event_storage_8h.html" title="A storage memory to transfer Input&#45;Events from Irrlicht to the IMGUI. " alt="" coords="98,259,304,285"/>
-<area shape="rect" id="node19" href="_include_irrlicht_8h.html" title="Helper file for including irrlicht from the correct location. " alt="" coords="5,408,115,435"/>
-<area shape="rect" id="node29" href="_s_i_m_g_u_i_settings_8h.html" title="A storage the settings of the IMGUI. " alt="" coords="482,259,608,285"/>
-<area shape="rect" id="node33" href="_i_g_u_i_texture_8h.html" title="Contains an interface to a GUITexture object. " alt="" coords="576,184,677,211"/>
-<area shape="rect" id="node8" href="_c_i_m_g_u_i_event_receiver_8h.html" title="Contains a standard Event Receiver for Irrlicht that passed inputs to IMGUI. " alt="" coords="197,184,355,211"/>
-<area shape="rect" id="node12" href="_c_char_fifo_8h.html" title="Class definition for a Fifo Memory. " alt="" coords="215,333,305,360"/>
-<area shape="rect" id="node14" href="_include_i_m_g_u_i_8h.html" title="Helper file for including IMGUI and applying the correct settings. " alt="" coords="533,408,643,435"/>
+<div class="center"><img src="_c_i_m_g_u_i_handle_8h__incl.png" border="0" usemap="#_d_1_2_projects_2_c_p_p_2_libraries_2_irr_i_m_g_u_i_2_irr_i_m_g_u_i_2source_2_c_i_m_g_u_i_handle_8h" alt=""/></div>
+<map name="_d_1_2_projects_2_c_p_p_2_libraries_2_irr_i_m_g_u_i_2_irr_i_m_g_u_i_2source_2_c_i_m_g_u_i_handle_8h" id="_d_1_2_projects_2_c_p_p_2_libraries_2_irr_i_m_g_u_i_2_irr_i_m_g_u_i_2source_2_c_i_m_g_u_i_handle_8h">
+<area shape="rect" id="node3" href="_include_irrlicht_8h.html" title="Helper file for including irrlicht from the correct location. " alt="" coords="40,408,200,435"/>
+<area shape="rect" id="node9" href="_irr_i_m_g_u_i_8h.html" title="The main include file for the IMGUI bindinds. " alt="" coords="527,109,657,136"/>
+<area shape="rect" id="node11" href="_irr_i_m_g_u_i_config_8h.html" title="Helper file for preprocessor configuration. " alt="" coords="450,483,565,509"/>
+<area shape="rect" id="node13" href="_i_i_m_g_u_i_handle_8h.html" title="Contains a interface for a IMGUI handle. " alt="" coords="629,184,741,211"/>
+<area shape="rect" id="node15" href="_i_g_u_i_texture_8h.html" title="Contains an interface to a GUITexture object. " alt="" coords="437,259,539,285"/>
+<area shape="rect" id="node26" href="_s_i_m_g_u_i_settings_8h.html" title="A storage the settings of the IMGUI. " alt="" coords="665,259,791,285"/>
+<area shape="rect" id="node31" href="_c_i_m_g_u_i_event_storage_8h.html" title="A storage memory to transfer Input&#45;Events from Irrlicht to the IMGUI. " alt="" coords="208,259,363,285"/>
+<area shape="rect" id="node29" href="_c_i_m_g_u_i_event_receiver_8h.html" title="Contains a standard Event Receiver for Irrlicht that passed inputs to IMGUI. " alt="" coords="293,184,451,211"/>
+<area shape="rect" id="node22" href="_i_reference_counter_8h.html" title="Contains a class to count references. " alt="" coords="488,333,627,360"/>
+<area shape="rect" id="node17" href="_include_i_m_g_u_i_8h.html" title="Helper file for including IMGUI and applying the correct settings. " alt="" coords="275,408,385,435"/>
+<area shape="rect" id="node33" href="_c_char_fifo_8h.html" title="Class definition for a Fifo Memory. " alt="" coords="215,333,305,360"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="_c_i_m_g_u_i_handle_8h__dep__incl.png" border="0" usemap="#_d_1_2_projects_2_c_p_p_2_libraries_2_irr_i_m_g_u_i_2_irr_i_m_g_u_i_2includes_2_irr_i_m_g_u_i_2_c_i_m_g_u_i_handle_8hdep" alt=""/></div>
-<map name="_d_1_2_projects_2_c_p_p_2_libraries_2_irr_i_m_g_u_i_2_irr_i_m_g_u_i_2includes_2_irr_i_m_g_u_i_2_c_i_m_g_u_i_handle_8hdep" id="_d_1_2_projects_2_c_p_p_2_libraries_2_irr_i_m_g_u_i_2_irr_i_m_g_u_i_2includes_2_irr_i_m_g_u_i_2_c_i_m_g_u_i_handle_8hdep">
-<area shape="rect" id="node3" href="_irr_i_m_g_u_i_8h.html" title="The main include file for the IMGUI bindinds. " alt="" coords="439,109,615,165"/>
-<area shape="rect" id="node5" href="_c_char_fifo_8cpp.html" title="Class definition for a Fifo Memory. " alt="" coords="5,317,176,373"/>
-<area shape="rect" id="node7" href="_irr_i_m_g_u_i_debug__priv_8h.html" title="Contains defines for debug handling. " alt="" coords="204,213,375,269"/>
-<area shape="rect" id="node10" href="_c_i_m_g_u_i_handle_8cpp.html" title="Contains a handle to setup the IMGUI for Irrlicht. " alt="" coords="352,317,523,373"/>
-<area shape="rect" id="node16" href="_i_i_m_g_u_i_driver_8cpp.html" title="Contains a driver interface for IMGUI. " alt="" coords="741,421,912,477"/>
-<area shape="rect" id="node19" href="_i_i_m_g_u_i_driver_8h.html" title="Contains a driver interface for IMGUI. " alt="" coords="564,213,735,269"/>
-<area shape="rect" id="node22" href="_c_irrlicht_i_m_g_u_i_driver_8h.html" title="Contains a driver that uses Irrlicht primitive drawing functions to render the GUI. " alt="" coords="741,317,912,373"/>
-<area shape="rect" id="node26" href="_c_open_g_l_i_m_g_u_i_driver_8h.html" title="Contains a driver that uses native OpenGL functions to render the GUI. " alt="" coords="547,317,717,373"/>
-<area shape="rect" id="node12" href="_c_irrlicht_i_m_g_u_i_driver_8cpp.html" title="Contains a driver that uses Irrlicht primitive drawing functions to render the GUI. " alt="" coords="491,421,661,477"/>
-<area shape="rect" id="node14" href="_c_open_g_l_i_m_g_u_i_driver_8cpp.html" title="Contains a driver that uses native OpenGL functions to render the GUI. " alt="" coords="180,421,356,477"/>
+<div class="center"><img src="_c_i_m_g_u_i_handle_8h__dep__incl.png" border="0" usemap="#_d_1_2_projects_2_c_p_p_2_libraries_2_irr_i_m_g_u_i_2_irr_i_m_g_u_i_2source_2_c_i_m_g_u_i_handle_8hdep" alt=""/></div>
+<map name="_d_1_2_projects_2_c_p_p_2_libraries_2_irr_i_m_g_u_i_2_irr_i_m_g_u_i_2source_2_c_i_m_g_u_i_handle_8hdep" id="_d_1_2_projects_2_c_p_p_2_libraries_2_irr_i_m_g_u_i_2_irr_i_m_g_u_i_2source_2_c_i_m_g_u_i_handle_8hdep">
+<area shape="rect" id="node3" href="_c_i_m_g_u_i_handle_8cpp.html" title="Contains a handle to setup the IMGUI for Irrlicht. " alt="" coords="5,109,176,165"/>
+<area shape="rect" id="node5" href="_irr_i_m_g_u_i_inject_8cpp.html" title="Contains function implementation for Dependency Injection. " alt="" coords="200,109,371,165"/>
 </map>
 </div>
 </div>
@@ -142,8 +136,8 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_handle.html">IrrIMGUI::CIMGUIHandle</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use an object of this class to setup the IMGUI for Irrlicht and to render the content.  <a href="class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_handle.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_irr_i_m_g_u_i_1_1_private_1_1_c_i_m_g_u_i_handle.html">IrrIMGUI::Private::CIMGUIHandle</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use an object of this class to setup the IMGUI for Irrlicht and to render the content.  <a href="class_irr_i_m_g_u_i_1_1_private_1_1_c_i_m_g_u_i_handle.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -154,11 +148,6 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespace_irr_i_m_g_u_i_1_1_private"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_irr_i_m_g_u_i_1_1_private.html">IrrIMGUI::Private</a></td></tr>
 <tr class="memdesc:namespace_irr_i_m_g_u_i_1_1_private"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="namespace_irr_i_m_g_u_i_1_1_private.html" title="Private definitions for the IMGUI Irrlicht binding. Do not use them outside, the interface may change...">Private</a> definitions for the IMGUI Irrlicht binding. Do not use them outside, the interface may change a lot of times! <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a8f46ee69a06d64d78539ec7701633fff"><td class="memItemLeft" align="right" valign="top">class <a class="el" href="group___irr_i_m_g_u_i.html#gab0ac930850c822781bc6ffd6b4958e52">IRRIMGUI_DLL_API</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_irr_i_m_g_u_i_1_1_private.html#a8f46ee69a06d64d78539ec7701633fff">IrrIMGUI::Private::IIMGUIDriver</a></td></tr>
-<tr class="separator:a8f46ee69a06d64d78539ec7701633fff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Contains a handle to setup the IMGUI for Irrlicht. </p>

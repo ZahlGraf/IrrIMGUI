@@ -1,15 +1,24 @@
 <map id="D:/Projects/CPP/Libraries/IrrIMGUI/IrrIMGUI/includes/IrrIMGUI/IGUITexture.h" name="D:/Projects/CPP/Libraries/IrrIMGUI/IrrIMGUI/includes/IrrIMGUI/IGUITexture.h">
-<area shape="rect" id="node3" href="$_c_g_u_i_texture_8h.html" title="Contains the class for a GUITexture object. " alt="" coords="200,317,371,373"/>
-<area shape="rect" id="node16" href="$_c_i_m_g_u_i_handle_8h.html" title="Contains a handle to setup the IMGUI for Irrlicht. " alt="" coords="555,109,731,165"/>
+<area shape="rect" id="node3" href="$_c_g_u_i_texture_8h.html" title="Contains the class for a GUITexture object. " alt="" coords="492,317,663,373"/>
+<area shape="rect" id="node20" href="$_c_i_m_g_u_i_handle_8h.html" title="Contains a handle to setup the IMGUI for Irrlicht. " alt="" coords="964,317,1135,373"/>
+<area shape="rect" id="node26" href="$_i_i_m_g_u_i_handle_8h.html" title="Contains a interface for a IMGUI handle. " alt="" coords="836,109,1012,165"/>
 <area shape="rect" id="node5" href="$_c_g_u_i_texture_8cpp.html" title="Contains the class for a GUITexture object. " alt="" coords="5,421,176,477"/>
-<area shape="rect" id="node7" href="$_c_irrlicht_i_m_g_u_i_driver_8h.html" title="Contains a driver that uses Irrlicht primitive drawing functions to render the GUI. " alt="" coords="251,421,421,477"/>
-<area shape="rect" id="node9" href="$_c_irrlicht_i_m_g_u_i_driver_8cpp.html" title="Contains a driver that uses Irrlicht primitive drawing functions to render the GUI. " alt="" coords="251,525,421,581"/>
-<area shape="rect" id="node14" href="$_c_open_g_l_i_m_g_u_i_driver_8cpp.html" title="Contains a driver that uses native OpenGL functions to render the GUI. " alt="" coords="655,525,831,581"/>
-<area shape="rect" id="node11" href="$_i_i_m_g_u_i_driver_8cpp.html" title="Contains a driver interface for IMGUI. " alt="" coords="460,525,631,581"/>
-<area shape="rect" id="node18" href="$_irr_i_m_g_u_i_8h.html" title="The main include file for the IMGUI bindinds. " alt="" coords="555,213,731,269"/>
-<area shape="rect" id="node20" href="$_c_char_fifo_8cpp.html" title="Class definition for a Fifo Memory. " alt="" coords="1139,421,1309,477"/>
-<area shape="rect" id="node22" href="$_irr_i_m_g_u_i_debug__priv_8h.html" title="Contains defines for debug handling. " alt="" coords="940,317,1111,373"/>
-<area shape="rect" id="node25" href="$_c_i_m_g_u_i_handle_8cpp.html" title="Contains a handle to setup the IMGUI for Irrlicht. " alt="" coords="792,421,963,477"/>
-<area shape="rect" id="node31" href="$_i_i_m_g_u_i_driver_8h.html" title="Contains a driver interface for IMGUI. " alt="" coords="496,317,667,373"/>
-<area shape="rect" id="node35" href="$_c_open_g_l_i_m_g_u_i_driver_8h.html" title="Contains a driver that uses native OpenGL functions to render the GUI. " alt="" coords="597,421,768,477"/>
+<area shape="rect" id="node7" href="$_c_irrlicht_i_m_g_u_i_driver_8h.html" title="Contains a driver that uses Irrlicht primitive drawing functions to render the GUI. " alt="" coords="1160,421,1331,477"/>
+<area shape="rect" id="node9" href="$_c_irrlicht_i_m_g_u_i_driver_8cpp.html" title="Contains a driver that uses Irrlicht primitive drawing functions to render the GUI. " alt="" coords="1160,525,1331,581"/>
+<area shape="rect" id="node14" href="$_c_open_g_l_i_m_g_u_i_driver_8cpp.html" title="Contains a driver that uses native OpenGL functions to render the GUI. " alt="" coords="1549,525,1725,581"/>
+<area shape="rect" id="node16" href="$_i_m_g_u_i_helper_8cpp.html" title="Contains helper functions for the IMGUI handling. " alt="" coords="200,421,371,477"/>
+<area shape="rect" id="node18" href="$_unit_test_8cpp.html" title="Contains helper functions for the unit testing. " alt="" coords="395,421,565,477"/>
+<area shape="rect" id="node11" href="$_i_i_m_g_u_i_driver_8cpp.html" title="Contains a driver interface for IMGUI. " alt="" coords="1749,525,1920,581"/>
+<area shape="rect" id="node22" href="$_c_i_m_g_u_i_handle_8cpp.html" title="Contains a handle to setup the IMGUI for Irrlicht. " alt="" coords="1355,421,1525,477"/>
+<area shape="rect" id="node24" href="$_irr_i_m_g_u_i_inject_8cpp.html" title="Contains function implementation for Dependency Injection. " alt="" coords="965,421,1136,477"/>
+<area shape="rect" id="node29" href="$_irr_i_m_g_u_i_8h.html" title="The main include file for the IMGUI bindinds. " alt="" coords="1368,213,1544,269"/>
+<area shape="rect" id="node66" href="$_i_i_m_g_u_i_handle_mock_8h.html" title="Contains a CppUMock compatible mock of the IIMGUIHanlde class. " alt="" coords="691,421,941,477"/>
+<area shape="rect" id="node31" href="$_irr_i_m_g_u_i_debug__priv_8h.html" title="Contains defines for debug handling. " alt="" coords="1765,317,1952,373"/>
+<area shape="rect" id="node35" href="$_c_char_fifo_8cpp.html" title="Class definition for a Fifo Memory. " alt="" coords="2389,421,2560,477"/>
+<area shape="rect" id="node47" href="$_i_i_m_g_u_i_driver_8h.html" title="Contains a driver interface for IMGUI. " alt="" coords="1519,317,1689,373"/>
+<area shape="rect" id="node51" href="$_c_open_g_l_i_m_g_u_i_driver_8h.html" title="Contains a driver that uses native OpenGL functions to render the GUI. " alt="" coords="1651,421,1821,477"/>
+<area shape="rect" id="node60" href="$_irr_i_m_g_u_i_inject__priv_8h.html" title="Private definitions for dependency injection. " alt="" coords="1159,317,1341,373"/>
+<area shape="rect" id="node63" href="$_irr_i_m_g_u_i_inject_8h.html" title="Functions for dependency injection. " alt="" coords="738,317,939,373"/>
+<area shape="rect" id="node33" href="$_c_basic_memory_leak_detection_8cpp.html" title="Class for a very basic memory leak detection. " alt="" coords="2091,421,2313,477"/>
+<area shape="rect" id="node41" href="$_i_reference_counter_8cpp.html" title="Contains a class to count references. " alt="" coords="1896,421,2067,477"/>
 </map>

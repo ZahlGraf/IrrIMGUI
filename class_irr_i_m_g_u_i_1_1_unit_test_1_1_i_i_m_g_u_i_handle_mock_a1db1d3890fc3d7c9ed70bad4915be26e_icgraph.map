@@ -1,0 +1,8 @@
+<map id="IrrIMGUI::UnitTest::IIMGUIHandleMock::getDummyFont" name="IrrIMGUI::UnitTest::IIMGUIHandleMock::getDummyFont">
+<area shape="rect" id="node3" href="$class_irr_i_m_g_u_i_1_1_unit_test_1_1_i_i_m_g_u_i_handle_mock.html#a338faaec0b623ddbb5dcc44488120542" title="Adds a font to the IMGUI memory. " alt="" coords="249,5,399,61"/>
+<area shape="rect" id="node5" href="$class_irr_i_m_g_u_i_1_1_unit_test_1_1_i_i_m_g_u_i_handle_mock.html#a26779333b8ed278552e17e1aee5b9c19" title="Adds the default font to the IMGUI memory. " alt="" coords="249,85,399,141"/>
+<area shape="rect" id="node7" href="$class_irr_i_m_g_u_i_1_1_unit_test_1_1_i_i_m_g_u_i_handle_mock.html#a9aef7b26d6607d507aa70cfe977aea26" title="Adds a font from a TTF file to the IMGUI memory. " alt="" coords="249,165,399,221"/>
+<area shape="rect" id="node9" href="$class_irr_i_m_g_u_i_1_1_unit_test_1_1_i_i_m_g_u_i_handle_mock.html#a20f1e06f65e7d5bac25ca5100d20fb78" title="Adds a font from a TTF byte array to the IMGUI memory. " alt="" coords="240,245,408,301"/>
+<area shape="rect" id="node11" href="$class_irr_i_m_g_u_i_1_1_unit_test_1_1_i_i_m_g_u_i_handle_mock.html#ab9ccbe5c1b8258023c60b010001bab63" title="Adds a font from a compressed TTF byte array to the IMGUI memory. " alt="" coords="203,325,445,381"/>
+<area shape="rect" id="node13" href="$class_irr_i_m_g_u_i_1_1_unit_test_1_1_i_i_m_g_u_i_handle_mock.html#a0eebf72d061df204f49c68832fdbc02a" title="Adds a font from a compressed TTF byte array that uses the base85 character encoding to the IMGUI mem..." alt="" coords="215,406,433,477"/>
+</map>

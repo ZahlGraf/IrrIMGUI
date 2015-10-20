@@ -1,0 +1,11 @@
+<map id="IrrIMGUI::CCharFifo::isEmpty" name="IrrIMGUI::CCharFifo::isEmpty">
+<area shape="rect" id="node3" href="$class_irr_i_m_g_u_i_1_1_c_char_fifo.html#ae973e43c361dc9bfdcbe8cf3cbc3d2d0" title="Standard Constructor. " alt="" coords="190,5,325,46"/>
+<area shape="rect" id="node5" href="$class_irr_i_m_g_u_i_1_1_c_char_fifo.html#ac906bd3ca282fb0832941b1c9235f29e" title="IrrIMGUI::CCharFifo\l::addChar" alt="" coords="190,70,325,111"/>
+<area shape="rect" id="node11" href="$class_irr_i_m_g_u_i_1_1_c_char_fifo.html#ae8c039b9eeae9e0a449898f24a2704e5" title="IrrIMGUI::CCharFifo\l::getChar" alt="" coords="190,135,325,177"/>
+<area shape="rect" id="node13" href="$namespace_irr_i_m_g_u_i.html#a764b23699520a6cd979ee16c98b5a9d2" title="Updates the Keyboard events from IMGUI. " alt="" coords="389,172,560,199"/>
+<area shape="rect" id="node7" href="$class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_event_receiver.html#a8ddb061d0232b5d681121f9680caab47" title="Checks the events that are keyboard related. " alt="" coords="373,70,576,111"/>
+<area shape="rect" id="node9" href="$class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_event_receiver.html#a7e1ca9e08db25f6c7bbe3e094252c11b" title="This function is called by Irrlicht, when an Event occurs. " alt="" coords="624,70,827,111"/>
+<area shape="rect" id="node15" href="$namespace_irr_i_m_g_u_i.html#aaac1d4c6b373ceb5212ce586e64c4946" title="Updates the values for an IMGUI Frame, like delta time, input events and screen size. " alt="" coords="631,165,820,206"/>
+<area shape="rect" id="node17" href="$class_irr_i_m_g_u_i_1_1_unit_test_1_1_i_i_m_g_u_i_handle_mock.html#aa6606c67b5b967dec99006d0ef721491" title="Call this methods before you draw the IMGUI elements and before calling &quot;drawAll()&quot;. " alt="" coords="881,120,1031,176"/>
+<area shape="rect" id="node19" href="$class_irr_i_m_g_u_i_1_1_private_1_1_c_i_m_g_u_i_handle.html#ad5956096bde1775c64f9c97846437ce4" title="Call this methods before you draw the IMGUI elements and before calling &quot;drawAll()&quot;. " alt="" coords="875,201,1037,242"/>
+</map>

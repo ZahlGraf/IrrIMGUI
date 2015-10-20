@@ -1,0 +1,18 @@
+<map id="D:/Projects/CPP/Libraries/IrrIMGUI/IrrIMGUI/includes/IrrIMGUI/UnitTest/IIMGUIHandleMock.h" name="D:/Projects/CPP/Libraries/IrrIMGUI/IrrIMGUI/includes/IrrIMGUI/UnitTest/IIMGUIHandleMock.h">
+<area shape="rect" id="node3" href="$_irr_i_m_g_u_i_inject_8h.html" title="Functions for dependency injection. " alt="" coords="424,109,621,136"/>
+<area shape="rect" id="node9" href="$_i_i_m_g_u_i_handle_8h.html" title="Contains a interface for a IMGUI handle. " alt="" coords="283,333,395,360"/>
+<area shape="rect" id="node32" href="$_c_i_m_g_u_i_event_storage_8h.html" title="A storage memory to transfer Input&#45;Events from Irrlicht to the IMGUI. " alt="" coords="524,333,679,360"/>
+<area shape="rect" id="node42" href="$_i_m_g_u_i_helper_8h.html" title="Contains helper functions for the IMGUI handling. " alt="" coords="712,184,869,211"/>
+<area shape="rect" id="node47" href="$_unit_test_8h.html" title="Main&#45;header for the unit test interface. " alt="" coords="1037,109,1221,136"/>
+<area shape="rect" id="node59" href="$_mock_helper_8h.html" title="Contains definitions used inside IIMGUIHandleMock, but they must stay independent from the mock..." alt="" coords="804,333,1009,360"/>
+<area shape="rect" id="node5" href="$_irr_i_m_g_u_i_8h.html" title="The main include file for the IMGUI bindinds. " alt="" coords="449,184,580,211"/>
+<area shape="rect" id="node7" href="$_irr_i_m_g_u_i_config_8h.html" title="Helper file for preprocessor configuration. " alt="" coords="557,557,672,584"/>
+<area shape="rect" id="node30" href="$_c_i_m_g_u_i_event_receiver_8h.html" title="Contains a standard Event Receiver for Irrlicht that passed inputs to IMGUI. " alt="" coords="427,259,585,285"/>
+<area shape="rect" id="node11" href="$_i_g_u_i_texture_8h.html" title="Contains an interface to a GUITexture object. " alt="" coords="268,408,369,435"/>
+<area shape="rect" id="node18" href="$_i_reference_counter_8h.html" title="Contains a class to count references. " alt="" coords="105,408,244,435"/>
+<area shape="rect" id="node27" href="$_s_i_m_g_u_i_settings_8h.html" title="A storage the settings of the IMGUI. " alt="" coords="450,483,576,509"/>
+<area shape="rect" id="node13" href="$_include_i_m_g_u_i_8h.html" title="Helper file for including IMGUI and applying the correct settings. " alt="" coords="263,483,373,509"/>
+<area shape="rect" id="node21" href="$_include_irrlicht_8h.html" title="Helper file for including irrlicht from the correct location. " alt="" coords="79,483,188,509"/>
+<area shape="rect" id="node34" href="$_c_char_fifo_8h.html" title="Class definition for a Fifo Memory. " alt="" coords="393,408,484,435"/>
+<area shape="rect" id="node49" href="$_include_cpp_u_test_8h.html" title="Wrapper for including the CppUTest framework. " alt="" coords="1159,184,1289,211"/>
+</map>

@@ -1,4 +1,6 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_irr_i_m_g_u_i_1_1_i_g_u_i_texture.html" title="IrrIMGUI::IGUITexture" alt="" coords="6,12,151,39"/>
-<area shape="rect" id="node3" href="$class_irr_i_m_g_u_i_1_1_private_1_1_c_g_u_i_texture.html" title="IrrIMGUI::Private::\lCGUITexture" alt="" coords="201,5,325,46"/>
+<area shape="rect" id="node1" href="$class_irr_i_m_g_u_i_1_1_i_reference_counter.html" title="A class to count references. " alt="" coords="6,45,189,72"/>
+<area shape="rect" id="node3" href="$class_irr_i_m_g_u_i_1_1_i_i_m_g_u_i_handle.html" title="A interface to an IMGUI handle. Use this interface for mocking and dependency injection of the real I..." alt="" coords="238,45,394,72"/>
+<area shape="rect" id="node5" href="$class_irr_i_m_g_u_i_1_1_private_1_1_c_i_m_g_u_i_handle.html" title="Use an object of this class to setup the IMGUI for Irrlicht and to render the content. " alt="" coords="451,5,575,46"/>
+<area shape="rect" id="node7" href="$class_irr_i_m_g_u_i_1_1_unit_test_1_1_i_i_m_g_u_i_handle_mock.html" title="IrrIMGUI::UnitTest\l::IIMGUIHandleMock" alt="" coords="443,70,584,111"/>
 </map>

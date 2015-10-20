@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">IrrIMGUI
-   &#160;<span id="projectnumber">0.2.0</span>
+   &#160;<span id="projectnumber">0.3.0</span>
    </div>
   </td>
  </tr>
@@ -118,26 +118,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;      ImWchar getChar(<span class="keywordtype">void</span>);</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;      <span class="keywordtype">bool</span> isEmpty(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;      <span class="keywordtype">bool</span> isEmpty(<span class="keywordtype">void</span>) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;      <span class="keywordtype">bool</span> isFull(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;      <span class="keywordtype">bool</span> isFull(<span class="keywordtype">void</span>) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="class_irr_i_m_g_u_i_1_1_c_char_fifo.html#a40ff216938dd6a8142da60ae6a431b94">   85</a></span>&#160;      ImWchar mCharArray[256];</div>
-<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="class_irr_i_m_g_u_i_1_1_c_char_fifo.html#a158e18c86d085758ac96fdaeb448abe1">   86</a></span>&#160;      irr::u8 <a class="code" href="class_irr_i_m_g_u_i_1_1_c_char_fifo.html#a158e18c86d085758ac96fdaeb448abe1">mWriteIndex</a>;</div>
-<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="class_irr_i_m_g_u_i_1_1_c_char_fifo.html#a07f945ec78726b8cd9ad1048a63dbfc6">   87</a></span>&#160;      irr::u8 <a class="code" href="class_irr_i_m_g_u_i_1_1_c_char_fifo.html#a07f945ec78726b8cd9ad1048a63dbfc6">mReadIndex</a>;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  };</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;}</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* IRRIMGUI_INCLUDE_IRRIMGUI_CCHARFIFO_H_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;      irr::u8 getNumberOfElements(<span class="keywordtype">void</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="class_irr_i_m_g_u_i_1_1_c_char_fifo.html#a40ff216938dd6a8142da60ae6a431b94">   88</a></span>&#160;      ImWchar mCharArray[256];</div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="class_irr_i_m_g_u_i_1_1_c_char_fifo.html#a158e18c86d085758ac96fdaeb448abe1">   89</a></span>&#160;      irr::u8 <a class="code" href="class_irr_i_m_g_u_i_1_1_c_char_fifo.html#a158e18c86d085758ac96fdaeb448abe1">mWriteIndex</a>;</div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="class_irr_i_m_g_u_i_1_1_c_char_fifo.html#a07f945ec78726b8cd9ad1048a63dbfc6">   90</a></span>&#160;      irr::u8 <a class="code" href="class_irr_i_m_g_u_i_1_1_c_char_fifo.html#a07f945ec78726b8cd9ad1048a63dbfc6">mReadIndex</a>;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  };</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;}</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* IRRIMGUI_INCLUDE_IRRIMGUI_CCHARFIFO_H_ */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="_include_irrlicht_8h_html"><div class="ttname"><a href="_include_irrlicht_8h.html">IncludeIrrlicht.h</a></div><div class="ttdoc">Helper file for including irrlicht from the correct location. </div></div>
 <div class="ttc" id="_irr_i_m_g_u_i_config_8h_html"><div class="ttname"><a href="_irr_i_m_g_u_i_config_8h.html">IrrIMGUIConfig.h</a></div><div class="ttdoc">Helper file for preprocessor configuration. </div></div>
-<div class="ttc" id="class_irr_i_m_g_u_i_1_1_c_char_fifo_html_a07f945ec78726b8cd9ad1048a63dbfc6"><div class="ttname"><a href="class_irr_i_m_g_u_i_1_1_c_char_fifo.html#a07f945ec78726b8cd9ad1048a63dbfc6">IrrIMGUI::CCharFifo::mReadIndex</a></div><div class="ttdeci">irr::u8 mReadIndex</div><div class="ttdef"><b>Definition:</b> <a href="_c_char_fifo_8h_source.html#l00087">CCharFifo.h:87</a></div></div>
+<div class="ttc" id="class_irr_i_m_g_u_i_1_1_c_char_fifo_html_a07f945ec78726b8cd9ad1048a63dbfc6"><div class="ttname"><a href="class_irr_i_m_g_u_i_1_1_c_char_fifo.html#a07f945ec78726b8cd9ad1048a63dbfc6">IrrIMGUI::CCharFifo::mReadIndex</a></div><div class="ttdeci">irr::u8 mReadIndex</div><div class="ttdef"><b>Definition:</b> <a href="_c_char_fifo_8h_source.html#l00090">CCharFifo.h:90</a></div></div>
 <div class="ttc" id="class_irr_i_m_g_u_i_1_1_c_char_fifo_html"><div class="ttname"><a href="class_irr_i_m_g_u_i_1_1_c_char_fifo.html">IrrIMGUI::CCharFifo</a></div><div class="ttdoc">A Fifo Memory to store character inputs from the keyboard. </div><div class="ttdef"><b>Definition:</b> <a href="_c_char_fifo_8h_source.html#l00049">CCharFifo.h:49</a></div></div>
-<div class="ttc" id="class_irr_i_m_g_u_i_1_1_c_char_fifo_html_a158e18c86d085758ac96fdaeb448abe1"><div class="ttname"><a href="class_irr_i_m_g_u_i_1_1_c_char_fifo.html#a158e18c86d085758ac96fdaeb448abe1">IrrIMGUI::CCharFifo::mWriteIndex</a></div><div class="ttdeci">irr::u8 mWriteIndex</div><div class="ttdef"><b>Definition:</b> <a href="_c_char_fifo_8h_source.html#l00086">CCharFifo.h:86</a></div></div>
-<div class="ttc" id="group___irr_i_m_g_u_i_html_gab0ac930850c822781bc6ffd6b4958e52"><div class="ttname"><a href="group___irr_i_m_g_u_i.html#gab0ac930850c822781bc6ffd6b4958e52">IRRIMGUI_DLL_API</a></div><div class="ttdeci">#define IRRIMGUI_DLL_API</div><div class="ttdoc">Helper for shared windows libraries (DLL). </div><div class="ttdef"><b>Definition:</b> <a href="_irr_i_m_g_u_i_config_8h_source.html#l00105">IrrIMGUIConfig.h:105</a></div></div>
-<div class="ttc" id="namespace_irr_i_m_g_u_i_html"><div class="ttname"><a href="namespace_irr_i_m_g_u_i.html">IrrIMGUI</a></div><div class="ttdoc">Main namespace for Irrlicht IMGUI binding. </div><div class="ttdef"><b>Definition:</b> <a href="_c_channel_buffer_8cpp_source.html#l00037">CChannelBuffer.cpp:37</a></div></div>
+<div class="ttc" id="class_irr_i_m_g_u_i_1_1_c_char_fifo_html_a158e18c86d085758ac96fdaeb448abe1"><div class="ttname"><a href="class_irr_i_m_g_u_i_1_1_c_char_fifo.html#a158e18c86d085758ac96fdaeb448abe1">IrrIMGUI::CCharFifo::mWriteIndex</a></div><div class="ttdeci">irr::u8 mWriteIndex</div><div class="ttdef"><b>Definition:</b> <a href="_c_char_fifo_8h_source.html#l00089">CCharFifo.h:89</a></div></div>
+<div class="ttc" id="group___irr_i_m_g_u_i_html_gab0ac930850c822781bc6ffd6b4958e52"><div class="ttname"><a href="group___irr_i_m_g_u_i.html#gab0ac930850c822781bc6ffd6b4958e52">IRRIMGUI_DLL_API</a></div><div class="ttdeci">#define IRRIMGUI_DLL_API</div><div class="ttdoc">Helper for shared windows libraries (DLL). </div><div class="ttdef"><b>Definition:</b> <a href="_irr_i_m_g_u_i_config_8h_source.html#l00156">IrrIMGUIConfig.h:156</a></div></div>
+<div class="ttc" id="namespace_irr_i_m_g_u_i_html"><div class="ttname"><a href="namespace_irr_i_m_g_u_i.html">IrrIMGUI</a></div><div class="ttdoc">Main namespace for Irrlicht IMGUI binding. </div><div class="ttdef"><b>Definition:</b> <a href="_c_basic_memory_leak_detection_8cpp_source.html#l00035">CBasicMemoryLeakDetection.cpp:35</a></div></div>
 <div class="ttc" id="_include_i_m_g_u_i_8h_html"><div class="ttname"><a href="_include_i_m_g_u_i_8h.html">IncludeIMGUI.h</a></div><div class="ttdoc">Helper file for including IMGUI and applying the correct settings. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

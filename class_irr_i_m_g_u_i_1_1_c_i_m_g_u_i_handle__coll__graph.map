@@ -1,7 +1,0 @@
-<map id="IrrIMGUI::CIMGUIHandle" name="IrrIMGUI::CIMGUIHandle">
-<area shape="rect" id="node2" href="$class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_event_storage.html" title="Stores the state of the Keyboard and Mouse input for IMGUI. " alt="" coords="5,104,203,131"/>
-<area shape="rect" id="node4" href="$class_irr_i_m_g_u_i_1_1_c_char_fifo.html" title="A Fifo Memory to store character inputs from the keyboard. " alt="" coords="37,5,171,32"/>
-<area shape="rect" id="node6" href="$class_irr_i_m_g_u_i_1_1_private_1_1_i_i_m_g_u_i_driver.html" title="Interface for an IMGUI Driver to setup the IMGUI render system. " alt="" coords="227,97,351,138"/>
-<area shape="rect" id="node8" href="$struct_irr_i_m_g_u_i_1_1_s_i_m_g_u_i_settings.html" title="Stores the settings of the IMGUI. " alt="" coords="200,5,371,32"/>
-<area shape="rect" id="node10" href="$class_irr_i_m_g_u_i_1_1_i_g_u_i_texture.html" title="IrrIMGUI::IGUITexture" alt="" coords="395,5,540,32"/>
-</map>

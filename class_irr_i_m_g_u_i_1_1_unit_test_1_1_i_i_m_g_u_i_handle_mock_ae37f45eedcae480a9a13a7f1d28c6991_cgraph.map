@@ -1,0 +1,9 @@
+<map id="IrrIMGUI::UnitTest::IIMGUIHandleMock::enableMock" name="IrrIMGUI::UnitTest::IIMGUIHandleMock::enableMock">
+<area shape="rect" id="node3" href="$group___irr_i_m_g_u_i_inject.html#gaa4e6e47212a4480c480e8c01eb6f8003" title="IrrIMGUI::Inject::setIMGUIFactory" alt="" coords="203,23,418,49"/>
+<area shape="rect" id="node7" href="$class_irr_i_m_g_u_i_1_1_unit_test_1_1_i_i_m_g_u_i_handle_mock.html#a65aab30ec2717a7d48599ebf723b627c" title="Factory method for the mock. " alt="" coords="236,75,385,131"/>
+<area shape="rect" id="node5" href="$namespace_irr_i_m_g_u_i_1_1_private.html#ae0c070b8df474d5b73398174891be3cf" title="Creates a real IMGUI object (the real factory function for it) " alt="" coords="479,13,603,54"/>
+<area shape="rect" id="node9" href="$class_irr_i_m_g_u_i_1_1_unit_test_1_1_i_i_m_g_u_i_handle_mock.html#a86d5daad897dff1d7ae033f9f50128df" title="IrrIMGUI::UnitTest\l::IIMGUIHandleMock::\lIIMGUIHandleMock" alt="" coords="467,79,616,135"/>
+<area shape="rect" id="node11" href="$class_irr_i_m_g_u_i_1_1_unit_test_1_1_i_i_m_g_u_i_handle_mock.html#a3c217158dd4c10f2f21e410497270869" title="IrrIMGUI::UnitTest\l::IIMGUIHandleMock::\lareIMGUICallsEnabled" alt="" coords="675,5,827,61"/>
+<area shape="rect" id="node13" href="$namespace_irr_i_m_g_u_i_1_1_unit_test.html#a954f7875b2f32ae9ee40a61b915e2cd8" title="Creates a dummy font in IMGUI to prevent errors for unit&#45;tests that uses the mock. " alt="" coords="664,86,837,127"/>
+<area shape="rect" id="node15" href="$class_irr_i_m_g_u_i_1_1_unit_test_1_1_i_i_m_g_u_i_handle_mock.html#aa566db3c23f6d76f011b86d79f92f2aa" title="Dummy draw method. " alt="" coords="676,152,825,208"/>
+</map>

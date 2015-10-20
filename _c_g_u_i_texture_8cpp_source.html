@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">IrrIMGUI
-   &#160;<span id="projectnumber">0.2.0</span>
+   &#160;<span id="projectnumber">0.3.0</span>
    </div>
   </td>
  </tr>
@@ -93,7 +93,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 <a href="_c_g_u_i_texture_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">// module includes</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_c_g_u_i_texture_8h.html">CGUITexture.h</a>&quot;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_c_g_u_i_texture_8h.html">private/CGUITexture.h</a>&quot;</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_irr_i_m_g_u_i.html">IrrIMGUI</a></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
@@ -103,21 +103,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="class_irr_i_m_g_u_i_1_1_private_1_1_c_g_u_i_texture.html#aa8a52f4f0a391b45a7a4dbf7e237ea61">   39</a></span>&#160;  <a class="code" href="class_irr_i_m_g_u_i_1_1_private_1_1_c_g_u_i_texture.html#aa8a52f4f0a391b45a7a4dbf7e237ea61">CGUITexture::CGUITexture</a>(<span class="keywordtype">void</span>):</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    mIsUsingOwnMemory(false),</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    mSourceType(<a class="code" href="namespace_irr_i_m_g_u_i_1_1_private.html#afdbc4ba84603b12f356687fcb3a80de1ac678f4f5c46f5b05b3fa3a4e88b891c9">ETST_UNKNOWN</a>),</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    mIsValid(true)</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  {</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  }</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="class_irr_i_m_g_u_i_1_1_private_1_1_c_g_u_i_texture.html#a92f9e24188c397b46868cbd3ebcc60ea">   47</a></span>&#160;  <a class="code" href="class_irr_i_m_g_u_i_1_1_private_1_1_c_g_u_i_texture.html#a92f9e24188c397b46868cbd3ebcc60ea">CGUITexture::~CGUITexture</a>(<span class="keywordtype">void</span>)</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  }</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    mIsValid(true),</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    mGPUTextureID(nullptr)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="class_irr_i_m_g_u_i_1_1_private_1_1_c_g_u_i_texture.html#a92f9e24188c397b46868cbd3ebcc60ea">   48</a></span>&#160;  <a class="code" href="class_irr_i_m_g_u_i_1_1_private_1_1_c_g_u_i_texture.html#a92f9e24188c397b46868cbd3ebcc60ea">CGUITexture::~CGUITexture</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  }</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}</div>
 <div class="ttc" id="_c_g_u_i_texture_8h_html"><div class="ttname"><a href="_c_g_u_i_texture_8h.html">CGUITexture.h</a></div><div class="ttdoc">Contains the class for a GUITexture object. </div></div>
-<div class="ttc" id="class_irr_i_m_g_u_i_1_1_private_1_1_c_g_u_i_texture_html_a92f9e24188c397b46868cbd3ebcc60ea"><div class="ttname"><a href="class_irr_i_m_g_u_i_1_1_private_1_1_c_g_u_i_texture.html#a92f9e24188c397b46868cbd3ebcc60ea">IrrIMGUI::Private::CGUITexture::~CGUITexture</a></div><div class="ttdeci">virtual ~CGUITexture(void)</div><div class="ttdoc">Destructor. </div><div class="ttdef"><b>Definition:</b> <a href="_c_g_u_i_texture_8cpp_source.html#l00047">CGUITexture.cpp:47</a></div></div>
-<div class="ttc" id="namespace_irr_i_m_g_u_i_html"><div class="ttname"><a href="namespace_irr_i_m_g_u_i.html">IrrIMGUI</a></div><div class="ttdoc">Main namespace for Irrlicht IMGUI binding. </div><div class="ttdef"><b>Definition:</b> <a href="_c_channel_buffer_8cpp_source.html#l00037">CChannelBuffer.cpp:37</a></div></div>
+<div class="ttc" id="class_irr_i_m_g_u_i_1_1_private_1_1_c_g_u_i_texture_html_a92f9e24188c397b46868cbd3ebcc60ea"><div class="ttname"><a href="class_irr_i_m_g_u_i_1_1_private_1_1_c_g_u_i_texture.html#a92f9e24188c397b46868cbd3ebcc60ea">IrrIMGUI::Private::CGUITexture::~CGUITexture</a></div><div class="ttdeci">virtual ~CGUITexture(void)</div><div class="ttdoc">Destructor. </div><div class="ttdef"><b>Definition:</b> <a href="_c_g_u_i_texture_8cpp_source.html#l00048">CGUITexture.cpp:48</a></div></div>
+<div class="ttc" id="namespace_irr_i_m_g_u_i_html"><div class="ttname"><a href="namespace_irr_i_m_g_u_i.html">IrrIMGUI</a></div><div class="ttdoc">Main namespace for Irrlicht IMGUI binding. </div><div class="ttdef"><b>Definition:</b> <a href="_c_basic_memory_leak_detection_8cpp_source.html#l00035">CBasicMemoryLeakDetection.cpp:35</a></div></div>
 <div class="ttc" id="class_irr_i_m_g_u_i_1_1_private_1_1_c_g_u_i_texture_html_aa8a52f4f0a391b45a7a4dbf7e237ea61"><div class="ttname"><a href="class_irr_i_m_g_u_i_1_1_private_1_1_c_g_u_i_texture.html#aa8a52f4f0a391b45a7a4dbf7e237ea61">IrrIMGUI::Private::CGUITexture::CGUITexture</a></div><div class="ttdeci">CGUITexture(void)</div><div class="ttdoc">Constructor. </div><div class="ttdef"><b>Definition:</b> <a href="_c_g_u_i_texture_8cpp_source.html#l00039">CGUITexture.cpp:39</a></div></div>
 <div class="ttc" id="namespace_irr_i_m_g_u_i_1_1_private_html_afdbc4ba84603b12f356687fcb3a80de1ac678f4f5c46f5b05b3fa3a4e88b891c9"><div class="ttname"><a href="namespace_irr_i_m_g_u_i_1_1_private.html#afdbc4ba84603b12f356687fcb3a80de1ac678f4f5c46f5b05b3fa3a4e88b891c9">IrrIMGUI::Private::ETST_UNKNOWN</a></div><div class="ttdef"><b>Definition:</b> <a href="_c_g_u_i_texture_8h_source.html#l00054">CGUITexture.h:54</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

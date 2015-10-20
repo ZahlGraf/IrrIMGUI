@@ -1,0 +1,6 @@
+<map id="IrrIMGUI::Private::CIMGUIHandle::CIMGUIHandle" name="IrrIMGUI::Private::CIMGUIHandle::CIMGUIHandle">
+<area shape="rect" id="node3" href="$class_irr_i_m_g_u_i_1_1_private_1_1_i_i_m_g_u_i_driver.html#a39f6b580ddd80422a6c6507fe353f129" title="This method returns an instance of the driver. If no driver yet exists, it will create a new driver b..." alt="" coords="253,5,421,46"/>
+<area shape="rect" id="node7" href="$class_irr_i_m_g_u_i_1_1_private_1_1_i_i_m_g_u_i_driver.html#a95acaf23c089b239b6bd5292c5b70b9f" title="IrrIMGUI::Private::\lIIMGUIDriver::setSettings" alt="" coords="254,70,421,111"/>
+<area shape="rect" id="node5" href="$class_irr_i_m_g_u_i_1_1_private_1_1_i_i_m_g_u_i_driver.html#a5dfb88912e28532b00436c1a3e69944f" title="Creates a GUI texture out of the currently loaded fonts. " alt="" coords="470,5,677,46"/>
+<area shape="rect" id="node9" href="$class_irr_i_m_g_u_i_1_1_private_1_1_i_i_m_g_u_i_driver.html#a577f5539f67207cc8d8529b48dabd923" title="Updated the settings of IMGUI. " alt="" coords="479,70,667,111"/>
+</map>

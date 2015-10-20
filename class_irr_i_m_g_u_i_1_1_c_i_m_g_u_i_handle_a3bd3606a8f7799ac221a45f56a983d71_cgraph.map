@@ -1,5 +1,0 @@
-<map id="IrrIMGUI::CIMGUIHandle::resetFonts" name="IrrIMGUI::CIMGUIHandle::resetFonts">
-<area shape="rect" id="node3" href="$class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_handle.html#a3f1c4ba2d82c724c9915614d94d4bc40" title="Adds the default font to the IMGUI memory. " alt="" coords="224,5,387,46"/>
-<area shape="rect" id="node5" href="$class_irr_i_m_g_u_i_1_1_private_1_1_i_i_m_g_u_i_driver.html#a76a73a2727a740523a8e604629c04960" title="Copies the loaded Fonts into GPU memory to use them with the GUI. " alt="" coords="216,70,395,111"/>
-<area shape="rect" id="node7" href="$class_irr_i_m_g_u_i_1_1_private_1_1_i_i_m_g_u_i_driver.html#a72de7c4a228b8b2a45fa4512c529cd6b" title="Updates a GUI texture with the currently loaded fonts. " alt="" coords="443,70,653,111"/>
-</map>

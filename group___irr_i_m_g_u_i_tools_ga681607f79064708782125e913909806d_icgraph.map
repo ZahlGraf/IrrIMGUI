@@ -1,0 +1,4 @@
+<map id="IrrIMGUI::Tools::CBasicMemoryLeakDetection::resetMemoryState" name="IrrIMGUI::Tools::CBasicMemoryLeakDetection::resetMemoryState">
+<area shape="rect" id="node3" href="$class_irr_i_m_g_u_i_1_1_unit_test_1_1_basic_memory_leak_detection_plugin.html#ae655c764ec81459656fdada45548aec1" title="Is performed before every testcase starts. " alt="" coords="321,5,514,61"/>
+<area shape="rect" id="node5" href="$group___irr_i_m_g_u_i_tools.html#ga243d00fc12e67d164a46772465fffb96" title="Constructor will store the current memory state. " alt="" coords="275,86,560,127"/>
+</map>

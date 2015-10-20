@@ -1,4 +1,8 @@
 <map id="Private" name="Private">
-<area shape="rect" id="node1" href="$group___irr_i_m_g_u_i.html" title="An Irrlicht IMGUI binding. " alt="" coords="5,7,75,33"/>
-<area shape="rect" id="node2" href="$group___irr_i_m_g_u_i_debug.html" title="Contains classes for debug purpose. " alt="" coords="376,7,435,33"/>
+<area shape="rect" id="node1" href="$group___irr_i_m_g_u_i_tools.html" title="Miscellaneous tools, that are not necessarily related to IMGUI or Irrlicht. " alt="" coords="229,75,283,101"/>
+<area shape="rect" id="node2" href="$group___irr_i_m_g_u_i.html" title="An Irrlicht IMGUI binding. " alt="" coords="221,12,291,39"/>
+<area shape="rect" id="node3" href="$group___irr_i_m_g_u_i_inject.html" title="Definitions for dependency injection. " alt="" coords="229,125,283,152"/>
+<area shape="rect" id="node4" href="$group___irr_i_m_g_u_i_priv.html" title="IrrIMGUIPriv" alt="" coords="211,177,301,204"/>
+<area shape="rect" id="node5" href="$group___irr_i_m_g_u_i_u_test.html" title="Unit test related definitions. " alt="" coords="221,228,291,255"/>
+<area shape="rect" id="node6" href="$group___irr_i_m_g_u_i_debug.html" title="Contains classes for debug purpose. " alt="" coords="227,279,285,305"/>
 </map>

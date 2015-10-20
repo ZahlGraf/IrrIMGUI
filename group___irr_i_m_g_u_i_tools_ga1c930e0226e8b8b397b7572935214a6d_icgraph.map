@@ -1,0 +1,5 @@
+<map id="IrrIMGUI::Tools::CBasicMemoryLeakDetection::compareMemoryState" name="IrrIMGUI::Tools::CBasicMemoryLeakDetection::compareMemoryState">
+<area shape="rect" id="node3" href="$class_irr_i_m_g_u_i_1_1_unit_test_1_1_basic_memory_leak_detection_plugin.html#a684e47ebcf77e8ca4ee9dd52bf5264a9" title="Destructor. " alt="" coords="297,5,535,75"/>
+<area shape="rect" id="node5" href="$class_irr_i_m_g_u_i_1_1_unit_test_1_1_basic_memory_leak_detection_plugin.html#af39ed2c192b88c0f155e6f707eae5719" title="Is performed after every testcase. It checks, if the memory state difference is 0. If not, it will add an failure to that testcase. " alt="" coords="319,100,513,156"/>
+<area shape="rect" id="node7" href="$group___irr_i_m_g_u_i_tools.html#ga6d032db16e31c7833edd10e43c42729f" title="The Destructor will compare the current memory state with the stored one. " alt="" coords="297,180,535,236"/>
+</map>

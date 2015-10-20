@@ -1,0 +1,19 @@
+<map id="D:/Projects/CPP/Libraries/IrrIMGUI/IrrIMGUI/includes/IrrIMGUI/IIMGUIHandle.h" name="D:/Projects/CPP/Libraries/IrrIMGUI/IrrIMGUI/includes/IrrIMGUI/IIMGUIHandle.h">
+<area shape="rect" id="node3" href="$_c_i_m_g_u_i_handle_8h.html" title="Contains a handle to setup the IMGUI for Irrlicht. " alt="" coords="1189,213,1359,269"/>
+<area shape="rect" id="node9" href="$_irr_i_m_g_u_i_8h.html" title="The main include file for the IMGUI bindinds. " alt="" coords="790,109,966,165"/>
+<area shape="rect" id="node52" href="$_i_i_m_g_u_i_handle_mock_8h.html" title="Contains a CppUMock compatible mock of the IIMGUIHanlde class. " alt="" coords="1609,317,1859,373"/>
+<area shape="rect" id="node5" href="$_c_i_m_g_u_i_handle_8cpp.html" title="Contains a handle to setup the IMGUI for Irrlicht. " alt="" coords="430,317,601,373"/>
+<area shape="rect" id="node7" href="$_irr_i_m_g_u_i_inject_8cpp.html" title="Contains function implementation for Dependency Injection. " alt="" coords="1414,317,1585,373"/>
+<area shape="rect" id="node11" href="$_irr_i_m_g_u_i_debug__priv_8h.html" title="Contains defines for debug handling. " alt="" coords="717,213,905,269"/>
+<area shape="rect" id="node15" href="$_c_char_fifo_8cpp.html" title="Class definition for a Fifo Memory. " alt="" coords="1219,317,1390,373"/>
+<area shape="rect" id="node22" href="$_i_i_m_g_u_i_driver_8cpp.html" title="Contains a driver interface for IMGUI. " alt="" coords="41,421,211,477"/>
+<area shape="rect" id="node30" href="$_i_i_m_g_u_i_driver_8h.html" title="Contains a driver interface for IMGUI. " alt="" coords="235,213,406,269"/>
+<area shape="rect" id="node33" href="$_c_irrlicht_i_m_g_u_i_driver_8h.html" title="Contains a driver that uses Irrlicht primitive drawing functions to render the GUI. " alt="" coords="235,317,406,373"/>
+<area shape="rect" id="node37" href="$_c_open_g_l_i_m_g_u_i_driver_8h.html" title="Contains a driver that uses native OpenGL functions to render the GUI. " alt="" coords="41,317,211,373"/>
+<area shape="rect" id="node46" href="$_irr_i_m_g_u_i_inject__priv_8h.html" title="Private definitions for dependency injection. " alt="" coords="981,213,1163,269"/>
+<area shape="rect" id="node49" href="$_irr_i_m_g_u_i_inject_8h.html" title="Functions for dependency injection. " alt="" coords="1435,213,1635,269"/>
+<area shape="rect" id="node13" href="$_c_basic_memory_leak_detection_8cpp.html" title="Class for a very basic memory leak detection. " alt="" coords="972,317,1194,373"/>
+<area shape="rect" id="node18" href="$_c_irrlicht_i_m_g_u_i_driver_8cpp.html" title="Contains a driver that uses Irrlicht primitive drawing functions to render the GUI. " alt="" coords="733,421,903,477"/>
+<area shape="rect" id="node20" href="$_c_open_g_l_i_m_g_u_i_driver_8cpp.html" title="Contains a driver that uses native OpenGL functions to render the GUI. " alt="" coords="418,421,594,477"/>
+<area shape="rect" id="node24" href="$_i_reference_counter_8cpp.html" title="Contains a class to count references. " alt="" coords="726,317,897,373"/>
+</map>

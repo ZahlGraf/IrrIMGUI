@@ -1,0 +1,4 @@
+<map id="IrrIMGUI::UnitTest::IIMGUIHandleMock" name="IrrIMGUI::UnitTest::IIMGUIHandleMock">
+<area shape="rect" id="node2" href="$class_irr_i_m_g_u_i_1_1_i_i_m_g_u_i_handle.html" title="A interface to an IMGUI handle. Use this interface for mocking and dependency injection of the real I..." alt="" coords="18,80,173,107"/>
+<area shape="rect" id="node4" href="$class_irr_i_m_g_u_i_1_1_i_reference_counter.html" title="A class to count references. " alt="" coords="5,5,187,32"/>
+</map>

@@ -1,6 +1,6 @@
 <map id="IrrIMGUI::Private::IIMGUIDriver::deleteTexture" name="IrrIMGUI::Private::IIMGUIDriver::deleteTexture">
-<area shape="rect" id="node3" href="$class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_handle.html#a34c5d9dab5ba1c3c2094095c9a3aa87c" title="Deletes an texture from graphic memory. " alt="" coords="244,5,407,46"/>
-<area shape="rect" id="node5" href="$class_irr_i_m_g_u_i_1_1_private_1_1_i_i_m_g_u_i_driver.html#a52021b515a242cca51de6f4af06ccf81" title="Tells the driver, that it is not needed anymore. It decided by it&#39;s own if it will delete the single ..." alt="" coords="233,70,418,111"/>
-<area shape="rect" id="node7" href="$class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_handle.html#a948fd60278054c6ec1bb3241dcbc7196" title="Destructor. " alt="" coords="480,33,643,74"/>
-<area shape="rect" id="node9" href="$class_irr_i_m_g_u_i_1_1_private_1_1_c_i_m_g_u_i_driver_delete_helper.html#ad81248086005693b2844f5e167fae680" title="Destructor tries to delete the Instance of CIMGUIDriver. If an instance was deleted, it shows a warning. " alt="" coords="467,99,656,155"/>
+<area shape="rect" id="node3" href="$class_irr_i_m_g_u_i_1_1_private_1_1_c_i_m_g_u_i_handle.html#a92530e3b444f98ca483a9ac018840376" title="Deletes an texture from graphic memory. " alt="" coords="233,5,426,46"/>
+<area shape="rect" id="node5" href="$class_irr_i_m_g_u_i_1_1_private_1_1_i_i_m_g_u_i_driver.html#a52021b515a242cca51de6f4af06ccf81" title="Tells the driver, that it is not needed anymore. It decided by it&#39;s own if it will delete the single ..." alt="" coords="237,70,422,111"/>
+<area shape="rect" id="node7" href="$class_irr_i_m_g_u_i_1_1_private_1_1_c_i_m_g_u_i_handle.html#a8161021f0604de8fdfee54fe41a0da5b" title="Destructor. " alt="" coords="475,33,683,74"/>
+<area shape="rect" id="node9" href="$class_irr_i_m_g_u_i_1_1_private_1_1_c_i_m_g_u_i_driver_delete_helper.html#ad81248086005693b2844f5e167fae680" title="Destructor tries to delete the Instance of CIMGUIDriver. If an instance was deleted, it shows a warning. " alt="" coords="484,99,673,155"/>
 </map>

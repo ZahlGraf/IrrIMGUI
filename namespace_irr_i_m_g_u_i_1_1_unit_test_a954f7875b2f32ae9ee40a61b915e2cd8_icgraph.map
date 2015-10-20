@@ -1,0 +1,7 @@
+<map id="IrrIMGUI::UnitTest::createIMGUIDummyFont" name="IrrIMGUI::UnitTest::createIMGUIDummyFont">
+<area shape="rect" id="node3" href="$class_irr_i_m_g_u_i_1_1_unit_test_1_1_i_i_m_g_u_i_handle_mock.html#a86d5daad897dff1d7ae033f9f50128df" title="IrrIMGUI::UnitTest\l::IIMGUIHandleMock::\lIIMGUIHandleMock" alt="" coords="227,5,376,61"/>
+<area shape="rect" id="node9" href="$class_irr_i_m_g_u_i_1_1_unit_test_1_1_i_i_m_g_u_i_handle_mock.html#a6047d811d52b1f7cf88d6b4769dbcad8" title="This function copies all fonts that have been added with &quot;addFont/addDefaultFont&quot; into graphic memory..." alt="" coords="227,85,376,141"/>
+<area shape="rect" id="node11" href="$class_irr_i_m_g_u_i_1_1_unit_test_1_1_i_i_m_g_u_i_handle_mock.html#ada304669c52bf9d41a9c1f74b1a025e4" title="Resets the font memory and restores the default font as the one and only font in the system..." alt="" coords="227,165,376,221"/>
+<area shape="rect" id="node5" href="$class_irr_i_m_g_u_i_1_1_unit_test_1_1_i_i_m_g_u_i_handle_mock.html#a65aab30ec2717a7d48599ebf723b627c" title="Factory method for the mock. " alt="" coords="424,5,573,61"/>
+<area shape="rect" id="node7" href="$class_irr_i_m_g_u_i_1_1_unit_test_1_1_i_i_m_g_u_i_handle_mock.html#ae37f45eedcae480a9a13a7f1d28c6991" title="IrrIMGUI::UnitTest\l::IIMGUIHandleMock::\lenableMock" alt="" coords="621,5,771,61"/>
+</map>

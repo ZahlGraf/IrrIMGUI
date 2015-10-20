@@ -1,7 +1,7 @@
 <map id="D:/Projects/CPP/Libraries/IrrIMGUI/IrrIMGUI/includes/IrrIMGUI/CIMGUIEventReceiver.h" name="D:/Projects/CPP/Libraries/IrrIMGUI/IrrIMGUI/includes/IrrIMGUI/CIMGUIEventReceiver.h">
-<area shape="rect" id="node3" href="$_c_i_m_g_u_i_event_storage_8h.html" title="A storage memory to transfer Input&#45;Events from Irrlicht to the IMGUI. " alt="" coords="98,109,304,136"/>
-<area shape="rect" id="node9" href="$_irr_i_m_g_u_i_config_8h.html" title="Helper file for preprocessor configuration. " alt="" coords="5,333,171,360"/>
-<area shape="rect" id="node13" href="$_include_irrlicht_8h.html" title="Helper file for including irrlicht from the correct location. " alt="" coords="312,259,421,285"/>
-<area shape="rect" id="node5" href="$_c_char_fifo_8h.html" title="Class definition for a Fifo Memory. " alt="" coords="171,184,261,211"/>
-<area shape="rect" id="node7" href="$_include_i_m_g_u_i_8h.html" title="Helper file for including IMGUI and applying the correct settings. " alt="" coords="177,259,287,285"/>
+<area shape="rect" id="node3" href="$_c_i_m_g_u_i_event_storage_8h.html" title="A storage memory to transfer Input&#45;Events from Irrlicht to the IMGUI. " alt="" coords="57,109,212,136"/>
+<area shape="rect" id="node9" href="$_irr_i_m_g_u_i_config_8h.html" title="Helper file for preprocessor configuration. " alt="" coords="5,333,120,360"/>
+<area shape="rect" id="node13" href="$_include_irrlicht_8h.html" title="Helper file for including irrlicht from the correct location. " alt="" coords="283,259,392,285"/>
+<area shape="rect" id="node5" href="$_c_char_fifo_8h.html" title="Class definition for a Fifo Memory. " alt="" coords="103,184,193,211"/>
+<area shape="rect" id="node7" href="$_include_i_m_g_u_i_8h.html" title="Helper file for including IMGUI and applying the correct settings. " alt="" coords="147,259,257,285"/>
 </map>

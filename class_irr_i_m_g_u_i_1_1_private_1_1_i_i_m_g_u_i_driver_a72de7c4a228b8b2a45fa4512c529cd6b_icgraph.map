@@ -1,5 +1,5 @@
 <map id="IrrIMGUI::Private::IIMGUIDriver::updateFontTexture" name="IrrIMGUI::Private::IIMGUIDriver::updateFontTexture">
 <area shape="rect" id="node3" href="$class_irr_i_m_g_u_i_1_1_private_1_1_i_i_m_g_u_i_driver.html#a76a73a2727a740523a8e604629c04960" title="Copies the loaded Fonts into GPU memory to use them with the GUI. " alt="" coords="264,38,443,79"/>
-<area shape="rect" id="node5" href="$class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_handle.html#a06fefbe27f25f7ed44ef1ed4a536790f" title="This function copies all fonts that have been added with &quot;addFont/addDefaultFont&quot; into graphic memory..." alt="" coords="491,5,653,46"/>
-<area shape="rect" id="node7" href="$class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_handle.html#a3bd3606a8f7799ac221a45f56a983d71" title="Resets the font memory and restores the default font as the one and only font in the system..." alt="" coords="491,70,653,111"/>
+<area shape="rect" id="node5" href="$class_irr_i_m_g_u_i_1_1_private_1_1_c_i_m_g_u_i_handle.html#acae49d0ab5c8bc0732858f8301bb8a33" title="This function copies all fonts that have been added with &quot;addFont/addDefaultFont&quot; into graphic memory..." alt="" coords="491,5,685,46"/>
+<area shape="rect" id="node7" href="$class_irr_i_m_g_u_i_1_1_private_1_1_c_i_m_g_u_i_handle.html#a5fb8b1ed07403b0087b9951da8d5f7b5" title="Resets the font memory and restores the default font as the one and only font in the system..." alt="" coords="499,70,677,111"/>
 </map>

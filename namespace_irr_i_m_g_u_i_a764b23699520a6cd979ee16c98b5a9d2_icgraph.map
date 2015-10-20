@@ -1,0 +1,5 @@
+<map id="IrrIMGUI::updateKeyboard" name="IrrIMGUI::updateKeyboard">
+<area shape="rect" id="node3" href="$namespace_irr_i_m_g_u_i.html#aaac1d4c6b373ceb5212ce586e64c4946" title="Updates the values for an IMGUI Frame, like delta time, input events and screen size. " alt="" coords="224,50,413,91"/>
+<area shape="rect" id="node5" href="$class_irr_i_m_g_u_i_1_1_unit_test_1_1_i_i_m_g_u_i_handle_mock.html#aa6606c67b5b967dec99006d0ef721491" title="Call this methods before you draw the IMGUI elements and before calling &quot;drawAll()&quot;. " alt="" coords="468,5,617,61"/>
+<area shape="rect" id="node7" href="$class_irr_i_m_g_u_i_1_1_private_1_1_c_i_m_g_u_i_handle.html#ad5956096bde1775c64f9c97846437ce4" title="Call this methods before you draw the IMGUI elements and before calling &quot;drawAll()&quot;. " alt="" coords="461,86,624,127"/>
+</map>

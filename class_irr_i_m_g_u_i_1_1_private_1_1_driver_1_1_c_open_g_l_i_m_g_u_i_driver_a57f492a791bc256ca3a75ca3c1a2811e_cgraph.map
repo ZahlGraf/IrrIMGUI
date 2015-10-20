@@ -1,4 +1,5 @@
 <map id="IrrIMGUI::Private::Driver::COpenGLIMGUIDriver::createTexture" name="IrrIMGUI::Private::Driver::COpenGLIMGUIDriver::createTexture">
-<area shape="rect" id="node3" href="$namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#a5fc3ca39eb818651ee7723a6d8c0b539" title="Copies the content of an IImage object into the GPU memory. " alt="" coords="240,5,419,75"/>
-<area shape="rect" id="node5" href="$namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#a33120ef8e646ffed505c92b1d817966c" title="Creates an new texture from raw data inside the GPU memory. For this, the Color Format must be alread..." alt="" coords="467,12,634,68"/>
+<area shape="rect" id="node3" href="$class_irr_i_m_g_u_i_1_1_private_1_1_i_i_m_g_u_i_driver.html#a94b7f916794405c54573ca55a678bf7f" title="IrrIMGUI::Private::\lIIMGUIDriver::getIrrDevice" alt="" coords="245,5,413,46"/>
+<area shape="rect" id="node5" href="$namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#a5fc3ca39eb818651ee7723a6d8c0b539" title="Copies the content of an IImage object into the GPU memory. " alt="" coords="240,70,419,141"/>
+<area shape="rect" id="node7" href="$namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#a33120ef8e646ffed505c92b1d817966c" title="Creates an new texture from raw data inside the GPU memory. For this, the Color Format must be alread..." alt="" coords="467,77,634,133"/>
 </map>

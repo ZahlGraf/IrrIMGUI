@@ -1,0 +1,4 @@
+<map id="IrrIMGUI::updateIMGUIFrameValues" name="IrrIMGUI::updateIMGUIFrameValues">
+<area shape="rect" id="node3" href="$class_irr_i_m_g_u_i_1_1_unit_test_1_1_i_i_m_g_u_i_handle_mock.html#aa6606c67b5b967dec99006d0ef721491" title="Call this methods before you draw the IMGUI elements and before calling &quot;drawAll()&quot;. " alt="" coords="249,5,399,61"/>
+<area shape="rect" id="node5" href="$class_irr_i_m_g_u_i_1_1_private_1_1_c_i_m_g_u_i_handle.html#ad5956096bde1775c64f9c97846437ce4" title="Call this methods before you draw the IMGUI elements and before calling &quot;drawAll()&quot;. " alt="" coords="243,86,405,127"/>
+</map>

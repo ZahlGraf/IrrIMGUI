@@ -1,5 +1,0 @@
-<map id="IrrIMGUI::CIMGUIHandle::updateKeyboard" name="IrrIMGUI::CIMGUIHandle::updateKeyboard">
-<area shape="rect" id="node3" href="$class_irr_i_m_g_u_i_1_1_c_char_fifo.html#a1460291928d750699cb512a156374ee3" title="IrrIMGUI::CCharFifo\l::isEmpty" alt="" coords="401,5,535,46"/>
-<area shape="rect" id="node5" href="$class_irr_i_m_g_u_i_1_1_c_char_fifo.html#ae8c039b9eeae9e0a449898f24a2704e5" title="IrrIMGUI::CCharFifo\l::getChar" alt="" coords="217,63,351,105"/>
-<area shape="rect" id="node8" href="$class_irr_i_m_g_u_i_1_1_c_char_fifo.html#ac61d6fb261f71e253ec9e221766cd110" title="IrrIMGUI::CCharFifo\l::isFull" alt="" coords="401,70,535,111"/>
-</map>

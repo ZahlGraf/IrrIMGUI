@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">IrrIMGUI
-   &#160;<span id="projectnumber">0.2.0</span>
+   &#160;<span id="projectnumber">0.3.0</span>
    </div>
   </td>
  </tr>
@@ -85,7 +85,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <ul>
 <li><b>Visit the GitHub repository:</b> <a href="https://github.com/ZahlGraf/IrrIMGUI">Repository</a></li>
 <li><b>Screenshots:</b> <a href="https://github.com/ZahlGraf/IrrIMGUI#ExampleImages">Example Pictures</a></li>
-<li><b>Download this library:</b> <a href="https://github.com/ZahlGraf/IrrIMGUI#Download">Download</a></li>
+<li><b>Download this library:</b> <a href="https://github.com/ZahlGraf/IrrIMGUI#LatestVersionNews">Download</a></li>
 <li><b>HowTo build this library:</b> <a href="https://github.com/ZahlGraf/IrrIMGUI#HowToStart_Preparations">Build process</a></li>
 <li><b>Online API documentation:</b> <a href="http://zahlgraf.github.io/IrrIMGUI/index.html">Doxygen</a></li>
 <li><b>Example description:</b> <a href="https://github.com/ZahlGraf/IrrIMGUI/wiki/Example-1:-Hello-World">Examples</a></li>
@@ -100,6 +100,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li><a href="#ShortUsageReferenceGettingStartedStep2">Step 2: Initialize Irrlicht Device and GUI</a></li>
 <li><a href="#ShortUsageReferenceGettingStartedStep3">Step 3: Start GUI Frame</a></li>
 <li><a href="#ShortUsageReferenceGettingStartedStep4">Step 4: Render GUI</a></li>
+<li><a href="#ShortUsageReferenceGettingStartedStep5">Step 5: Delete GUI</a></li>
 </ul>
 </li>
 <li><a href="#ShortUsageReferenceCustomEventReceiver">Use custom Event Receiver</a><ul>
@@ -127,13 +128,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li><a href="#ShortUsageReferenceImagesStep2">Step 2: Free-up GUI texture memory</a></li>
 </ul>
 </li>
+<li><a href="#ShortUsageReferenceDependencyInjection">Dependency Injection</a><ul>
+<li><a href="#ShortUsageReferenceDependencyInjectionStep1">Step 1: Create your own factory</a></li>
+<li><a href="#ShortUsageReferenceDependencyInjectionStep2">Step 2: Setting up your factory</a></li>
+<li><a href="#ShortUsageReferenceDependencyInjectionStep3">Step 3: Reset factory to default</a></li>
+</ul>
+</li>
+<li><a href="#ShortUsageReferenceIMGUIHandleMock">IIMGUIHandle Mock</a><ul>
+<li><a href="#ShortUsageReferenceIMGUIHandleMockStep1">Step 1: Enable- and Disable Mock</a></li>
+<li><a href="#ShortUsageReferenceIMGUIHandleMockStep2">Step 2: Expecting calls</a></li>
+</ul>
+</li>
+<li><a href="#ShortUsageReferenceMemoryLeakDetection">Memory Leak Detection</a></li>
 </ul>
 </li>
 <li><a href="#AdditionalLinks">Additional Project Links</a></li>
 </ul>
 <h2><a class="anchor" id="MostImportantBookmarks"></a> Most Important API Bookmarks</h2>
 <ul>
-<li>Class <a class="el" href="class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_handle.html" title="Use an object of this class to setup the IMGUI for Irrlicht and to render the content. ">IrrIMGUI::CIMGUIHandle</a> - Use this class as main handle to the Irrlicht IMGUI Binding</li>
+<li>Class <a class="el" href="class_irr_i_m_g_u_i_1_1_i_i_m_g_u_i_handle.html" title="A interface to an IMGUI handle. Use this interface for mocking and dependency injection of the real I...">IrrIMGUI::IIMGUIHandle</a> - Use this class as main handle to the Irrlicht IMGUI Binding</li>
 <li>Class <a class="el" href="class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_event_receiver.html">IrrIMGUI::CIMGUIEventReceiver</a> - A standard Event Receiver for Irrlicht, that passes all Mouse and Keyboard events to the GUI</li>
 <li>Class <a class="el" href="class_irr_i_m_g_u_i_1_1_i_g_u_i_texture.html">IrrIMGUI::IGUITexture</a> - A general texture object for drawing images to the GUI</li>
 </ul>
@@ -166,10 +179,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">IrrlichtDevice * <span class="keyword">const</span> pDevice = createDeviceEx(IrrlichtParams);</div>
 <div class="line"></div>
 <div class="line"><span class="comment">// Create GUI object</span></div>
-<div class="line"><a class="code" href="class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_handle.html">CIMGUIHandle</a> GUI(pDevice, &amp;EventReceiver);</div>
+<div class="line"><a class="code" href="class_irr_i_m_g_u_i_1_1_i_i_m_g_u_i_handle.html">IIMGUIHandle</a> * <span class="keyword">const</span> pGUI = <a class="code" href="namespace_irr_i_m_g_u_i.html#a4c03e8540f8757a1c6879c02dd775f81">createIMGUI</a>(pDevice, &amp;EventReceiver);</div>
 </div><!-- fragment --><h4><a class="anchor" id="ShortUsageReferenceGettingStartedStep3"></a> Step 3: Start GUI Frame</h4>
 <p>Inside the Main-Loop: </p><div class="fragment"><div class="line"><span class="comment">// create the GUI elements</span></div>
-<div class="line">GUI.startGUI();</div>
+<div class="line">pGUI-&gt;<a class="code" href="class_irr_i_m_g_u_i_1_1_i_i_m_g_u_i_handle.html#a2ae75a5bc28b1401e20faa7cce022b40">startGUI</a>();</div>
 <div class="line">ImGui::Begin(<span class="stringliteral">&quot;My first Window&quot;</span>);</div>
 <div class="line">ImGui::Text(<span class="stringliteral">&quot;Hello World!&quot;</span>);</div>
 <div class="line"><span class="keywordflow">if</span> (ImGui::Button(<span class="stringliteral">&quot;Exit&quot;</span>, ImVec2(40, 20)))</div>
@@ -182,7 +195,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">pSceneManager-&gt;drawAll();</div>
 <div class="line"></div>
 <div class="line"><span class="comment">// render the GUI</span></div>
-<div class="line">GUI.drawAll();</div>
+<div class="line">pGUI-&gt;<a class="code" href="class_irr_i_m_g_u_i_1_1_i_i_m_g_u_i_handle.html#abd999751f671306ac52a10199ed36950">drawAll</a>();</div>
+</div><!-- fragment --><h4><a class="anchor" id="ShortUsageReferenceGettingStartedStep5"></a> Step 5: Delete GUI</h4>
+<p>After the Main-Loop: </p><div class="fragment"><div class="line">pGUI-&gt;<a class="code" href="class_irr_i_m_g_u_i_1_1_i_reference_counter.html#a40a7553fe2bbb9cd60676080f7d23147">drop</a>();</div>
 </div><!-- fragment --><h3><a class="anchor" id="ShortUsageReferenceCustomEventReceiver"></a> Use custom Event Receiver</h3>
 <h4><a class="anchor" id="ShortUsageReferenceCustomEventReceiverMethod1"></a> Method 1: Inherit from standard Event Receiver</h4>
 <ul>
@@ -212,13 +227,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p><b>Full explanation:</b> <a href="https://github.com/ZahlGraf/IrrIMGUI/wiki/Example-3:-Different-Fonts">Example 2: Different Fonts</a></p>
 <h4><a class="anchor" id="ShortUsageReferenceFontsStep1"></a> Step 1: Load Fonts</h4>
 <div class="fragment"><div class="line"><span class="comment">// load the Cousine-Regular.ttf file from the media directory</span></div>
-<div class="line">ImFont *pCousine16 = GUI.addFontFromFileTTF(<span class="stringliteral">&quot;../../media/Cousine-Regular.ttf&quot;</span>, 16.0f);</div>
-<div class="line">ImFont *pCousine24 = GUI.addFontFromFileTTF(<span class="stringliteral">&quot;../../media/Cousine-Regular.ttf&quot;</span>, 24.0f);</div>
+<div class="line">ImFont *pCousine16 = pGUI-&gt;<a class="code" href="class_irr_i_m_g_u_i_1_1_i_i_m_g_u_i_handle.html#a7f61f652c322415da1501288a5c6e888">addFontFromFileTTF</a>(<span class="stringliteral">&quot;../../media/Cousine-Regular.ttf&quot;</span>, 16.0f);</div>
+<div class="line">ImFont *pCousine24 = pGUI-&gt;<a class="code" href="class_irr_i_m_g_u_i_1_1_i_i_m_g_u_i_handle.html#a7f61f652c322415da1501288a5c6e888">addFontFromFileTTF</a>(<span class="stringliteral">&quot;../../media/Cousine-Regular.ttf&quot;</span>, 24.0f);</div>
 </div><!-- fragment --><ul>
-<li>Hint: Look-up for further methods to load fonts in the GUI Handle class ( <a class="el" href="class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_handle.html#LoadFonts">LoadFonts</a> )</li>
+<li>Hint: Look-up for further methods to load fonts in the GUI Handle class ( <a class="el" href="class_irr_i_m_g_u_i_1_1_i_i_m_g_u_i_handle.html#LoadFonts">LoadFonts</a> )</li>
 </ul>
 <h4><a class="anchor" id="ShortUsageReferenceFontsStep2"></a> Step 2: Compile Fonts</h4>
-<div class="fragment"><div class="line">GUI.compileFonts();</div>
+<div class="fragment"><div class="line">pGUI-&gt;<a class="code" href="class_irr_i_m_g_u_i_1_1_i_i_m_g_u_i_handle.html#ab71e28640426ba5a918f1e91f08cd289">compileFonts</a>();</div>
 </div><!-- fragment --><h4><a class="anchor" id="ShortUsageReferenceFontsStep3"></a> Step 3: Activate a Font</h4>
 <p>Inside the Main-Loop: </p><div class="fragment"><div class="line">ImGui::Begin(<span class="stringliteral">&quot;Different Fonts&quot;</span>, NULL, ImGuiWindowFlags_ShowBorders);</div>
 <div class="line">ImGui::Text(<span class="stringliteral">&quot;Default Font&quot;</span>);</div>
@@ -233,7 +248,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"></div>
 <div class="line">ImGui::End();</div>
 </div><!-- fragment --><h4><a class="anchor" id="ShortUsageReferenceFontsOptional"></a> Optional: Reset Fonts</h4>
-<div class="fragment"><div class="line">GUI.resetFonts();</div>
+<div class="fragment"><div class="line">pGUI-&gt;<a class="code" href="class_irr_i_m_g_u_i_1_1_i_i_m_g_u_i_handle.html#addbeda00948559f1b2fc41fe479feb97">resetFonts</a>();</div>
 </div><!-- fragment --><h3><a class="anchor" id="ShortUsageReferenceImages"></a> Use images</h3>
 <p><b>Full explanation:</b> <a href="https://github.com/ZahlGraf/IrrIMGUI/wiki/Example-4:-Using-Images">Example 4: Using Images</a></p>
 <h4><a class="anchor" id="ShortUsageReferenceImagesStep1"></a> Step 1: Create Irrlicht Image</h4>
@@ -242,10 +257,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">irr::video::IImage * pSoyuz  = pDriver-&gt;createImageFromFile(<span class="stringliteral">&quot;../../media/Soyuz.jpg&quot;</span>);</div>
 <div class="line">irr::video::IImage * pSpaceX = pDriver-&gt;createImageFromFile(<span class="stringliteral">&quot;../../media/SpaceX.jpg&quot;</span>);</div>
 </div><!-- fragment --><h4><a class="anchor" id="ShortUsageReferenceImagesStep2"></a> Step 2: Create GUI Texture</h4>
-<div class="fragment"><div class="line"><a class="code" href="class_irr_i_m_g_u_i_1_1_i_g_u_i_texture.html">IrrIMGUI::IGUITexture</a> * pSoyuzTex  = GUI.createTexture(pSoyuz);</div>
-<div class="line"><a class="code" href="class_irr_i_m_g_u_i_1_1_i_g_u_i_texture.html">IrrIMGUI::IGUITexture</a> * pSpaceXTex = GUI.createTexture(pSpaceX);</div>
+<div class="fragment"><div class="line"><a class="code" href="class_irr_i_m_g_u_i_1_1_i_g_u_i_texture.html">IrrIMGUI::IGUITexture</a> * pSoyuzTex  = pGUI-&gt;<a class="code" href="class_irr_i_m_g_u_i_1_1_i_i_m_g_u_i_handle.html#ae263af6185b67a2fc023bc8865eaa7f6">createTexture</a>(pSoyuz);</div>
+<div class="line"><a class="code" href="class_irr_i_m_g_u_i_1_1_i_g_u_i_texture.html">IrrIMGUI::IGUITexture</a> * pSpaceXTex = pGUI-&gt;<a class="code" href="class_irr_i_m_g_u_i_1_1_i_i_m_g_u_i_handle.html#ae263af6185b67a2fc023bc8865eaa7f6">createTexture</a>(pSpaceX);</div>
 </div><!-- fragment --><ul>
-<li>Hint: Look-up for further methods to create textures in the GUI Handle class ( <a class="el" href="class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_handle.html#CreateTextures">CreateTextures</a> )</li>
+<li>Hint: Look-up for further methods to create textures in the GUI Handle class ( <a class="el" href="class_irr_i_m_g_u_i_1_1_i_i_m_g_u_i_handle.html#CreateTextures">CreateTextures</a> )</li>
 </ul>
 <h4><a class="anchor" id="ShortUsageReferenceImagesStep3"></a> Step 3: Use image in GUI</h4>
 <p>Inside the Main-Loop: </p><div class="fragment"><div class="line">ImGui::Begin(<span class="stringliteral">&quot;Images&quot;</span>);</div>
@@ -260,8 +275,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --><h4><a class="anchor" id="ShortUsageReferenceImagesStep4"></a> Step 4: Free-up image memory</h4>
 <div class="fragment"><div class="line">pSoyuz-&gt;drop();</div>
 <div class="line">pSpaceX-&gt;drop();</div>
-<div class="line">GUI.deleteTexture(pSoyuzTex);</div>
-<div class="line">GUI.deleteTexture(pSpaceXTex);</div>
+<div class="line">pGUI-&gt;<a class="code" href="class_irr_i_m_g_u_i_1_1_i_i_m_g_u_i_handle.html#a35344d9cf3daa92f7479b1dcca4000af">deleteTexture</a>(pSoyuzTex);</div>
+<div class="line">pGUI-&gt;<a class="code" href="class_irr_i_m_g_u_i_1_1_i_i_m_g_u_i_handle.html#a35344d9cf3daa92f7479b1dcca4000af">deleteTexture</a>(pSpaceXTex);</div>
 </div><!-- fragment --><h3><a class="anchor" id="ShortUsageReferenceTextures"></a> Use Irrlicht textures</h3>
 <p><b>Full explanation:</b> <a href="https://github.com/ZahlGraf/IrrIMGUI/wiki/Example-4:-Using-Images">Example 4: Using Images</a></p>
 <h4><a class="anchor" id="ShortUsageReferenceTexturesStep1"></a> Step 1: Create GUI Texture</h4>
@@ -269,14 +284,85 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">video::ITexture * <span class="keyword">const</span> pRenderTarget = pDriver-&gt;addRenderTargetTexture(core::dimension2d&lt;u32&gt;(384, 300), <span class="stringliteral">&quot;Moon&quot;</span>);</div>
 <div class="line"></div>
 <div class="line"><span class="comment">// create GUI Texture handle</span></div>
-<div class="line">IGUITexture * <span class="keyword">const</span> pRenderTextureID  = GUI.createTexture(pRenderTarget);</div>
+<div class="line">IGUITexture * <span class="keyword">const</span> pRenderTextureID  = pGUI-&gt;<a class="code" href="class_irr_i_m_g_u_i_1_1_i_i_m_g_u_i_handle.html#ae263af6185b67a2fc023bc8865eaa7f6">createTexture</a>(pRenderTarget);</div>
 </div><!-- fragment --><ul>
-<li>Hint: Look-up for further methods to create textures in the GUI Handle class ( <a class="el" href="class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_handle.html#CreateTextures">CreateTextures</a> )</li>
+<li>Hint: Look-up for further methods to create textures in the GUI Handle class ( <a class="el" href="class_irr_i_m_g_u_i_1_1_i_i_m_g_u_i_handle.html#CreateTextures">CreateTextures</a> )</li>
 </ul>
 <h4><a class="anchor" id="ShortUsageReferenceTexturesOptional"></a> Optional: Update GUI Texture</h4>
-<p>Inside the Main-Loop: </p><div class="fragment"><div class="line">GUI.updateTexture(pRenderTextureID, pRenderTarget);</div>
+<p>Inside the Main-Loop: </p><div class="fragment"><div class="line">pGUI-&gt;<a class="code" href="class_irr_i_m_g_u_i_1_1_i_i_m_g_u_i_handle.html#af1452ad9abc4bb3854909b3375973fea">updateTexture</a>(pRenderTextureID, pRenderTarget);</div>
 </div><!-- fragment --><h4><a class="anchor" id="ShortUsageReferenceImagesStep2"></a> Step 2: Free-up GUI texture memory</h4>
-<div class="fragment"><div class="line">GUI.deleteTexture(pRenderTextureID);</div>
+<div class="fragment"><div class="line">pGUI-&gt;<a class="code" href="class_irr_i_m_g_u_i_1_1_i_i_m_g_u_i_handle.html#a35344d9cf3daa92f7479b1dcca4000af">deleteTexture</a>(pRenderTextureID);</div>
+</div><!-- fragment --><h3><a class="anchor" id="ShortUsageReferenceDependencyInjection"></a>Dependency Injection</h3>
+<p><b>Full explanation:</b> <a href="https://github.com/ZahlGraf/IrrIMGUI/wiki/UnitTests#Injection">Unit Testing</a></p>
+<h4><a class="anchor" id="ShortUsageReferenceDependencyInjectionStep1"></a>Step 1: Create your own factory</h4>
+<div class="fragment"><div class="line"><a class="code" href="class_irr_i_m_g_u_i_1_1_i_i_m_g_u_i_handle.html">IrrIMGUI::IIMGUIHandle</a> * dummyFactory(irr::IrrlichtDevice * pDevice, <a class="code" href="class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_event_storage.html">IrrIMGUI::CIMGUIEventStorage</a> * pEventStorage, <a class="code" href="struct_irr_i_m_g_u_i_1_1_s_i_m_g_u_i_settings.html">IrrIMGUI::SIMGUISettings</a> <span class="keyword">const</span> * pSettings)</div>
+<div class="line">{</div>
+<div class="line">  <span class="comment">// create an object that is derived from IIMGUIHandle and return the pointer to it...</span></div>
+<div class="line">  <span class="keywordflow">return</span> NULL;</div>
+<div class="line">}</div>
+</div><!-- fragment --><h4><a class="anchor" id="ShortUsageReferenceDependencyInjectionStep2"></a>Step 2: Setting up your factory</h4>
+<div class="fragment"><div class="line"><a class="code" href="group___irr_i_m_g_u_i_inject.html#gaa4e6e47212a4480c480e8c01eb6f8003">IrrIMGUI::Inject::setIMGUIFactory</a>(dummyFactory);</div>
+</div><!-- fragment --><h4><a class="anchor" id="ShortUsageReferenceDependencyInjectionStep3"></a>Step 3: Reset factory to default</h4>
+<div class="fragment"><div class="line"><a class="code" href="group___irr_i_m_g_u_i_inject.html#gaa4e6e47212a4480c480e8c01eb6f8003">IrrIMGUI::Inject::setIMGUIFactory</a>();</div>
+</div><!-- fragment --><h3><a class="anchor" id="ShortUsageReferenceIMGUIHandleMock"></a>IIMGUIHandle Mock</h3>
+<p><b>Full explanation:</b> <a href="https://github.com/ZahlGraf/IrrIMGUI/wiki/UnitTests#IMGUIHandleMock">Unit Testing</a></p>
+<h4><a class="anchor" id="ShortUsageReferenceIMGUIHandleMockStep1"></a>Step 1: Enable- and Disable Mock</h4>
+<p><b>Attention:</b> Disable the Mock always inside the tear-down-function.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="_i_i_m_g_u_i_handle_mock_8h.html">IrrIMGUI/UnitTest/IIMGUIHandleMock.h</a>&gt;</span></div>
+<div class="line"></div>
+<div class="line">TEST_GROUP(TestGroupName)</div>
+<div class="line">{</div>
+<div class="line">  TEST_SETUP()</div>
+<div class="line">  {</div>
+<div class="line">    <a class="code" href="class_irr_i_m_g_u_i_1_1_unit_test_1_1_i_i_m_g_u_i_handle_mock.html#ae37f45eedcae480a9a13a7f1d28c6991">IrrIMGUI::UnitTest::IIMGUIHandleMock::enableMock</a>();</div>
+<div class="line">  }</div>
+<div class="line"></div>
+<div class="line">  TEST_TEARDOWN()</div>
+<div class="line">  {</div>
+<div class="line">    <a class="code" href="class_irr_i_m_g_u_i_1_1_unit_test_1_1_i_i_m_g_u_i_handle_mock.html#a0ba583686ef8fbced4ecf3095dca00fa">IrrIMGUI::UnitTest::IIMGUIHandleMock::disableMock</a>();</div>
+<div class="line">  }</div>
+<div class="line">};</div>
+</div><!-- fragment --><h4><a class="anchor" id="ShortUsageReferenceIMGUIHandleMockStep2"></a>Step 2: Expecting calls</h4>
+<div class="fragment"><div class="line">TEST(TestGroupName, checkCreateAndDestory)</div>
+<div class="line">{</div>
+<div class="line">  irr::IrrlichtDevice * <span class="keyword">const</span> pDevice = irr::createDevice(irr::video::EDT_NULL);</div>
+<div class="line">  CIMGUIEventStorage EventStorage;</div>
+<div class="line">  SIMGUISettings Settings;</div>
+<div class="line"></div>
+<div class="line">  <span class="comment">// Expect call to constructor</span></div>
+<div class="line">  mock().expectOneCall(<span class="stringliteral">&quot;IIMGUIHandleMock::IIMGUIHandleMock&quot;</span>)</div>
+<div class="line">          .withParameter(<span class="stringliteral">&quot;pDevice&quot;</span>,               pDevice)</div>
+<div class="line">          .withParameter(<span class="stringliteral">&quot;pEventStorage&quot;</span>,         &amp;EventStorage)</div>
+<div class="line">          .withConstPointerParameter(<span class="stringliteral">&quot;pSettings&quot;</span>, &amp;Settings);</div>
+<div class="line"></div>
+<div class="line">  <span class="comment">// Expect call to destructor</span></div>
+<div class="line">  mock().expectOneCall(<span class="stringliteral">&quot;IIMGUIHandleMock::~IIMGUIHandleMock&quot;</span>);</div>
+<div class="line"></div>
+<div class="line">  <span class="comment">// ignore everything else (we don&#39;t want to be too rigid here)</span></div>
+<div class="line">  mock().ignoreOtherCalls();</div>
+<div class="line"></div>
+<div class="line">  IIMGUIHandle * <span class="keyword">const</span> pGUI = <a class="code" href="namespace_irr_i_m_g_u_i.html#a4c03e8540f8757a1c6879c02dd775f81">createIMGUI</a>(pDevice, &amp;EventStorage, &amp;Settings);</div>
+<div class="line"></div>
+<div class="line">  pGUI-&gt;drop();</div>
+<div class="line">  pDevice-&gt;drop();</div>
+<div class="line"></div>
+<div class="line">  <span class="keywordflow">return</span>;</div>
+<div class="line">}</div>
+</div><!-- fragment --><h3><a class="anchor" id="ShortUsageReferenceMemoryLeakDetection"></a>Memory Leak Detection</h3>
+<p><b>Full explanation:</b> <a href="https://github.com/ZahlGraf/IrrIMGUI/wiki/UnitTests#MemoryLeakDetection">Unit Testing</a></p>
+<div class="fragment"><div class="line"><span class="comment">// library includes</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="_c_basic_memory_leak_detection_8h.html">IrrIMGUI/Tools/CBasicMemoryLeakDetection.h</a>&gt;</span></div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> Arguments, <span class="keywordtype">char</span> <span class="keyword">const</span> ** ppCommandLineList)</div>
+<div class="line">{</div>
+<div class="line">  <a class="code" href="class_irr_i_m_g_u_i_1_1_tools_1_1_c_basic_memory_leak_detection.html">IrrIMGUI::Tools::CBasicMemoryLeakDetection</a> MemoryLeakDetection;</div>
+<div class="line"></div>
+<div class="line">  {</div>
+<div class="line">    <span class="comment">// here is your application code...</span></div>
+<div class="line">  }</div>
+<div class="line"></div>
+<div class="line">  <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
 </div><!-- fragment --><h3><a class="anchor" id="AdditionalLinks"></a> Additional Project Links</h3>
 <ul>
 <li><a href="https://github.com/ocornut/imgui">IMGUI GitHub Project</a></li>

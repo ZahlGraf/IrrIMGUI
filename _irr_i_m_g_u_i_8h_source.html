@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">IrrIMGUI
-   &#160;<span id="projectnumber">0.2.0</span>
+   &#160;<span id="projectnumber">0.3.0</span>
    </div>
   </td>
  </tr>
@@ -97,18 +97,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">// module includes</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_irr_i_m_g_u_i_config_8h.html">IrrIMGUIConfig.h</a>&quot;</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_c_i_m_g_u_i_handle_8h.html">CIMGUIHandle.h</a>&quot;</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_i_i_m_g_u_i_handle_8h.html">IIMGUIHandle.h</a>&quot;</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_c_i_m_g_u_i_event_receiver_8h.html">CIMGUIEventReceiver.h</a>&quot;</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_irr_i_m_g_u_i.html">IrrIMGUI</a></div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;{</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;}</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* IRRIMGUI_INCLUDE_IRRIMGUI_IRRIMGUI_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="_c_i_m_g_u_i_handle_8h_html"><div class="ttname"><a href="_c_i_m_g_u_i_handle_8h.html">CIMGUIHandle.h</a></div><div class="ttdoc">Contains a handle to setup the IMGUI for Irrlicht. </div></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <a class="code" href="group___irr_i_m_g_u_i.html#gab0ac930850c822781bc6ffd6b4958e52">IRRIMGUI_DLL_API</a> IIMGUIHandle * <a class="code" href="namespace_irr_i_m_g_u_i.html#a4c03e8540f8757a1c6879c02dd775f81">createIMGUI</a>(irr::IrrlichtDevice * pDevice, CIMGUIEventStorage * pEventStorage = <span class="keyword">nullptr</span>, SIMGUISettings <span class="keyword">const</span> * pSettings = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* IRRIMGUI_INCLUDE_IRRIMGUI_IRRIMGUI_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="_i_i_m_g_u_i_handle_8h_html"><div class="ttname"><a href="_i_i_m_g_u_i_handle_8h.html">IIMGUIHandle.h</a></div><div class="ttdoc">Contains a interface for a IMGUI handle. </div></div>
 <div class="ttc" id="_irr_i_m_g_u_i_config_8h_html"><div class="ttname"><a href="_irr_i_m_g_u_i_config_8h.html">IrrIMGUIConfig.h</a></div><div class="ttdoc">Helper file for preprocessor configuration. </div></div>
+<div class="ttc" id="group___irr_i_m_g_u_i_html_gab0ac930850c822781bc6ffd6b4958e52"><div class="ttname"><a href="group___irr_i_m_g_u_i.html#gab0ac930850c822781bc6ffd6b4958e52">IRRIMGUI_DLL_API</a></div><div class="ttdeci">#define IRRIMGUI_DLL_API</div><div class="ttdoc">Helper for shared windows libraries (DLL). </div><div class="ttdef"><b>Definition:</b> <a href="_irr_i_m_g_u_i_config_8h_source.html#l00156">IrrIMGUIConfig.h:156</a></div></div>
 <div class="ttc" id="_c_i_m_g_u_i_event_receiver_8h_html"><div class="ttname"><a href="_c_i_m_g_u_i_event_receiver_8h.html">CIMGUIEventReceiver.h</a></div><div class="ttdoc">Contains a standard Event Receiver for Irrlicht that passed inputs to IMGUI. </div></div>
-<div class="ttc" id="namespace_irr_i_m_g_u_i_html"><div class="ttname"><a href="namespace_irr_i_m_g_u_i.html">IrrIMGUI</a></div><div class="ttdoc">Main namespace for Irrlicht IMGUI binding. </div><div class="ttdef"><b>Definition:</b> <a href="_c_channel_buffer_8cpp_source.html#l00037">CChannelBuffer.cpp:37</a></div></div>
+<div class="ttc" id="namespace_irr_i_m_g_u_i_html"><div class="ttname"><a href="namespace_irr_i_m_g_u_i.html">IrrIMGUI</a></div><div class="ttdoc">Main namespace for Irrlicht IMGUI binding. </div><div class="ttdef"><b>Definition:</b> <a href="_c_basic_memory_leak_detection_8cpp_source.html#l00035">CBasicMemoryLeakDetection.cpp:35</a></div></div>
+<div class="ttc" id="namespace_irr_i_m_g_u_i_html_a4c03e8540f8757a1c6879c02dd775f81"><div class="ttname"><a href="namespace_irr_i_m_g_u_i.html#a4c03e8540f8757a1c6879c02dd775f81">IrrIMGUI::createIMGUI</a></div><div class="ttdeci">IIMGUIHandle * createIMGUI(irr::IrrlichtDevice *pDevice, CIMGUIEventStorage *pEventStorage, SIMGUISettings const *pSettings)</div><div class="ttdoc">Creates an IMGUI handle object. </div><div class="ttdef"><b>Definition:</b> <a href="_irr_i_m_g_u_i_inject_8cpp_source.html#l00076">IrrIMGUIInject.cpp:76</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -1,0 +1,5 @@
+<map id="IrrIMGUI::IReferenceCounter" name="IrrIMGUI::IReferenceCounter">
+<area shape="rect" id="node3" href="$class_irr_i_m_g_u_i_1_1_i_i_m_g_u_i_handle.html" title="A interface to an IMGUI handle. Use this interface for mocking and dependency injection of the real I..." alt="" coords="67,80,223,107"/>
+<area shape="rect" id="node5" href="$class_irr_i_m_g_u_i_1_1_private_1_1_c_i_m_g_u_i_handle.html" title="Use an object of this class to setup the IMGUI for Irrlicht and to render the content. " alt="" coords="5,155,128,197"/>
+<area shape="rect" id="node7" href="$class_irr_i_m_g_u_i_1_1_unit_test_1_1_i_i_m_g_u_i_handle_mock.html" title="IrrIMGUI::UnitTest\l::IIMGUIHandleMock" alt="" coords="153,155,295,197"/>
+</map>

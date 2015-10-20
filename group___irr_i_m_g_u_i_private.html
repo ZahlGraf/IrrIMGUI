@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">IrrIMGUI
-   &#160;<span id="projectnumber">0.2.0</span>
+   &#160;<span id="projectnumber">0.3.0</span>
    </div>
   </td>
  </tr>
@@ -92,8 +92,12 @@ Collaboration diagram for Private:</div>
 <div class="dyncontent">
 <center><table><tr><td><img src="group___irr_i_m_g_u_i_private.png" border="0" alt="" usemap="#group______irr__i__m__g__u__i__private"/>
 <map name="group______irr__i__m__g__u__i__private" id="group______irr__i__m__g__u__i__private">
-<area shape="rect" id="node1" href="group___irr_i_m_g_u_i.html" title="An Irrlicht IMGUI binding. " alt="" coords="5,7,75,33"/>
-<area shape="rect" id="node2" href="group___irr_i_m_g_u_i_debug.html" title="Contains classes for debug purpose. " alt="" coords="376,7,435,33"/>
+<area shape="rect" id="node1" href="group___irr_i_m_g_u_i_tools.html" title="Miscellaneous tools, that are not necessarily related to IMGUI or Irrlicht. " alt="" coords="229,75,283,101"/>
+<area shape="rect" id="node2" href="group___irr_i_m_g_u_i.html" title="An Irrlicht IMGUI binding. " alt="" coords="221,12,291,39"/>
+<area shape="rect" id="node3" href="group___irr_i_m_g_u_i_inject.html" title="Definitions for dependency injection. " alt="" coords="229,125,283,152"/>
+<area shape="rect" id="node4" href="group___irr_i_m_g_u_i_priv.html" title="IrrIMGUIPriv" alt="" coords="211,177,301,204"/>
+<area shape="rect" id="node5" href="group___irr_i_m_g_u_i_u_test.html" title="Unit test related definitions. " alt="" coords="221,228,291,255"/>
+<area shape="rect" id="node6" href="group___irr_i_m_g_u_i_debug.html" title="Contains classes for debug purpose. " alt="" coords="227,279,285,305"/>
 </map>
 </td></tr></table></center>
 </div>
@@ -115,9 +119,8 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="union_irr_i_m_g_u_i_1_1_private_1_1_texture_source.html">IrrIMGUI::Private::TextureSource</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_irr_i_m_g_u_i_1_1_private_1_1_c_g_u_i_texture.html">IrrIMGUI::Private::CGUITexture</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_irr_i_m_g_u_i_1_1_private_1_1_c_i_m_g_u_i_handle.html">IrrIMGUI::Private::CIMGUIHandle</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use an object of this class to setup the IMGUI for Irrlicht and to render the content.  <a href="class_irr_i_m_g_u_i_1_1_private_1_1_c_i_m_g_u_i_handle.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_irrlicht_i_m_g_u_i_driver.html">IrrIMGUI::Private::Driver::CIrrlichtIMGUIDriver</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A driver that uses Irrlicht primitive drawing functions for rendering.  <a href="class_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_c_irrlicht_i_m_g_u_i_driver.html#details">More...</a><br /></td></tr>
@@ -130,6 +133,10 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_irr_i_m_g_u_i_1_1_private_1_1_i_i_m_g_u_i_driver.html">IrrIMGUI::Private::IIMGUIDriver</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface for an IMGUI <a class="el" href="namespace_irr_i_m_g_u_i_1_1_private_1_1_driver.html" title="Contains driver classes for the IMGUI render system. ">Driver</a> to setup the IMGUI render system.  <a href="class_irr_i_m_g_u_i_1_1_private_1_1_i_i_m_g_u_i_driver.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="union_irr_i_m_g_u_i_1_1_private_1_1_texture_source.html">IrrIMGUI::Private::TextureSource</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_irr_i_m_g_u_i_1_1_private_1_1_c_g_u_i_texture.html">IrrIMGUI::Private::CGUITexture</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
@@ -199,7 +206,7 @@ Debug and Error logging to console</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_irr_i_m_g_u_i_debug__priv_8h_source.html#l00081">81</a> of file <a class="el" href="_irr_i_m_g_u_i_debug__priv_8h_source.html">IrrIMGUIDebug_priv.h</a>.</p>
+<p>Definition at line <a class="el" href="_irr_i_m_g_u_i_debug__priv_8h_source.html#l00086">86</a> of file <a class="el" href="_irr_i_m_g_u_i_debug__priv_8h_source.html">IrrIMGUIDebug_priv.h</a>.</p>
 
 </div>
 </div>
@@ -215,7 +222,7 @@ Debug and Error logging to console</h2></td></tr>
 
 <p>Print only Errors. </p>
 
-<p>Definition at line <a class="el" href="_irr_i_m_g_u_i_debug__priv_8h_source.html#l00054">54</a> of file <a class="el" href="_irr_i_m_g_u_i_debug__priv_8h_source.html">IrrIMGUIDebug_priv.h</a>.</p>
+<p>Definition at line <a class="el" href="_irr_i_m_g_u_i_debug__priv_8h_source.html#l00059">59</a> of file <a class="el" href="_irr_i_m_g_u_i_debug__priv_8h_source.html">IrrIMGUIDebug_priv.h</a>.</p>
 
 </div>
 </div>
@@ -231,7 +238,7 @@ Debug and Error logging to console</h2></td></tr>
 
 <p>Do not print anything. </p>
 
-<p>Definition at line <a class="el" href="_irr_i_m_g_u_i_debug__priv_8h_source.html#l00057">57</a> of file <a class="el" href="_irr_i_m_g_u_i_debug__priv_8h_source.html">IrrIMGUIDebug_priv.h</a>.</p>
+<p>Definition at line <a class="el" href="_irr_i_m_g_u_i_debug__priv_8h_source.html#l00062">62</a> of file <a class="el" href="_irr_i_m_g_u_i_debug__priv_8h_source.html">IrrIMGUIDebug_priv.h</a>.</p>
 
 </div>
 </div>
@@ -247,7 +254,7 @@ Debug and Error logging to console</h2></td></tr>
 
 <p>Print all messages. </p>
 
-<p>Definition at line <a class="el" href="_irr_i_m_g_u_i_debug__priv_8h_source.html#l00048">48</a> of file <a class="el" href="_irr_i_m_g_u_i_debug__priv_8h_source.html">IrrIMGUIDebug_priv.h</a>.</p>
+<p>Definition at line <a class="el" href="_irr_i_m_g_u_i_debug__priv_8h_source.html#l00053">53</a> of file <a class="el" href="_irr_i_m_g_u_i_debug__priv_8h_source.html">IrrIMGUIDebug_priv.h</a>.</p>
 
 </div>
 </div>
@@ -263,7 +270,7 @@ Debug and Error logging to console</h2></td></tr>
 
 <p>Print only Errors and Warnings. </p>
 
-<p>Definition at line <a class="el" href="_irr_i_m_g_u_i_debug__priv_8h_source.html#l00051">51</a> of file <a class="el" href="_irr_i_m_g_u_i_debug__priv_8h_source.html">IrrIMGUIDebug_priv.h</a>.</p>
+<p>Definition at line <a class="el" href="_irr_i_m_g_u_i_debug__priv_8h_source.html#l00056">56</a> of file <a class="el" href="_irr_i_m_g_u_i_debug__priv_8h_source.html">IrrIMGUIDebug_priv.h</a>.</p>
 
 </div>
 </div>
@@ -289,7 +296,7 @@ Debug and Error logging to console</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_irr_i_m_g_u_i_debug__priv_8h_source.html#l00077">77</a> of file <a class="el" href="_irr_i_m_g_u_i_debug__priv_8h_source.html">IrrIMGUIDebug_priv.h</a>.</p>
+<p>Definition at line <a class="el" href="_irr_i_m_g_u_i_debug__priv_8h_source.html#l00082">82</a> of file <a class="el" href="_irr_i_m_g_u_i_debug__priv_8h_source.html">IrrIMGUIDebug_priv.h</a>.</p>
 
 </div>
 </div>
@@ -315,7 +322,7 @@ Debug and Error logging to console</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_irr_i_m_g_u_i_debug__priv_8h_source.html#l00098">98</a> of file <a class="el" href="_irr_i_m_g_u_i_debug__priv_8h_source.html">IrrIMGUIDebug_priv.h</a>.</p>
+<p>Definition at line <a class="el" href="_irr_i_m_g_u_i_debug__priv_8h_source.html#l00103">103</a> of file <a class="el" href="_irr_i_m_g_u_i_debug__priv_8h_source.html">IrrIMGUIDebug_priv.h</a>.</p>
 
 </div>
 </div>
@@ -341,7 +348,7 @@ Debug and Error logging to console</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_irr_i_m_g_u_i_debug__priv_8h_source.html#l00090">90</a> of file <a class="el" href="_irr_i_m_g_u_i_debug__priv_8h_source.html">IrrIMGUIDebug_priv.h</a>.</p>
+<p>Definition at line <a class="el" href="_irr_i_m_g_u_i_debug__priv_8h_source.html#l00095">95</a> of file <a class="el" href="_irr_i_m_g_u_i_debug__priv_8h_source.html">IrrIMGUIDebug_priv.h</a>.</p>
 
 </div>
 </div>
@@ -367,7 +374,7 @@ Debug and Error logging to console</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_irr_i_m_g_u_i_debug__priv_8h_source.html#l00094">94</a> of file <a class="el" href="_irr_i_m_g_u_i_debug__priv_8h_source.html">IrrIMGUIDebug_priv.h</a>.</p>
+<p>Definition at line <a class="el" href="_irr_i_m_g_u_i_debug__priv_8h_source.html#l00099">99</a> of file <a class="el" href="_irr_i_m_g_u_i_debug__priv_8h_source.html">IrrIMGUIDebug_priv.h</a>.</p>
 
 </div>
 </div>
@@ -393,7 +400,7 @@ Debug and Error logging to console</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_irr_i_m_g_u_i_debug__priv_8h_source.html#l00068">68</a> of file <a class="el" href="_irr_i_m_g_u_i_debug__priv_8h_source.html">IrrIMGUIDebug_priv.h</a>.</p>
+<p>Definition at line <a class="el" href="_irr_i_m_g_u_i_debug__priv_8h_source.html#l00073">73</a> of file <a class="el" href="_irr_i_m_g_u_i_debug__priv_8h_source.html">IrrIMGUIDebug_priv.h</a>.</p>
 
 </div>
 </div>

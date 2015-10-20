@@ -1,4 +1,4 @@
 <map id="IrrIMGUI::Private::IIMGUIDriver::createFontTexture" name="IrrIMGUI::Private::IIMGUIDriver::createFontTexture">
 <area shape="rect" id="node3" href="$class_irr_i_m_g_u_i_1_1_private_1_1_i_i_m_g_u_i_driver.html#a39f6b580ddd80422a6c6507fe353f129" title="This method returns an instance of the driver. If no driver yet exists, it will create a new driver b..." alt="" coords="261,5,429,46"/>
-<area shape="rect" id="node5" href="$class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_handle.html#a169dcc02f8f882264713c6ee78ead0fd" title="Use this constructor when you don&#39;t want to change the settings (using defualt settings or the settin..." alt="" coords="477,5,640,46"/>
+<area shape="rect" id="node5" href="$class_irr_i_m_g_u_i_1_1_private_1_1_c_i_m_g_u_i_handle.html#af06037739d78c65ed5c6c509bbde66ef" title="Use this constructor when you want special settings. " alt="" coords="477,5,677,46"/>
 </map>

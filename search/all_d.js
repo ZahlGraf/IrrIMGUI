@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['rawdataid',['RawDataID',['../union_irr_i_m_g_u_i_1_1_private_1_1_texture_source.html#a9c41f5703e40d24f3858ac9ce74d9d1f',1,'IrrIMGUI::Private::TextureSource']]],
-  ['resetfonts',['resetFonts',['../class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_handle.html#a3bd3606a8f7799ac221a45f56a983d71',1,'IrrIMGUI::CIMGUIHandle']]],
-  ['restoreglbit',['restoreGLBit',['../namespace_irr_i_m_g_u_i_1_1_private_1_1_driver_1_1_open_g_l_helper.html#a2e5e34ef446fadda79dc3ef18db75f4f',1,'IrrIMGUI::Private::Driver::OpenGLHelper']]]
+  ['private',['Private',['../group___irr_i_m_g_u_i_private.html',1,'']]],
+  ['pimguifactoryfunction',['pIMGUIFactoryFunction',['../namespace_irr_i_m_g_u_i_1_1_inject.html#a2655f9c9e3cf0bb914946ff00bb113a0',1,'IrrIMGUI::Inject']]],
+  ['posttestaction',['postTestAction',['../class_irr_i_m_g_u_i_1_1_unit_test_1_1_basic_memory_leak_detection_plugin.html#af39ed2c192b88c0f155e6f707eae5719',1,'IrrIMGUI::UnitTest::BasicMemoryLeakDetectionPlugin']]],
+  ['pretestaction',['preTestAction',['../class_irr_i_m_g_u_i_1_1_unit_test_1_1_basic_memory_leak_detection_plugin.html#ae655c764ec81459656fdada45548aec1',1,'IrrIMGUI::UnitTest::BasicMemoryLeakDetectionPlugin']]],
+  ['printprefix',['printPrefix',['../class_irr_i_m_g_u_i_1_1_debug_1_1_c_channel_buffer.html#aae664d8b256013945616fce7765cfbf8',1,'IrrIMGUI::Debug::CChannelBuffer']]]
 ];

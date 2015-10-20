@@ -1,24 +1,39 @@
 <map id="D:/Projects/CPP/Libraries/IrrIMGUI/IrrIMGUI/includes/IrrIMGUI/IrrIMGUIConfig.h" name="D:/Projects/CPP/Libraries/IrrIMGUI/IrrIMGUI/includes/IrrIMGUI/IrrIMGUIConfig.h">
-<area shape="rect" id="node3" href="$_irr_i_m_g_u_i_debug__priv_8h.html" title="Contains defines for debug handling. " alt="" coords="1179,629,1349,685"/>
-<area shape="rect" id="node9" href="$_c_irrlicht_i_m_g_u_i_driver_8cpp.html" title="Contains a driver that uses Irrlicht primitive drawing functions to render the GUI. " alt="" coords="328,837,499,893"/>
-<area shape="rect" id="node11" href="$_c_open_g_l_i_m_g_u_i_driver_8cpp.html" title="Contains a driver that uses native OpenGL functions to render the GUI. " alt="" coords="48,837,224,893"/>
-<area shape="rect" id="node15" href="$_i_i_m_g_u_i_driver_8h.html" title="Contains a driver interface for IMGUI. " alt="" coords="829,629,1000,685"/>
-<area shape="rect" id="node18" href="$_c_irrlicht_i_m_g_u_i_driver_8h.html" title="Contains a driver that uses Irrlicht primitive drawing functions to render the GUI. " alt="" coords="389,733,560,789"/>
-<area shape="rect" id="node22" href="$_c_open_g_l_i_m_g_u_i_driver_8h.html" title="Contains a driver that uses native OpenGL functions to render the GUI. " alt="" coords="584,733,755,789"/>
-<area shape="rect" id="node31" href="$_include_i_m_g_u_i_8h.html" title="Helper file for including IMGUI and applying the correct settings. " alt="" coords="569,109,745,165"/>
-<area shape="rect" id="node33" href="$_c_char_fifo_8h.html" title="Class definition for a Fifo Memory. " alt="" coords="620,213,796,269"/>
-<area shape="rect" id="node35" href="$_c_i_m_g_u_i_event_storage_8h.html" title="A storage memory to transfer Input&#45;Events from Irrlicht to the IMGUI. " alt="" coords="653,317,864,373"/>
-<area shape="rect" id="node37" href="$_c_i_m_g_u_i_event_receiver_8h.html" title="Contains a standard Event Receiver for Irrlicht that passed inputs to IMGUI. " alt="" coords="714,421,928,477"/>
-<area shape="rect" id="node41" href="$_irr_i_m_g_u_i_8h.html" title="The main include file for the IMGUI bindinds. " alt="" coords="907,525,1083,581"/>
-<area shape="rect" id="node50" href="$_c_i_m_g_u_i_handle_8h.html" title="Contains a handle to setup the IMGUI for Irrlicht. " alt="" coords="477,629,653,685"/>
-<area shape="rect" id="node67" href="$_s_i_m_g_u_i_settings_8h.html" title="A storage the settings of the IMGUI. " alt="" coords="347,317,528,373"/>
-<area shape="rect" id="node72" href="$_irr_i_m_g_u_i_debug_8h.html" title="Contains defines for debug handling. " alt="" coords="1157,109,1333,165"/>
-<area shape="rect" id="node5" href="$_c_char_fifo_8cpp.html" title="Class definition for a Fifo Memory. " alt="" coords="1075,733,1245,789"/>
-<area shape="rect" id="node7" href="$_c_i_m_g_u_i_handle_8cpp.html" title="Contains a handle to setup the IMGUI for Irrlicht. " alt="" coords="880,733,1051,789"/>
-<area shape="rect" id="node13" href="$_i_i_m_g_u_i_driver_8cpp.html" title="Contains a driver interface for IMGUI. " alt="" coords="707,837,877,893"/>
-<area shape="rect" id="node54" href="$_i_g_u_i_texture_8h.html" title="Contains an interface to a GUITexture object. " alt="" coords="352,525,528,581"/>
-<area shape="rect" id="node39" href="$_c_i_m_g_u_i_event_receiver_8cpp.html" title="Contains a standard Event Receiver for Irrlicht that passed inputs to IMGUI. " alt="" coords="705,525,881,581"/>
-<area shape="rect" id="node56" href="$_c_g_u_i_texture_8h.html" title="Contains the class for a GUITexture object. " alt="" coords="144,629,315,685"/>
-<area shape="rect" id="node58" href="$_c_g_u_i_texture_8cpp.html" title="Contains the class for a GUITexture object. " alt="" coords="144,733,315,789"/>
-<area shape="rect" id="node74" href="$_c_channel_buffer_8cpp.html" title="Contains the implementation of a channel buffer. " alt="" coords="1208,213,1379,269"/>
+<area shape="rect" id="node3" href="$_irr_i_m_g_u_i_debug__priv_8h.html" title="Contains defines for debug handling. " alt="" coords="1755,645,1943,701"/>
+<area shape="rect" id="node11" href="$_c_irrlicht_i_m_g_u_i_driver_8cpp.html" title="Contains a driver that uses Irrlicht primitive drawing functions to render the GUI. " alt="" coords="51,853,221,909"/>
+<area shape="rect" id="node13" href="$_c_open_g_l_i_m_g_u_i_driver_8cpp.html" title="Contains a driver that uses native OpenGL functions to render the GUI. " alt="" coords="325,853,501,909"/>
+<area shape="rect" id="node21" href="$_c_i_m_g_u_i_handle_8h.html" title="Contains a handle to setup the IMGUI for Irrlicht. " alt="" coords="652,645,823,701"/>
+<area shape="rect" id="node25" href="$_i_i_m_g_u_i_driver_8h.html" title="Contains a driver interface for IMGUI. " alt="" coords="407,645,577,701"/>
+<area shape="rect" id="node28" href="$_c_irrlicht_i_m_g_u_i_driver_8h.html" title="Contains a driver that uses Irrlicht primitive drawing functions to render the GUI. " alt="" coords="208,749,379,805"/>
+<area shape="rect" id="node32" href="$_c_open_g_l_i_m_g_u_i_driver_8h.html" title="Contains a driver that uses native OpenGL functions to render the GUI. " alt="" coords="407,749,577,805"/>
+<area shape="rect" id="node41" href="$_include_i_m_g_u_i_8h.html" title="Helper file for including IMGUI and applying the correct settings. " alt="" coords="1127,109,1303,165"/>
+<area shape="rect" id="node47" href="$_c_char_fifo_8h.html" title="Class definition for a Fifo Memory. " alt="" coords="1272,221,1448,277"/>
+<area shape="rect" id="node49" href="$_c_i_m_g_u_i_event_storage_8h.html" title="A storage memory to transfer Input&#45;Events from Irrlicht to the IMGUI. " alt="" coords="1171,333,1381,389"/>
+<area shape="rect" id="node54" href="$_c_i_m_g_u_i_event_receiver_8h.html" title="Contains a standard Event Receiver for Irrlicht that passed inputs to IMGUI. " alt="" coords="1342,437,1556,493"/>
+<area shape="rect" id="node58" href="$_irr_i_m_g_u_i_8h.html" title="The main include file for the IMGUI bindinds. " alt="" coords="1091,541,1267,597"/>
+<area shape="rect" id="node101" href="$_i_reference_counter_8h.html" title="Contains a class to count references. " alt="" coords="1456,333,1651,389"/>
+<area shape="rect" id="node105" href="$_s_i_m_g_u_i_settings_8h.html" title="A storage the settings of the IMGUI. " alt="" coords="763,333,944,389"/>
+<area shape="rect" id="node109" href="$_i_m_g_u_i_helper_8h.html" title="Contains helper functions for the IMGUI handling. " alt="" coords="637,437,813,493"/>
+<area shape="rect" id="node115" href="$_irr_i_m_g_u_i_debug_8h.html" title="Contains defines for debug handling. " alt="" coords="1800,109,1976,165"/>
+<area shape="rect" id="node120" href="$_c_basic_memory_leak_detection_8h.html" title="Class for a very basic memory leak detection. " alt="" coords="2171,109,2465,165"/>
+<area shape="rect" id="node125" href="$_mock_helper_8h.html" title="Contains definitions used inside IIMGUIHandleMock, but they must stay independent from the mock..." alt="" coords="1734,437,1943,493"/>
+<area shape="rect" id="node5" href="$_c_basic_memory_leak_detection_8cpp.html" title="Class for a very basic memory leak detection. " alt="" coords="2082,749,2304,805"/>
+<area shape="rect" id="node7" href="$_c_char_fifo_8cpp.html" title="Class definition for a Fifo Memory. " alt="" coords="1540,749,1711,805"/>
+<area shape="rect" id="node9" href="$_c_i_m_g_u_i_handle_8cpp.html" title="Contains a handle to setup the IMGUI for Irrlicht. " alt="" coords="652,749,823,805"/>
+<area shape="rect" id="node15" href="$_i_i_m_g_u_i_driver_8cpp.html" title="Contains a driver interface for IMGUI. " alt="" coords="607,853,777,909"/>
+<area shape="rect" id="node17" href="$_i_reference_counter_8cpp.html" title="Contains a class to count references. " alt="" coords="1887,749,2057,805"/>
+<area shape="rect" id="node19" href="$_irr_i_m_g_u_i_inject_8cpp.html" title="Contains function implementation for Dependency Injection. " alt="" coords="1005,749,1176,805"/>
+<area shape="rect" id="node43" href="$_i_m_g_u_i_helper_8cpp.html" title="Contains helper functions for the IMGUI handling. " alt="" coords="693,541,864,597"/>
+<area shape="rect" id="node45" href="$_unit_test_8cpp.html" title="Contains helper functions for the unit testing. " alt="" coords="1645,541,1816,597"/>
+<area shape="rect" id="node78" href="$_i_g_u_i_texture_8h.html" title="Contains an interface to a GUITexture object. " alt="" coords="512,333,688,389"/>
+<area shape="rect" id="node95" href="$_irr_i_m_g_u_i_constants_8h.html" title="Contains constants values for IrrIMGUI. " alt="" coords="1656,221,1851,277"/>
+<area shape="rect" id="node75" href="$_i_i_m_g_u_i_handle_mock_8h.html" title="Contains a CppUMock compatible mock of the IIMGUIHanlde class. " alt="" coords="1265,749,1516,805"/>
+<area shape="rect" id="node56" href="$_c_i_m_g_u_i_event_receiver_8cpp.html" title="Contains a standard Event Receiver for Irrlicht that passed inputs to IMGUI. " alt="" coords="1393,541,1569,597"/>
+<area shape="rect" id="node69" href="$_irr_i_m_g_u_i_inject__priv_8h.html" title="Private definitions for dependency injection. " alt="" coords="999,645,1181,701"/>
+<area shape="rect" id="node72" href="$_irr_i_m_g_u_i_inject_8h.html" title="Functions for dependency injection. " alt="" coords="1258,645,1459,701"/>
+<area shape="rect" id="node80" href="$_c_g_u_i_texture_8h.html" title="Contains the class for a GUITexture object. " alt="" coords="392,437,563,493"/>
+<area shape="rect" id="node90" href="$_i_i_m_g_u_i_handle_8h.html" title="Contains a interface for a IMGUI handle. " alt="" coords="1091,437,1267,493"/>
+<area shape="rect" id="node82" href="$_c_g_u_i_texture_8cpp.html" title="Contains the class for a GUITexture object. " alt="" coords="397,541,568,597"/>
+<area shape="rect" id="node118" href="$_c_channel_buffer_8cpp.html" title="Contains the implementation of a channel buffer. " alt="" coords="1925,221,2096,277"/>
+<area shape="rect" id="node123" href="$_basic_memory_leak_detection_plugin_8h.html" title="A CppUTest plugin to perform a very basic memory leak detection. " alt="" coords="2171,214,2408,285"/>
 </map>

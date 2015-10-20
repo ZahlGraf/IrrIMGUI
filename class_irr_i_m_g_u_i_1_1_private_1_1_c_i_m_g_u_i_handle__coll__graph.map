@@ -1,0 +1,9 @@
+<map id="IrrIMGUI::Private::CIMGUIHandle" name="IrrIMGUI::Private::CIMGUIHandle">
+<area shape="rect" id="node2" href="$class_irr_i_m_g_u_i_1_1_i_i_m_g_u_i_handle.html" title="A interface to an IMGUI handle. Use this interface for mocking and dependency injection of the real I..." alt="" coords="353,5,509,32"/>
+<area shape="rect" id="node4" href="$class_irr_i_m_g_u_i_1_1_i_reference_counter.html" title="A class to count references. " alt="" coords="6,5,189,32"/>
+<area shape="rect" id="node6" href="$class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_event_storage.html" title="Stores the state of the Keyboard and Mouse input for IMGUI. " alt="" coords="331,56,530,83"/>
+<area shape="rect" id="node8" href="$class_irr_i_m_g_u_i_1_1_c_char_fifo.html" title="A Fifo Memory to store character inputs from the keyboard. " alt="" coords="30,56,165,83"/>
+<area shape="rect" id="node10" href="$class_irr_i_m_g_u_i_1_1_private_1_1_i_i_m_g_u_i_driver.html" title="Interface for an IMGUI Driver to setup the IMGUI render system. " alt="" coords="369,146,493,187"/>
+<area shape="rect" id="node12" href="$struct_irr_i_m_g_u_i_1_1_s_i_m_g_u_i_settings.html" title="Stores the settings of the IMGUI. " alt="" coords="12,129,183,156"/>
+<area shape="rect" id="node14" href="$class_irr_i_m_g_u_i_1_1_i_g_u_i_texture.html" title="IrrIMGUI::IGUITexture" alt="" coords="25,180,170,207"/>
+</map>
