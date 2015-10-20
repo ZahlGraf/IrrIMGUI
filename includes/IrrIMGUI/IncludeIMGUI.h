@@ -37,7 +37,7 @@
 #endif
 
 // first include the config file to setup IMGUI correctly
-#include <IrrIMGUI/IrrIMGUIConfig.h>
+#include "IrrIMGUIConfig.h"
 #include <IMGUI/imgui.h>
 
 // enable CPPUTEST new macro for further headers
