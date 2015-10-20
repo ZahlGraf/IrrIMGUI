@@ -32,8 +32,8 @@
 #define IRRIMGUI_INCLUDE_IRRIMGUI_CREFERENCECOUNTER_H_
 
 // library includes
-#include <IrrIMGUI/IrrIMGUIConfig.h>
-#include <IrrIMGUI/IncludeIrrlicht.h>
+#include "IrrIMGUIConfig.h"
+#include "IncludeIrrlicht.h"
 
 /**
  * @addtogroup IrrIMGUI

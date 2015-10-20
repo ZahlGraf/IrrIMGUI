@@ -32,7 +32,7 @@
 #define IRRIMGUI_INCLUDE_IRRIMGUI_CIMGUIEVENTRECEIVER_H_
 
 // library includes
-#include <IrrIMGUI/CIMGUIEventStorage.h>
+#include "CIMGUIEventStorage.h"
 #include "IncludeIrrlicht.h"
 
 // module includes
