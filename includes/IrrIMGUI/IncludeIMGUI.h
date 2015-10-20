@@ -38,7 +38,7 @@
 
 // first include the config file to setup IMGUI correctly
 #include "IrrIMGUIConfig.h"
-#include "../../dependency/IMGUI/imgui.h"
+#include <IMGUI/imgui.h>
 
 // enable CPPUTEST new macro for further headers
 #if CPPUTEST_USE_NEW_MACROS
