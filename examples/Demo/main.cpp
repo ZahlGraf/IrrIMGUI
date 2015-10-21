@@ -68,7 +68,9 @@ void runScene(void)
   FASSERT(pDevice);
 
   // Create GUI object
-  IIMGUIHandle * const pGUI = createIMGUI(pDevice, &EventReceiver);
+  SIMGUISettings Settings;
+  Settings.mIsIMGUIMemoryAllocationTrackingEnabled = false;
+  IIMGUIHandle * const pGUI = createIMGUI(pDevice, &EventReceiver, &Settings);
 
   video::IVideoDriver  * const pDriver       = pDevice->getVideoDriver();
   scene::ISceneManager * const pSceneManager = pDevice->getSceneManager();

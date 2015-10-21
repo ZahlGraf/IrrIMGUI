@@ -31,17 +31,25 @@
 #include <IrrIMGUI/UnitTest/UnitTest.h>
 #include <IrrIMGUI/IIMGUIHandle.h>
 #include <IrrIMGUI/IrrIMGUI.h>
+#include <IrrIMGUI/IrrIMGUIDebug.h>
+#include <sstream>
+#include <string>
+#include <iostream>
 
 using namespace IrrIMGUI;
 
 TEST_GROUP(TestIMGUISettings)
 {
+  std::streambuf * mpStreamBuffer;
+
   TEST_SETUP()
   {
+    mpStreamBuffer = Debug::ErrorOutput.rdbuf();
   }
 
   TEST_TEARDOWN()
   {
+    Debug::ErrorOutput.rdbuf(mpStreamBuffer);
   }
 };
 
@@ -109,6 +117,92 @@ TEST(TestIMGUISettings, checkIfMouseCursorEnableIsApplied)
   return;
 }
 
+TEST(TestIMGUISettings, checkIfMemoryTrackingSettingsAreApplied)
+{
+  std::stringstream ErrorString;
+  Debug::ErrorOutput.rdbuf(ErrorString.rdbuf());
+
+  ImGuiIO &rIMGUI = ImGui::GetIO();
+
+  irr::IrrlichtDevice * const pDevice = irr::createDevice(irr::video::EDT_NULL);
+  SIMGUISettings Settings;
+
+  {
+    ErrorString.str("");
+    Settings.mIsIMGUIMemoryAllocationTrackingEnabled = true;
+
+    IIMGUIHandle * const pGUI = createIMGUI(pDevice, nullptr, &Settings);
+
+    // allocate IMGUI memory for 100 integer values.
+    ImVector<int> Values;
+    Values.resize(100);
+
+    // This will shutdown IMGUI, thus with enabled tracking an Error is thrown.
+    pGUI->drop();
+
+    CHECK_NOT_EQUAL(std::string::npos, ErrorString.str().find("{IrrIMGUI} There are 1 allocated memory blocks that have not been deallocated so far!"));
+  }
+
+  {
+    ErrorString.str("");
+    Settings.mIsIMGUIMemoryAllocationTrackingEnabled = false;
+
+    IIMGUIHandle * const pGUI = createIMGUI(pDevice, nullptr, &Settings);
+
+    // allocate IMGUI memory for 100 integer values.
+    ImVector<int> Values;
+    Values.resize(100);
+
+    // This will shutdown IMGUI, thus with enabled tracking an Error is thrown.
+    pGUI->drop();
+
+    CHECK(std::string::npos == ErrorString.str().find("{IrrIMGUI} There are 1 allocated memory blocks that have not been deallocated so far!"));
+  }
+
+  {
+    ErrorString.str("");
+    Settings.mIsIMGUIMemoryAllocationTrackingEnabled = true;
+
+    IIMGUIHandle * const pGUI = createIMGUI(pDevice, nullptr, &Settings);
+
+    Settings.mIsIMGUIMemoryAllocationTrackingEnabled = false;
+
+    pGUI->setSettings(Settings);
+
+    // allocate IMGUI memory for 100 integer values.
+    ImVector<int> Values;
+    Values.resize(100);
+
+    // This will shutdown IMGUI, thus with enabled tracking an Error is thrown.
+    pGUI->drop();
+
+    CHECK(std::string::npos == ErrorString.str().find("{IrrIMGUI} There are 1 allocated memory blocks that have not been deallocated so far!"));
+  }
+
+  {
+    ErrorString.str("");
+    Settings.mIsIMGUIMemoryAllocationTrackingEnabled = false;
+
+    IIMGUIHandle * const pGUI = createIMGUI(pDevice, nullptr, &Settings);
+
+    Settings.mIsIMGUIMemoryAllocationTrackingEnabled = true;
+
+    pGUI->setSettings(Settings);
+
+    // allocate IMGUI memory for 100 integer values.
+    ImVector<int> Values;
+    Values.resize(100);
+
+    // This will shutdown IMGUI, thus with enabled tracking an Error is thrown.
+    pGUI->drop();
+
+    CHECK(std::string::npos != ErrorString.str().find("{IrrIMGUI} There are 1 allocated memory blocks that have not been deallocated so far!"));
+  }
+
+  pDevice->drop();
+
+  return;
+}
 
 
 
