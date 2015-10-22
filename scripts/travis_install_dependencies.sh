@@ -1,5 +1,4 @@
 #!/bin/bash
-#set -ev
 
 # goto build directory
 cd ${TRAVIS_BUILD_DIR}
