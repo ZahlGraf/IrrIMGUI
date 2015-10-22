@@ -1,0 +1,13 @@
+language: cpp
+
+os:
+  - linux
+
+compiler:
+  - gcc
+
+before_install:
+  - if [ $TRAVIS_OS_NAME == linux ]; then  ./scripts/travis_install_dependencies.sh fi
+
+script: 
+  - ls /tmp/*
