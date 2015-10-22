@@ -10,4 +10,4 @@ before_install:
   - if [ $TRAVIS_OS_NAME == linux ]; then  chmod ugo+x ./scripts/travis_install_dependencies.sh; ./scripts/travis_install_dependencies.sh; fi
 
 script: 
-  - ls /tmp/*
+  - ls /travis-dep/*
