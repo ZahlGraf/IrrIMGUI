@@ -1,5 +1,7 @@
 # Irrlicht Binding for IMGUI
 
+[![Build Status](https://travis-ci.org/ZahlGraf/IrrIMGUI.svg?branch=master)](https://travis-ci.org/ZahlGraf/IrrIMGUI)
+
 **Shortcuts: [[Kanban Board]](https://waffle.io/ZahlGraf/IrrIMGUI) - [[Devlopers Blog]](https://github.com/ZahlGraf/IrrIMGUI/wiki/Developers-Blog) - [[Last Version]](#LatestVersionNews) - [[HowToStart]](#HowToStart)**
 
 **ATTENTION:** The version on the master branch is unstable. For a stable version please look at [Latest Version News](#LatestVersionNews).
