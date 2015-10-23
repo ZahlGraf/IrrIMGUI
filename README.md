@@ -46,6 +46,7 @@ Following Features are supported so far:
 
 #### Fixes
 * Switched off IMGUI memory leak detection in Demo example to prevent false negative (see [#10](https://github.com/ZahlGraf/IrrIMGUI/issues/10)).
+* Fixed case sensitive related errors, where headers are not found.
 
 #### Dependency Versions
 * [IMGUI 1.46](https://github.com/ocornut/imgui/tree/v1.46)
