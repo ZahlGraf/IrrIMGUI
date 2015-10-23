@@ -4,6 +4,12 @@ cache:
   directories:
     - $HOME/.cache
 
+env:
+  global:
+  - IMGUI_VER=imgui-1.4.6
+  - IRRLICHT_VER=irrlicht-1.8.3
+  - CPPUTEST_VER=cpputest-3.7.1
+
 addons:
   apt:
     sources:
