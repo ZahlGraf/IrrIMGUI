@@ -5,9 +5,13 @@ addons:
   apt:
     sources:
     - kalakris-cmake	
+    - ubuntu-toolchain-r-test
     packages:
     - cmake
-
+    - libxxf86vm-dev
+    - gcc-4.9
+    - g++-4.9
+	
 os:
   - linux
 
@@ -15,6 +19,7 @@ compiler:
   - gcc
 
 before_install:
+  - if [ "$CXX" = "g++" ]; then export CXX="g++-4.9" CC="gcc-4.9"; fi
   - if [ $TRAVIS_OS_NAME == linux ]; then chmod ugo+x ./scripts/travis_install_dependencies.sh; ./scripts/travis_install_dependencies.sh; fi
 
 before_script:
