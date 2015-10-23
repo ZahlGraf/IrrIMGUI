@@ -145,9 +145,16 @@ namespace Private
       delete(mpInstance);
       mpInstance = nullptr;
       mInstances = 0;
-      FASSERT(ImGui::GetIO().MetricsAllocs == 0);
 
       WasDeleted = true;
+
+      if (ImGui::GetIO().MetricsAllocs != 0)
+      {
+        if (mSettings.mIsIMGUIMemoryAllocationTrackingEnabled)
+        {
+          LOG_ERROR("{IrrIMGUI} There are " << std::dec << ImGui::GetIO().MetricsAllocs << " allocated memory blocks that have not been deallocated so far!" << std::endl);
+        }
+      }
     }
 
     return WasDeleted;
