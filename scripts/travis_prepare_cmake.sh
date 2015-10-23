@@ -26,7 +26,7 @@ cd travis-build
 
 # run cmake
 cmake -version
-cmake \
+cmake -LH \
   -DCMAKE_BUILD_TYPE=${BUILD_TYPE} \
   -DCMAKE_INSTALL_PREFIX=${TRAVIS_BUILD_DIR}/travis-install \
   -DIRRIMGUI_STATIC_LIBRARY=${BUILD_STATIC} \

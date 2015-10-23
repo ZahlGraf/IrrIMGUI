@@ -9,9 +9,9 @@ env:
   - IMGUI_VER=imgui-1.4.6
   - IRRLICHT_VER=irrlicht-1.8.3
   - CPPUTEST_VER=cpputest-3.7.1
-  - LIBRARY_MODE=static
-  - BUILD_TYPE=Debug
-  - NATIVE_OPENGL=Off
+  matrix:
+  - LIBRARY_MODE=static BUILD_TYPE=Debug NATIVE_OPENGL=Off
+  - LIBRARY_MODE=shared BUILD_TYPE=Debug NATIVE_OPENGL=Off
 
 addons:
   apt:
