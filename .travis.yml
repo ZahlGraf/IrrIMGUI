@@ -1,5 +1,9 @@
 language: cpp
 
+cache:
+  directories:
+    - $HOME/.cache
+
 addons:
   apt:
     sources:
@@ -19,7 +23,7 @@ compiler:
 
 before_install:
   - if [ "$CXX" == "g++" ]; then export CXX="g++-4.9" CC="gcc-4.9"; fi
-  - if [ $TRAVIS_OS_NAME == linux ]; then chmod ugo+x ./scripts/travis_install_dependencies.sh; ./scripts/travis_install_dependencies.sh; fi
+  - chmod ugo+x ./scripts/travis_install_dependencies.sh; ./scripts/travis_install_dependencies.sh
 
 before_script:
   - if [ $TRAVIS_OS_NAME == linux ]; then chmod ugo+x ./scripts/travis_prepare_cmake.sh; ./scripts/travis_prepare_cmake.sh; fi
