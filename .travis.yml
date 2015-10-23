@@ -32,7 +32,7 @@ compiler:
   - gcc
 
 before_install:
-  - if [ "$CXX" == "g++" ]; then export CXX="g++-4.9" CC="gcc-4.9"; fi
+  - if [ "$CXX" == "g++" ]; then export CXX="g++-4.9" CC="gcc-4.9" COMPILER="gcc-linux64"; fi
   - chmod ugo+x ./scripts/travis_install_dependencies.sh; ./scripts/travis_install_dependencies.sh
 
 before_script:
