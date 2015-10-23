@@ -9,6 +9,10 @@ echo " - Native OpenGl: ${NATIVE_OPENGL}"
 
 SMALL_BUILDTYPE=`echo ${BUILD_TYPE} | tr '[:upper:]' '[:lower:]'`
 
+if [ "${NATIVE_OPENGL}" == "On" ]; then
+  COMPILER=${COMPILER}-opengl
+fi
+
 # goto build directory
 cd ${TRAVIS_BUILD_DIR}/travis-build/${COMPILER}/${SMALL_BUILDTYPE}/${LIBRARY_MODE}
 

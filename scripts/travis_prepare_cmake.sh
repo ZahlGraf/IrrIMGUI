@@ -16,6 +16,10 @@ if [ "${LIBRARY_MODE}" == "static" ]; then
   IRRLICHT_LIBRARY=libIrrlicht.a
 fi
 
+if [ "${NATIVE_OPENGL}" == "On" ]; then
+  COMPILER=${COMPILER}-opengl
+fi
+
 # get irrlicht version number
 IRRLICHT_VER_NUMBER=`echo ${IRRLICHT_VER} | sed -s "s/irrlicht-\([0-9.]\+\)/\1/g"`
 echo "Using Irrlicht Version: ${IRRLICHT_VER_NUMBER}"

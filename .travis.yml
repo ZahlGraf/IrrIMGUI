@@ -10,8 +10,10 @@ env:
   - IRRLICHT_VER=irrlicht-1.8.3
   - CPPUTEST_VER=cpputest-3.7.1
   matrix:
-  - LIBRARY_MODE=static BUILD_TYPE=Debug NATIVE_OPENGL=Off
-  - LIBRARY_MODE=shared BUILD_TYPE=Debug NATIVE_OPENGL=Off
+  - LIBRARY_MODE=static BUILD_TYPE=Debug   NATIVE_OPENGL=Off
+  - LIBRARY_MODE=shared BUILD_TYPE=Debug   NATIVE_OPENGL=Off
+  - LIBRARY_MODE=static BUILD_TYPE=Release NATIVE_OPENGL=Off
+  - LIBRARY_MODE=shared BUILD_TYPE=Release NATIVE_OPENGL=Off
 
 addons:
   apt:
