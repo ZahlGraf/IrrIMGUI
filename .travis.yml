@@ -20,6 +20,7 @@ addons:
     - ubuntu-toolchain-r-test
     packages:
     - cmake
+    - cmake-data
     - libxxf86vm-dev
     - gcc-4.9
     - g++-4.9
