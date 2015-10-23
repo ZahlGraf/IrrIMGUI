@@ -32,7 +32,7 @@
 #define IRRIMGUI_CGUITEXTURE_H_
 
 // library includes
-#include <IrriMGUI/IncludeIrrlicht.h>
+#include <IrrIMGUI/IncludeIrrlicht.h>
 
 // module includes
 #include <IrrIMGUI/IGUITexture.h>
