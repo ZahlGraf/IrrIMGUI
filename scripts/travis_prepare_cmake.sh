@@ -8,9 +8,12 @@ echo " - Build Type:    ${BUILD_TYPE}"
 echo " - Native OpenGl: ${NATIVE_OPENGL}"
 
 SMALL_BUILDTYPE=`echo ${BUILD_TYPE} | tr '[:upper:]' '[:lower:]'`
+
+IRRLICHT_LIBRARY=libIrrlicht.so
 BUILD_STATIC=Off
 if [ "${LIBRARY_MODE}" == "static" ]; then
   BUILD_STATIC=On
+  IRRLICHT_LIBRARY=libIrrlicht.a
 fi
 
 # get irrlicht version number
@@ -31,7 +34,7 @@ cmake -LH \
   -DCMAKE_INSTALL_PREFIX=${TRAVIS_BUILD_DIR}/travis-install \
   -DIRRIMGUI_STATIC_LIBRARY=${BUILD_STATIC} \
   -DIRRLICHT_INCLUDE_DIR=${TRAVIS_BUILD_DIR}/travis-dep/irrlicht/install/${COMPILER}/${SMALL_BUILDTYPE}/${LIBRARY_MODE}/includes/Irrlicht \
-  -DIRRLICHT_LIB_DIR=${TRAVIS_BUILD_DIR}/travis-dep/irrlicht/install/${COMPILER}/${SMALL_BUILDTYPE}/${LIBRARY_MODE}/lib/libIrrlicht.a \
+  -DIRRLICHT_LIB_DIR=${TRAVIS_BUILD_DIR}/travis-dep/irrlicht/install/${COMPILER}/${SMALL_BUILDTYPE}/${LIBRARY_MODE}/lib/${IRRLICHT_LIBRARY} \
   -DIRRLICHT_BIN_DIR=${TRAVIS_BUILD_DIR}/travis-dep/irrlicht/install/${COMPILER}/${SMALL_BUILDTYPE}/${LIBRARY_MODE}/lib/libIrrlicht.so.${IRRLICHT_VER_NUMBER} \
   -DIRRIMGUI_BUILD_UNITTESTS=On \
   -DIRRIMGUI_CPPUTEST_EXTENSION=${TRAVIS_BUILD_DIR}/travis-dep/cpputest/install/${COMPILER}/${SMALL_BUILDTYPE}/static/lib/libCppUTestExt.a \
