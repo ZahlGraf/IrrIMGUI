@@ -16,8 +16,9 @@ if [ "${LIBRARY_MODE}" == "static" ]; then
   IRRLICHT_LIBRARY=libIrrlicht.a
 fi
 
+OPENGL_POSTFIX=
 if [ "${NATIVE_OPENGL}" == "On" ]; then
-  COMPILER=${COMPILER}-opengl
+  OPENGL_POSTFIX-opengl
 fi
 
 # get irrlicht version number
@@ -28,14 +29,14 @@ echo "Using Irrlicht Version: ${IRRLICHT_VER_NUMBER}"
 cd ${TRAVIS_BUILD_DIR}
 
 # setup build directory
-mkdir -p travis-build/${COMPILER}/${SMALL_BUILDTYPE}/${LIBRARY_MODE}
-cd travis-build/${COMPILER}/${SMALL_BUILDTYPE}/${LIBRARY_MODE}
+mkdir -p travis-build/${COMPILER}${OPENGL_POSTFIX}/${SMALL_BUILDTYPE}/${LIBRARY_MODE}
+cd travis-build/${COMPILER}${OPENGL_POSTFIX}/${SMALL_BUILDTYPE}/${LIBRARY_MODE}
 
 # run cmake
 cmake -version
 cmake -LH \
   -DCMAKE_BUILD_TYPE=${BUILD_TYPE} \
-  -DCMAKE_INSTALL_PREFIX=${TRAVIS_BUILD_DIR}/travis-install/${COMPILER}/${SMALL_BUILDTYPE}/${LIBRARY_MODE} \
+  -DCMAKE_INSTALL_PREFIX=${TRAVIS_BUILD_DIR}/travis-install/${COMPILER}${OPENGL_POSTFIX}/${SMALL_BUILDTYPE}/${LIBRARY_MODE} \
   -DIRRIMGUI_STATIC_LIBRARY=${BUILD_STATIC} \
   -DIRRLICHT_INCLUDE_DIR=${TRAVIS_BUILD_DIR}/travis-dep/irrlicht/install/${COMPILER}/${SMALL_BUILDTYPE}/${LIBRARY_MODE}/includes/Irrlicht \
   -DIRRLICHT_LIB_DIR=${TRAVIS_BUILD_DIR}/travis-dep/irrlicht/install/${COMPILER}/${SMALL_BUILDTYPE}/${LIBRARY_MODE}/lib/${IRRLICHT_LIBRARY} \
