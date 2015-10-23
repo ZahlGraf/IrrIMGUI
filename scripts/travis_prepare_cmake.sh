@@ -30,6 +30,8 @@ cmake \
   -DIRRIMGUI_CPPUTEST_EXTENSION=${TRAVIS_BUILD_DIR}/travis-dep/cpputest/install/gcc-linux64/debug/static/lib/libCppUTestExt.a \
   -DIRRIMGUI_CPPUTEST_MAIN=${TRAVIS_BUILD_DIR}/travis-dep/cpputest/install/gcc-linux64/debug/static/lib/libCppUTest.a \
   -DIRRIMGUI_CPPUTEST_INCLUDE_DIR=${TRAVIS_BUILD_DIR}/travis-dep/cpputest/install/gcc-linux64/debug/static/include \
+  -DIRRIMGUI_NATIVE_OPENGL=${NATIVE_OPENGL} \
+  -DIRRIMGUI_FAST_OPENGL_TEXTURE_CREATION=${NATIVE_OPENGL} \
   ${TRAVIS_BUILD_DIR}
 
 
