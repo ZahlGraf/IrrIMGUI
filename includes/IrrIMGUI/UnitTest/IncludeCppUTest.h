@@ -31,8 +31,8 @@
 #ifndef IRRIMGUI_INCLUDE_IRRIMGUI_INCLUDECPPUTEST_H_
 #define IRRIMGUI_INCLUDE_IRRIMGUI_INCLUDECPPUTEST_H_
 
-#include <CppUTest/UTest.h>
-#include <CppUTest/UTestMacros.h>
+#include <CppUTest/Utest.h>
+#include <CppUTest/UtestMacros.h>
 #include <CppUTest/TestPlugin.h>
 #include <CppUTestExt/MockSupport.h>
 
