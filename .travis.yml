@@ -1,5 +1,12 @@
 language: cpp
-sudo: true
+sudo: false
+
+addons:
+  apt:
+    sources:
+    - kalakris-cmake	
+    packages:
+    - cmake
 
 os:
   - linux
@@ -8,8 +15,6 @@ compiler:
   - gcc
 
 before_install:
-  - chmod ugo+x ./scripts/travis_install_cmake.sh
-  - ./scripts/travis_install_cmake.sh
   - if [ $TRAVIS_OS_NAME == linux ]; then chmod ugo+x ./scripts/travis_install_dependencies.sh; ./scripts/travis_install_dependencies.sh; fi
 
 before_script:
