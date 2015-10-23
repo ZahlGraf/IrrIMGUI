@@ -16,7 +16,7 @@ env:
 addons:
   apt:
     sources:
-    - ppa:smspillaz/cmake-3.0.2
+    - george-edison55-precise-backports
     - ubuntu-toolchain-r-test
     packages:
     - cmake
