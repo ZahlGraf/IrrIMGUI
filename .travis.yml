@@ -39,11 +39,4 @@ before_script:
   - if [ $TRAVIS_OS_NAME == linux ]; then chmod ugo+x ./scripts/travis_prepare_cmake.sh; ./scripts/travis_prepare_cmake.sh; fi
   
 script: 
-  - cd travis-build
-  - make install
-  - cd ../travis-install/tests/UnitTests
-  - chmod ugo+x UnitTest.sh
-  - ./UnitTest.sh
-  - cd ../../..
-  - rm -R travis-install
-  - rm -R travis-build
+  - chmod ugo+x ./scripts/travis_build.sh; ./scripts/travis_build.sh

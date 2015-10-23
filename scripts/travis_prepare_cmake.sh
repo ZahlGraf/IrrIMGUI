@@ -24,14 +24,14 @@ echo "Using Irrlicht Version: ${IRRLICHT_VER_NUMBER}"
 cd ${TRAVIS_BUILD_DIR}
 
 # setup build directory
-mkdir -p travis-build
-cd travis-build
+mkdir -p travis-build/${COMPILER}/${SMALL_BUILDTYPE}/${LIBRARY_MODE}
+cd travis-build/${COMPILER}/${SMALL_BUILDTYPE}/${LIBRARY_MODE}
 
 # run cmake
 cmake -version
 cmake -LH \
   -DCMAKE_BUILD_TYPE=${BUILD_TYPE} \
-  -DCMAKE_INSTALL_PREFIX=${TRAVIS_BUILD_DIR}/travis-install \
+  -DCMAKE_INSTALL_PREFIX=${TRAVIS_BUILD_DIR}/travis-install/${COMPILER}/${SMALL_BUILDTYPE}/${LIBRARY_MODE} \
   -DIRRIMGUI_STATIC_LIBRARY=${BUILD_STATIC} \
   -DIRRLICHT_INCLUDE_DIR=${TRAVIS_BUILD_DIR}/travis-dep/irrlicht/install/${COMPILER}/${SMALL_BUILDTYPE}/${LIBRARY_MODE}/includes/Irrlicht \
   -DIRRLICHT_LIB_DIR=${TRAVIS_BUILD_DIR}/travis-dep/irrlicht/install/${COMPILER}/${SMALL_BUILDTYPE}/${LIBRARY_MODE}/lib/${IRRLICHT_LIBRARY} \
