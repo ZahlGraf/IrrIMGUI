@@ -16,7 +16,7 @@ env:
 addons:
   apt:
     sources:
-    - kalakris-cmake	
+    - george-edison55/precise-backports
     - ubuntu-toolchain-r-test
     packages:
     - cmake
