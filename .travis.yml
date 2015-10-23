@@ -20,6 +20,7 @@ addons:
     - libxxf86vm-dev
     - gcc-4.9
     - g++-4.9
+    - valgrind
 
 os:
   - linux
@@ -37,5 +38,9 @@ before_script:
 script: 
   - cd travis-build
   - make install
-  - cd ../travis-install
-  - ls
+  - cd ../travis-install/tests/UnitTests
+  - chmod ugo+x UnitTest.sh
+  - ./UnitTest.sh
+  - cd ../../..
+  - rm -R travis-install
+  - rm -R travis-build
