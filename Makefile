@@ -189,6 +189,7 @@ create_binary_zip: check_version_number
 
 .PHONY: release	
 release: check_version_number
+	@make --no-print-directory test_if_main_branch_is_master
 	@echo -e "${VIOLET} Release doxygen documentation ${NORMAL}"
 	@make --no-print-directory release_doxygen
 	@echo -e "${VIOLET} Release library binary ${NORMAL}"
@@ -219,7 +220,8 @@ tag_tools: check_version_number
 	@git tag ${VERSION_TAG}-tools
 
 .PHONY: tag_all
-tag_all: check_version_number
+tag_all: check_version_number test_if_main_branch_is_master
+	@make --no-print-directory test_if_main_branch_is_master
 	@echo -e "${VIOLET} Create tag for Tools ${NORMAL}"
 	@make --no-print-directory tag_tools
 	@echo -e "${VIOLET} Create tag for Source ${NORMAL}"
@@ -229,6 +231,7 @@ tag_all: check_version_number
 	
 .PHONY: push_release
 push_release: check_version_number
+	@make --no-print-directory test_if_main_branch_is_master
 	@echo -e "${VIOLET} Push to doxygen branch ${NORMAL}"
 	@cd ${DOXYGEN_OUT_DIR} && git push origin
 	@cd ${DOXYGEN_OUT_DIR} && git push origin ${VERSION_TAG}-doxygen
@@ -250,6 +253,7 @@ prepare_release: check_version_number
 	@echo ""
 	@read -r -p "Is this version number correct? (yes) " SURE; \
 	if [ "$$SURE" != "yes" ]; then echo -e "${RED}ERROR:${NORMAL} User canceled release preparation!"; exit -1; fi
+	@make --no-print-directory test_if_main_branch_is_master
 	@make --no-print-directory test_if_version_exists 
 	@make --no-print-directory test_if_no_changed_files 
 	@echo -n "Clean-up last release... "
@@ -306,4 +310,11 @@ test_if_doxygen_is_uptodate:
 	@echo -n "Check version of doxygen file... "
 	@if [ ! -e "${DOXYGEN_FILE}" ]; then echo -e "${RED}fail${NORMAL}"; echo -e "${RED}ERROR:${NORMAL} Doxygen file ${DOXYGEN_FILE} does not exist!"; exit -1; fi
 	@if [ "${CHECK_DOXYGEN_VERSION}" != "${VERSION}" ]; then echo -e "${RED}fail${NORMAL}"; echo -e "${RED}ERROR:${NORMAL} Found doxygen version ${CHECK_DOXYGEN_VERSION} but expected version ${VERSION}!"; exit -1; fi
+	@echo -e "${GREEN}done${NORMAL}"
+
+MAIN_BRANCH=${shell cd ${REPRO_DIR} && git rev-parse --abbrev-ref HEAD}
+.PHONY: test_if_main_branch_is_master
+test_if_main_branch_is_master:
+	@echo -n "Check name of main branch... "
+	@if [ "${MAIN_BRANCH}" != "master" ]; then echo -e "${RED}fail${NORMAL}"; echo -e "${RED}ERROR:${NORMAL} Main branch is ${MAIN_BRANCH} and not master. Please change branch first to master!"; exit -1; fi
 	@echo -e "${GREEN}done${NORMAL}"
