@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">IrrIMGUI
-   &#160;<span id="projectnumber">0.3.0</span>
+   &#160;<span id="projectnumber">0.3.1</span>
    </div>
   </td>
  </tr>
@@ -106,32 +106,36 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
 <div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="struct_irr_i_m_g_u_i_1_1_s_i_m_g_u_i_settings.html#ac28f7718821e8ece0d9ba79fdd835b49">   51</a></span>&#160;      <a class="code" href="struct_irr_i_m_g_u_i_1_1_s_i_m_g_u_i_settings.html#ac28f7718821e8ece0d9ba79fdd835b49">SIMGUISettings</a>(<span class="keywordtype">void</span>):</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        mIsGUIMouseCursorEnabled(true)</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;      {}</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="struct_irr_i_m_g_u_i_1_1_s_i_m_g_u_i_settings.html#a7ec5380ffc523f5b6a19cd790e77091e">   59</a></span>&#160;      <span class="keywordtype">bool</span> <a class="code" href="struct_irr_i_m_g_u_i_1_1_s_i_m_g_u_i_settings.html#a7ec5380ffc523f5b6a19cd790e77091e">mIsGUIMouseCursorEnabled</a>;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="struct_irr_i_m_g_u_i_1_1_s_i_m_g_u_i_settings.html#a69df0dda3b26846cc5ffbef56ced667f">   63</a></span>&#160;      <span class="keywordtype">bool</span> <a class="code" href="struct_irr_i_m_g_u_i_1_1_s_i_m_g_u_i_settings.html#a69df0dda3b26846cc5ffbef56ced667f">operator==</a>(<a class="code" href="struct_irr_i_m_g_u_i_1_1_s_i_m_g_u_i_settings.html">SIMGUISettings</a> <span class="keyword">const</span> &amp;rCompareSettings)</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;      {</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordtype">bool</span> AreAllSettingsEqual = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        AreAllSettingsEqual = AreAllSettingsEqual &amp;&amp; (mIsGUIMouseCursorEnabled == rCompareSettings.<a class="code" href="struct_irr_i_m_g_u_i_1_1_s_i_m_g_u_i_settings.html#a7ec5380ffc523f5b6a19cd790e77091e">mIsGUIMouseCursorEnabled</a>);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">return</span> AreAllSettingsEqual;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;      }</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  };</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;}</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        mIsGUIMouseCursorEnabled(true),</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        mIsIMGUIMemoryAllocationTrackingEnabled(true)</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      {}</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="struct_irr_i_m_g_u_i_1_1_s_i_m_g_u_i_settings.html#a7ec5380ffc523f5b6a19cd790e77091e">   60</a></span>&#160;      <span class="keywordtype">bool</span> <a class="code" href="struct_irr_i_m_g_u_i_1_1_s_i_m_g_u_i_settings.html#a7ec5380ffc523f5b6a19cd790e77091e">mIsGUIMouseCursorEnabled</a>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="struct_irr_i_m_g_u_i_1_1_s_i_m_g_u_i_settings.html#a8b2eb6efe75feeedec4302c1515f0efd">   64</a></span>&#160;      <span class="keywordtype">bool</span> <a class="code" href="struct_irr_i_m_g_u_i_1_1_s_i_m_g_u_i_settings.html#a8b2eb6efe75feeedec4302c1515f0efd">mIsIMGUIMemoryAllocationTrackingEnabled</a>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="struct_irr_i_m_g_u_i_1_1_s_i_m_g_u_i_settings.html#a69df0dda3b26846cc5ffbef56ced667f">   68</a></span>&#160;      <span class="keywordtype">bool</span> <a class="code" href="struct_irr_i_m_g_u_i_1_1_s_i_m_g_u_i_settings.html#a69df0dda3b26846cc5ffbef56ced667f">operator==</a>(<a class="code" href="struct_irr_i_m_g_u_i_1_1_s_i_m_g_u_i_settings.html">SIMGUISettings</a> <span class="keyword">const</span> &amp;rCompareSettings)</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;      {</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordtype">bool</span> AreAllSettingsEqual = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        AreAllSettingsEqual = AreAllSettingsEqual &amp;&amp; (mIsGUIMouseCursorEnabled == rCompareSettings.<a class="code" href="struct_irr_i_m_g_u_i_1_1_s_i_m_g_u_i_settings.html#a7ec5380ffc523f5b6a19cd790e77091e">mIsGUIMouseCursorEnabled</a>);</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* IRRIMGUI_INCLUDE_IRRIMGUI_SIMGUISETTINGS_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="struct_irr_i_m_g_u_i_1_1_s_i_m_g_u_i_settings_html_a7ec5380ffc523f5b6a19cd790e77091e"><div class="ttname"><a href="struct_irr_i_m_g_u_i_1_1_s_i_m_g_u_i_settings.html#a7ec5380ffc523f5b6a19cd790e77091e">IrrIMGUI::SIMGUISettings::mIsGUIMouseCursorEnabled</a></div><div class="ttdeci">bool mIsGUIMouseCursorEnabled</div><div class="ttdoc">When this is true, the IMGUI draws it&#39;s own mouse courser and the system mouse cursor will turned off...</div><div class="ttdef"><b>Definition:</b> <a href="_s_i_m_g_u_i_settings_8h_source.html#l00059">SIMGUISettings.h:59</a></div></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordflow">return</span> AreAllSettingsEqual;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      }</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  };</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* IRRIMGUI_INCLUDE_IRRIMGUI_SIMGUISETTINGS_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="struct_irr_i_m_g_u_i_1_1_s_i_m_g_u_i_settings_html_a8b2eb6efe75feeedec4302c1515f0efd"><div class="ttname"><a href="struct_irr_i_m_g_u_i_1_1_s_i_m_g_u_i_settings.html#a8b2eb6efe75feeedec4302c1515f0efd">IrrIMGUI::SIMGUISettings::mIsIMGUIMemoryAllocationTrackingEnabled</a></div><div class="ttdeci">bool mIsIMGUIMemoryAllocationTrackingEnabled</div><div class="ttdoc">When this is true, the memory allocation tracking is enabled. IMGUI will then tack the numbers of all...</div><div class="ttdef"><b>Definition:</b> <a href="_s_i_m_g_u_i_settings_8h_source.html#l00064">SIMGUISettings.h:64</a></div></div>
+<div class="ttc" id="struct_irr_i_m_g_u_i_1_1_s_i_m_g_u_i_settings_html_a7ec5380ffc523f5b6a19cd790e77091e"><div class="ttname"><a href="struct_irr_i_m_g_u_i_1_1_s_i_m_g_u_i_settings.html#a7ec5380ffc523f5b6a19cd790e77091e">IrrIMGUI::SIMGUISettings::mIsGUIMouseCursorEnabled</a></div><div class="ttdeci">bool mIsGUIMouseCursorEnabled</div><div class="ttdoc">When this is true, the IMGUI draws it&#39;s own mouse courser and the system mouse cursor will turned off...</div><div class="ttdef"><b>Definition:</b> <a href="_s_i_m_g_u_i_settings_8h_source.html#l00060">SIMGUISettings.h:60</a></div></div>
 <div class="ttc" id="_irr_i_m_g_u_i_config_8h_html"><div class="ttname"><a href="_irr_i_m_g_u_i_config_8h.html">IrrIMGUIConfig.h</a></div><div class="ttdoc">Helper file for preprocessor configuration. </div></div>
 <div class="ttc" id="group___irr_i_m_g_u_i_html_gab0ac930850c822781bc6ffd6b4958e52"><div class="ttname"><a href="group___irr_i_m_g_u_i.html#gab0ac930850c822781bc6ffd6b4958e52">IRRIMGUI_DLL_API</a></div><div class="ttdeci">#define IRRIMGUI_DLL_API</div><div class="ttdoc">Helper for shared windows libraries (DLL). </div><div class="ttdef"><b>Definition:</b> <a href="_irr_i_m_g_u_i_config_8h_source.html#l00156">IrrIMGUIConfig.h:156</a></div></div>
 <div class="ttc" id="struct_irr_i_m_g_u_i_1_1_s_i_m_g_u_i_settings_html"><div class="ttname"><a href="struct_irr_i_m_g_u_i_1_1_s_i_m_g_u_i_settings.html">IrrIMGUI::SIMGUISettings</a></div><div class="ttdoc">Stores the settings of the IMGUI. </div><div class="ttdef"><b>Definition:</b> <a href="_s_i_m_g_u_i_settings_8h_source.html#l00046">SIMGUISettings.h:46</a></div></div>
 <div class="ttc" id="namespace_irr_i_m_g_u_i_html"><div class="ttname"><a href="namespace_irr_i_m_g_u_i.html">IrrIMGUI</a></div><div class="ttdoc">Main namespace for Irrlicht IMGUI binding. </div><div class="ttdef"><b>Definition:</b> <a href="_c_basic_memory_leak_detection_8cpp_source.html#l00035">CBasicMemoryLeakDetection.cpp:35</a></div></div>
 <div class="ttc" id="struct_irr_i_m_g_u_i_1_1_s_i_m_g_u_i_settings_html_ac28f7718821e8ece0d9ba79fdd835b49"><div class="ttname"><a href="struct_irr_i_m_g_u_i_1_1_s_i_m_g_u_i_settings.html#ac28f7718821e8ece0d9ba79fdd835b49">IrrIMGUI::SIMGUISettings::SIMGUISettings</a></div><div class="ttdeci">SIMGUISettings(void)</div><div class="ttdoc">Constructor to set the standard settings. </div><div class="ttdef"><b>Definition:</b> <a href="_s_i_m_g_u_i_settings_8h_source.html#l00051">SIMGUISettings.h:51</a></div></div>
-<div class="ttc" id="struct_irr_i_m_g_u_i_1_1_s_i_m_g_u_i_settings_html_a69df0dda3b26846cc5ffbef56ced667f"><div class="ttname"><a href="struct_irr_i_m_g_u_i_1_1_s_i_m_g_u_i_settings.html#a69df0dda3b26846cc5ffbef56ced667f">IrrIMGUI::SIMGUISettings::operator==</a></div><div class="ttdeci">bool operator==(SIMGUISettings const &amp;rCompareSettings)</div><div class="ttdef"><b>Definition:</b> <a href="_s_i_m_g_u_i_settings_8h_source.html#l00063">SIMGUISettings.h:63</a></div></div>
+<div class="ttc" id="struct_irr_i_m_g_u_i_1_1_s_i_m_g_u_i_settings_html_a69df0dda3b26846cc5ffbef56ced667f"><div class="ttname"><a href="struct_irr_i_m_g_u_i_1_1_s_i_m_g_u_i_settings.html#a69df0dda3b26846cc5ffbef56ced667f">IrrIMGUI::SIMGUISettings::operator==</a></div><div class="ttdeci">bool operator==(SIMGUISettings const &amp;rCompareSettings)</div><div class="ttdef"><b>Definition:</b> <a href="_s_i_m_g_u_i_settings_8h_source.html#l00068">SIMGUISettings.h:68</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

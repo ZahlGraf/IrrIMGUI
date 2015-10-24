@@ -18,6 +18,7 @@ var searchData=
   ['minstances',['mInstances',['../class_irr_i_m_g_u_i_1_1_private_1_1_i_i_m_g_u_i_driver.html#a3f7140e998e3b40e5ea319233dfecb21',1,'IrrIMGUI::Private::IIMGUIDriver']]],
   ['misguimousecursorenabled',['mIsGUIMouseCursorEnabled',['../struct_irr_i_m_g_u_i_1_1_s_i_m_g_u_i_settings.html#a7ec5380ffc523f5b6a19cd790e77091e',1,'IrrIMGUI::SIMGUISettings']]],
   ['misimguiactivated',['mIsImGuiActivated',['../class_irr_i_m_g_u_i_1_1_unit_test_1_1_mock_helper.html#aae00c9e3623daff3f0bbc53d56798ba2',1,'IrrIMGUI::UnitTest::MockHelper']]],
+  ['misimguimemoryallocationtrackingenabled',['mIsIMGUIMemoryAllocationTrackingEnabled',['../struct_irr_i_m_g_u_i_1_1_s_i_m_g_u_i_settings.html#a8b2eb6efe75feeedec4302c1515f0efd',1,'IrrIMGUI::SIMGUISettings']]],
   ['misleftmousebuttonpressed',['mIsLeftMouseButtonPressed',['../class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_event_storage.html#a58386879032745d9023c4123a2d6fed0',1,'IrrIMGUI::CIMGUIEventStorage']]],
   ['mismiddlemousebuttonpressed',['mIsMiddleMouseButtonPressed',['../class_irr_i_m_g_u_i_1_1_c_i_m_g_u_i_event_storage.html#ab27b6e589d12b1cfa3c9b35282d8ecd9',1,'IrrIMGUI::CIMGUIEventStorage']]],
   ['misnewline',['mIsNewLine',['../class_irr_i_m_g_u_i_1_1_debug_1_1_c_channel_buffer.html#af3ca904e7ed8eeb899473383c2baba55',1,'IrrIMGUI::Debug::CChannelBuffer']]],
