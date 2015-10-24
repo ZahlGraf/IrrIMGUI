@@ -1,0 +1,47 @@
+language: cpp
+
+cache:
+  directories:
+    - $HOME/.cache
+
+env:
+  global:
+  - IMGUI_VER=imgui-1.4.6
+  - IRRLICHT_VER=irrlicht-1.8.3
+  - CPPUTEST_VER=cpputest-3.7.1
+  matrix:
+  - LIBRARY_MODE=static BUILD_TYPE=Debug   NATIVE_OPENGL=Off
+  - LIBRARY_MODE=shared BUILD_TYPE=Debug   NATIVE_OPENGL=Off
+  - LIBRARY_MODE=static BUILD_TYPE=Release NATIVE_OPENGL=Off
+  - LIBRARY_MODE=shared BUILD_TYPE=Release NATIVE_OPENGL=Off
+  - LIBRARY_MODE=static BUILD_TYPE=Debug   NATIVE_OPENGL=On
+  - LIBRARY_MODE=shared BUILD_TYPE=Release NATIVE_OPENGL=On
+
+addons:
+  apt:
+    sources:
+    - george-edison55-precise-backports
+    - ubuntu-toolchain-r-test
+    packages:
+    - cmake
+    - cmake-data
+    - libxxf86vm-dev
+    - gcc-4.9
+    - g++-4.9
+    - valgrind
+
+os:
+  - linux
+
+compiler:
+  - gcc
+
+before_install:
+  - if [ "$CXX" == "g++" ]; then export CXX="g++-4.9" CC="gcc-4.9" COMPILER="gcc-linux64"; fi
+  - chmod ugo+x ./scripts/travis_install_dependencies.sh; ./scripts/travis_install_dependencies.sh
+
+before_script:
+  - if [ $TRAVIS_OS_NAME == linux ]; then chmod ugo+x ./scripts/travis_prepare_cmake.sh; ./scripts/travis_prepare_cmake.sh; fi
+  
+script: 
+  - chmod ugo+x ./scripts/travis_build.sh; ./scripts/travis_build.sh

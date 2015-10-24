@@ -49,7 +49,8 @@ namespace IrrIMGUI
 
       /// @brief Constructor to set the standard settings.
       SIMGUISettings(void):
-        mIsGUIMouseCursorEnabled(true)
+        mIsGUIMouseCursorEnabled(true),
+        mIsIMGUIMemoryAllocationTrackingEnabled(true)
       {}
 
       /// @{
@@ -57,6 +58,10 @@ namespace IrrIMGUI
 
       /// @brief When this is true, the IMGUI draws it's own mouse courser and the system mouse cursor will turned off automatically (default: true).
       bool mIsGUIMouseCursorEnabled;
+
+      /// @brief When this is true, the memory allocation tracking is enabled. IMGUI will then tack the numbers of allocations and the number of frees and when
+      ///        there is difference between both, IrrIMGUI will throw an assertion during shutdown.
+      bool mIsIMGUIMemoryAllocationTrackingEnabled;
 
       /// @}
 
