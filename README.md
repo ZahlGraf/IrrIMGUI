@@ -45,8 +45,7 @@ Following Features are supported so far:
 * nothing planned
 
 #### Fixes
-* Switched off IMGUI memory leak detection in Demo example to prevent false negative (see [#10](https://github.com/ZahlGraf/IrrIMGUI/issues/10)).
-* Fixed case sensitive related errors, where headers are not found.
+* nothing planned
 
 #### Dependency Versions
 * [IMGUI 1.46](https://github.com/ocornut/imgui/tree/v1.46)
@@ -54,20 +53,11 @@ Following Features are supported so far:
 * Other versions may work as well, but they are not tested.
 
 
-### 20.10.2015: Version 0.3.0 ([Download Source](https://github.com/ZahlGraf/IrrIMGUI/archive/v0.3.0.zip)) ([Download Binaries](http://irrimgui.netzeband.eu/binaries/irrimgui_v0.3.0.zip))
-
-#### Highlights
-* **Interface break:** Use the factory function `createIMGUI(...)` for creating the IMGUI handle object and call `drop` at the end, instead of delete it (more information here: [Developers Blog](https://github.com/ZahlGraf/IrrIMGUI/wiki/Developers-Blog#20151006))
-* Added a basic memory leak detection class for Visual Studio Debug Builds
-* Added a CppUTest Plugin for memory leak detection with Visual Studio Debug Builds
-* Added CppUTest Support for unit testing of applications that uses IrrIMGUI (see Wiki: [UnitTest](https://github.com/ZahlGraf/IrrIMGUI/wiki/UnitTests))
-* Added a Mock-Class for the IrrIMGUI handle to make unit testing with IrrIMGUI easier
-* Added around 60 unit tests for the IrrIMGUI library itself (Unit Test can be build with CMake open `IRRIMGUI_BUIL_UNITTESTS`
+### 24.10.2015: Version 0.3.1 ([Download Source](https://github.com/ZahlGraf/IrrIMGUI/archive/v0.3.1.zip)) ([Download Binaries](http://irrimgui.netzeband.eu/binaries/irrimgui_v0.3.1.zip))
 
 #### Fixes
-* Fixed a small memory leak (the font data was not deleted when shutdown IMGUI at the end of application). 
-* Fixed several warnings/errors with older Visual Studio Versions, like the unknown "noexcept" keyword (see #2)
-* Include local headers directly (pull request #9)
+* Switched off IMGUI memory leak detection in Demo example to prevent false negative (see [#10](https://github.com/ZahlGraf/IrrIMGUI/issues/10)).
+* Fixed case sensitive related errors, where headers are not found.
 
 #### Dependency Versions
 * [IMGUI 1.46](https://github.com/ocornut/imgui/tree/v1.46)
@@ -91,10 +81,6 @@ Following Features are supported so far:
 * Visual C++ 2013 (32bit): debug, shared library
 * Visual C++ 2013 (32bit): release, static library
 * Visual C++ 2013 (32bit): release, shared library
-* Visual C++ 2012 (32bit): debug, static library
-* Visual C++ 2012 (32bit): debug, shared library
-* Visual C++ 2012 (32bit): release, static library
-* Visual C++ 2012 (32bit): release, shared library
 * MinGW (32bit): debug, static library
 * MinGW (32bit): debug, shared library
 * MinGW (32bit): release, static library
@@ -351,6 +337,67 @@ You can find further example descriptions inside the [Wiki](https://github.com/Z
 A full API description can be found inside the Doxygen [documentation](http://zahlgraf.github.io/IrrIMGUI/).
  
 ## <a name="VersionHistory"></a>Version History
+### 20.10.2015: Version 0.3.0 ([Download Source](https://github.com/ZahlGraf/IrrIMGUI/archive/v0.3.0.zip)) ([Download Binaries](http://irrimgui.netzeband.eu/binaries/irrimgui_v0.3.0.zip))
+
+#### Highlights
+* **Interface break:** Use the factory function `createIMGUI(...)` for creating the IMGUI handle object and call `drop` at the end, instead of delete it (more information here: [Developers Blog](https://github.com/ZahlGraf/IrrIMGUI/wiki/Developers-Blog#20151006))
+* Added a basic memory leak detection class for Visual Studio Debug Builds
+* Added a CppUTest Plugin for memory leak detection with Visual Studio Debug Builds
+* Added CppUTest Support for unit testing of applications that uses IrrIMGUI (see Wiki: [UnitTest](https://github.com/ZahlGraf/IrrIMGUI/wiki/UnitTests))
+* Added a Mock-Class for the IrrIMGUI handle to make unit testing with IrrIMGUI easier
+* Added around 60 unit tests for the IrrIMGUI library itself (Unit Test can be build with CMake open `IRRIMGUI_BUIL_UNITTESTS`
+
+#### Fixes
+* Fixed a small memory leak (the font data was not deleted when shutdown IMGUI at the end of application). 
+* Fixed several warnings/errors with older Visual Studio Versions, like the unknown "noexcept" keyword (see #2)
+* Include local headers directly (pull request #9)
+
+#### Dependency Versions
+* [IMGUI 1.46](https://github.com/ocornut/imgui/tree/v1.46)
+* [Irrlicht 1.8.3](http://irrlicht.sourceforge.net/2015/09/irrlicht-1-8-3-released/)
+* Other versions may work as well, but they are not tested.
+
+#### Tested Build Variants
+* Visual C++ 2015 (64bit): debug, static library
+* Visual C++ 2015 (64bit): debug, shared library
+* Visual C++ 2015 (64bit): release, static library
+* Visual C++ 2015 (64bit): release, shared library
+* Visual C++ 2015 (32bit): debug, static library
+* Visual C++ 2015 (32bit): debug, shared library
+* Visual C++ 2015 (32bit): release, static library
+* Visual C++ 2015 (32bit): release, shared library
+* Visual C++ 2013 (64bit): debug, static library
+* Visual C++ 2013 (64bit): debug, shared library
+* Visual C++ 2013 (64bit): release, static library
+* Visual C++ 2013 (64bit): release, shared library
+* Visual C++ 2013 (32bit): debug, static library
+* Visual C++ 2013 (32bit): debug, shared library
+* Visual C++ 2013 (32bit): release, static library
+* Visual C++ 2013 (32bit): release, shared library
+* Visual C++ 2012 (32bit): debug, static library
+* Visual C++ 2012 (32bit): debug, shared library
+* Visual C++ 2012 (32bit): release, static library
+* Visual C++ 2012 (32bit): release, shared library
+* MinGW (32bit): debug, static library
+* MinGW (32bit): debug, shared library
+* MinGW (32bit): release, static library
+* MinGW (32bit): release, shared library
+* MinGW (64bit): debug, static library
+* MinGW (64bit): debug, shared library
+* MinGW (64bit): release, static library
+* MinGW (64bit): release, shared library
+* Intel 16.0 (with MSVC 2015) (64bit, Win7): debug, static library
+* Intel 16.0 (with MSVC 2015) (64bit, Win7): debug, shared library
+* Intel 16.0 (with MSVC 2015) (64bit, Win7): release, static library
+* Intel 16.0 (with MSVC 2015) (64bit, Win7): release, shared library
+* GCC (64bit, Linux): debug, static library
+* GCC (64bit, Linux): debug, shared library
+* GCC (64bit, Linux): release, static library
+* GCC (64bit, Linux): release, shared library
+* Visual C++ 2015 (64bit - native OpenGL GUI renderer): debug, shared library
+* MinGW (32bit - native OpenGL GUI renderer): release, static library
+* GCC (64bit, Linux - native OpenGL GUI renderer): release, shared library
+
 ### 30.9.2015: Version 0.2.0 ([Download Source](https://github.com/ZahlGraf/IrrIMGUI/archive/v0.2.0.zip)) ([Download Binaries](http://irrimgui.netzeband.eu/binaries/irrimgui_v0.2.0.zip))
 
 #### Highlights
