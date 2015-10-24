@@ -1,7 +1,7 @@
 # edit the following three version numbers
 SET(VERSION_MAJOR 0)
 SET(VERSION_MINOR 3)
-SET(VERSION_RELEASE 0)
+SET(VERSION_RELEASE 1)
 
 #
 # The MIT License (MIT)
