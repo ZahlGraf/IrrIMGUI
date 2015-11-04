@@ -292,6 +292,7 @@ The full source code can be found in the file [examples/01.HelloWorld/main.cpp](
  Before rendering the GUI elements, you first need to render your Irrlicht scene. Otherwise the GUI is behind your scene. Afterwards you can render the GUI with `pGUI->drawAll();`.
  ```cpp
   scene::ISceneManager * const pSceneManager = pDevice->getSceneManager();
+  video::IVideoDriver * const pDriver = pDevice->getVideoDriver();
 
   // TODO: build your Irrlicht scene here ...
   
