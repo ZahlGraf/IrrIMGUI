@@ -65,13 +65,19 @@ namespace IrrIMGUI
 
       /// @}
 
-      bool operator==(SIMGUISettings const &rCompareSettings)
+      bool operator==(SIMGUISettings const &rCompareSettings) const
       {
         bool AreAllSettingsEqual = true;
 
-        AreAllSettingsEqual = AreAllSettingsEqual && (mIsGUIMouseCursorEnabled == rCompareSettings.mIsGUIMouseCursorEnabled);
+        AreAllSettingsEqual = AreAllSettingsEqual && (mIsGUIMouseCursorEnabled                == rCompareSettings.mIsGUIMouseCursorEnabled);
+        AreAllSettingsEqual = AreAllSettingsEqual && (mIsIMGUIMemoryAllocationTrackingEnabled == rCompareSettings.mIsIMGUIMemoryAllocationTrackingEnabled);
 
         return AreAllSettingsEqual;
+      }
+
+      bool operator!=(SIMGUISettings const &rCompareSettings) const
+      {
+        return !(operator==(rCompareSettings));
       }
   };
 }

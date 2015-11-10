@@ -53,6 +53,54 @@ TEST_GROUP(TestIMGUISettings)
   }
 };
 
+TEST(TestIMGUISettings, checkIfEqual)
+{
+  // check mouse cursor enable settings
+  {
+    SIMGUISettings Settings1;
+    SIMGUISettings Settings2;
+
+    Settings1.mIsGUIMouseCursorEnabled                = true;
+    Settings1.mIsIMGUIMemoryAllocationTrackingEnabled = false;
+
+    Settings2.mIsGUIMouseCursorEnabled                = false;
+    Settings2.mIsIMGUIMemoryAllocationTrackingEnabled = true;
+
+    CHECK(Settings1 != Settings2);
+
+    Settings2.mIsGUIMouseCursorEnabled                = true;
+
+    CHECK(Settings1 != Settings2);
+
+    Settings2.mIsIMGUIMemoryAllocationTrackingEnabled = false;
+
+    CHECK(Settings1 == Settings2);
+  }
+
+  // check memory allocation tracking
+  {
+    SIMGUISettings Settings1;
+    SIMGUISettings Settings2;
+
+    Settings1.mIsGUIMouseCursorEnabled                = true;
+    Settings1.mIsIMGUIMemoryAllocationTrackingEnabled = false;
+
+    Settings2.mIsGUIMouseCursorEnabled                = false;
+    Settings2.mIsIMGUIMemoryAllocationTrackingEnabled = true;
+
+    CHECK(Settings1 != Settings2);
+
+    Settings2.mIsIMGUIMemoryAllocationTrackingEnabled = false;
+
+    CHECK(Settings1 != Settings2);
+
+    Settings2.mIsGUIMouseCursorEnabled                = true;
+
+    CHECK(Settings1 == Settings2);
+  }
+
+}
+
 TEST(TestIMGUISettings, checkIfMouseCursorEnableIsApplied)
 {
   ImGuiIO &rIMGUI = ImGui::GetIO();
