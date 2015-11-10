@@ -262,8 +262,8 @@ TEST(IIMGUIHandleMock, checkUpdateTextures)
   irr::video::IImage   * const pImage   = pDevice->getVideoDriver()->createImage(irr::video::ECF_A8R8G8B8, irr::core::dimension2d<irr::u32>(100, 100));
   irr::video::ITexture * const pTexture = pDevice->getVideoDriver()->addTexture("test", pImage);
 
-  IGUITexture * const pGUITexture1 = nullptr;
-  IGUITexture * const pGUITexture2 = nullptr;
+  IGUITexture * const pGUITexture1 = (IGUITexture*)0x1;
+  IGUITexture * const pGUITexture2 = (IGUITexture*)0x2;
 
   mock().expectOneCall("IIMGUIHandleMock::updateTexture").withParameter("pGUITexture", pGUITexture2).withParameter("pImage", pImage);
   mock().expectOneCall("IIMGUIHandleMock::updateTexture").withParameter("pGUITexture", pGUITexture1).withParameter("pTexture", pTexture);
@@ -288,7 +288,7 @@ TEST(IIMGUIHandleMock, checkDeleteTexture)
   SIMGUISettings Settings;
   Settings.mIsGUIMouseCursorEnabled = false;
 
-  IGUITexture * const pGUITexture = nullptr;
+  IGUITexture * const pGUITexture = (IGUITexture*)0x1;
 
   mock().expectOneCall("IIMGUIHandleMock::deleteTexture").withParameter("pGUITexture", pGUITexture);
   mock().ignoreOtherCalls();

@@ -61,6 +61,8 @@ class IIMGUIHandleMock : public IrrIMGUI::IIMGUIHandle
       mpEventStorage(pEventStorage),
       mLastTime(static_cast<irr::f32>(pDevice->getTimer()->getTime())/1000.0f)
     {
+      CHECK(pDevice != nullptr);
+
       MOCK_FUNC("IIMGUIHandleMock::IIMGUIHandleMock").MOCK_ARG(pDevice).MOCK_ARG(pEventStorage).MOCK_ARG(pSettings);
 
       if (areIMGUICallsEnabled())
@@ -127,6 +129,8 @@ class IIMGUIHandleMock : public IrrIMGUI::IIMGUIHandle
 
     virtual ImFont * addFont(ImFontConfig const * pFontConfig)
     {
+      CHECK(pFontConfig != nullptr);
+
       MOCK_FUNC("IIMGUIHandleMock::addFont").MOCK_ARG(pFontConfig);
 
       return static_cast<ImFont*>(mock().returnPointerValueOrDefault(getDummyFont()));
@@ -141,6 +145,9 @@ class IIMGUIHandleMock : public IrrIMGUI::IIMGUIHandle
 
     virtual ImFont * addFontFromFileTTF(char const * pFileName, float FontSizeInPixel, ImFontConfig const * pFontConfig = NULL, ImWchar const * pGlyphRanges = NULL)
     {
+      CHECK(pFileName != nullptr);
+      CHECK(FontSizeInPixel > 0.0);
+
       MOCK_FUNC("IIMGUIHandleMock::addFontFromFileTTF").MOCK_ARG(pFileName).MOCK_ARG(FontSizeInPixel).MOCK_ARG(pFontConfig).MOCK_ARG(pGlyphRanges);
 
       return static_cast<ImFont*>(mock().returnPointerValueOrDefault(getDummyFont()));
@@ -148,6 +155,10 @@ class IIMGUIHandleMock : public IrrIMGUI::IIMGUIHandle
 
     virtual ImFont * addFontFromMemoryTTF(void * pTTFData, int TTFSize, float FontSizeInPixel, ImFontConfig const * pFontConfig = NULL, ImWchar const * pGlyphRanges = NULL)
     {
+      CHECK(pTTFData != nullptr);
+      CHECK(TTFSize > 0);
+      CHECK(FontSizeInPixel > 0.0);
+
       MOCK_FUNC("IIMGUIHandleMock::addFontFromMemoryTTF").MOCK_ARG(pTTFData).MOCK_ARG(FontSizeInPixel).MOCK_ARG(TTFSize).MOCK_ARG(pFontConfig).MOCK_ARG(pGlyphRanges);
 
       return static_cast<ImFont*>(mock().returnPointerValueOrDefault(getDummyFont()));
@@ -155,6 +166,10 @@ class IIMGUIHandleMock : public IrrIMGUI::IIMGUIHandle
 
     virtual ImFont * addFontFromMemoryCompressedTTF(void const * pCompressedTTFData, int CompressedTTFSize, float FontSizeInPixel, ImFontConfig const * pFontConfig = NULL, ImWchar const * pGlyphRanges = NULL)
     {
+      CHECK(pCompressedTTFData != nullptr);
+      CHECK(CompressedTTFSize > 0);
+      CHECK(FontSizeInPixel > 0.0);
+
       MOCK_FUNC("IIMGUIHandleMock::addFontFromMemoryCompressedTTF").MOCK_ARG(pCompressedTTFData).MOCK_ARG(CompressedTTFSize).MOCK_ARG(FontSizeInPixel).MOCK_ARG(pFontConfig).MOCK_ARG(pGlyphRanges);
 
       return static_cast<ImFont*>(mock().returnPointerValueOrDefault(getDummyFont()));
@@ -162,6 +177,9 @@ class IIMGUIHandleMock : public IrrIMGUI::IIMGUIHandle
 
     virtual ImFont * addFontFromMemoryCompressedBase85TTF(char const * pCompressedTTFDataBase85, float FontSizeInPixel, ImFontConfig const * pFontConfig = NULL, const ImWchar * pGlyphRanges = NULL)
     {
+      CHECK(pCompressedTTFDataBase85 != nullptr);
+      CHECK(FontSizeInPixel > 0.0);
+
       MOCK_FUNC("IIMGUIHandleMock::addFontFromMemoryCompressedBase85TTF").MOCK_ARG(pCompressedTTFDataBase85).MOCK_ARG(FontSizeInPixel).MOCK_ARG(pFontConfig).MOCK_ARG(pGlyphRanges);
 
       return static_cast<ImFont*>(mock().returnPointerValueOrDefault(getDummyFont()));
@@ -246,6 +264,8 @@ class IIMGUIHandleMock : public IrrIMGUI::IIMGUIHandle
 
     virtual IrrIMGUI::IGUITexture *createTexture(irr::video::IImage * pImage)
     {
+      CHECK(pImage != nullptr);
+
       MOCK_FUNC("IIMGUIHandleMock::createTexture").MOCK_ARG(pImage);
 
       return (static_cast<IrrIMGUI::IGUITexture*>(mock().returnPointerValueOrDefault(getDummyTexture())));
@@ -253,6 +273,8 @@ class IIMGUIHandleMock : public IrrIMGUI::IIMGUIHandle
 
     virtual IrrIMGUI::IGUITexture *createTexture(irr::video::ITexture * pTexture)
     {
+      CHECK(pTexture != nullptr);
+
       MOCK_FUNC("IIMGUIHandleMock::createTexture").MOCK_ARG(pTexture);
 
       return (static_cast<IrrIMGUI::IGUITexture*>(mock().returnPointerValueOrDefault(getDummyTexture())));
@@ -260,6 +282,9 @@ class IIMGUIHandleMock : public IrrIMGUI::IIMGUIHandle
 
     virtual void updateTexture(IrrIMGUI::IGUITexture * pGUITexture, irr::video::IImage * pImage)
     {
+      CHECK(pGUITexture != nullptr);
+      CHECK(pImage != nullptr);
+
       MOCK_FUNC("IIMGUIHandleMock::updateTexture").MOCK_ARG(pGUITexture).MOCK_ARG(pImage);
 
       return;
@@ -267,6 +292,9 @@ class IIMGUIHandleMock : public IrrIMGUI::IIMGUIHandle
 
     virtual void updateTexture(IrrIMGUI::IGUITexture * pGUITexture, irr::video::ITexture * pTexture)
     {
+      CHECK(pGUITexture != nullptr);
+      CHECK(pTexture != nullptr);
+
       MOCK_FUNC("IIMGUIHandleMock::updateTexture").MOCK_ARG(pGUITexture).MOCK_ARG(pTexture);
 
       return;
@@ -274,6 +302,8 @@ class IIMGUIHandleMock : public IrrIMGUI::IIMGUIHandle
 
     virtual void deleteTexture(IrrIMGUI::IGUITexture * pGUITexture)
     {
+      CHECK(pGUITexture != nullptr);
+
       MOCK_FUNC("IIMGUIHandleMock::deleteTexture").MOCK_ARG(pGUITexture);
 
       return;
