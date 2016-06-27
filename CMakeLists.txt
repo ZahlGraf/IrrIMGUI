@@ -61,7 +61,6 @@ INCLUDE(OptionUnitTests)
 
 # Dependency related settings
 INCLUDE(DependencyIMGUI)
-INCLUDE(DependencyIrrlicht)
 INCLUDE(DependencyOpenGL)
 INCLUDE(DependencyDirectX9)
 INCLUDE(DependencyDoxygen)
@@ -70,6 +69,9 @@ INCLUDE(DependencyX11)
 # Print all settings
 INCLUDE(PrintSettings)
 
+find_package(Irrlicht REQUIRED)
+
+include_directories(${IRRLICHT_INCLUDE_DIRS})
 # Collect all source files
 SET(ALL_HEADER_FILES
 	${IRRIMGUI_PRIVATE_HEADER_FILES}
