@@ -51,26 +51,28 @@ namespace IrrIMGUI
       /// @brief This function is called by Irrlicht, when an Event occurs.
       /// @param rEvent is a reference to that event.
       /// @return Returns true, if the event has completely been handled by that Receiver.
-      bool OnEvent(irr::SEvent const &rEvent)
-      {
-        bool EventCompletelyHandled = false;
+    virtual bool OnEvent(irr::SEvent const &rEvent)
+    {
+      bool EventCompletelyHandled = false;
 
-        EventCompletelyHandled = EventCompletelyHandled || checkKeyboardEvents(rEvent);
-        EventCompletelyHandled = EventCompletelyHandled || checkMouseEvents(rEvent);
+      EventCompletelyHandled = EventCompletelyHandled || checkKeyboardEvents(rEvent);
+      EventCompletelyHandled = EventCompletelyHandled || checkMouseEvents(rEvent);
 
-        return EventCompletelyHandled;
-      }
+      return EventCompletelyHandled;
+    }
 
-    private:
-      /// @brief Checks the events that are mouse related.
-      /// @param rEvent is a reference to that event.
-      /// @return Returns true, if the event has completely been handled by that Receiver.
-      bool IRRIMGUI_DLL_API checkMouseEvents(irr::SEvent const &rEvent);
+  protected:
+    bool GuiHandle(irr::SEvent const &rEvent);
 
-      /// @brief Checks the events that are keyboard related.
-      /// @param rEvent is a reference to that event.
-      /// @return Returns true, if the event has completely been handled by that Receiver.
-      bool IRRIMGUI_DLL_API checkKeyboardEvents(irr::SEvent const &rEvent);
+    /// @brief Checks the events that are mouse related.
+    /// @param rEvent is a reference to that event.
+    /// @return Returns true, if the event has completely been handled by that Receiver.
+    bool IRRIMGUI_DLL_API checkMouseEvents(irr::SEvent const &rEvent);
+
+    /// @brief Checks the events that are keyboard related.
+    /// @param rEvent is a reference to that event.
+    /// @return Returns true, if the event has completely been handled by that Receiver.
+    bool IRRIMGUI_DLL_API checkKeyboardEvents(irr::SEvent const &rEvent);
 
   };
 }
